@@ -1,12 +1,18 @@
+## ----------------------------------------
+##	Configure
+## ----------------------------------------
+set main-view     = id date author commit-title:graph=yes,refs=yes
+set blame-view    = date:default author:email-user id:yes,color line-number:yes,interval=1 text
+set pager-view    = line-number:yes,interval=1 text
+set stage-view    = line-number:yes,interval=1 text
+set log-view      = line-number:yes,interval=1 text
+set blob-view     = line-number:yes,interval=1 text
+set diff-view     = line-number:yes,interval=1 text:yes,commit-title-overflow=no
+set line-graphics = utf-8
+set ignore-case   = true
+
+## ----------------------------------------
+##	Keybind
+## ----------------------------------------
 bind main R !git rebase -i %(commit)
 bind diff R !git rebase -i %(commit)
-set main-view      = id date author:email-user commit-title:graph=yes,refs=yes
-set blame-view     = date:default author:email-user id:yes,color line-number:yes,interval=1 text
-set pager-view     = line-number:yes,interval=1 text
-set stage-view     = line-number:yes,interval=1 text
-set log-view       = line-number:yes,interval=1 text
-set blob-view      = line-number:yes,interval=1 text
-set diff-view      = line-number:yes,interval=1 text:yes,commit-title-overflow=no
-set line-graphics  = utf-8
-set ignore-case    = true
-set diff-highlight = true
