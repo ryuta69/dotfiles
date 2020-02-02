@@ -3,11 +3,11 @@
 
 ## Contents
 
-* **rcfiles** - Several setting files.
 * **aliases** - Several languages and tools aliases.
 * **package_list** - Installed packages via brew, npm and pip.
+* **rcfiles** - Several setting files.
 * **vscode** - VSCode settings, keybinds, plugins and snippets.
-* **install.sh** - Shell for putting files appropriately (Read [Requirements](#Requirements)).
+* **install.sh** - (Removed currently as considering risk of user's loss).
 
 <br />
 

@@ -88,7 +88,7 @@ function rrg() {
 	keyword=$1;
 	[ -z $2 ] && matches=`rg -il ${keyword}` || matches=`rg --files | rg -i ${keyword}`;
 	if [ -z ${matches} ];then echo "no matches\n" && return 0;fi;
-	selected=`echo ${matches} | fzf --preview "pt ${keyword} {}"`;
+	selected=`echo ${matches} | fzf --preview "rg -in ${keyword} {}"`;
 	if [ -z ${selected} ];then echo "canceled\n" && return 0;fi;
 	nvim ${selected};
 }
