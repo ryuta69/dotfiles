@@ -100,9 +100,9 @@ I do not take any responsibility for any loss caused through this way.
 
 <details><summary><b>Mac Settings(click to open)</b></summary>
 
-# System environment
+## System environment
 
-## General
+### General
 - Dark mode.
 - Accent color is blue.
 - Sidebar icon is small.
@@ -116,10 +116,10 @@ I do not take any responsibility for any loss caused through this way.
 - Not allow handoff.
 - Dont use alias character.
 
-## Desktop and Screensaver
+### Desktop and Screensaver
 - Never start screensaver.
 
-## Dock
+### Dock
 - Size is about 1/4 small.
 - Off enscale.
 - Bottom.
@@ -132,32 +132,32 @@ I do not take any responsibility for any loss caused through this way.
 - Show indicator with running application.
 - Not showing last recent application used.
 
-## Language and Region
+### Language and Region
 - Set the Japanese priority highest.
 - Starting date is monday
 
-## Display
 ### Display
+#### Display
 - Change resolution with expand.
 - Don't automate justify fue.
 - Never show mirroring option.
-### Night Shift
+#### Night Shift
 - Custom Schedule starting at 0:00 and finishing at 23:59.
 - Set color as the warmest.
 
-## Eco Energy
-### Battery
+### Eco Energy
+#### Battery
 - Off display after 5 minutes.
 - Sleep Harddisk at possible.
 - Not darken display at battery mode.
 - Show battery on menubar.
-### Adaptor
+#### Adaptor
 - Off display after 5 minutes.
 - Not sleep at display off.
 - Sleep Harddisk at possible.
 
-## Keyboard
 ### Keyboard
+#### Keyboard
 - Repeat is fastest.
 - Recognition is fastest.
 - Not adjusting light.
@@ -165,67 +165,67 @@ I do not take any responsibility for any loss caused through this way.
 - Don't show viewer.
 - Don't function key as default.
 - Modification key -> caps lock = control, function = Command.
-### User dictionary
+#### User dictionary
 - Not Capitalize initial character.
 - Not period with 2 space.
-### Shortcut
+#### Shortcut
 - Turn off automize dock.
 - Turn off input source next one.
 - Turn off service -> text -> after open.
 - Turn off spotlight -> finder.
 - Full keyboard access -> textbox and list.
-### Input source
+#### Input source
 - Delete google japanese input "kana" "zenkaku" "default".
 - Don't switching input source by document.
 
-## Trackpad
-### Point and Click
+### Trackpad
+#### Point and Click
 - Check on detect data.
 - Check on click sub button.
 - Check on click with tap.
 - Click -> strongest.
 - Speed -> fastest.
-### Scroll and Zoom
+#### Scroll and Zoom
 - All sets on.
 
-## Sound
-### Sound effect
+### Sound
+#### Sound effect
 - Show volume in menubar.
 
-## Share
+### Share
 - Set computer name.
 
-## User group
+### User group
 - Set user name and icon.
 
-## Time and Date
+### Time and Date
 - Show date on menubar.
 - Set Degital 24 format.
 - Show Day and Date.
 
-## Accessibility
+### Accessibility
 - display -> reduce view contrast, reduce opacity, off mouse pointer shaker.
 
-# Finder
-## View
+## Finder
+### View
 - Show status bar.
 
-## Environment Setting
-### General
+### Environment Setting
+#### General
 - Item in desktop -> none.
 - New window -> ~/work.
 - Folder opens as new tab.
 
-## Sidebar
+### Sidebar
 - Desktop
 - Download
 - Application
 - ~/work
 
-## Detail
+### Detail
 - Show all filename extension.
 
-# Desktop Display Option
+## Desktop Display Option
 - Icon size -> 36.
 - Text size -> 12.
 
