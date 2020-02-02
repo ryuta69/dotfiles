@@ -1,0 +1,5 @@
+alias gorun='go run main.go'
+alias goformat='gofmt -w'
+alias gotest='go test -v ./...'
+alias golsdoc='godoc -http=:6060'
+alias golspkg='cd ~/go/src/github.com/'

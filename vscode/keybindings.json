@@ -1,0 +1,41 @@
+// 既定値を上書きするには、このファイル内にキー バインドを挿入しますauto[]
+[
+        {
+                "key": "shift+cmd+a",
+                "command": "workbench.action.terminal.new"
+        },
+        {
+                "key": "ctrl+shift+`",
+                "command": "-workbench.action.terminal.new"
+        },
+        {
+                "key": "ctrl+cmd+a",
+                "command": "workbench.action.focusFirstEditorGroup"
+        },
+        {
+                "key": "cmd+1",
+                "command": "-workbench.action.focusFirstEditorGroup"
+        },
+        {
+                "key": "shift+cmd+=",
+                "command": "wwm.aligncode",
+                "when": "editorTextFocus && !editorReadonly"
+        },
+        {
+                "key": "cmd+shift+9",
+                "command": "editor.emmet.action.wrapWithAbbreviation",
+                "when": "editorHasSelection",
+        },
+        {
+                "key": "shift+cmd+h",
+                "command": "workbench.actions.view.problems"
+        },
+        {
+                "key": "shift+cmd+m",
+                "command": "-workbench.actions.view.problems"
+        },
+        {
+                "key": "shift+cmd+m",
+                "command": "workbench.action.toggleMaximizedPanel"
+        },
+]

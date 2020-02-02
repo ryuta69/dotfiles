@@ -1,0 +1,64 @@
+{
+    "require": {
+        "prefix": "require",
+        "body": [
+            "const ${1: package} = require(\"${1: package}\");",
+        ],
+    },
+    "appget": {
+        "prefix": "appget",
+        "body": [
+            "app.get(\"${1: path}\", (req, res) => {",
+            "  res.render(\"${2: template}\", {",
+            "  }",
+            "});",
+        ],
+    },
+    "insertmongo": {
+        "prefix": "insertmongo",
+        "body": [
+            "const db = client.db(databaseName);",
+            "    db.collection('users').insertMany([",
+            "    {",
+            "    },",
+            "    {",
+            "    },",
+            "], (error, result) => {",
+            "        if (error) {",
+            "            return console.log('insert failed');",
+            "    }",
+            "    console.log(result.ops);",
+            "});",
+        ],
+    },
+    "promisetemp": {
+        "prefix": "promisetemp",
+        "body": [
+            ".then((result) => {",
+            "   console.log(result);",
+            "})",
+            ".catch((error) => {",
+            "   console.log(error);",
+            "})",
+        ],
+    },
+    "jest": {
+        "prefix": "jest",
+        "body": [
+            "test('${1: title}', () => {",
+            "});",
+        ],
+    },
+    "qs": {
+        "prefix": "qs",
+        "body": [
+            "document.querySelector('${1: title}')",
+        ],
+    },
+    "log": {
+        "prefix": "log",
+        "body": [
+            "console.log(${1: body});"
+        ]
+    }
+}

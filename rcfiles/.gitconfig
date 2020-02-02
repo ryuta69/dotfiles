@@ -1,0 +1,49 @@
+[user]
+	name       = ryuta69
+	email      = eyma22s.yu@gmail.com
+	signingkey = 7EB4C638CC86724B
+[core]
+	editor = nvim
+[color]
+	ui = auto
+[credential]
+	helper = osxkeychain
+[filter "lfs"]
+	clean    = git-lfs clean -- %f
+	smudge   = git-lfs smudge -- %f
+	process  = git-lfs filter-process
+	required = true
+[alias]
+	lo = log
+	co = commit
+	df = diff
+	bra = branch -A
+	brd = branch -D
+	st = status
+	ch = checkout
+	chb = checkout -b
+	ad = add
+	ada = add -A
+	rb = rebase
+	rbi = rebase -i
+	ps = push origin `git rev-parse --abbrev-ref HEAD`
+	pl = pull origin `git rev-parse --abbrev-ref HEAD`
+	rs = reset --hard
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg2
+[pager]
+	log  = diff-highlight | less -RX
+	show = diff-highlight | less -RX
+	diff = diff-highlight | less -RX
+[diff]
+	tool                = vimdiff
+	algorithm           = histogram
+	compactionHeuristic = true
+[merge]
+	ff = false
+[pull]
+	ff = only
+[ghq]
+	root = ~/.ghq

@@ -1,0 +1,453 @@
+{
+    "tmp": {
+        "prefix": "tmp",
+        "body": [
+            "#include <bits/stdc++.h>",
+            "using namespace std;",
+            "",
+            "static int main()",
+            "{",
+            "    cin.tie(0);",
+            "    ios::sync_with_stdio(false);",
+            "    static int ans = 0;",
+            "    static string anss;",
+            "",
+            "    ${1:/* code */}",
+            "",
+            "    return 0;",
+            "}"
+        ],
+        "description": "first skelton"
+    },
+    "cin1": {
+        "prefix": "cin1",
+        "body": [
+            "${1:static int} ${2:a};",
+            "cin >> ${2:a};"
+        ],
+        "description": "cin once"
+    },
+    "cin2": {
+        "prefix": "cin2",
+        "body": [
+            "${1:static int} ${2:a}, ${3:b};",
+            "cin >> ${4:a} >> ${5:b};"
+        ],
+        "description": "cin twice"
+    },
+    "cinv": {
+        "prefix": "cinv",
+        "body": [
+            "static int a;",
+            "cin >> a;",
+            "static vector<int> vec(a);",
+            "for (int i = 0; i < a; i++)",
+            "{",
+            "    cin >> vec.at(i);",
+            "}"
+        ],
+        "description": "cin vector"
+    },
+    "cinv2": {
+        "prefix": "cinv2",
+        "body": [
+            "static int a;",
+            "cin >> a;",
+            "static vector<int> vec(a);",
+            "static vector<int> avec(a);",
+            "for (int i = 0; i < a; i++) {",
+            "    cin >> vec.at(i) >> avec.at(i);",
+            "}"
+        ],
+        "description": "cin vector"
+    },
+    "cout1": {
+        "prefix": "cout1",
+        "body": [
+            "cout << ${1:/* code */} << endl;"
+        ],
+        "description": "cout once"
+    },
+    "cout2": {
+        "prefix": "cout2",
+        "body": [
+            "cout << ${1:/* code */} << \" \" << ${2:/* code */} << endl;"
+        ],
+        "description": "cout twice"
+    },
+    "coutzfill": {
+        "prefix": "coutzfill",
+        "body": [
+            "cout << setfill('0') << right << setw(${1:/* num */}) << ${2:/* code */} << endl;"
+        ],
+        "description": "cout filled with 0"
+    },
+    "coutv": {
+        "prefix": "coutv",
+        "body": [
+            "for (int i = 0; i < vec.size(); i++)",
+            "{",
+            "   cout << vec.at(i) << endl;",
+            "}"
+        ],
+        "description": "cout vector"
+    },
+    "coutdecimal": {
+        "prefix": "coutdecimal",
+        "body": [
+            "cout << fixed << setprecision(${1:/* 2 */}) << ${2:/* a */} << endl;",
+        ],
+        "description": "cout decimal n"
+    },
+    "castdouble": {
+        "prefix": "castdouble",
+        "body": [
+            "// cast into double",
+            "double d = (round((double)${1:a} / 60 * pow(10, ${2:2} - 1))) / pow(10, ${2:2} - 1);",
+        ],
+        "description": "cast into double"
+    },
+    "ife": {
+        "prefix": "ife",
+        "body": [
+            "if (${1:/* condition */})",
+            "{",
+            "    $2",
+            "}",
+            "else if (${3:/* condition */})",
+            "{",
+            "    ${4:/* code */}",
+            "}",
+            "else if (${5:/* condition */})",
+            "{",
+            "    ${6:/* code */}",
+            "}",
+            "else if (${7:/* condition */})",
+            "{",
+            "    ${8:/* code */}",
+            "}",
+            "else",
+            "{",
+            "    ${9:/* code */}",
+            "}",
+        ],
+        "description": "many if else"
+    },
+    "root": {
+        "prefix": "root",
+        "body": [
+            "// count how many root of arg'power is num",
+            "static int root = log10(${2:/* arg */}) / log10(${3:/* num */});"
+        ],
+        "description": "how many root of arg'power is num."
+    },
+    "minv": {
+        "prefix": "minv",
+        "body": [
+            "// minimum of vector, and its index",
+            "static int ${1:min_num} = *min_element(vec.begin(), vec.end());",
+            "vector<int>::iterator index = min_element(vec.begin(), vec.end());",
+            "static int idx = index - vec.begin();"
+        ],
+        "description": "min of vector"
+    },
+    "maxv": {
+        "prefix": "maxv",
+        "body": [
+            "// maximum of vector, and its index",
+            "static int ${1:max_num} = *max_element(vec.begin(), vec.end());",
+            "vector<int>::iterator index = max_element(vec.begin(), vec.end());",
+            "static int idx = index - vec.begin();"
+        ],
+        "description": "max of vector"
+    },
+    "avev": {
+        "prefix": "avev",
+        "body": [
+            "// avarage of vector",
+            "static int sum = accumulate(vec.begin(), vec.end(), 0) / vec.size();",
+        ],
+        "description": "ave of vector"
+    },
+    "sumv": {
+        "prefix": "sumv",
+        "body": [
+            "// sum of vector",
+            "static int sum = accumulate(vec.begin(), vec.end(), 0);",
+        ],
+        "description": "sum of vector"
+    },
+    "erasuto": {
+        "prefix": "erasuto",
+        "body": [
+            "// erasutotenes's filter to find prime number, and its num",
+            "int N = ${1:max_num};",
+            "int arr[N];",
+            "static int count_prime = 0;",
+            "static vector<int> vec_prime(0);",
+            "",
+            "// リストにNまで入れる",
+            "for (int i = 0; i < N; i++)",
+            "{",
+            "    arr[i",
+            "    ] = 1;",
+            "}",
+            "// 倍数を振り落としていく",
+            "for (int i = 2; i < sqrt(N); i++)",
+            "{",
+            "    if (arr[i])",
+            "    {",
+            "        for (int j = 0; i * (j + 2) < N; j++)",
+            "        {",
+            "            arr[i * (j + 2)",
+            "            ] = 0;",
+            "        }",
+            "    }",
+            "}",
+            "// 残ったものを調べる",
+            "for (int i = 2; i < N; i++)",
+            "{",
+            "    if (arr[i])",
+            "    {",
+            "        vec_prime.push_back(i);",
+            "        count_prime++;",
+            "    }",
+            "}",
+        ],
+        "description": "count and output prime number"
+    },
+    "soinsu": {
+        "prefix": "soinsu",
+        "body": [
+            "int n = ${1:num};",
+            "static vector<int> avec;",
+            "",
+            "// まず2で叩く",
+            "while (n % 2 == 0)",
+            "{",
+            "    avec.push_back(2);",
+            "    n = n / 2;",
+            "}",
+            "// 素数で叩いていく",
+            "for (int i = 3; i <= sqrt(n); i = i + 2)",
+            "{",
+            "    while (n % i == 0)",
+            "    {",
+            "        avec.push_back(i);",
+            "        n = n / i;",
+            "    }",
+            "}",
+            "// 最後に残った数字を入れる",
+            "if (n > 2)",
+            "{",
+            "    avec.push_back(n);",
+            "}",
+        ],
+        "description": "count and output prime factorization"
+    },
+    "strtoint": {
+        "prefix": "strtoint",
+        "body": [
+            "static int ${1:/* int */} = atoi(${2:/* str */}.c_str());"
+        ],
+        "description": "strtoint"
+    },
+    "chartoint": {
+        "prefix": "chartoint",
+        "body": [
+            "static int ${1:/* int */} = ${2:/* char */} - '0';"
+        ],
+        "description": "chartoint"
+    },
+    "inttostr": {
+        "prefix": "inttostr",
+        "body": [
+            "static string ${1:/* string */} = to_string(${2:/* int */});"
+        ],
+        "description": "inttostr"
+    },
+    "sortv": {
+        "prefix": "sortv",
+        "body": [
+            "sort(vec.begin(), vec.end());",
+        ],
+        "description": "sort vector"
+    },
+    "uniqv": {
+        "prefix": "uniqv",
+        "body": [
+            "sort(vec.begin(), vec.end());",
+            "vec.erase(unique(vec.begin(), vec.end()), vec.end());"
+        ],
+        "description": "unique vector"
+    },
+    "strfindstr": {
+        "prefix": "strfindstr",
+        "body": [
+            "if (${1:/* string */}.find(\"${2:/* word */}\") != string::npos) {",
+            "   ${3:/* code */}",
+            "}"
+        ],
+        "description": "find string from string"
+    },
+    "findstrfromver": {
+        "prefix": "findstrfromver",
+        "body": [
+            "auto itr = find(vec.begin(), vec.end(),\"${1:/* word */}\");",
+            "size_t index = distance(vec.begin(), itr);",
+            "if (itr != vec.end())",
+            "{",
+            "    ${2:/* code */}",
+            "}",
+            "else",
+            "{",
+            "    ${3:/* code */}",
+            "}",
+        ],
+        "description": "find value from vector"
+    },
+    "erase": {
+        "prefix": "erase",
+        "body": [
+            "${1:/* string/vector */}.erase(${1:/* string/vector */}.begin()+${2:/* int */})",
+        ],
+        "description": "erase from string/vector"
+    },
+    "erasestr": {
+        "prefix": "erasestr",
+        "body": [
+            "size_t pos;",
+            "string tmp = \"${1:/* word */}\";",
+            "while ((pos = ${1:/* string */}.find(tmp)) != string::npos) {",
+            "    a.erase(pos, tmp.length());",
+            "}"
+        ],
+        "description": "erase char from string/vector"
+    },
+    "countcharfromstring": {
+        "prefix": "countcharfromstring",
+        "body": [
+            "static int charnum = count(${1:/* string */}.cbegin(), ${1:/* string */}.cend(), '${2:/* char */}');",
+        ],
+        "description": "count char from string/vector"
+    },
+    "sumdigit": {
+        "prefix": "sumdigit",
+        "body": [
+            "// count each number of digit",
+            "static int sumdigit = 0;",
+            "string aa = to_string(${1:/* int */});",
+            "for (size_t i = 0; i < aa.length(); i++)",
+            "{",
+            "    sumdigit += aa[i] - '0';",
+            "}",
+        ],
+        "description": "digitsum"
+    },
+    "reverse": {
+        "prefix": "reverse",
+        "body": [
+            "static string ${1:a} = reverse(${2:vec}.begin(), ${2:vec}.end())",
+        ],
+        "description": "reverse"
+    },
+    "split": {
+        "prefix": "split",
+        "body": [
+            "static vector<string> v;",
+            "stringstream ss(${1:str});",
+            "string buffer;",
+            "while (getline(ss, buffer, '${2:/* word */}'))",
+            "{",
+            "    v.push_back(buffer);",
+            "}",
+        ],
+        "description": "reverse"
+    },
+    "nibun_search": {
+        "prefix": "nibun_search",
+        "body": [
+            "// 二分探索",
+            "sort(vec.begin(), vec.end());",
+            "int target = ${1:target_num};",
+            "int l = 0;",
+            "int r = vec.size();",
+            "while (r - l >= 1)",
+            "{",
+            "   int middle = (r + l) / 2;",
+            "   if (vec.at(middle) == target)",
+            "   {",
+            "       cout << \"Yes\" << endl;",
+            "       return 0;",
+            "   }",
+            "   else if (vec.at(middle) < target)",
+            "   {",
+            "       l = middle + 1;",
+            "   }",
+            "   else",
+            "   {",
+            "       r = middle;",
+            "   }",
+            "}",
+            "cout << \"No\" << endl;",
+        ],
+        "description": "nibun_search"
+    },
+    "factmulti": {
+        "prefix": "factmulti",
+        "body": [
+            "struct",
+            "{",
+            "    int operator()(int i)",
+            "    {",
+            "        if (i == 0)",
+            "            return 1;",
+            "        return i * (*this)(i - 1);",
+            "    }",
+            "} fact;",
+        ],
+        "description": "multiple all number inside"
+    },
+    "fib": {
+        "prefix": "fib",
+        "body": [
+            "static vector<int> memo(10);",
+            "    struct",
+            "    {",
+            "        int operator()(int n)",
+            "        {",
+            "            if (n <= 1)",
+            "                return n;",
+            "            if (memo.at(n) != 0)",
+            "                return memo.at(n);",
+            "            return memo.at(n) = (*this)(n - 1) + (*this)(n - 2);",
+            "    }",
+            "} fib;",
+        ],
+        "description": "return nth number of fibonacci"
+    },
+    "depsearch": {
+        "prefix": "depsearch",
+        "body": [
+            "// return true if all combination is inside",
+            "struct",
+            "{",
+            "    bool operator()(int i, int sum)",
+            "    {",
+            "        if (i == num)",
+            "            return sum == b;",
+            "",
+            "        if ((*this)(i + 1, sum))",
+            "            return true;",
+            "",
+            "        if ((*this)(i + 1, sum + vec.at(i)))",
+            "            return true;",
+            "",
+            "        return false;",
+            "    }",
+            "} depsearch;",
+            "// depsearch(0,0)"
+        ],
+        "description": "return depsearch is true"
+    },
+}
