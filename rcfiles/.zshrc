@@ -50,6 +50,7 @@ alias tm='tmux'
 alias cde='cd -'
 alias cdh='cd ~'
 alias cdwk='cd ~/work'
+alias cdd='cd ${DOTPATH}'
 function mkcd() { mkdir $@; cd $@; }
 alias op='open ./'
 alias dus='du -sh'
@@ -129,15 +130,6 @@ alias srcal='source `ls ${DOTPATH}/aliases/ | fzf --preview "cat ${DOTPATH}/alia
 alias brup='brew upgrade'
 alias npup='npm update -g npm && npm update -g'
 alias piup='pip install --upgrade pip && pip-review --auto'
-alias paclist='brew list --versions > ${DOTPATH}/package_list/brewlist && \
-	npm list -g --depth 0 > ${DOTPATH}/package_list/npmlist && \
-	pip list > ${DOTPATH}/package_list/piplist'
-
-# VSCode
-alias vslist='cp -r ~/Library/Application\ Support/Code/User/snippets ${DOTPATH}/vscode/ &&
-	cp ~/Library/Application\ Support/Code/User/settings.json ${DOTPATH}/vscode/ &&
-	code --list-extensions | xargs -L 1 echo code --install-extension > ${DOTPATH}/vscode/plugins.txt &&
-	cp ~/Library/Application\ Support/Code/User/keybindings.json ${DOTPATH}/vscode/ '
 
 ## ----------------------------------------
 ##	Keymap

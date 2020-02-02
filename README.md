@@ -4,7 +4,7 @@
 ## Contents
 
 * **aliases** - Several languages and tools aliases.
-* **package_list** - Installed packages via brew, npm and pip.
+* **packages** - Installed packages via brew, npm and pip.
 * **rcfiles** - Several setting files.
 * **vscode** - VSCode settings, keybinds, plugins and snippets.
 * **install.sh** - (Removed currently as considering risk of user's loss).
@@ -13,7 +13,7 @@
 
 ## Requirements
 
-1. Use this command at first to install required packages (Other packages are listed in package_list/brewlist).
+1. Use this command at first to install required packages (Other packages are listed in packages).
 
 ```
 brew install git zsh zsh-completion jq nkf gsed neovim ripgrep fzf ghq hub tig tmux reattach-to-user-namespace
