@@ -14,21 +14,21 @@
 	process  = git-lfs filter-process
 	required = true
 [alias]
-	lo = log
-	co = commit
-	df = diff
+	lo  = log
+	cm  = commit
+	df  = diff
 	bra = branch -A
 	brd = branch -D
-	st = status
-	ch = checkout
-	chb = checkout -b
-	ad = add
+	st  = status
+	co  = checkout
+	cob = checkout -b
+	ad  = add
 	ada = add -A
-	rb = rebase
+	rb  = rebase
 	rbi = rebase -i
-	ps = push origin `git rev-parse --abbrev-ref HEAD`
-	pl = pull origin `git rev-parse --abbrev-ref HEAD`
-	rs = reset --hard
+	ps  = push origin `git rev-parse --abbrev-ref HEAD`
+	pl  = pull origin `git rev-parse --abbrev-ref HEAD`
+	rs  = reset --hard
 [commit]
 	gpgsign = true
 [gpg]

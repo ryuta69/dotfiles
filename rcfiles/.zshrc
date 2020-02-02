@@ -66,7 +66,7 @@ alias llv='nvim `ls | fzf --preview "cat {}"`'
 function awkn() { awk "{print \$${1:-1}}"; }
 function sshp() {
 	grep "HOST" ~/.ssh/config;
-	read -p "type hostname : " host;
+	read host"?type hostname : ";
 	ssh ${host};
 }
 
@@ -96,11 +96,11 @@ function rrg() {
 # sed
 alias sed='gsed'
 function sedtop() {
-	read -p "type string put into top : " string;
+	read string"?type string put into top : ";
 	sed '1i${string}' $@;
 }
 function sedend() {
-	read -p "type string put into end : " string;
+	read string"?type string put into end : ";
 	sed '$a${string}' $@;
 }
 
@@ -109,10 +109,10 @@ alias g='git'
 compdef _git g
 function gcre() {
 	git init;
-	read -p "type repo name        : " name;
-	read -p "type repo description : " description;
-	hub create ${name} -p ${description}
     	git add -A && git commit;
+	read name"?type repo name        : ";
+	read description"?type repo description : ";
+	hub create ${name} -p ${description};
 	git push --set-upstream origin master;
 	hub browse;
 }
