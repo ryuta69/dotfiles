@@ -1,8 +1,8 @@
-alias sqlstart='mysql.server start'
 alias sqlconnect='mysql -u root'
+alias sqlstart='mysql.server start'
 alias sqlstatus='service mysqld status'
 function sqlshow() {
-	read -p "type db    : " db;
-	read -p "type table : " table;
+	read db"?type db    : ";
+	read table"?type table : ";
 	mysql -u root -p ${db} -e"select * from ${table}"
 }
