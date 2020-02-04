@@ -72,6 +72,12 @@ I do not take any responsibility for any loss caused through this way.
 <details><summary><b>GUI Tools essential to me(click to open)</b></summary>
 
 - [Google Chrome](https://www.google.com/chrome/)
+  - [Adblock](https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom)
+  - [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk)
+  - [Wappalyzer](https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg?hl=ja)
+  - [Clear Cache](https://chrome.google.com/webstore/detail/clear-cache/cppjkneekbjaeellbfkmgnhonkkjfpdn)
+  - [Leoh New Tab](https://chrome.google.com/webstore/detail/leoh-new-tab/ijhhakihjccpanbibbcceofpjnebokcb)
+  - [Google Translator](https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb)
 - [Google Japanese Input](https://www.google.co.jp/ime/)
 - [VSCode](https://code.visualstudio.com/download)
 - [Sublime](https://www.sublimetext.com/3) - It's the best editor while FTP.
@@ -174,6 +180,7 @@ I do not take any responsibility for any loss caused through this way.
 - Turn off service -> text -> after open.
 - Turn off spotlight -> finder.
 - Full keyboard access -> textbox and list.
+- Spotlight -> option + space.
 #### Input source
 - Delete google japanese input "kana" "zenkaku" "default".
 - Don't switching input source by document.
