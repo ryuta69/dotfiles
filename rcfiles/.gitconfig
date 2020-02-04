@@ -29,7 +29,8 @@
 	ps  = !git push origin `git rev-parse --abbrev-ref HEAD`
 	pl  = !git pull origin `git rev-parse --abbrev-ref HEAD`
 	rs  = reset --hard
-	gr  = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 [commit]
 	gpgsign = true
 [gpg]

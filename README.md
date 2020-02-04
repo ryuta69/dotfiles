@@ -56,6 +56,7 @@ I do not take any responsibility for any loss caused through this way.
 5. `iTerm2 > Preferences > Profiles > Text > Cursor` => `Vertical bar`.
 6. `iTerm2 > Preferences > Profiles > Text > Shell Integration` => off `Show mark indicators`.
 7. `iTerm2 > Preferences > General > Selection` => check all.
+7. `iTerm2 > Advanced > Scroll wheel sends arrow keys when in alternate screen mode` => yes.
 
 </details>
 

@@ -21,6 +21,8 @@ export FZF_DEFAULT_OPTS='
 	--reverse
 	--color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229
 	--color info:150,prompt:110,spinner:150,pointer:167,marker:174'
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 alias virc='nvim ~/.zshrc'
 alias sorc='source ~/.zshrc'
 
@@ -55,6 +57,8 @@ function mkcd() { mkdir $@; cd $@; }
 alias op='open ./'
 alias dus='du -sh'
 alias psa='ps aux'
+alias cl='curl -LJO'
+alias lns='ln -sfnv'
 alias pbcp='pbcopy <'
 alias tree='tree -alL'
 alias tarzip='tar czvf'
