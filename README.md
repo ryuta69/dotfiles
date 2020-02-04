@@ -73,34 +73,35 @@ I do not take any responsibility for any loss caused through this way.
 
 <details><summary><b>GUI Tools essential to me(click to open)</b></summary>
 
-- [Google Chrome](https://www.google.com/chrome/)
-  - [Adblock](https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom)
-  - [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk)
-  - [Wappalyzer](https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg?hl=ja)
-  - [Clear Cache](https://chrome.google.com/webstore/detail/clear-cache/cppjkneekbjaeellbfkmgnhonkkjfpdn)
-  - [Leoh New Tab](https://chrome.google.com/webstore/detail/leoh-new-tab/ijhhakihjccpanbibbcceofpjnebokcb)
-  - [Google Translator](https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb)
-- [Google Japanese Input](https://www.google.co.jp/ime/)
 - [VSCode](https://code.visualstudio.com/download)
 - [Sublime](https://www.sublimetext.com/3) - It's the best editor while FTP.
 - [ShiftIt](http://macappstore.org/shiftit/)
-- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835)
-- [Android Studio](https://developer.android.com/studio/install) - I don't build Android App, but VR uses some modules.
-- [Transmit](https://panic.com/jp/transmit/)
-- [Sequel Pro](https://sequelpro.com/download)
-- [MongoDB Compass](https://docs.mongodb.com/compass/master/install/)
-- [Docker](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
-- [Cloud SDK](https://cloud.google.com/sdk/docs/quickstart-mac-os-x)
-- [Local by Flywheel](https://localbyflywheel.com/)
-- [Adobe XD](https://www.adobe.com/jp/products/xd.html)
-- [Postman](https://www.getpostman.com/downloads/)
-- [GPG Suite](https://gpgtools.org/) - Import/Export GPG key get much easier.
-- [Slack](https://slack.com/intl/ja-jp/downloads/mac)
 - [Line](https://apps.apple.com/jp/app/line/id539883307)
-- [Evernote](https://evernote.com/intl/jp/download)
 - [Zoom](https://zoom.us/download)
+- [Slack](https://slack.com/intl/ja-jp/downloads/mac)
+- [Xcode](https://apps.apple.com/jp/app/xcode/id497799835)
+- [Docker](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
 - [Kindle](https://www.amazon.co.jp/Amazon-com-Intl-Sales-Inc-Kindle/dp/B011UEIO4S)
+- [Postman](https://www.getpostman.com/downloads/)
+- [Adobe XD](https://www.adobe.com/jp/products/xd.html)
+- [Evernote](https://evernote.com/intl/jp/download)
+- [Transmit](https://panic.com/jp/transmit/)
+- [Cloud SDK](https://cloud.google.com/sdk/docs/quickstart-mac-os-x)
+- [GPG Suite](https://gpgtools.org/) - Import/Export GPG key get much easier.
 - [AppCleaner](https://appcleaner.softonic.jp/mac)
+- [Sequel Pro](https://sequelpro.com/download)
+- [Google Chrome](https://www.google.com/chrome/) - below is the theme and extensions.
+  - [Adblock](https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom)
+  - [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk)
+  - [Wappalyzer](https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg)
+  - [Just Black](https://chrome.google.com/webstore/detail/just-black/aghfnjkcakhmadgdomlmlhhaocbkloab)
+  - [Clear Cache](https://chrome.google.com/webstore/detail/clear-cache/cppjkneekbjaeellbfkmgnhonkkjfpdn)
+  - [Leoh New Tab](https://chrome.google.com/webstore/detail/leoh-new-tab/ijhhakihjccpanbibbcceofpjnebokcb)
+  - [Google Translator](https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb)
+- [Android Studio](https://developer.android.com/studio/install) - I don't build Android App, but VR uses some modules.
+- [MongoDB Compass](https://docs.mongodb.com/compass/master/install/)
+- [Local by Flywheel](https://localbyflywheel.com/)
+- [Google Japanese Input](https://www.google.co.jp/ime/)
 
 </details>
 
