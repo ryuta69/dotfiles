@@ -3,10 +3,11 @@
 
 ## Contents
 
-* **aliases** - Several languages and tools aliases.
-* **packages** - Installed packages via brew, npm and pip.
-* **rcfiles** - Several setting files.
-* **vscode** - VSCode settings, keybinds, plugins and snippets.
+* **aliases**    - Several languages and tools aliases.
+* **bookmarks**  - Chrome bookmarks.
+* **packages**   - Installed packages via brew, npm and pip.
+* **rcfiles**    - Several setting files.
+* **vscode**     - VSCode settings, keybinds, plugins and snippets.
 * **install.sh** - (Removed currently as considering risk of user's loss).
 
 <br />
