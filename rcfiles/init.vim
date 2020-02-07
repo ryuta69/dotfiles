@@ -98,10 +98,13 @@ map P <Plug>(miniyank-autoPut)
 nnoremap <Leader>file :Files<CR>
 nnoremap <Leader>hist :History<CR>
 let g:fzf_layout = { 'right': '~50%' }
-command! -bang -nargs=* Rg
-	\ call fzf#run(fzf#wrap({
-		\ 'source': 'rg -lin <q-args>',
-		\ 'options': '--preview-window bottom:50% --preview "rg -in <q-args> {}"'}))
+function! Rg()
+	let string = input('Search String: ')
+	call fzf#run(fzf#wrap({
+		\ 'source': 'rg -lin ' . string,
+		\ 'options': '--preview-window bottom:50% --preview "rg -in ' . string . ' {}"'}))
+endfunction
+nnoremap <Leader>rg :call Rg()<CR>
 
 " Ale
 let g:ale_lint_on_save = 1
