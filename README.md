@@ -3,12 +3,12 @@
 
 ## Contents
 
-* **aliases**     - Several languages and tools aliases.
-* **bookmarks**   - Chrome bookmarks.
-* **packages**    - Installed packages via brew, npm and pip.
-* **rcfiles**     - Several setting files.
 * **vscode**      - VSCode settings, keybinds, plugins and snippets.
-* **install.zsh** - Set rcfiles on home directory.
+* **aliases**     - Several languages and tools aliases.
+* **rcfiles**     - Several setting files.
+* **packages**    - Installed packages via brew, npm and pip.
+* **bookmarks**   - Chrome bookmarks.
+* **install.zsh** - Set rcfiles on home directory (/rcfiles).
 
 <br />
 
