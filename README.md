@@ -59,6 +59,7 @@ I do not take any responsibility for any loss caused through this way.
 7. `iTerm2 > Preferences > General > Selection` => check all.
 8. `iTerm2 > Preferences > Terminal > Enable mouse reporting` => Off.
 9. `iTerm2 > Advanced > Scroll wheel sends arrow keys when in alternate screen mode` => yes.
+10. `iTerm2 > Appearance` > No Dim
 
 </details>
 

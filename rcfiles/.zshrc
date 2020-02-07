@@ -16,7 +16,7 @@ export CVSEDITOR="${EDITOR}"
 export SVN_EDITOR="${EDITOR}"
 export GIT_EDITOR="${EDITOR}"
 export HOMEBREW_NO_AUTO_UPDATE=1
-export DOTPATH=~/.config/dotfiles
+export DOTPATH=~/.ghq/github.com/ryuta69/dotfiles
 export FZF_DEFAULT_OPTS='
 	--reverse
 	--color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229
@@ -51,9 +51,8 @@ setopt list_packed
 alias tm='tmux'
 alias cde='cd -'
 alias cdh='cd ~'
-alias cdwk='cd ~/work'
 alias cdd='cd ${DOTPATH}'
-function mkcd() { mkdir $@; cd $@; }
+alias cdwk='cd ~/work'
 alias op='open ./'
 alias dus='du -sh'
 alias psa='ps aux'
@@ -64,10 +63,9 @@ alias tree='tree -alL'
 alias tarzip='tar czvf'
 alias tarcat='tar tzvf'
 alias tarunzip='tar xzvf'
-alias jq='jq -rC'
-alias -g jql='| jq length'
 alias ll='ls -avlGF'
 alias llv='nvim `ls | fzf --preview "cat {}"`'
+function mkcd() { mkdir $@; cd $@; }
 function awkn() { awk "{print \$${1:-1}}"; }
 function sshp() {
 	grep "HOST" ~/.ssh/config;
