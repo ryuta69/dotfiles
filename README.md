@@ -73,7 +73,9 @@ I do not take any responsibility for any loss caused through this way.
 
 <br />
 
-<details><summary><b>GUI Tools essential to me(click to open)</b></summary>
+## MacBook Setup
+
+### GUI Tools essential to me
 
 - [Line](https://apps.apple.com/jp/app/line/id539883307)
 - [Zoom](https://zoom.us/download)
@@ -106,7 +108,6 @@ I do not take any responsibility for any loss caused through this way.
 - [Local by Flywheel](https://localbyflywheel.com/)
 - [Google Japanese Input](https://www.google.co.jp/ime/)
 
-</details>
 
 <br />
 
