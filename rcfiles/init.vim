@@ -2,7 +2,7 @@
 ""	Plugin
 "" ----------------------------------------
 call plug#begin('~/.config/nvim/plugged/')
-	" Plug 'w0rp/ale'
+	Plug 'w0rp/ale'
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'tpope/vim-commentary'
@@ -71,6 +71,8 @@ nnoremap <Leader>t :tabnew<CR>
 nnoremap <Leader>s :<C-u>split<CR>
 nnoremap <Leader>v :<C-u>vsplit<CR>
 
+nnoremap <Leader>code :!code %:p<CR>
+
 "" ----------------------------------------
 "" PluginSetting
 "" ----------------------------------------
@@ -102,13 +104,13 @@ command! -bang -nargs=* Rg
 		\ 'options': '--preview-window bottom:50% --preview "rg -in <q-args> {}"'}))
 
 " Ale
-" let g:ale_lint_on_save = 1
-" let g:ale_lint_on_text_changed = 'never'
-" let g:ale_fix_on_save = 0
-" let g:ale_fix_on_text_changed = 'never'
-" let g:ale_linters = {
-" \  'javascript': ['eslint'],
-" \  'go': ['gofmt'],
-" \  'perl': ['perl -c'],
-" \}
-" nnoremap <Leader>detail :ALEDetails<CR>
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_fix_on_save = 0
+let g:ale_fix_on_text_changed = 'never'
+let g:ale_linters = {
+\  'javascript': ['eslint'],
+\  'go': ['gofmt'],
+\  'perl': ['perl -c'],
+\}
+nnoremap <Leader>detail :ALEDetails<CR>
