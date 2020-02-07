@@ -3,12 +3,12 @@
 
 ## Contents
 
-* **aliases**    - Several languages and tools aliases.
-* **bookmarks**  - Chrome bookmarks.
-* **packages**   - Installed packages via brew, npm and pip.
-* **rcfiles**    - Several setting files.
-* **vscode**     - VSCode settings, keybinds, plugins and snippets.
-* **install.sh** - (Removed currently as considering risk of user's loss).
+* **aliases**     - Several languages and tools aliases.
+* **bookmarks**   - Chrome bookmarks.
+* **packages**    - Installed packages via brew, npm and pip.
+* **rcfiles**     - Several setting files.
+* **vscode**      - VSCode settings, keybinds, plugins and snippets.
+* **install.zsh** - Set rcfiles on home directory.
 
 <br />
 
@@ -22,7 +22,7 @@ brew install git zsh zsh-completion jq nkf gsed neovim ripgrep fzf ghq hub tig t
 sudo ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
 ```
 
-2. I place dotfiles at `~/.config/`, and will move to ghq directory someday.
+2. I place dotfiles at `~/.ghq/github.com/ryuta69/dotfiles` with ghq.
 
 <br />
 
@@ -75,16 +75,17 @@ I do not take any responsibility for any loss caused through this way.
 
 <details><summary><b>GUI Tools essential to me(click to open)</b></summary>
 
-- [VSCode](https://code.visualstudio.com/download)
-- [Sublime](https://www.sublimetext.com/3) - It's the best editor while FTP.
-- [ShiftIt](http://macappstore.org/shiftit/)
 - [Line](https://apps.apple.com/jp/app/line/id539883307)
 - [Zoom](https://zoom.us/download)
 - [Slack](https://slack.com/intl/ja-jp/downloads/mac)
 - [Xcode](https://apps.apple.com/jp/app/xcode/id497799835)
+- [Alfred](https://www.alfredapp.com/)
 - [Docker](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
 - [Kindle](https://www.amazon.co.jp/Amazon-com-Intl-Sales-Inc-Kindle/dp/B011UEIO4S)
+- [VSCode](https://code.visualstudio.com/download)
 - [Postman](https://www.getpostman.com/downloads/)
+- [ShiftIt](http://macappstore.org/shiftit/)
+- [Sublime](https://www.sublimetext.com/3) - It's the best editor while FTP.
 - [Adobe XD](https://www.adobe.com/jp/products/xd.html)
 - [Evernote](https://evernote.com/intl/jp/download)
 - [Transmit](https://panic.com/jp/transmit/)
