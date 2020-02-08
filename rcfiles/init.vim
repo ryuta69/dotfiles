@@ -2,13 +2,16 @@
 ""	Plugin
 "" ----------------------------------------
 call plug#begin('~/.config/nvim/plugged/')
-	Plug 'w0rp/ale'
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'tpope/vim-commentary'
 	Plug 'bfredl/nvim-miniyank'
+	Plug 'mattn/vim-lsp-settings'
+	Plug 'prabirshrestha/vim-lsp'
+	Plug 'prabirshrestha/async.vim'
 	Plug 'bronson/vim-trailing-whitespace'
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'prabirshrestha/asyncomplete.vim'
+	Plug 'prabirshrestha/asyncomplete-lsp.vim'
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
 call plug#end()
@@ -76,16 +79,16 @@ nnoremap <Leader>code :!code %:p<CR>
 "" ----------------------------------------
 "" PluginSetting
 "" ----------------------------------------
-" VimPlug
-nnoremap <Leader>clean :PlugClean<CR>
-nnoremap <Leader>install :PlugInstall<CR>
-
 " AyuVim
 let ayucolor="dark"
 colorscheme ayu
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
+" VimPlug
+nnoremap <Leader>clean :PlugClean<CR>
+nnoremap <Leader>install :PlugInstall<CR>
+
+" VimLsp
+nnoremap <Leader>lspup :LspInstallServer<CR>
 
 " VimTrailingWhitespace
 nnoremap <Leader>trim :FixWhitespace<CR>
@@ -106,14 +109,3 @@ function! Rg()
 endfunction
 nnoremap <Leader>rg :call Rg()<CR>
 
-" Ale
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_fix_on_save = 0
-let g:ale_fix_on_text_changed = 'never'
-let g:ale_linters = {
-\  'javascript': ['eslint'],
-\  'go': ['gofmt'],
-\  'perl': ['perl -c'],
-\}
-nnoremap <Leader>detail :ALEDetails<CR>
