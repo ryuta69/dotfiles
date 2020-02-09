@@ -74,28 +74,12 @@ nnoremap <Leader>t :tabnew<CR>
 nnoremap <Leader>s :<C-u>split<CR>
 nnoremap <Leader>v :<C-u>vsplit<CR>
 
-nnoremap <Leader>code :!code %:p<CR>
-
 "" ----------------------------------------
 "" PluginSetting
 "" ----------------------------------------
 " AyuVim
 let ayucolor="dark"
 colorscheme ayu
-
-" VimPlug
-nnoremap <Leader>clean :PlugClean<CR>
-nnoremap <Leader>install :PlugInstall<CR>
-
-" VimLsp
-nnoremap <Leader>lspup :LspInstallServer<CR>
-
-" VimTrailingWhitespace
-nnoremap <Leader>trim :FixWhitespace<CR>
-
-" NvimMiniyank
-map p <Plug>(miniyank-autoput)
-map P <Plug>(miniyank-autoPut)
 
 " VimFzf
 nnoremap <Leader>file :Files<CR>
@@ -109,3 +93,17 @@ function! Rg()
 endfunction
 nnoremap <Leader>rg :call Rg()<CR>
 
+" VimLsp
+nnoremap <Leader>lspup :LspInstallServer<CR>
+nnoremap <Leader>format :LspDocumentFormat<CR>
+
+" VimPlug
+nnoremap <Leader>clean :PlugClean<CR>
+nnoremap <Leader>install :PlugInstall<CR>
+
+" NvimMiniyank
+map p <Plug>(miniyank-autoput)
+map P <Plug>(miniyank-autoPut)
+
+" VimTrailingWhitespace
+nnoremap <Leader>trim :FixWhitespace<CR>
