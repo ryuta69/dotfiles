@@ -12,6 +12,7 @@ call plug#begin('~/.config/nvim/plugged/')
 	Plug 'bronson/vim-trailing-whitespace'
 	Plug 'prabirshrestha/asyncomplete.vim'
 	Plug 'prabirshrestha/asyncomplete-lsp.vim'
+	Plug 'prabirshrestha/asyncomplete-file.vim'
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
 call plug#end()
@@ -37,7 +38,6 @@ set tabstop=8
 set shiftwidth=8
 set scrolloff=10
 set encoding=utf-8
-set fileencoding=utf-8
 set fileencodings=utf-8,sjis,cp932,euc-jp
 let $LANG='en_US.UTF-8'
 set clipboard=unnamedplus
@@ -56,8 +56,6 @@ nmap <C-a> 0
 nmap <C-f> W
 nmap <C-b> B
 nnoremap Y y$
-nnoremap kk 15k
-nnoremap jj 15j
 nnoremap + <C-a>
 nnoremap - <C-x>
 nnoremap <Up> gk
@@ -65,11 +63,6 @@ nnoremap <Down> gj
 nmap <silent> <Tab> 15<Right>
 nmap <silent> <S-Tab> 15<Left>
 let mapleader="\<Space>"
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>ee :e<CR>
-nnoremap <Leader>qq :q!<CR>
-nnoremap <Leader>wq :wq<CR>
-nnoremap <Leader>nn :noh<CR>
 nnoremap <Leader>t :tabnew<CR>
 nnoremap <Leader>s :<C-u>split<CR>
 nnoremap <Leader>v :<C-u>vsplit<CR>
@@ -104,6 +97,14 @@ nnoremap <Leader>install :PlugInstall<CR>
 " NvimMiniyank
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
+
+" AsynCompleteFile
+autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+    \ 'name': 'file',
+    \ 'whitelist': ['*'],
+    \ 'priority': 10,
+    \ 'completor': function('asyncomplete#sources#file#completor')
+    \ }))
 
 " VimTrailingWhitespace
 nnoremap <Leader>trim :FixWhitespace<CR>
