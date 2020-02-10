@@ -59,9 +59,9 @@ alias lnsv='ln -sfnv'
 alias pbcp='pbcopy <'
 alias tzip='tar czvf'
 alias tcat='tar tzvf'
+alias unzip='tar xzvf'
 alias cdwk='cd ~/work'
 alias cdd='cd ${DOTPATH}'
-alias tarunzip='tar xzvf'
 alias lv='nvim `ls | fzf --preview "cat {}"`'
 function mkcd() { mkdir $@; cd $@; }
 function awkn() { awk "{print \$${1:-1}}"; }
