@@ -3,7 +3,6 @@
 "" ----------------------------------------
 call plug#begin('~/.config/nvim/plugged/')
 	Plug 'ayu-theme/ayu-vim'
-	Plug 'evanleck/vim-svelte'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'tpope/vim-commentary'
 	Plug 'bfredl/nvim-miniyank'
