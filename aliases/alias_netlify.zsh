@@ -1,0 +1,1 @@
+alias gdev='gatsby develop'

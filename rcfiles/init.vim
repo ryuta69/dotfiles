@@ -3,6 +3,7 @@
 "" ----------------------------------------
 call plug#begin('~/.config/nvim/plugged/')
 	Plug 'ayu-theme/ayu-vim'
+	Plug 'evanleck/vim-svelte'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'tpope/vim-commentary'
 	Plug 'bfredl/nvim-miniyank'
@@ -100,11 +101,11 @@ map P <Plug>(miniyank-autoPut)
 
 " AsynCompleteFile
 autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-    \ 'name': 'file',
-    \ 'whitelist': ['*'],
-    \ 'priority': 10,
-    \ 'completor': function('asyncomplete#sources#file#completor')
-    \ }))
+	\ 'name': 'file',
+	\ 'whitelist': ['*'],
+	\ 'priority': 10,
+	\ 'completor': function('asyncomplete#sources#file#completor')
+	\ }))
 
 " VimTrailingWhitespace
 nnoremap <Leader>trim :FixWhitespace<CR>
