@@ -49,3 +49,5 @@
 	ff = only
 [ghq]
 	root = ~/.ghq
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
