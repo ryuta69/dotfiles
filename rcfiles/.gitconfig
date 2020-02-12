@@ -26,7 +26,6 @@
 	ada = add -A
 	rb  = rebase
 	rbi = rebase -i
-	cd  = !cd `git rev-parse --show-toplevel`
  	ps  = !git push origin `git rev-parse --abbrev-ref HEAD`
 	pl  = !git pull origin `git rev-parse --abbrev-ref HEAD`
 	rs  = reset --hard

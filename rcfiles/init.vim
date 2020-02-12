@@ -38,7 +38,7 @@ set tabstop=8
 set shiftwidth=8
 set scrolloff=10
 set encoding=utf-8
-set fileencodings=utf-8,sjis,cp932,euc-jp
+set fileencodings=cp932,sjis,euc-jp,utf-8,iso-2022-jp
 let $LANG='en_US.UTF-8'
 set clipboard=unnamedplus
 set fileformats=unix,dos,mac
@@ -64,8 +64,6 @@ nmap <silent> <Tab> 15<Right>
 nmap <silent> <S-Tab> 15<Left>
 let mapleader="\<Space>"
 nnoremap <Leader>t :tabnew<CR>
-nnoremap <Leader>s :<C-u>split<CR>
-nnoremap <Leader>v :<C-u>vsplit<CR>
 
 "" ----------------------------------------
 "" PluginSetting

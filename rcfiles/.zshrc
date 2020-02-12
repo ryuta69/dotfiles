@@ -153,7 +153,7 @@ source ~/.zsh/completion/enhancd/init.sh
 ## ----------------------------------------
 ##	iTerm2
 ## ----------------------------------------
-test -e "~/.iterm2_shell_integration.zsh" && source "~/.iterm2_shell_integration.zsh"
+[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
 
 ## ----------------------------------------
 ##	Prompt

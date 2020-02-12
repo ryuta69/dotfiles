@@ -85,6 +85,7 @@ I do not take any responsibility for any loss caused through this way.
 - [Docker](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
 - [Kindle](https://www.amazon.co.jp/Amazon-com-Intl-Sales-Inc-Kindle/dp/B011UEIO4S)
 - [VSCode](https://code.visualstudio.com/download)
+- [Discord](https://discordapp.com/download)
 - [Postman](https://www.getpostman.com/downloads/)
 - [ShiftIt](http://macappstore.org/shiftit/)
 - [Sublime](https://www.sublimetext.com/3) - It's the best editor while FTP.
@@ -95,7 +96,7 @@ I do not take any responsibility for any loss caused through this way.
 - [GPG Suite](https://gpgtools.org/) - Import/Export GPG key get much easier.
 - [AppCleaner](https://appcleaner.softonic.jp/mac)
 - [Sequel Pro](https://sequelpro.com/download)
-- [Google Chrome](https://www.google.com/chrome/) - below is the theme and extensions.
+- [Google Chrome](https://www.google.com/chrome/) - Set Language to English. Below is the theme and extensions.
   - [Adblock](https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom)
   - [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk)
   - [Wappalyzer](https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg)
@@ -146,7 +147,7 @@ I do not take any responsibility for any loss caused through this way.
 - Not showing last recent application used.
 
 ### Language and Region
-- Set the Japanese priority highest.
+- Set the English priority highest.
 - Starting date is monday
 
 ### Display
