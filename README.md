@@ -3,6 +3,7 @@
 
 ## Contents
 
+* **img**         - Images and theme for an environment.
 * **rcfiles**     - Several setting files.
 * **aliases**     - Several languages and tools aliases.
 * **vscode**      - VSCode settings, keybinds, plugins and snippets.
