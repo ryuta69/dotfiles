@@ -18,7 +18,7 @@
 1. Use this command at first to install required packages (Other packages are listed in packages).
 
 ```
-brew install git zsh zsh-completion jq nkf gsed neovim ripgrep fzf ghq hub tig tmux reattach-to-user-namespace
+brew install git zsh zsh-completion jq nkf gsed neovim ripgrep fzf ghq hub tig tmux reattach-to-user-namespace git-extras
 
 sudo ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
 ```

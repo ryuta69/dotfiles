@@ -51,17 +51,17 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 "" ----------------------------------------
 ""	LeaderShortcut
 "" ----------------------------------------
-nmap <C-e> $
-nmap <C-a> 0
-nmap <C-f> W
-nmap <C-b> B
 nnoremap Y y$
+nnoremap <C-e> $
+nnoremap <C-a> 0
+nnoremap <C-f> W
+nnoremap <C-b> B
 nnoremap + <C-a>
 nnoremap - <C-x>
 nnoremap <Up> gk
 nnoremap <Down> gj
-nmap <silent> <Tab> 15<Right>
-nmap <silent> <S-Tab> 15<Left>
+nnoremap <silent> <Tab> 15<Right>
+nnoremap <silent> <S-Tab> 15<Left>
 let mapleader="\<Space>"
 nnoremap <Leader>t :tabnew<CR>
 
@@ -69,8 +69,8 @@ nnoremap <Leader>t :tabnew<CR>
 "" PluginSetting
 "" ----------------------------------------
 " AyuVim
-let ayucolor="dark"
 colorscheme ayu
+let ayucolor="dark"
 
 " VimFzf
 nnoremap <Leader>file :Files<CR>

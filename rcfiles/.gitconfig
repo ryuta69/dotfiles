@@ -14,23 +14,20 @@
 	process  = git-lfs filter-process
 	required = true
 [alias]
-	lo  = log
-	cm  = commit
-	df  = diff --word-diff
-	bra = branch -A
-	brd = branch -D
-	st  = status
-	co  = checkout
-	cob = checkout -b
 	ad  = add
 	ada = add -A
+	al  = alias
+	br  = branch
+	cm  = commit
+	co  = checkout
+	cob = checkout -b
+	df  = diff --word-diff
+	lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	st  = status
 	rb  = rebase
-	rbi = rebase -i
  	ps  = !git push origin `git rev-parse --abbrev-ref HEAD`
 	pl  = !git pull origin `git rev-parse --abbrev-ref HEAD`
-	rs  = reset --hard
-	lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	rs  = reset
 [commit]
 	gpgsign = true
 [gpg]

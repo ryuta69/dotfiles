@@ -3,7 +3,7 @@
 ##	- Must be the top of .zshrc.
 ## ----------------------------------------
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 ## ----------------------------------------
@@ -49,7 +49,6 @@ setopt list_packed
 ## ----------------------------------------
 # Default Command
 alias tm='tmux'
-alias cde='cd -'
 alias cdh='cd ~'
 alias op='open ./'
 alias dus='du -sh'
@@ -98,16 +97,21 @@ function rrg() {
 alias sed='gsed'
 function sedtop() {
 	read string"?type string put into top : ";
-	sed '1i${string}' $@;
+	gsed '1i${string}' $@;
 }
 function sedend() {
 	read string"?type string put into end : ";
-	sed '$a${string}' $@;
+	gsed '$a${string}' $@;
 }
 
 # Git
 alias g='git'
 compdef _git g
+alias cdg='cd `git root`'
+alias ghg='ghq get'
+alias ghcd='cd `ghq list -p | fzf`'
+alias ghrm='rm -rf `ghq list -p | fzf`'
+alias ghop='hub browse `ghq list | fzf | cut -d "/" -f 2,3`'
 function gcre() {
 	git init;
     	git add -A && git commit;
@@ -117,10 +121,6 @@ function gcre() {
 	git push --set-upstream origin master;
 	hub browse;
 }
-alias ghg='ghq get'
-alias ghcd='cd `ghq list -p | fzf`'
-alias ghrm='rm -rf `ghq list -p | fzf`'
-alias ghop='hub browse `ghq list | fzf | cut -d "/" -f 2,3`'
 
 # Aliases
 alias vial='vi `ls ${DOTPATH}/aliases/ | fzf --preview "cat ${DOTPATH}/aliases/{}"`'
