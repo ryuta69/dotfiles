@@ -32,18 +32,11 @@ I do not take any responsibility for any loss caused through this way.
 
 <details><summary><b>Zsh(click to open)</b></summary>
 
-1. `zsh`.
-2. Type `0` at first selection.
-3. `mkdir -p ~/.zsh/completion`
-4. `git clone https://github.com/powerline/fonts.git --depth=1 && cd fonts` then `./install.sh` and `cd ../ && rm -rf fonts`.
-5. Set the terminal font as "Noto Mono for Powerline".
-6. `mv ~/.p10k.zsh ~/.zsh/powerlevel10k/`.
-7. `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k && echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc`.
-8. `curl -o ~/.zsh/completion/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash && curl -o ~/.zsh/completion/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh && curl -o ~/.zsh/completion/_docker https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker && curl -fLo ~/.zsh/completion/_docker-compose https://raw.githubusercontent.com/docker/compose/master/contrib/completion/zsh/_docker-compose && git clone zsh-users/zsh-autosuggestions ~/.zsh/completion/ && git clone zsh-users/zsh-syntax-highlighting ~/.zsh/completion/ && git clone b4b4r07/enhancd ~/.zsh/completion/`.
-9. Append `/usr/local/bin/zsh` into the end of `/etc/shells`.
-10. `source ~/.zshrc` and set the p10k theme as you like.
-11. `chsh -s zsh`.
-12. Set VSCode setting `"terminal.integrated.shell.osx": "/usr/local/bin/zsh"`.
+1. Active zsh at first time and type `0` at first selection.
+2. Set the terminal font as "Noto Mono for Powerline".
+3. Append `/usr/local/bin/zsh` into the end of `/etc/shells`.
+4. `chsh -s zsh`.
+5. Set VSCode setting `"terminal.integrated.shell.osx": "/usr/local/bin/zsh"`.
 
 </details>
 
@@ -52,15 +45,7 @@ I do not take any responsibility for any loss caused through this way.
 <details><summary><b>iTerm2(click to open)</b></summary>
 
 1. Set VSCode setting `Terminal > External: Osx Exec` as iTerm.app.
-2. `iTerm2 > Install shell integration`.
-3. Download [this theme](https://github.com/hwyncho/ayu-iTerm) and apply `iTerm2 > Preferences > Profiles > Color`.
-4. `iTerm2 > Preferences > Profiles > General > Working Directory` => `Reuse previous session's directory`.
-5. `iTerm2 > Preferences > Profiles > Text > Cursor` => `Vertical bar`.
-6. `iTerm2 > Preferences > Profiles > Text > Shell Integration` => off `Show mark indicators`.
-7. `iTerm2 > Preferences > General > Selection` => check all.
-8. `iTerm2 > Preferences > Terminal > Enable mouse reporting` => Off.
-9. `iTerm2 > Advanced > Scroll wheel sends arrow keys when in alternate screen mode` => yes.
-10. `iTerm2 > Appearance` > No Dim
+2. `iTerm2 > General > Preferences > Load Preferences from a custom folder > import rcfiles/iterm2.conf
 
 </details>
 
@@ -97,7 +82,7 @@ I do not take any responsibility for any loss caused through this way.
 - [GPG Suite](https://gpgtools.org/) - Import/Export GPG key get much easier.
 - [AppCleaner](https://appcleaner.softonic.jp/mac)
 - [Sequel Pro](https://sequelpro.com/download)
-- [Google Chrome](https://www.google.com/chrome/) - Set Language to English. Below is the theme and extensions.
+- [Google Chrome](https://www.google.com/chrome/) - Set Language to English. Below are the extensions.
   - [Adblock](https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom)
   - [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk)
   - [Wappalyzer](https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg)
@@ -105,7 +90,7 @@ I do not take any responsibility for any loss caused through this way.
   - [Clear Cache](https://chrome.google.com/webstore/detail/clear-cache/cppjkneekbjaeellbfkmgnhonkkjfpdn)
   - [Leoh New Tab](https://chrome.google.com/webstore/detail/leoh-new-tab/ijhhakihjccpanbibbcceofpjnebokcb)
   - [Google Translator](https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb)
-- [Android Studio](https://developer.android.com/studio/install) - I don't build Android App, but VR uses some modules.
+- [Android Studio](https://developer.android.com/studio/install) - I don't build Android App, but debugging VR uses some modules.
 - [MongoDB Compass](https://docs.mongodb.com/compass/master/install/)
 - [Local by Flywheel](https://localbyflywheel.com/)
 - [Google Japanese Input](https://www.google.co.jp/ime/)

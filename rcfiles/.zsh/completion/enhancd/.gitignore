@@ -1,0 +1,9 @@
+.DS_Store
+**/.DS_Store
+*~
+**/*~
+*.swp
+**/*.swp
+.env
+.ignore
+*.zwc
