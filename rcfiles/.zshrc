@@ -107,11 +107,11 @@ function sedend() {
 # Git
 alias g='git'
 compdef _git g
-alias cdg='cd `git root`'
 alias ghg='ghq get'
-alias ghcd='cd `ghq list -p | fzf`'
-alias ghrm='rm -rf `ghq list -p | fzf`'
-alias ghop='hub browse `ghq list | fzf | cut -d "/" -f 2,3`'
+alias cdgh='cd `ghq list -p | fzf`'
+alias rmgh='rm -rf `ghq list -p | fzf`'
+alias cdg='cd `git rev-parse --show-toplevel`'
+alias opgh='hub browse `ghq list | fzf | cut -d "/" -f 2,3`'
 function gcre() {
 	git init;
     	git add -A && git commit;

@@ -103,6 +103,7 @@ autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#s
 	\ 'priority': 10,
 	\ 'completor': function('asyncomplete#sources#file#completor')
 	\ }))
+	" \ 'whitelist': ['.\=*'],
 
 " VimTrailingWhitespace
 nnoremap <Leader>trim :FixWhitespace<CR>
