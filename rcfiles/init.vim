@@ -2,13 +2,12 @@
 ""	Plugin
 "" ----------------------------------------
 call plug#begin('~/.config/nvim/plugged/')
-	Plug 'mattn/emmet-vim'
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'tpope/vim-commentary'
 	Plug 'bfredl/nvim-miniyank'
-	Plug 'mattn/vim-lsp-settings'
 	Plug 'prabirshrestha/vim-lsp'
+	Plug 'mattn/vim-lsp-settings'
 	Plug 'prabirshrestha/async.vim'
 	Plug 'bronson/vim-trailing-whitespace'
 	Plug 'prabirshrestha/asyncomplete.vim'
