@@ -62,6 +62,7 @@ alias unzip='tar xzvf'
 alias cdwk='cd ~/work'
 alias cdd='cd ${DOTPATH}'
 alias lv='nvim `ls | fzf --preview "cat {}"`'
+alias pskl='ps aux | fzf | awk "{ print \$2 }" | xargs kill -9'
 function mkcd() { mkdir $@; cd $@; }
 function awkn() { awk "{print \$${1:-1}}"; }
 function sshp() {
