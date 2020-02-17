@@ -2,12 +2,6 @@
 	name       = ryuta69
 	email      = eyma22s.yu@gmail.com
 	signingkey = 7EB4C638CC86724B
-[core]
-	editor = nvim
-[color]
-	ui = auto
-[credential]
-	helper = osxkeychain
 [alias]
 	ad  = add
 	ada = add -A
@@ -31,23 +25,26 @@
 	rb  = rebase
 	rf  = reflog --date=iso
 	rs  = reset
+[core]
+	editor = nvim
+[color]
+	ui = true
 [commit]
 	gpgsign = true
-[gpg]
-	program = gpg2
-[pager]
-	log  = diff-highlight | less
-	show = diff-highlight | less
-	diff = diff-highlight | less
+[credential]
+	helper = osxkeychain
 [diff]
-	tool                = vimdiff
-	prompt              = false
-	algorithm           = histogram
-	compactionHeuristic = true
+	tool      = vimdiff
+	prompt    = false
+	algorithm = histogram
 [difftool]
 	prompt = false
 [difftool "vimdiff"]
 	path   = nvim
+[ghq]
+	root = ~/.ghq
+[gpg]
+	program = gpg2
 [merge]
 	ff            = false
 	tool          = vimdiff
@@ -56,9 +53,11 @@
 	prompt = false
 [mergetool "vimdiff"]
 	path   = nvim
+[pager]
+	log  = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
 [pull]
 	ff = only
-[ghq]
-	root = ~/.ghq
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
