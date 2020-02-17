@@ -2,6 +2,7 @@
 ""	Plugin
 "" ----------------------------------------
 call plug#begin('~/.config/nvim/plugged/')
+	Plug 'mattn/emmet-vim'
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'tpope/vim-commentary'
@@ -49,7 +50,7 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 	\| exe "normal! g'\"" | endif
 
 "" ----------------------------------------
-""	LeaderShortcut
+""	Shortcut
 "" ----------------------------------------
 nnoremap Y y$
 nnoremap <C-e> $
@@ -64,9 +65,10 @@ nnoremap <silent> <Tab> 15<Right>
 nnoremap <silent> <S-Tab> 15<Left>
 let mapleader="\<Space>"
 nnoremap <Leader>t :tabnew<CR>
+nnoremap <Leader>code :!code %:p<CR>
 
 "" ----------------------------------------
-"" PluginSetting
+""	PluginSetting
 "" ----------------------------------------
 " AyuVim
 colorscheme ayu
@@ -103,7 +105,6 @@ autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#s
 	\ 'priority': 10,
 	\ 'completor': function('asyncomplete#sources#file#completor')
 	\ }))
-	" \ 'whitelist': ['.\=*'],
 
 " VimTrailingWhitespace
 nnoremap <Leader>trim :FixWhitespace<CR>

@@ -8,25 +8,22 @@
 	ui = auto
 [credential]
 	helper = osxkeychain
-[filter "lfs"]
-	clean    = git-lfs clean -- %f
-	smudge   = git-lfs smudge -- %f
-	process  = git-lfs filter-process
-	required = true
 [alias]
 	ad  = add
 	ada = add -A
 	al  = alias
 	br  = branch
+	bra = branch -A
 	cm  = commit
 	co  = checkout
 	cob = checkout -b
 	df  = diff --word-diff
 	lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	st  = status
-	rb  = rebase
  	ps  = !git push origin `git rev-parse --abbrev-ref HEAD`
 	pl  = !git pull origin `git rev-parse --abbrev-ref HEAD`
+	rb  = rebase
+	rf  = reflog --date=iso
 	rs  = reset
 [commit]
 	gpgsign = true
