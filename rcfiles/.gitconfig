@@ -23,7 +23,7 @@
 	lg  = log
 	lgp = log -p
 	lgs = log -stat
-	lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cs) %C(bold blue)<%an>%Creset' --abbrev-commit
 	mt  = mergetool
 	st  = status
  	ps  = !git push origin `git rev-parse --abbrev-ref HEAD`
