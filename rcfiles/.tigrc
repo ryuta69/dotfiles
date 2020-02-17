@@ -1,15 +1,16 @@
 ## ----------------------------------------
 ##	Configure
 ## ----------------------------------------
-set main-view     = id date author commit-title:graph=yes,refs=yes
-set blame-view    = date:default author:email-user id:yes,color line-number:yes,interval=1 text
-set pager-view    = line-number:yes,interval=1 text
-set stage-view    = line-number:yes,interval=1 text
-set log-view      = line-number:yes,interval=1 text
-set blob-view     = line-number:yes,interval=1 text
-set diff-view     = line-number:yes,interval=1 text:yes,commit-title-overflow=no
-set line-graphics = utf-8
-set ignore-case   = true
+set ignore-case    = true
+set diff-highlight = true
+set line-graphics  = utf-8
+set log-view       = line-number:yes,interval=1 text
+set blob-view      = line-number:yes,interval=1 text
+set pager-view     = line-number:yes,interval=1 text
+set stage-view     = line-number:yes,interval=1 text
+set main-view      = id date author commit-title:graph=yes,refs=yes
+set diff-view      = line-number:yes,interval=1 text:yes,commit-title-overflow=no
+set blame-view     = date:default author:email-user id:yes,color line-number:yes,interval=1 text
 
 ## ----------------------------------------
 ##	Keybind

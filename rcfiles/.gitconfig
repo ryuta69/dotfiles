@@ -17,8 +17,13 @@
 	cm  = commit
 	co  = checkout
 	cob = checkout -b
-	df  = diff --word-diff
-	lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	df  = diff
+	dfh = diff HEAD
+	dft = difftool
+	lgp = log -p
+	lgs = log -stat
+	lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	mt  = mergetool
 	st  = status
  	ps  = !git push origin `git rev-parse --abbrev-ref HEAD`
 	pl  = !git pull origin `git rev-parse --abbrev-ref HEAD`
@@ -30,15 +35,26 @@
 [gpg]
 	program = gpg2
 [pager]
-	log  = diff-highlight | less -RX
-	show = diff-highlight | less -RX
-	diff = diff-highlight | less -RX
+	log  = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
 [diff]
 	tool                = vimdiff
+	prompt              = false
 	algorithm           = histogram
 	compactionHeuristic = true
+[difftool]
+	prompt = false
+[difftool "vimdiff"]
+	path   = nvim
 [merge]
-	ff = false
+	ff            = false
+	tool          = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
+[mergetool "vimdiff"]
+	path   = nvim
 [pull]
 	ff = only
 [ghq]

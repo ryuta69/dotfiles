@@ -65,6 +65,11 @@ nnoremap <silent> <S-Tab> 15<Left>
 let mapleader="\<Space>"
 nnoremap <Leader>t :tabnew<CR>
 nnoremap <Leader>code :!code %:p<CR>
+if &diff
+	nnoremap <leader>1 :diffget LOCAL<CR>
+	nnoremap <leader>2 :diffget BASE<CR>
+	nnoremap <leader>3 :diffget REMOTE<CR>
+endif
 
 "" ----------------------------------------
 ""	PluginSetting
@@ -72,6 +77,12 @@ nnoremap <Leader>code :!code %:p<CR>
 " AyuVim
 colorscheme ayu
 let ayucolor="dark"
+if &diff
+	highlight DiffAdd    gui=none guifg=none    guibg=#003366
+	highlight DiffDelete gui=bold guifg=#660000 guibg=#660000
+	highlight DiffChange gui=none guifg=none    guibg=#006666
+	highlight DiffText   gui=none guifg=none    guibg=#013220
+endif
 
 " VimFzf
 nnoremap <Leader>file :Files<CR>

@@ -108,6 +108,7 @@ function sedend() {
 alias g='git'
 compdef _git g
 alias ghg='ghq get'
+alias vig='vi ~/.gitconfig'
 alias cdgh='cd `ghq list -p | fzf`'
 alias rmgh='rm -rf `ghq list -p | fzf`'
 alias cdg='cd `git rev-parse --show-toplevel`'
