@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "if ({cursor}) {\n\n} else {\n\n}",
+    "uid" : "04724985-8666-493F-BFBB-4D3646E37DA0",
+    "name" : "ifel_perl",
+    "keyword" : "ifel perl"
+  }
+}

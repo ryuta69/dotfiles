@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "const {cursor} = require(___);",
+    "uid" : "90C007BD-9B0D-4668-8F22-842B7DDEA32D",
+    "name" : "require_javascript",
+    "keyword" : "require javascript"
+  }
+}

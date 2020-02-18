@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "my @sorted = sort{ $a <=> $b } @{cursor};",
+    "uid" : "39BB2AE6-4DCE-40FA-B20B-9FF90DFBD2D1",
+    "name" : "sort_perl",
+    "keyword" : "sort perl"
+  }
+}

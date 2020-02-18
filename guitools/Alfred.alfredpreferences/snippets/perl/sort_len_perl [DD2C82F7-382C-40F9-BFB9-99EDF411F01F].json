@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "my @sorted = sort{ length $a cmp length $b || $a cmp $b } @{cursor};",
+    "uid" : "DD2C82F7-382C-40F9-BFB9-99EDF411F01F",
+    "name" : "sort_len_perl",
+    "keyword" : "sort len perl"
+  }
+}
