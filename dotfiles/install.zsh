@@ -17,3 +17,5 @@ for abspath (${PWD}/*); do
 
 	ln -sfnv $abspath ~/$filename;
 done
+
+sudo ln -sfnv /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight

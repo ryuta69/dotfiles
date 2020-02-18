@@ -12,20 +12,24 @@
 
 ## Requirements
 
-1. Use this command at first to install required packages (Other packages are listed in packages).
+1. Homebrew
 
 ```
-brew install git zsh zsh-completion jq nkf gsed neovim ripgrep fzf ghq hub tig tmux reattach-to-user-namespace
-
-sudo ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+xcode-select --install
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-2. I place dotfiles at `~/.ghq/github.com/ryuta69/dotfiles` with ghq.
+2. ghq
+
+```
+brew install ghq
+ghq get ryuta69/dotfiles
+```
 
 <br />
 
 ## Installation
-I do not take any responsibility for any loss caused through this way.
+I do not take any responsibility for any loss caused.
 
 <details><summary><b>Zsh(click to open)</b></summary>
 
