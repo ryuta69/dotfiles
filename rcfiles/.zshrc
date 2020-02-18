@@ -47,7 +47,7 @@ setopt list_packed
 ## ----------------------------------------
 ##	Alias
 ## ----------------------------------------
-# Default Command
+# Base
 alias tm='tmux'
 alias sed='gsed'
 alias cdh='cd ~'
@@ -64,6 +64,39 @@ alias tr2='tree -a -L 2 -I ".git|.node_modules"'
 alias tr3='tree -a -L 3 -I ".git|.node_modules"'
 alias pskl='ps aux | fzf | awk "{ print \$2 }" | xargs kill -9'
 function mkcd() { mkdir $@; cd $@; }
+
+# Git
+alias g='git'
+compdef _git g
+alias ghg='ghq get'
+alias vig='vi ~/.gitconfig'
+alias cdgh='cd `ghq list -p | fzf`'
+alias rmgh='rm -rf `ghq list -p | fzf`'
+alias cdg='cd `git rev-parse --show-toplevel`'
+alias opgh='hub browse `ghq list | fzf | cut -d "/" -f 2,3`'
+function gcre() {
+	git init;
+    	git add -A && git commit;
+	read name"?type repo name        : ";
+	read description"?type repo description : ";
+	hub create ${name} -p ${description};
+	git push --set-upstream origin master;
+	hub browse;
+}
+
+# Tar
+function tz() { tar zcvf ${1}.tar.gz ${1}; }
+function tunz() {
+        case $1 in
+                *.zip)     unzip $1    ;;
+                *.tgz)     tar xvzf $1 ;;
+                *.tbz2)    tar xvjf $1 ;;
+                *.tar)     tar xvf $1  ;;
+                *.tar.gz)  tar xvzf $1 ;;
+                *.tar.bz2) tar xvjf $1 ;;
+                *)         echo "Unable to extract '$1'" ;;
+        esac
+}
 
 # Neovim
 alias vi='nvim'
@@ -88,39 +121,6 @@ function rrg() {
 	nvim ${selected};
 }
 
-# Tar
-function tz() { tar zcvf ${1}.tar.gz ${1}; }
-function tunz() {
-        case $1 in
-                *.zip)     unzip $1    ;;
-                *.tgz)     tar xvzf $1 ;;
-                *.tbz2)    tar xvjf $1 ;;
-                *.tar)     tar xvf $1  ;;
-                *.tar.gz)  tar xvzf $1 ;;
-                *.tar.bz2) tar xvjf $1 ;;
-                *)         echo "Unable to extract '$1'" ;;
-        esac
-}
-
-# Git
-alias g='git'
-compdef _git g
-alias ghg='ghq get'
-alias vig='vi ~/.gitconfig'
-alias cdgh='cd `ghq list -p | fzf`'
-alias rmgh='rm -rf `ghq list -p | fzf`'
-alias cdg='cd `git rev-parse --show-toplevel`'
-alias opgh='hub browse `ghq list | fzf | cut -d "/" -f 2,3`'
-function gcre() {
-	git init;
-    	git add -A && git commit;
-	read name"?type repo name        : ";
-	read description"?type repo description : ";
-	hub create ${name} -p ${description};
-	git push --set-upstream origin master;
-	hub browse;
-}
-
 # Aliases
 alias vial='vi `ls ${DOTPATH}/aliases/ | fzf --preview "cat ${DOTPATH}/aliases/{}"`'
 alias srcal='source `ls ${DOTPATH}/aliases/ | fzf --preview "cat ${DOTPATH}/aliases/{}"`'
@@ -128,7 +128,6 @@ alias srcal='source `ls ${DOTPATH}/aliases/ | fzf --preview "cat ${DOTPATH}/alia
 # Package Manager
 alias brup='brew upgrade'
 alias npup='npm update -g npm && npm update -g'
-alias piup='pip install --upgrade pip && pip-review --auto'
 
 ## ----------------------------------------
 ##	Keymap
