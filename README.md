@@ -3,11 +3,10 @@
 
 ## Contents
 
-* **rcfiles**     - Several setting files.
-* **aliases**     - Several languages and tools aliases.
-* **vscode**      - VSCode settings, keybinds, and plugins.
-* **syncenv**     - Alfred and iTerm2.
-* **packages**    - Installed packages via brew, npm and pip.
+* **rcfiles**     - rcfiles and dotfiles.
+* **vscode**      - Settings, Keybinds, and Plugins for VSCode.
+* **syncenv**     - Environment settings for GUI tools.
+* **packages**    - Brewfile and Npmfile.
 
 <br />
 

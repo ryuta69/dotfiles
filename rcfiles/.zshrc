@@ -123,8 +123,8 @@ function rrg() {
 }
 
 # Aliases
-alias vial='vi `ls ${DOTPATH}/aliases/ | fzf --preview "cat ${DOTPATH}/aliases/{}"`'
-alias srcal='source `ls ${DOTPATH}/aliases/ | fzf --preview "cat ${DOTPATH}/aliases/{}"`'
+alias vial='vi `ls -d ${DOTPATH}/rcfiles/aliases/* | fzf --preview "cat {}"`'
+alias sral='source `ls -d ${DOTPATH}/rcfiles/aliases/* | fzf --preview "cat {}"`'
 
 # Package Manager
 alias brup='brew upgrade'

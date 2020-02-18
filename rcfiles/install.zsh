@@ -11,6 +11,7 @@ if [[ $Ans != 'Y' ]]; then echo 'Canceled\n' && exit; fi;
 for abspath (${PWD}/*); do
 	filename=$(basename -- "$abspath");
 
+	if [[ $filename = 'aliases' ]]; then continue ; fi;
 	if [[ $filename = 'install.zsh' ]]; then continue ; fi;
 	if [[ $filename = 'init.vim' ]]; then ln -sfnv $abspath ~/.config/nvim/init.vim ; fi;
 
