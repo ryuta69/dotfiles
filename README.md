@@ -90,6 +90,7 @@ I do not take any responsibility for any loss caused through this way.
   - [Clear Cache](https://chrome.google.com/webstore/detail/clear-cache/cppjkneekbjaeellbfkmgnhonkkjfpdn)
   - [Leoh New Tab](https://chrome.google.com/webstore/detail/leoh-new-tab/ijhhakihjccpanbibbcceofpjnebokcb)
   - [Google Translator](https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb)
+  - [Youtube Repeat Button](https://chrome.google.com/webstore/detail/youtube-repeat-button/aihdpnkmhcbjkfonmmfepcjjfaenobip)
 - [Android Studio](https://developer.android.com/studio/install) - I don't build Android App, but debugging VR uses some modules.
 - [MongoDB Compass](https://docs.mongodb.com/compass/master/install/)
 - [Local by Flywheel](https://localbyflywheel.com/)

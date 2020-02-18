@@ -1,0 +1,43 @@
+## ----------------------------------------
+##	Brewfile
+##	- This file may lack of tap.
+## ----------------------------------------
+# Base
+brew "jq"
+brew "fzf"
+brew "ghq"
+brew "git"
+brew "hub"
+brew "nkf"
+brew "tig"
+brew "vim"
+brew "tmux"
+brew "tree"
+brew "neovim"
+brew "ffmpeg"
+brew "gnu-sed"
+brew "ripgrep"
+
+# Shell
+brew "zsh"
+brew "zsh-completions"
+brew "bash-completion"
+
+# Language
+brew "go"
+brew "gcc"
+brew "node"
+brew "perl"
+brew "ruby"
+brew "cmake"
+brew "rbenv"
+brew "python"
+
+# Database
+brew "mysql"
+brew "redis"
+brew "mongodb-community"
+
+# iTerm2
+tap "homebrew/cask-fonts"
+cask "font-source-code-pro"

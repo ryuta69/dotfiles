@@ -49,6 +49,7 @@ setopt list_packed
 ## ----------------------------------------
 # Default Command
 alias tm='tmux'
+alias sed='gsed'
 alias cdh='cd ~'
 alias op='open ./'
 alias dus='du -sh'
@@ -56,20 +57,13 @@ alias psa='ps aux'
 alias ll='ls -avlGF'
 alias lnsv='ln -sfnv'
 alias pbcp='pbcopy <'
-alias tzip='tar czvf'
-alias tcat='tar tzvf'
-alias unzip='tar xzvf'
 alias cdwk='cd ~/work'
 alias cdd='cd ${DOTPATH}'
 alias lv='nvim `ls | fzf --preview "cat {}"`'
+alias tr2='tree -a -L 2 -I ".git|.node_modules"'
+alias tr3='tree -a -L 3 -I ".git|.node_modules"'
 alias pskl='ps aux | fzf | awk "{ print \$2 }" | xargs kill -9'
 function mkcd() { mkdir $@; cd $@; }
-function awkn() { awk "{print \$${1:-1}}"; }
-function sshp() {
-	grep "HOST" ~/.ssh/config;
-	read host"?type hostname : ";
-	ssh ${host};
-}
 
 # Neovim
 alias vi='nvim'
@@ -94,15 +88,18 @@ function rrg() {
 	nvim ${selected};
 }
 
-# sed
-alias sed='gsed'
-function sedtop() {
-	read string"?type string put into top : ";
-	gsed '1i${string}' $@;
-}
-function sedend() {
-	read string"?type string put into end : ";
-	gsed '$a${string}' $@;
+# Tar
+function tz() { tar zcvf ${1}.tar.gz ${1}; }
+function tunz() {
+        case $1 in
+                *.zip)     unzip $1    ;;
+                *.tgz)     tar xvzf $1 ;;
+                *.tbz2)    tar xvjf $1 ;;
+                *.tar)     tar xvf $1  ;;
+                *.tar.gz)  tar xvzf $1 ;;
+                *.tar.bz2) tar xvjf $1 ;;
+                *)         echo "Unable to extract '$1'" ;;
+        esac
 }
 
 # Git
