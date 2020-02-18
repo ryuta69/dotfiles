@@ -1,4 +1,10 @@
-code --install-extension $(cat Npmfile)
+#! /usr/local/bin/zsh
 
-ln -sfnv ~/.ghq/github.com/ryuta69/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
-ln -sfnv ~/.ghq/github.com/ryuta69/dotfiles/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+DOTPATH="~/.ghq/github.com/ryuta69/dotfiles/vscode"
+if [[ $PWD != ${DOTPATH} ]]; then echo 'Must execute in '${DOTPATH} && exit; fi;
+
+VSPATH="~/Library/Application\ Support/Code/User"
+ln -sfnv ${DOTPATH}/settings.json ${VSPATH}/settings.json
+ln -sfnv ${DOTPATH}/keybindings.json ${VSPATH}/keybindings.json
+
+code --install-extension $(cat PluginFile)

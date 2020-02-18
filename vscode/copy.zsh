@@ -1,5 +1,8 @@
-export DOTPATH=~/.ghq/github.com/ryuta69/dotfiles
+#! /usr/local/bin/zsh
 
-cp ~/Library/Application\ Support/Code/User/settings.json ${DOTPATH}/vscode/ &&
-	code --list-extensions > ${DOTPATH}/vscode/plugins.txt &&
-	cp ~/Library/Application\ Support/Code/User/keybindings.json ${DOTPATH}/vscode/
+DOTPATH="~/.ghq/github.com/ryuta69/dotfiles/vscode"
+VSPATH="~/Library/Application\ Support/Code/User"
+
+cp ${VSPATH}/settings.json ${DOTPATH} &&
+	code --list-extensions > ${DOTPATH}/plugins.txt &&
+	cp ${VSPATH}/keybindings.json ${DOTPATH}
