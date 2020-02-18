@@ -2,7 +2,7 @@
 
 setopt globdots
 
-DOTPATH="~/.ghq/github.com/ryuta69/dotfiles/rcfiles"
+DOTPATH="~/.ghq/github.com/ryuta69/dotfiles/dotfiles"
 if [[ $PWD != ${DOTPATH} ]]; then echo 'Must execute in '${DOTPATH} && exit; fi;
 
 read Ans"?Your file will be overwritten(Y/n): "

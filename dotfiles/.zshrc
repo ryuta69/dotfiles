@@ -16,7 +16,7 @@ export CVSEDITOR="${EDITOR}"
 export SVN_EDITOR="${EDITOR}"
 export GIT_EDITOR="${EDITOR}"
 export HOMEBREW_NO_AUTO_UPDATE=1
-export DOTPATH=~/.ghq/github.com/ryuta69/dotfiles
+export DOTPATH=~/.ghq/github.com/ryuta69/dotfiles/dotfiles
 export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH
 export FZF_DEFAULT_OPTS='
 	--reverse
@@ -123,8 +123,8 @@ function rrg() {
 }
 
 # Aliases
-alias vial='vi `ls -d ${DOTPATH}/rcfiles/aliases/* | fzf --preview "cat {}"`'
-alias sral='source `ls -d ${DOTPATH}/rcfiles/aliases/* | fzf --preview "cat {}"`'
+alias vial='vi `ls -d ${DOTPATH}/aliases/* | fzf --preview "cat {}"`'
+alias sral='source `ls -d ${DOTPATH}/aliases/* | fzf --preview "cat {}"`'
 
 # Package Manager
 alias brup='brew upgrade'

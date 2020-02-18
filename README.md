@@ -3,10 +3,10 @@
 
 ## Contents
 
-* **rcfiles**     - rcfiles and dotfiles.
-* **vscode**      - Settings, Keybinds, and Plugins for VSCode.
-* **syncenv**     - Environment settings for GUI tools.
-* **packages**    - Brewfile and Npmfile.
+* **dotfiles** - Main dotfiles placed in Home Directory.
+* **vscode**   - VSCode settings, keybinds, and plugins.
+* **guitools** - GUI tools settings exported and syncable.
+* **packages** - Package Manager file and installer.
 
 <br />
 
