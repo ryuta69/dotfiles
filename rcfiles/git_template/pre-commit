@@ -1,0 +1,31 @@
+#!/bin/bash
+
+## ----------------------------------------
+##	Checking
+## ----------------------------------------
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+	against=HEAD
+else
+	against=$(git hash-object -t tree /dev/null)
+fi
+
+# Check for .pem files
+MATCH=$(git diff --cached --name-only $against | grep '.*\.pem$')
+if [[ ! -z $MATCH ]]; then
+	printf "It looks like you're trying to commit a PEM file in:"
+	printf "$MATCH\n\n"
+	printf "Please check your code and remove any PEM files."
+	exit 1
+fi
+
+# Check for PRIVATE KEY
+MATCH=$(git diff --cached --name-only $against | xargs grep 'PRIVATE KEY')
+if [[ $MATCH -ne 0 ]]; then
+	printf "It looks like you're trying to commit a private key in:"
+	printf "$MATCH\n\n"
+	printf "Please check your code and remove any private keys."
+	exit 1
+fi
+
+

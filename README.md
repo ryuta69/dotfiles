@@ -4,10 +4,10 @@
 ## Contents
 
 * **img**         - Images and theme for an environment.
-* **alfred**      - Alfred workflow and snippets.
 * **rcfiles**     - Several setting files.
 * **aliases**     - Several languages and tools aliases.
 * **vscode**      - VSCode settings, keybinds, and plugins.
+* **syncenv**     - Alfred and iTerm2.
 * **packages**    - Installed packages via brew, npm and pip.
 * **install.zsh** - Set rcfiles on home directory (/rcfiles).
 * **bookmarks**   - Chrome bookmarks.

@@ -8,7 +8,7 @@
 	al  = alias
 	br  = branch
 	bra = branch -A
-	cm  = commit
+	cm  = commit --verbose
 	co  = checkout
 	cob = checkout -b
 	df  = diff
@@ -27,10 +27,12 @@
 	rs  = reset
 [core]
 	editor = nvim
+	hooksPath = /Users/ryuta69/git_template
 [color]
 	ui = true
 [commit]
 	gpgsign = true
+	template = /Users/ryuta69/git_template/commit-template
 [credential]
 	helper = osxkeychain
 [diff]
