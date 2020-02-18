@@ -3,6 +3,7 @@
 "" ----------------------------------------
 call plug#begin('~/.config/nvim/plugged/')
 	Plug 'ayu-theme/ayu-vim'
+	Plug 'tpope/vim-fugitive'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'tpope/vim-commentary'
 	Plug 'bfredl/nvim-miniyank'
@@ -103,6 +104,15 @@ nnoremap <Leader>format :LspDocumentFormat<CR>
 " VimPlug
 nnoremap <Leader>clean :PlugClean<CR>
 nnoremap <Leader>install :PlugInstall<CR>
+
+" VimFugitive
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>dp :diffput<CR>
+nnoremap <Leader>du :diffupdate<CR>
+nnoremap <Leader>dgl :diffget //2 \| diffupdate<CR>
+nnoremap <Leader>dgr :diffget //3 \| diffupdate<CR>
 
 " NvimMiniyank
 map p <Plug>(miniyank-autoput)
