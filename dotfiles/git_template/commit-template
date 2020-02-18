@@ -10,4 +10,9 @@
 #
 # <Type>(<file/func/arg>): <Task Name>
 # What you cared and how you've changed.
-
+#
+# [Rule]
+# 1. Task Name begins with the capital letter.
+# 2. First line must be less than 50 characters.
+# 3. First line must not use period at end of line.
+# 4. Never blank body.
