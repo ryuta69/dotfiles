@@ -2,8 +2,9 @@
 
 setopt globdots
 
-DOTPATH="~/.ghq/github.com/ryuta69/dotfiles/dotfiles"
-if [[ $PWD != ${DOTPATH} ]]; then echo 'Must execute in '${DOTPATH} && exit; fi;
+CWD=`git rev-parse --show-prefix`
+EXEPATH="dotfiles/"
+if [[ ${CWD} != ${EXEPATH} ]]; then echo 'Must execute in '${EXEPATH} && exit; fi;
 
 read Ans"?Your file will be overwritten(Y/n): "
 if [[ $Ans != 'Y' ]]; then echo 'Canceled\n' && exit; fi;
