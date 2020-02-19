@@ -20,3 +20,7 @@ for abspath (${PWD}/*); do
 done
 
 sudo ln -sfnv /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells'
