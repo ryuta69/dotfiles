@@ -2,8 +2,10 @@
 ""	Plugin
 "" ----------------------------------------
 call plug#begin('~/.config/nvim/plugged/')
+	Plug 'SirVer/ultisnips'
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'tpope/vim-fugitive'
+	Plug 'honza/vim-snippets'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'tpope/vim-commentary'
 	Plug 'bfredl/nvim-miniyank'
@@ -14,6 +16,7 @@ call plug#begin('~/.config/nvim/plugged/')
 	Plug 'prabirshrestha/asyncomplete.vim'
 	Plug 'prabirshrestha/asyncomplete-lsp.vim'
 	Plug 'prabirshrestha/asyncomplete-file.vim'
+	Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
 call plug#end()
@@ -128,3 +131,11 @@ autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#s
 
 " VimTrailingWhitespace
 nnoremap <Leader>trim :FixWhitespace<CR>
+
+" AsynCompleteUltisnips
+let g:UltiSnipsExpandTrigger="<c-e>"
+call asyncomplete#register_source(asyncomplete#sources#ultisnips#get_source_options({
+	\ 'name': 'ultisnips',
+	\ 'whitelist': ['*'],
+	\ 'completor': function('asyncomplete#sources#ultisnips#completor'),
+	\ }))
