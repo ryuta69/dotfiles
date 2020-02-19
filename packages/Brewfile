@@ -2,6 +2,8 @@
 ##	Brewfile
 ##	- This file may lack of tap.
 ## ----------------------------------------
+cask_args appdir: "/Applications"
+
 # Base
 brew "jq"
 brew "fzf"
@@ -42,3 +44,25 @@ brew "mongodb-community"
 # iTerm2
 tap "homebrew/cask-fonts"
 cask "font-source-code-pro"
+
+# GUI Applications
+cask "zoom"
+cask "local"
+cask "slack"
+cask "alfred"
+cask "docker"
+cask "kindle"
+cask "discord"
+cask "postman"
+cask "shiftit"
+cask "transmit"
+cask "evernote"
+cask "gpg-suite"
+cask "appcleaner"
+cask "sequel-pro"
+cask "sublime-text"
+cask "google-chrome"
+cask "android-studio"
+cask "mongodb-compass"
+cask "visual-studio-code"
+cask "google-japanese-ime"

@@ -64,7 +64,7 @@ I do not take any responsibility for any loss caused.
 
 ### GUI Tools essential to me
 
-- [Line](https://apps.apple.com/jp/app/line/id539883307)
+- [Line](https://apps.apple.com/jp/app/line/id539883307) - No Cask.
 - [Zoom](https://zoom.us/download)
 - [Slack](https://slack.com/intl/ja-jp/downloads/mac)
 - [Xcode](https://apps.apple.com/jp/app/xcode/id497799835)
@@ -76,10 +76,9 @@ I do not take any responsibility for any loss caused.
 - [Postman](https://www.getpostman.com/downloads/)
 - [ShiftIt](http://macappstore.org/shiftit/)
 - [Sublime](https://www.sublimetext.com/3) - It's the best editor while FTP.
-- [Adobe XD](https://www.adobe.com/jp/products/xd.html)
+- [Adobe XD](https://www.adobe.com/jp/products/xd.html) - No Cask
 - [Evernote](https://evernote.com/intl/jp/download)
 - [Transmit](https://panic.com/jp/transmit/)
-- [Cloud SDK](https://cloud.google.com/sdk/docs/quickstart-mac-os-x)
 - [GPG Suite](https://gpgtools.org/) - Import/Export GPG key get much easier.
 - [AppCleaner](https://appcleaner.softonic.jp/mac)
 - [Sequel Pro](https://sequelpro.com/download)
