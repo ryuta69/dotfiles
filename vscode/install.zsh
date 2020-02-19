@@ -1,10 +1,11 @@
 #! /usr/local/bin/zsh
 
-DOTPATH="~/.ghq/github.com/ryuta69/dotfiles/vscode"
-if [[ $PWD != ${DOTPATH} ]]; then echo 'Must execute in '${DOTPATH} && exit; fi;
+CWD=`git rev-parse --show-prefix`
+EXEPATH="packages/"
+if [[ ${CWD} != ${EXEPATH} ]]; then echo 'Must execute in '${EXEPATH} && exit; fi;
 
 VSPATH="~/Library/Application\ Support/Code/User"
-ln -sfnv ${DOTPATH}/settings.json ${VSPATH}/settings.json
-ln -sfnv ${DOTPATH}/keybindings.json ${VSPATH}/keybindings.json
+ln -sfnv ${PWD}/settings.json ${VSPATH}/settings.json
+ln -sfnv ${PWD}/keybindings.json ${VSPATH}/keybindings.json
 
 code --install-extension $(cat PluginFile)
