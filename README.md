@@ -3,10 +3,10 @@
 
 ## Contents
 
-* **dotfiles** - Main dotfiles placed in Home Directory.
-* **vscode**   - VSCode settings, keybinds, and plugins.
-* **guitools** - GUI tools settings exported and syncable.
-* **packages** - Package Manager file and installer.
+* **dotfiles** - Main dotfiles.
+* **vscode**   - VSCode settings.
+* **guitools** - GUI tools settings.
+* **packages** - Package Manager files.
 
 <br />
 
