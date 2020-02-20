@@ -60,6 +60,7 @@ alias lnsv='ln -sfnv'
 alias pbcp='pbcopy <'
 alias cdwk='cd ~/work'
 alias cdd='cd ${DOTPATH}'
+function cwd() { ls -d $PWD/$@; }
 alias lv='nvim `ls | fzf --preview "cat {}"`'
 alias tr2='tree -a -L 2 -I ".git|.node_modules"'
 alias tr3='tree -a -L 3 -I ".git|.node_modules"'
@@ -70,10 +71,14 @@ function mkcd() { mkdir $@; cd $@; }
 alias g='git'
 compdef _git g
 alias ghg='ghq get'
+alias opg='hub browse'
 alias vig='vi ~/.gitconfig'
 alias cdgh='cd `ghq list -p | fzf`'
 alias rmgh='rm -rf `ghq list -p | fzf`'
+alias opis='hub issue show `hub issue | fzf`'
 alias cdg='cd `git rev-parse --show-toplevel`'
+alias oppr='hub pr show `hub pr list | fzf`'
+alias copr='hub pr checkout `hub pr list | fzf`'
 alias opgh='hub browse `ghq list | fzf | cut -d "/" -f 2,3`'
 function gcre() {
 	git init;
