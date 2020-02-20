@@ -13,10 +13,7 @@ call plug#begin('~/.config/nvim/plugged/')
 	Plug 'mattn/vim-lsp-settings'
 	Plug 'prabirshrestha/async.vim'
 	Plug 'bronson/vim-trailing-whitespace'
-	Plug 'prabirshrestha/asyncomplete.vim'
-	Plug 'prabirshrestha/asyncomplete-lsp.vim'
-	Plug 'prabirshrestha/asyncomplete-file.vim'
-	Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
 call plug#end()
@@ -44,6 +41,7 @@ set scrolloff=10
 set encoding=utf-8
 set fileencodings=cp932,sjis,euc-jp,utf-8,iso-2022-jp
 let $LANG='en_US.UTF-8'
+let mapleader="\<Space>"
 set clipboard=unnamedplus
 set fileformats=unix,dos,mac
 set backspace=indent,eol,start
@@ -64,16 +62,13 @@ nnoremap + <C-a>
 nnoremap - <C-x>
 nnoremap <Up> gk
 nnoremap <Down> gj
+nnoremap <Leader>t :tabnew<CR>
 nnoremap <silent> <Tab> 15<Right>
 nnoremap <silent> <S-Tab> 15<Left>
-let mapleader="\<Space>"
-nnoremap <Leader>t :tabnew<CR>
 nnoremap <Leader>code :!code %:p<CR>
-if &diff
-	nnoremap <leader>1 :diffget LOCAL<CR>
-	nnoremap <leader>2 :diffget BASE<CR>
-	nnoremap <leader>3 :diffget REMOTE<CR>
-endif
+nnoremap <leader>1 :diffget LOCAL<CR>
+nnoremap <leader>2 :diffget BASE<CR>
+nnoremap <leader>3 :diffget REMOTE<CR>
 
 "" ----------------------------------------
 ""	PluginSetting
@@ -81,12 +76,10 @@ endif
 " AyuVim
 colorscheme ayu
 let ayucolor="dark"
-if &diff
-	highlight DiffAdd    gui=none guifg=none    guibg=#003366
-	highlight DiffDelete gui=bold guifg=#660000 guibg=#660000
-	highlight DiffChange gui=none guifg=none    guibg=#006666
-	highlight DiffText   gui=none guifg=none    guibg=#013220
-endif
+highlight DiffAdd    gui=none guifg=none    guibg=#003366
+highlight DiffDelete gui=bold guifg=#660000 guibg=#660000
+highlight DiffChange gui=none guifg=none    guibg=#006666
+highlight DiffText   gui=none guifg=none    guibg=#013220
 
 " VimFzf
 nnoremap <Leader>file :Files<CR>
@@ -101,12 +94,24 @@ endfunction
 nnoremap <Leader>rg :call Rg()<CR>
 
 " VimLsp
+nnoremap <Leader>lsphv :LspHover<CR>
+nnoremap <Leader>lspst :LspStatus<CR>
 nnoremap <Leader>lspup :LspInstallServer<CR>
-nnoremap <Leader>format :LspDocumentFormat<CR>
+nnoremap <Leader>lspfm :LspDocumentFormat<CR>
+nnoremap <Leader>lspdf :LspPeekDefinition<CR>
 
 " VimPlug
 nnoremap <Leader>clean :PlugClean<CR>
+nnoremap <Leader>update :PlugUpdate<CR>
 nnoremap <Leader>install :PlugInstall<CR>
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " VimFugitive
 nnoremap <Leader>gd :Gdiff<CR>
@@ -120,22 +125,3 @@ nnoremap <Leader>dgr :diffget //3 \| diffupdate<CR>
 " NvimMiniyank
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
-
-" AsynCompleteFile
-autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-	\ 'name': 'file',
-	\ 'whitelist': ['*'],
-	\ 'priority': 10,
-	\ 'completor': function('asyncomplete#sources#file#completor')
-	\ }))
-
-" VimTrailingWhitespace
-nnoremap <Leader>trim :FixWhitespace<CR>
-
-" AsynCompleteUltisnips
-let g:UltiSnipsExpandTrigger="<c-e>"
-call asyncomplete#register_source(asyncomplete#sources#ultisnips#get_source_options({
-	\ 'name': 'ultisnips',
-	\ 'whitelist': ['*'],
-	\ 'completor': function('asyncomplete#sources#ultisnips#completor'),
-	\ }))
