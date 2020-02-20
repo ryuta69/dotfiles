@@ -11,16 +11,10 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run a packages install.zsh
       run: |
-        cd packages
-        bash install.zsh 
-        cd ../
+        bash ./packages/install.zsh
     - name: Run a dotfiles install.zsh
       run: |
-        cd dotfiles
-        zsh install.zsh 
-        cd ../
+        zsh ./dotfiles/install.zsh
     - name: Run a vscode install.zsh
       run: |
-        cd vscode
-        zsh install.zsh 
-        cd ../
+        zsh ./vscode/install.zsh
