@@ -2,6 +2,7 @@
 ##	Brewfile
 ##	- This file may lack of tap.
 ## ----------------------------------------
+tap "caskroom/cask"
 cask_args appdir: "/Applications"
 
 # Base
