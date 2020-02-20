@@ -12,15 +12,15 @@ jobs:
     - name: Run a packages install.zsh
       run: |
         cd packages
-        ./install.zsh 
+        bash install.zsh 
         cd ../
     - name: Run a dotfiles install.zsh
       run: |
         cd dotfiles
-        ./install.zsh 
+        zsh install.zsh 
         cd ../
     - name: Run a vscode install.zsh
       run: |
         cd vscode
-        ./install.zsh 
+        zsh install.zsh 
         cd ../
