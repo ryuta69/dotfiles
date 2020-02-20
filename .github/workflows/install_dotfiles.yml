@@ -1,0 +1,26 @@
+name: dotfiles CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run a packages install.zsh
+      run: |
+        cd packages
+        ./install.zsh 
+        cd ../
+    - name: Run a dotfiles install.zsh
+      run: |
+        cd dotfiles
+        ./install.zsh 
+        cd ../
+    - name: Run a vscode install.zsh
+      run: |
+        cd vscode
+        ./install.zsh 
+        cd ../
