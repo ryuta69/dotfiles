@@ -7,4 +7,20 @@
                 "key": "shift+cmd+m",
                 "command": "workbench.action.toggleMaximizedPanel"
         },
+        {
+                "key": "ctrl+cmd+t",
+                "command": "workbench.action.reopenClosedEditor"
+        },
+        {
+                "key": "shift+cmd+t",
+                "command": "workbench.action.terminal.newInActiveWorkspace"
+        },
+        {
+                "key": "ctrl+cmd+d",
+                "command": "-workbench.view.debug"
+        },
+        {
+                "key": "shift+cmd+d",
+                "command": "workbench.action.terminal.splitInActiveWorkspace"
+        },
 ]
