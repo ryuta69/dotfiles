@@ -30,11 +30,10 @@ ghq get ryuta69/dotfiles
 3. install.zsh
 
 ```
-./install.zsh
+bash ./packages/install.zsh
+zsh  ./dotfiles/install.zsh
+zsh  ./vscode/install.zsh
 ```
-
-Currently, I'm making install.zsh for whole folders in process of testing.
-Please exec install.zsh in each folder until then.
 
 <br />
 
