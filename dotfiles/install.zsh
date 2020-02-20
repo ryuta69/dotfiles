@@ -2,14 +2,11 @@
 
 setopt globdots
 
-CWD=`git rev-parse --show-prefix`
-EXEPATH="dotfiles/"
-if [[ ${CWD} != ${EXEPATH} ]]; then echo 'Must execute in '${EXEPATH} && exit; fi;
-
 read Ans"?Your file will be overwritten(Y/n): "
 if [[ $Ans != 'Y' ]]; then echo 'Canceled\n' && exit; fi;
 
-for abspath (${PWD}/*); do
+EXEPATH=$0:A:h
+for abspath (${EXEPATH}/*); do
 	filename=$(basename -- "$abspath");
 
 	if [[ $filename = 'aliases' ]]; then continue ; fi;

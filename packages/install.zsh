@@ -1,10 +1,8 @@
 #! /usr/local/bin/zsh
 
-CWD=`git rev-parse --show-prefix`
-EXEPATH="packages/"
-if [[ ${CWD} != ${EXEPATH} ]]; then echo 'Must execute in '${EXEPATH} && exit; fi;
+EXEPATH=$0:A:h
 
 brew tap homebrew/bundle
-brew bundle
+brew bundle ${EXEPATH}
 
-npm install -g $(cat Npmfile)
+npm install -g $(cat ${EXEPATH}/Npmfile)
