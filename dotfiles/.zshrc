@@ -61,11 +61,12 @@ alias pbcp='pbcopy <'
 alias cdwk='cd ~/work'
 alias cdd='cd ${DOTPATH}'
 function cwd() { ls -d $PWD/$@; }
+function mkcd() { mkdir $@; cd $@; }
+function sedr() { sed -i -- $@ **/*(D.); }
 alias lv='nvim `ls | fzf --preview "cat {}"`'
 alias tr2='tree -a -L 2 -I ".git|.node_modules"'
 alias tr3='tree -a -L 3 -I ".git|.node_modules"'
 alias pskl='ps aux | fzf | awk "{ print \$2 }" | xargs kill -9'
-function mkcd() { mkdir $@; cd $@; }
 
 # Git
 alias g='git'
