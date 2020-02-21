@@ -51,7 +51,7 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 	\| exe "normal! g'\"" | endif
 
 "" ----------------------------------------
-""	Shortcut
+""	Mapping
 "" ----------------------------------------
 nnoremap Y y$
 nnoremap <C-e> $
@@ -125,3 +125,6 @@ nnoremap <Leader>dgr :diffget //3 \| diffupdate<CR>
 " NvimMiniyank
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
+
+" VimTrailingWhitespace
+nnoremap <Leader>trim :FixWhitespace<CR>
