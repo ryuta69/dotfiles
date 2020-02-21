@@ -1,7 +1,7 @@
 #! /usr/local/bin/zsh
 
 local -A opthash
-zparseopts -D -A opthash -- -force -help
+zparseopts -D -A opthash -- -force -help -test
 
 if [[ -n "${opthash[(i)--help]}" ]]; then
         echo "Add option --force to install without checking." && exit;
