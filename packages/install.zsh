@@ -3,6 +3,6 @@
 EXEPATH=$0:A:h
 
 brew tap homebrew/bundle
-brew bundle ${EXEPATH}/Brewfile
+brew bundle --file ${EXEPATH}/Brewfile
 
 npm install -g $(cat ${EXEPATH}/Npmfile)
