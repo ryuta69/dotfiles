@@ -1,4 +1,4 @@
-name: dotfiles CI
+name: install_settings
 
 on: [push]
 
@@ -14,10 +14,13 @@ jobs:
         brew install zsh
     - name: Run a packages install.zsh
       run: |
-        zsh ./packages/install.zsh
+        zsh ./packages/install.zsh --force --test
     - name: Run a dotfiles install.zsh
       run: |
-        zsh ./dotfiles/install.zsh
+        zsh ./dotfiles/install.zsh --force --test
     - name: Run a vscode install.zsh
       run: |
-        zsh ./vscode/install.zsh
+        zsh ./vscode/install.zsh --force --test
+    - name: Run a MacOS install.zsh
+      run: |
+        zsh ./guitools/install.zsh --force --test
