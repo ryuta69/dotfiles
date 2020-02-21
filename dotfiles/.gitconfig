@@ -5,12 +5,13 @@
 [alias]
 	ad  = add
 	ada = add -A
-	al  = alias
+        adf = !git status -s | fzf -m | awk '{print $NF}' | xargs git add
 	br  = branch
 	bra = branch -A
 	cm  = commit --verbose
 	co  = checkout
 	cob = checkout -b
+	cof = !git branch | fzf | xargs git checkout
 	df  = diff
 	dfh = diff HEAD
 	dft = difftool
@@ -43,6 +44,11 @@
 	prompt = false
 [difftool "vimdiff"]
 	path   = nvim
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [ghq]
 	root = ~/.ghq
 [gpg]

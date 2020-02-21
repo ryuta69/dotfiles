@@ -1,8 +1,7 @@
 ## ----------------------------------------
 ##	Brewfile
-##	- This file may lack of tap.
 ## ----------------------------------------
-tap "caskroom/cask"
+tap "homebrew/cask-cask"
 cask_args appdir: "/Applications"
 
 # Base
@@ -11,6 +10,7 @@ brew "fzf"
 brew "ghq"
 brew "git"
 brew "hub"
+brew 'mas'
 brew "nkf"
 brew "tig"
 brew "vim"
@@ -30,7 +30,7 @@ brew "bash-completion"
 # Language
 brew "go"
 brew "gcc"
-brew "node"
+brew "node", link: force
 brew "perl"
 brew "ruby"
 brew "cmake"
@@ -40,10 +40,11 @@ brew "python"
 # Database
 brew "mysql"
 brew "redis"
+tap  "mongodb/brew"
 brew "mongodb-community"
 
 # iTerm2
-tap "homebrew/cask-fonts"
+tap  "homebrew/cask-fonts"
 cask "font-source-code-pro"
 
 # GUI Applications
@@ -67,3 +68,5 @@ cask "android-studio"
 cask "mongodb-compass"
 cask "visual-studio-code"
 cask "google-japanese-ime"
+cask "adobe-creative-cloud"
+mas  "LINE", id: 539883307
