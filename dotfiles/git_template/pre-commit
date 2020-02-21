@@ -15,8 +15,9 @@ fi
 # Check for large files
 filter=$(cat ~/.gitattributes | grep filter=lfs | awk '{printf "-e .%s$ ", $1}')
 files=$(git diff --cached --relative --name-only HEAD | sort | uniq | grep -v $filter)
+gpath=$(git rev-parse --show-toplevel)
 for file in ${files}; do
-	file_size=$(ls -l ${file} | awk '{print $5}')
+	file_size=$(ls -l ${gpath}/${file} | awk '{print $5}')
 	file_size_kb=$((file_size / 1024))
 	if [ ${file_size_kb} -ge 1024 ]; then
 		echo "${file} has size ${file_size_kb}KB over 1024KB. Please fix or avoit it to LFS."
