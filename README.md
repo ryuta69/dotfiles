@@ -30,9 +30,9 @@ ghq get ryuta69/dotfiles
 3. install.zsh
 
 ```
-bash ./packages/install.zsh
-zsh  ./dotfiles/install.zsh
-zsh  ./vscode/install.zsh
+zsh ./packages/install.zsh
+zsh ./dotfiles/install.zsh
+zsh ./vscode/install.zsh
 ```
 
 <br />

@@ -9,9 +9,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Install zsh
+      run: |
+        brew install zsh
     - name: Run a packages install.zsh
       run: |
-        bash ./packages/install.zsh
+        zsh ./packages/install.zsh
     - name: Run a dotfiles install.zsh
       run: |
         zsh ./dotfiles/install.zsh
