@@ -14,7 +14,7 @@ class GoogleTranslateWorkflowBase
 
     protected $defaultSettings = [
         'source' => 'auto',
-        'target' => 'en'
+        'target' => 'ja'
     ];
 
     protected $validOptions = [
