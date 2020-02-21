@@ -1,17 +1,10 @@
-#!/bin/bash
+#! /usr/local/bin/zsh
 
 ## ----------------------------------------
 ##	Checking
 ## ----------------------------------------
-if git rev-parse --verify HEAD >/dev/null 2>&1
-then
-	against=HEAD
-else
-	against=$(git hash-object -t tree /dev/null)
-fi
-
 # Check for .pem files
-MATCH=`git diff --cached --name-only $against | grep '.*\.pem$'`;
+MATCH=$(git diff --cached --name-only HEAD | grep '.*\.pem$')
 if [[ ! -z $MATCH ]]; then
 	printf "It looks like you're trying to commit a PEM file in:"
 	printf "$MATCH\n\n"
@@ -19,11 +12,14 @@ if [[ ! -z $MATCH ]]; then
 	exit 1
 fi
 
-# Check for PRIVATE KEY
-MATCH=`git diff --cached --name-only $against | xargs grep 'PRIVATE KEY'`;
-if [[ $MATCH -ne 0 ]]; then
-	printf "It looks like you're trying to commit a private key in:"
-	printf "$MATCH\n\n"
-	printf "Please check your code and remove any private keys."
-	exit 1
-fi
+# Check for large files
+filter=$(cat ~/.gitattributes | grep filter=lfs | awk '{printf "-e .%s$ ", $1}')
+files=$(git diff --cached --relative --name-only HEAD | sort | uniq | grep -v $filter)
+for file in ${files}; do
+	file_size=$(ls -l ${file} | awk '{print $5}')
+	file_size_kb=$((file_size / 1024))
+	if [ ${file_size_kb} -ge 1024 ]; then
+		echo "${file} has size ${file_size_kb}KB over 1024KB. Please fix or avoit it to LFS."
+		exit 1
+	fi
+done
