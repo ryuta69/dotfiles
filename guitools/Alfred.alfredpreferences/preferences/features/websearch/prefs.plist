@@ -7,7 +7,7 @@
 		<key>30EBFE1A-80C7-4DA6-AD49-FD55F69AE5A0</key>
 		<dict>
 			<key>enabled</key>
-			<true/>
+			<false/>
 			<key>keyword</key>
 			<string>so</string>
 			<key>text</key>
@@ -18,5 +18,7 @@
 			<true/>
 		</dict>
 	</dict>
+	<key>onlyShowEnabledInPrefs</key>
+	<true/>
 </dict>
 </plist>
