@@ -13,30 +13,21 @@
 ## Installation
 I do not take any responsibility for any loss caused.
 
-1. Homebrew
-
-```
-xcode-select --install
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
-2. ghq
-
-```
-brew install ghq
-ghq get ryuta69/dotfiles
-```
-
-3. make
-
 ```
 ❯ make help
+
 ᓚᘏᗢ < This is my personal dotfiles. Any advice is appreciated!
 
+1. You need Homebrew. Run commands below if you still haven't installed.
+xcode-select --install
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+2. Make Commands
 init      : install dependencies.
 packages  : install package manager files.
 dotfiles  : install dotfiles.
 vscode    : install VSCode settings.
 macos     : install MacOS settings.
 allrun    : install all settings.
+
 ```
