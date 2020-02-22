@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "package main\nfunc main() {\n{cursor}\n}",
+    "uid" : "919A3050-6041-45A7-A61B-EF16EBE5ADCD",
+    "name" : "temp_go",
+    "keyword" : "temp go"
+  }
+}

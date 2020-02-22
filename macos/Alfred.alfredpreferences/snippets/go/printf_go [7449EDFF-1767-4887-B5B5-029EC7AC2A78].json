@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "fmt.Printf(\"%T\", {cursor})",
+    "uid" : "7449EDFF-1767-4887-B5B5-029EC7AC2A78",
+    "name" : "printf_go",
+    "keyword" : "printf go"
+  }
+}

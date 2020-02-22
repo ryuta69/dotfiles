@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "l := []int{{cursor}}",
+    "uid" : "C773D868-A92B-4BEC-BBEB-B847F7C64727",
+    "name" : "array_go",
+    "keyword" : "array go"
+  }
+}

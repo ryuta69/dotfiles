@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "if err != nil {\n\tlog.Fatal(\"Error\")\n}",
+    "uid" : "16978E85-B5DB-40CB-80B6-2B0B1D0B521C",
+    "name" : "error_go",
+    "keyword" : "error go"
+  }
+}

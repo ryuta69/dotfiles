@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "log.Fatalln({cursor})",
+    "uid" : "2E427B1D-1A62-4842-BFF8-FD10752234E0",
+    "name" : "logfatal_go",
+    "keyword" : "logfatal go"
+  }
+}

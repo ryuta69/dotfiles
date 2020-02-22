@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "log.Println({cursor})",
+    "uid" : "D509D94C-E5AB-46E7-979B-3EE042692EB0",
+    "name" : "log_go",
+    "keyword" : "log go"
+  }
+}

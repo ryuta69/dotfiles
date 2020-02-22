@@ -112,7 +112,7 @@
 				<key>escaping</key>
 				<integer>98</integer>
 				<key>keyword</key>
-				<string>encode</string>
+				<string>enc</string>
 				<key>queuedelaycustom</key>
 				<integer>1</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -178,7 +178,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>decode</string>
+				<string>dec</string>
 				<key>queuedelaycustom</key>
 				<integer>1</integer>
 				<key>queuedelayimmediatelyinitially</key>

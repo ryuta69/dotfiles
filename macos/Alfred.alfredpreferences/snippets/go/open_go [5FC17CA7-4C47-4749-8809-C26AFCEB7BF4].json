@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "file, _ := os.Open({cursor})\ndefer file.Close()\ndata := make([]byte, 100)\nfile.Read(data)\nfmt.Println(string(data))",
+    "uid" : "5FC17CA7-4C47-4749-8809-C26AFCEB7BF4",
+    "name" : "open_go",
+    "keyword" : "open go"
+  }
+}
