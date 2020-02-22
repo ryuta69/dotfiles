@@ -379,7 +379,7 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/.ghq/github.com/ryuta69/dotfiles/guitools</string>
+	<string>~/.ghq/github.com/ryuta69/dotfiles/macos</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -428,7 +428,7 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 372 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>722 525 585 352 0 0 1440 877 </string>
+	<string>722 36 718 841 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_905E02DC-EC49-4A6B-9EE6-E73A88A9B2DB</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_905E02DC-EC49-4A6B-9EE6-E73A88A9B2DB_selection</key>
@@ -1178,12 +1178,16 @@
 	<true/>
 	<key>NoSyncConfirmShellIntegrationCommand_selection</key>
 	<integer>0</integer>
+	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt</key>
+	<true/>
+	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt_selection</key>
+	<integer>1</integer>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{516, 877}</string>
+		<string>{463, 874}</string>
 	</dict>
 	<key>NoSyncInstallUtilitiesPackage</key>
 	<true/>
@@ -1194,7 +1198,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>602972547.35146105</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>53</integer>
+	<integer>58</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1969,7 +1973,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/ryuta69/.ghq/github.com/ryuta69/dotfiles/guitools</string>
+	<string>/Users/ryuta69/.ghq/github.com/ryuta69/dotfiles/macos</string>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>SUEnableAutomaticChecks</key>
@@ -1981,7 +1985,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-02-18T12:53:03Z</date>
+	<date>2020-02-22T02:46:19Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
