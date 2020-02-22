@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "static vector<int> memo(10);\nstruct {\n\tint operator()(int n) {\n\t\tif (n <= 1) return n;\n\t\tif (memo.at(n) != 0) return memo.at(n);\n\t\treturn memo.at(n) = (*this)(n - 1) + (*this)(n - 2);\n\t}\n} fib;",
+    "uid" : "0E97AF61-8CE3-434F-91DF-AF011240E30D",
+    "name" : "fib_cpp",
+    "keyword" : "fib cpp"
+  }
+}

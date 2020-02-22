@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "content, err := ioutil.ReadFile({cursor})\nif err != nil {\n\tlog.Fatal(err)\n}\nfmt.Println(string(content))",
+    "uid" : "96073A3F-E185-4330-A0AF-75FADABB3D77",
+    "name" : "readfile_go",
+    "keyword" : "readfile go"
+  }
+}

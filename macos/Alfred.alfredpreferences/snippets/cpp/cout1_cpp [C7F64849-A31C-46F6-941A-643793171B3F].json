@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "cout << {cursor} << endl;",
+    "uid" : "C7F64849-A31C-46F6-941A-643793171B3F",
+    "name" : "cout1_cpp",
+    "keyword" : "cout1 cpp"
+  }
+}

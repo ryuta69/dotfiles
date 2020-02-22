@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "sort(vec.begin(), vec.end());",
+    "uid" : "DD5C7D3E-D120-44D7-947C-71BF69324C0A",
+    "name" : "sort_cpp",
+    "keyword" : "sort cpp"
+  }
+}

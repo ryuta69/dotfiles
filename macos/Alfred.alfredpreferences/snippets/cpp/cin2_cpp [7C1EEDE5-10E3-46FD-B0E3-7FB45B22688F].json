@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "static int a, b;\ncin >> a >> b;",
+    "uid" : "7C1EEDE5-10E3-46FD-B0E3-7FB45B22688F",
+    "name" : "cin2_cpp",
+    "keyword" : "cin2 cpp"
+  }
+}

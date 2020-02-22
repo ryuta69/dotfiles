@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "parsed,_ := url.Parse({cursor})",
+    "uid" : "D0F45D1B-E205-43D2-9039-47356E6C5D06",
+    "name" : "urlparse_go",
+    "keyword" : "urlparse go"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "static int root = log10({cursor} \/ log10(2);",
+    "uid" : "AD11E411-4946-404D-BD50-DEF21D6C0522",
+    "name" : "root_cpp",
+    "keyword" : "root cpp"
+  }
+}

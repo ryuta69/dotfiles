@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "static int a;\ncin >> a;\nstatic vector<int> vec(a);\nfor (int i = 0; i < a; i++) {\n\tcin >> vec.at(i);\n}",
+    "uid" : "0F393A26-447E-4800-B5FE-A1A0D94C3881",
+    "name" : "cinv1_cpp",
+    "keyword" : "cinv1 cpp"
+  }
+}

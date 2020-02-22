@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "time.Sleep({cursor} * time.Second)",
+    "uid" : "48C0AF9E-D66F-4E1A-B6F8-5EED81E2BB56",
+    "name" : "sleep_go",
+    "keyword" : "sleep go"
+  }
+}

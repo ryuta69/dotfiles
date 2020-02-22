@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "size_t pos;\nstring tmp = {cursor};\nwhile ((pos = ____.find(tmp)) != string::npos) {\n\ta.erase(pos, tmp.length());\n}\n",
+    "uid" : "666B378F-09A5-4A4A-ADAD-68852BB277F9",
+    "name" : "erases_cpp",
+    "keyword" : "erases cpp"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "resp, _ := http.Get({cursor})\ndefer resp.Body.Close()\nbody, _ := ioutil.ReadAll(resp.Body)",
+    "uid" : "63B37FBE-4A50-4EE8-90E4-C3E1472EE80D",
+    "name" : "gethttp_go",
+    "keyword" : "gethttp go"
+  }
+}

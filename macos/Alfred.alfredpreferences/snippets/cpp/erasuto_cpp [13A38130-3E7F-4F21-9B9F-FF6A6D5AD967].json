@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "int N = {cursor};\nint arr[N];\nstatic int count_prime = 0;\nstatic vector<int> vec_prime(0);\n\n\/\/ リストにNまで入れる\nfor (int i = 0; i < N; i++) {\n\tarr[i] = 1;\n}\n\/\/ 倍数を振り落としていく\nfor (int i = 2; i < sqrt(N); i++) {\n\tif (arr[i]) {\n\t\tfor (int j = 0; i * (j + 2) < N; j++) {\n\t\t\tarr[i * (j + 2)] = 0;\n\t\t}\n\t}\n}\n\/\/ 残ったものを調べる\nfor (int i = 2; i < N; i++) {\n\tif (arr[i]) {\n\t\tvec_prime.push_back(i);\n\t\tcount_prime++;\n\t}\n}",
+    "uid" : "13A38130-3E7F-4F21-9B9F-FF6A6D5AD967",
+    "name" : "erasuto_cpp",
+    "keyword" : "erasuto cpp"
+  }
+}

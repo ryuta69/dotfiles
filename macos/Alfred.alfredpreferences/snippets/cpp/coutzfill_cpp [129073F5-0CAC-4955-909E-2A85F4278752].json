@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "cout << setfill('0') << right << setw({cursor}) << ____ << endl;",
+    "uid" : "129073F5-0CAC-4955-909E-2A85F4278752",
+    "name" : "coutzfill_cpp",
+    "keyword" : "coutzfill cpp"
+  }
+}

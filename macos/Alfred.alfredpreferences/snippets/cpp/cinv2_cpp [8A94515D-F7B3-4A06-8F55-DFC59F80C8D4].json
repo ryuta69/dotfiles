@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "static int a;\ncin >> a;\nstatic vector<int> vec(a);\nstatic vector<int> vec2(a);\nfor (int i = 0; i < a; i++) {\n\tcin >> vec.at(i) >> vec2.at(i);\n}",
+    "uid" : "8A94515D-F7B3-4A06-8F55-DFC59F80C8D4",
+    "name" : "cinv2_cpp",
+    "keyword" : "cinv2 cpp"
+  }
+}

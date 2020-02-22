@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "\/\/ vec could be str.\nvec.erase(vec.begin()+{cursor})",
+    "uid" : "DD7A1DA2-7196-4B53-9D5E-7A2AC077CEED",
+    "name" : "eraseel_cpp",
+    "keyword" : "eraseel cpp"
+  }
+}

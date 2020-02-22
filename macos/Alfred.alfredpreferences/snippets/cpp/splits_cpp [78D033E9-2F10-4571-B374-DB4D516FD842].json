@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "static vector<string> v;\nstringstream ss({cursor});\nstring buffer;\nwhile (getline(ss, buffer, '____')) {\n\tv.push_back(buffer);\n}",
+    "uid" : "78D033E9-2F10-4571-B374-DB4D516FD842",
+    "name" : "splits_cpp",
+    "keyword" : "splits cpp"
+  }
+}

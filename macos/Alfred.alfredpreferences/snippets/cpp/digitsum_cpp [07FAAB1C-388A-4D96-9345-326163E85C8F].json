@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "static int sumdigit = 0;\nstring aa = to_string({cursor});\nfor (size_t i = 0; i < aa.length(); i++) {\n\tsumdigit += aa[i] - '0';\n}",
+    "uid" : "07FAAB1C-388A-4D96-9345-326163E85C8F",
+    "name" : "digitsum_cpp",
+    "keyword" : "digitsum cpp"
+  }
+}
