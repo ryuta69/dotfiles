@@ -29,4 +29,4 @@ sudo ln -sfnv /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /u
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells'
-chsh -s /usr/local/bin/zsh
+sudo chsh -s /usr/local/bin/zsh
