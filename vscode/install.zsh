@@ -10,7 +10,7 @@ fi
 
 if [[ -z "${opthash[(i)--force]}"  ]]; then
         read Ans"?Your file will be overwritten(Y/n): "
-        if [[ $Ans != 'Y' ]]; then echo 'Canceled\n' && exit;
+        if [[ $Ans != 'Y' ]]; then echo 'Canceled\n' && exit; fi;
 fi;
 
 EXEPATH=$0:A:h
