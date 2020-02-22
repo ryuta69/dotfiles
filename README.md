@@ -6,7 +6,6 @@
 * **dotfiles** - Main dotfiles.
 * **macos**    - MacOS settings.
 * **vscode**   - VSCode settings.
-* **guitools** - Macbook settings.
 * **packages** - Package Manager files.
 
 <br />
