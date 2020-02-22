@@ -115,3 +115,36 @@ If not, I will add install.zsh.
 ### Desktop Display Option
   - Icon size -> 36.
   - Text size -> 12.
+
+### Dock
+  - Finder
+  - Mail
+  - Docker
+  - AppStore
+  - Xcode
+  - Kindle
+  - VSCode
+  - Zoom
+  - Quicktime
+  - Discord
+  - Transmit
+  - VirtualBox
+  - Evernote
+  - MongoDB
+  - AndroidStudio
+  - Line
+  - Local
+  - Anaconda
+  - SequelPro
+  - Slack
+  - Calendar
+  - Postman
+  - Chrome
+  - DigitalColorMeter
+  - AdobeXD
+  - Sublime
+  - VoiceMemo
+  - AlfredPreference
+  - iTerm2
+  - Automater
+  - SystemPreference

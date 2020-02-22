@@ -4,6 +4,7 @@
 ## Contents
 
 * **dotfiles** - Main dotfiles.
+* **macos**    - MacOS settings.
 * **vscode**   - VSCode settings.
 * **guitools** - Macbook settings.
 * **packages** - Package Manager files.
@@ -34,6 +35,5 @@ brew install zsh
 zsh ./packages/install.zsh
 zsh ./dotfiles/install.zsh
 zsh ./vscode/install.zsh
-zsh ./guitools/install.zsh
+zsh ./macos/install.zsh
 ```
-

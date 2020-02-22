@@ -2,7 +2,7 @@
 
 setopt globdots
 local -A opthash
-zparseopts -D -A opthash -- -force -help -test
+zparseopts -D -A opthash -- -force -help
 
 if [[ -n "${opthash[(i)--help]}" ]]; then
         echo "Add option --force to install without checking." && exit;

@@ -14,13 +14,13 @@ jobs:
         brew install zsh
     - name: Run a packages install.zsh
       run: |
-        zsh ./packages/install.zsh --force --test
+        zsh ./packages/install.zsh --force
     - name: Run a dotfiles install.zsh
       run: |
-        zsh ./dotfiles/install.zsh --force --test
+        zsh ./dotfiles/install.zsh --force
     - name: Run a vscode install.zsh
       run: |
         zsh ./vscode/install.zsh --force --test
     - name: Run a MacOS install.zsh
       run: |
-        zsh ./guitools/install.zsh --force --test
+        zsh ./macos/install.zsh --force --test
