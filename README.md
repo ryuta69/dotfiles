@@ -27,12 +27,16 @@ brew install ghq
 ghq get ryuta69/dotfiles
 ```
 
-3. install.zsh
+3. make
 
 ```
-brew install zsh
-zsh ./packages/install.zsh
-zsh ./dotfiles/install.zsh
-zsh ./vscode/install.zsh
-zsh ./macos/install.zsh
+❯ make help
+ᓚᘏᗢ < This is my personal dotfiles. Any advice is appreciated!
+
+init      : install dependencies.
+packages  : install package manager files.
+dotfiles  : install dotfiles.
+vscode    : install VSCode settings.
+macos     : install MacOS settings.
+allrun    : install all settings.
 ```

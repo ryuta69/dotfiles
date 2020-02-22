@@ -9,18 +9,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Install zsh
+    - name: Run help command.
       run: |
-        brew install zsh
-    - name: Run a packages install.zsh
+        make help
+    - name: Install dependencies.
       run: |
-        zsh ./packages/install.zsh --force
-    - name: Run a dotfiles install.zsh
+        make init
+    - name: Install dotfiles.
       run: |
-        zsh ./dotfiles/install.zsh --force
-    - name: Run a vscode install.zsh
-      run: |
-        zsh ./vscode/install.zsh --force --test
-    - name: Run a MacOS install.zsh
-      run: |
-        zsh ./macos/install.zsh --force --test
+        make allrun_workflow
