@@ -18,3 +18,5 @@ brew tap homebrew/bundle
 brew bundle --file ${EXEPATH}/Brewfile
 
 npm install -g $(cat ${EXEPATH}/Npmfile)
+
+pip install -r Pipfile

@@ -36,6 +36,7 @@ brew "ruby"
 brew "cmake"
 brew "rbenv"
 brew "python"
+brew "pipenv"
 
 # Database
 brew "mysql"

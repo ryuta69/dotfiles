@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "min := l[0]\nfor _, arg := range l {\n\tif arg < min {\n\t\tmin = arg\n\t}\n}",
+    "uid" : "9F9CB1CE-7ED8-4852-A122-BEC44A81A6D0",
+    "name" : "min_go",
+    "keyword" : "min go"
+  }
+}
