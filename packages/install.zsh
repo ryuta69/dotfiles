@@ -14,9 +14,12 @@ fi
 
 EXEPATH=$0:A:h
 
+brew upgrade
 brew tap homebrew/bundle
 brew bundle --file ${EXEPATH}/Brewfile
 
+npm update -g npm
 npm install -g $(cat ${EXEPATH}/Npmfile)
 
-pip install -r Pipfile
+pip install --upgrade pip
+pip install -r ${EXEPATH}/Pipfile
