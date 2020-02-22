@@ -30,7 +30,7 @@ brew "bash-completion"
 # Language
 brew "go"
 brew "gcc"
-brew "node", link: force
+brew "node", link: true
 brew "perl"
 brew "ruby"
 brew "cmake"
