@@ -34,12 +34,10 @@ set ignorecase
 set splitright
 set splitbelow
 set termguicolors
-set mouse=a
 set tabstop=8
 set shiftwidth=8
 set scrolloff=10
 set encoding=utf-8
-set fileencodings=cp932,sjis,euc-jp,utf-8,iso-2022-jp
 let $LANG='en_US.UTF-8'
 let mapleader="\<Space>"
 set clipboard=unnamedplus
@@ -47,6 +45,7 @@ set fileformats=unix,dos,mac
 set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,]
 set guicursor=a:ver25-blinkon10
+set fileencodings=cp932,sjis,euc-jp,utf-8,iso-2022-jp
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 	\| exe "normal! g'\"" | endif
 
