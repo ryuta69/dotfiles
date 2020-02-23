@@ -1,13 +1,15 @@
 help:
-	@echo "\nᓚᘏᗢ < This is my personal dotfiles."
-	@echo "1. You need Homebrew."
-	@echo "xcode-select --install"
-	@echo "/usr/bin/ruby -e \"\$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"\n"
-	@echo "2. Make Commands"
+	@echo "\nᓚᘏᗢ < This is my personal dotfiles.\n"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "%-10s: %s\n", $$1, $$2}'
 
 init: ## install dependencies.
+	xcode-select --install
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew install zsh
+	sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells'
+	sudo chsh -s /usr/local/bin/zsh
+	brew tap homebrew/bundle
+	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 packages: ## install package manager files.
 	./packages/install.zsh
@@ -29,6 +31,11 @@ allrun: ## install all settings.
 	./macos/install.zsh --force
 
 allrun_workflow:
+	brew install zsh
+	sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells'
+	sudo chsh -s /usr/local/bin/zsh
+	brew tap homebrew/bundle
+	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	./packages/install.zsh --force
 	./dotfiles/install.zsh --force
 	./vscode/install.zsh --force --test

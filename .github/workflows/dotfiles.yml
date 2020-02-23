@@ -1,4 +1,4 @@
-name: install_settings
+name: install dotfiles
 
 on: [push]
 
@@ -14,7 +14,20 @@ jobs:
         make help
     - name: Install dependencies.
       run: |
-        make init
-    - name: Install dotfiles.
+	brew install zsh
+	sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells'
+	sudo chsh -s /usr/local/bin/zsh
+	brew tap homebrew/bundle
+	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    - name: Install package files.
       run: |
-        make allrun_workflow
+	./packages/install.zsh --force
+    - name: Install dotfiles settings.
+      run: |
+	./dotfiles/install.zsh --force
+    - name: Install vscode settings.
+      run: |
+	./vscode/install.zsh --force --test
+    - name: Install macos settings.
+      run: |
+	./macos/install.zsh --force --test

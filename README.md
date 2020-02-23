@@ -18,16 +18,10 @@ I do not take any responsibility for any loss caused.
 
 ᓚᘏᗢ < This is my personal dotfiles.
 
-1. You need Homebrew.
-xcode-select --install
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-2. Make Commands
 init      : install dependencies.
 packages  : install package manager files.
 dotfiles  : install dotfiles.
 vscode    : install VSCode settings.
 macos     : install MacOS settings.
 allrun    : install all settings.
-
 ```

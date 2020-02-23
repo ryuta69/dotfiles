@@ -15,7 +15,6 @@ fi
 EXEPATH=$0:A:h
 
 brew upgrade
-brew tap homebrew/bundle
 brew bundle --file ${EXEPATH}/Brewfile
 
 npm update -g npm
