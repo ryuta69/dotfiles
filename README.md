@@ -16,9 +16,9 @@ I do not take any responsibility for any loss caused.
 ```
 ❯ make help
 
-ᓚᘏᗢ < This is my personal dotfiles. Any advice is appreciated!
+ᓚᘏᗢ < This is my personal dotfiles.
 
-1. You need Homebrew. Run commands below if you still haven't installed.
+1. You need Homebrew.
 xcode-select --install
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 

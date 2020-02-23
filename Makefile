@@ -1,6 +1,6 @@
 help:
-	@echo "\nᓚᘏᗢ < This is my personal dotfiles. Any advice is appreciated!\n"
-	@echo "1. You need Homebrew. Run commands below if you still haven't installed."
+	@echo "\nᓚᘏᗢ < This is my personal dotfiles."
+	@echo "1. You need Homebrew."
 	@echo "xcode-select --install"
 	@echo "/usr/bin/ruby -e \"\$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"\n"
 	@echo "2. Make Commands"
@@ -8,8 +8,6 @@ help:
 
 init: ## install dependencies.
 	brew install zsh
-	brew tap homebrew/bundle
-	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 packages: ## install package manager files.
 	./packages/install.zsh
