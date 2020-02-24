@@ -17,6 +17,7 @@ I do not take any responsibility for any loss caused.
 ❯ make help
 
 ᓚᘏᗢ < This is my personal dotfiles.
+Use Make commands below, or exec install.zsh in each directory.
 
 init      : install dependencies.
 packages  : install package manager files.
