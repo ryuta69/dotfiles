@@ -29,6 +29,8 @@
 [core]
 	editor = nvim
 	hooksPath = /Users/ryuta69/git_template
+	excludesfile = /Users/ryuta69/.gitignore
+	attributesfile = /Users/ryuta69/.gitattributes
 [color]
 	ui = true
 [commit]
