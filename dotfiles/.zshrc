@@ -67,7 +67,7 @@ alias tr2='tree -a -L 2 -I ".git|.node_modules"'
 alias tr3='tree -a -L 3 -I ".git|.node_modules"'
 alias pskl='ps aux | fzf | awk "{ print \$2 }" | xargs kill -9'
 function lnsv() {
-	abspath=$(ls -d $PWD/$(basename "$1"))
+	abspath=$(echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"))
 	ln -sfnv ${abspath} $2
 }
 
