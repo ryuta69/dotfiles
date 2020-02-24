@@ -56,7 +56,6 @@ alias op='open ./'
 alias dus='du -sh'
 alias psa='ps aux'
 alias ll='ls -avlGF'
-alias lnsv='ln -sfnv'
 alias pbcp='pbcopy <'
 alias cdwk='cd ~/work'
 alias cdd='cd ${DOTPATH}'
@@ -67,6 +66,10 @@ alias lv='nvim `ls | fzf --preview "cat {}"`'
 alias tr2='tree -a -L 2 -I ".git|.node_modules"'
 alias tr3='tree -a -L 3 -I ".git|.node_modules"'
 alias pskl='ps aux | fzf | awk "{ print \$2 }" | xargs kill -9'
+function lnsv() {
+	abspath=$(ls -d $PWD/$(basename "$1"))
+	ln -sfnv ${abspath} $2
+}
 
 # Git
 alias g='git'
