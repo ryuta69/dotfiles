@@ -123,7 +123,7 @@ function vigo() {
 }
 
 # Ripgrep
-alias rg="rg --hidden -g '!.git' -g '!.node_modules' --max-columns 40"
+alias rg="rg --hidden -g '!.git' -g '!.node_modules' --max-columns 200"
 function rrg() {
 	keyword=$1;
 	[ -z $2 ] && matches=`rg -il ${keyword}` || matches=`rg --files | rg -i ${keyword}`;
