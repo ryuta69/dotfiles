@@ -55,16 +55,16 @@ alias cdh='cd ~'
 alias op='open ./'
 alias dus='du -sh'
 alias psa='ps aux'
-alias ll='ls -avlGF'
 alias pbcp='pbcopy <'
 alias cdwk='cd ~/work'
 alias cdd='cd ${DOTPATH}'
 function mkcd() { mkdir $@; cd $@; }
 function sedr() { sed -i -- $@ **/*(D.); }
 alias lv='nvim `ls | fzf --preview "cat {}"`'
-alias tr2='tree -a -L 2 -I ".git|.node_modules"'
-alias tr3='tree -a -L 3 -I ".git|.node_modules"'
 alias pskl='ps aux | fzf | awk "{ print \$2 }" | xargs kill -9'
+alias ll='exa -alhF --git-ignore --group-directories-first --time-style=long-iso'
+alias tr2='exa -alhF --git-ignore --group-directories-first --time-style=long-iso -T -L=2 --ignore-glob=".git|node_modules"'
+alias tr3='exa -alhF --git-ignore --group-directories-first --time-style=long-iso -T -L=3 --ignore-glob=".git|node_modules"'
 function absp() { echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"); }
 function lnsv() {
 	abspath=$(echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"))
