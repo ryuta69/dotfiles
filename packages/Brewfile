@@ -5,6 +5,7 @@ tap "homebrew/cask-cask"
 cask_args appdir: "/Applications"
 
 # Base
+brew "fd"
 brew "jq"
 brew "bat"
 brew "exa"

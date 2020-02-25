@@ -61,6 +61,7 @@ alias cdd='cd ${DOTPATH}'
 function mkcd() { mkdir $@; cd $@; }
 function sedr() { sed -i -- $@ **/*(D.); }
 alias lv='nvim `ls | fzf --preview "bat {}"`'
+alias fd='fd -iH --no-ignore-vcs -E ".git|node_modules"'
 alias pskl='ps aux | fzf | awk "{ print \$2 }" | xargs kill -9'
 alias ll='exa -alhF --git-ignore --group-directories-first --time-style=long-iso'
 alias tr2='exa -alhF --git-ignore --group-directories-first --time-style=long-iso -T -L=2 --ignore-glob=".git|node_modules"'
@@ -122,7 +123,7 @@ function vigo() {
 }
 
 # Ripgrep
-alias rg="rg --hidden -g '!.git' -g '!.node_modules'"
+alias rg="rg --hidden -g '!.git' -g '!.node_modules' --max-columns 40"
 function rrg() {
 	keyword=$1;
 	[ -z $2 ] && matches=`rg -il ${keyword}` || matches=`rg --files | rg -i ${keyword}`;
