@@ -6,6 +6,7 @@ cask_args appdir: "/Applications"
 
 # Base
 brew "jq"
+brew "bat"
 brew "exa"
 brew "fzf"
 brew "ghq"

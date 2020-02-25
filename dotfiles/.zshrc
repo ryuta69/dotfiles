@@ -60,7 +60,7 @@ alias cdwk='cd ~/work'
 alias cdd='cd ${DOTPATH}'
 function mkcd() { mkdir $@; cd $@; }
 function sedr() { sed -i -- $@ **/*(D.); }
-alias lv='nvim `ls | fzf --preview "cat {}"`'
+alias lv='nvim `ls | fzf --preview "bat {}"`'
 alias pskl='ps aux | fzf | awk "{ print \$2 }" | xargs kill -9'
 alias ll='exa -alhF --git-ignore --group-directories-first --time-style=long-iso'
 alias tr2='exa -alhF --git-ignore --group-directories-first --time-style=long-iso -T -L=2 --ignore-glob=".git|node_modules"'
@@ -118,7 +118,7 @@ function vii() {
 }
 function vigo() {
 	nvim -c "call append(0, v:oldfiles)" -c "write! ~/.config/nvim/viminfo.log" -c exit;
-	nvim `cat ~/.config/nvim/viminfo.log | fzf --preview 'cat {}'`;
+	nvim `bat ~/.config/nvim/viminfo.log | fzf --preview 'bat {}'`;
 }
 
 # Ripgrep
@@ -133,8 +133,8 @@ function rrg() {
 }
 
 # Aliases
-alias vial='vi `ls -d ${DOTPATH}/aliases/* | fzf --preview "cat {}"`'
-alias sral='source `ls -d ${DOTPATH}/aliases/* | fzf --preview "cat {}"`'
+alias vial='nvim `ls -d ${DOTPATH}/aliases/* | fzf --preview "bat {}"`'
+alias sral='source `ls -d ${DOTPATH}/aliases/* | fzf --preview "bat {}"`'
 
 # Package Manager
 alias brup='brew upgrade'
