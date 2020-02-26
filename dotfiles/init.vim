@@ -11,6 +11,7 @@ call plug#begin('~/.config/nvim/plugged/')
 	Plug 'bfredl/nvim-miniyank'
 	Plug 'prabirshrestha/vim-lsp'
 	Plug 'mattn/vim-lsp-settings'
+	Plug 'Lokaltog/vim-easymotion'
 	Plug 'prabirshrestha/async.vim'
 	Plug 'ludovicchabant/vim-gutentags'
 	Plug 'bronson/vim-trailing-whitespace'
@@ -113,6 +114,11 @@ let g:deoplete#enable_at_startup = 1
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+
+" EasyMotion
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_enter_jump_first = 1
+map <Leader>s <Plug>(easymotion-sn)
 
 " VimFugitive
 nnoremap <Leader>gd :Gdiff<CR>
