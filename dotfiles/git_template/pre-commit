@@ -4,7 +4,7 @@
 ##	Checking
 ## ----------------------------------------
 # Check for .pem files
-MATCH=$(git diff --cached --name-only HEAD | grep '.*\.pem$')
+MATCH=$(git diff --cached --name-only | grep '.*\.pem$')
 if [[ ! -z $MATCH ]]; then
 	printf "It looks like you're trying to commit a PEM file in:"
 	printf "$MATCH\n\n"
@@ -14,7 +14,7 @@ fi
 
 # Check for large files
 filter=$(cat ~/.gitattributes | grep filter=lfs | awk '{printf "-e .%s$ ", $1}')
-files=($(git diff --cached --name-only HEAD | grep -v $filter))
+files=($(git diff --cached --name-only | grep -v $filter))
 gpath=$(git rev-parse --show-toplevel)
 for file in ${files}; do
 	file_size=$(ls -l ${gpath}/${file} | awk '{print $5}')
