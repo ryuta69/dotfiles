@@ -25,6 +25,7 @@ brew "neovim"
 brew "ffmpeg"
 brew "gnu-sed"
 brew "ripgrep"
+brew "universal-ctags/universal-ctags/universal-ctags", args: ['HEAD']
 
 # Shell
 brew "zsh"

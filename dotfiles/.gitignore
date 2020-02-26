@@ -1,5 +1,6 @@
 .DS_Store
 .env
+tags
 node_modules/
 *.exe
 *.log

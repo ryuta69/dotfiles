@@ -12,6 +12,7 @@ call plug#begin('~/.config/nvim/plugged/')
 	Plug 'prabirshrestha/vim-lsp'
 	Plug 'mattn/vim-lsp-settings'
 	Plug 'prabirshrestha/async.vim'
+	Plug 'ludovicchabant/vim-gutentags'
 	Plug 'bronson/vim-trailing-whitespace'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

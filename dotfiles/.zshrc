@@ -99,15 +99,15 @@ function gcre() {
 # Tar
 function tz() { tar zcvf ${1}.tar.gz ${1}; }
 function tunz() {
-        case $1 in
-                *.zip)     unzip $1    ;;
-                *.tgz)     tar xvzf $1 ;;
-                *.tbz2)    tar xvjf $1 ;;
-                *.tar)     tar xvf $1  ;;
-                *.tar.gz)  tar xvzf $1 ;;
-                *.tar.bz2) tar xvjf $1 ;;
-                *)         echo "Unable to extract '$1'" ;;
-        esac
+	case $1 in
+		*.zip)     unzip $1    ;;
+		*.tgz)     tar xvzf $1 ;;
+		*.tbz2)    tar xvjf $1 ;;
+		*.tar)     tar xvf $1  ;;
+		*.tar.gz)  tar xvzf $1 ;;
+		*.tar.bz2) tar xvjf $1 ;;
+		*)         echo "Unable to extract '$1'" ;;
+	esac
 }
 
 # MySQL
