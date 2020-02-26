@@ -25,4 +25,4 @@ for abspath (${EXEPATH}/*); do
 done
 
 sudo ln -sfnv /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
-
+# mysql_secure_installation

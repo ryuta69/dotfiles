@@ -5,7 +5,7 @@
 [alias]
 	ad  = add
 	ada = add -A
-        adf = !git status -s | fzf -m | awk '{print $NF}' | xargs git add
+	adf = !git status -s | fzf -m | awk '{print $NF}' | xargs git add
 	br  = branch
 	bra = branch -A
 	cm  = commit --verbose

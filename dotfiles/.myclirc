@@ -1,0 +1,31 @@
+[master]
+log_level = INFO
+log_file = ~/.mycli.log
+timing = True
+enable_pager = True
+table_format = ascii
+syntax_style = native
+keyword_casing = auto
+smart_completion = True
+prompt = '\t \u@\h:\d> '
+destructive_warning = True
+
+[colors]
+Token.Menu.Completions.Completion.Current = 'bg:#00aaaa #000000'
+Token.Menu.Completions.Completion = 'bg:#008888 #ffffff'
+Token.Menu.Completions.MultiColumnMeta = 'bg:#aaffff #000000'
+Token.Menu.Completions.ProgressButton = 'bg:#003333'
+Token.Menu.Completions.ProgressBar = 'bg:#00aaaa'
+Token.SelectedText = '#ffffff bg:#6666aa'
+Token.SearchMatch = '#ffffff bg:#4444aa'
+Token.SearchMatch.Current = '#ffffff bg:#44aa44'
+Token.Toolbar = 'bg:#222222 #aaaaaa'
+Token.Toolbar.Off = 'bg:#222222 #888888'
+Token.Toolbar.On = 'bg:#222222 #ffffff'
+Token.Toolbar.Search = 'noinherit bold'
+Token.Toolbar.Search.Text = 'nobold'
+Token.Toolbar.System = 'noinherit bold'
+Token.Toolbar.Arg = 'noinherit bold'
+Token.Toolbar.Arg.Text = 'nobold'
+
+[favorite_queries]

@@ -68,6 +68,7 @@ alias tr2='exa -alhF --git-ignore --group-directories-first --time-style=long-is
 alias tr3='exa -alhF --git-ignore --group-directories-first --time-style=long-iso -T -L=3 --ignore-glob=".git|node_modules"'
 function absp() { echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"); }
 function lnsv() {
+	if [ -z $2 ];then echo "Specify Target.\n" && return 0;fi;
 	abspath=$(echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"))
 	ln -sfnv ${abspath} $2
 }
@@ -87,7 +88,7 @@ alias copr='hub pr checkout `hub pr list | fzf`'
 alias opgh='hub browse `ghq list | fzf | cut -d "/" -f 2,3`'
 function gcre() {
 	git init;
-    	git add -A && git commit;
+	git add -A && git commit;
 	read name"?type repo name        : ";
 	read description"?type repo description : ";
 	hub create ${name} -p ${description};
@@ -108,6 +109,12 @@ function tunz() {
                 *)         echo "Unable to extract '$1'" ;;
         esac
 }
+
+# MySQL
+alias scn='mycli -u root'
+alias sstart='mysql.server start'
+alias sst='mysql.server status'
+alias sstop='mysql.server stop'
 
 # Neovim
 alias vi='nvim'
