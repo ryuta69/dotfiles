@@ -23,6 +23,7 @@ brew "procs"
 brew "mycli"
 brew "neovim"
 brew "ffmpeg"
+brew "git-lfs"
 brew "gnu-sed"
 brew "ripgrep"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ['HEAD']

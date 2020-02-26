@@ -15,7 +15,9 @@ fi
 EXEPATH=$0:A:h
 
 brew upgrade
+brew unlink node
 brew bundle --file ${EXEPATH}/Brewfile
+git lfs install
 
 npm update -g npm
 npm install -g $(cat ${EXEPATH}/Npmfile)
