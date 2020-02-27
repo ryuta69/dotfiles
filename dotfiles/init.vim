@@ -14,6 +14,7 @@ call plug#begin('~/.config/nvim/plugged/')
 	Plug 'Lokaltog/vim-easymotion'
 	Plug 'prabirshrestha/async.vim'
 	Plug 'bronson/vim-trailing-whitespace'
+	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
@@ -74,6 +75,9 @@ nnoremap <Leader>3 :diffget REMOTE<CR>
 "" ----------------------------------------
 ""	PluginSetting
 "" ----------------------------------------
+" VimGo
+let g:go_fmt_command = "goimports"
+
 " AyuVim
 colorscheme ayu
 let ayucolor="dark"
