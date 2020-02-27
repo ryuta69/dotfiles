@@ -71,6 +71,7 @@ nnoremap <Leader>wkdir :!code %:p:h<CR>
 nnoremap <Leader>1 :diffget LOCAL<CR>
 nnoremap <Leader>2 :diffget BASE<CR>
 nnoremap <Leader>3 :diffget REMOTE<CR>
+map <Leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 "" ----------------------------------------
 ""	PluginSetting
