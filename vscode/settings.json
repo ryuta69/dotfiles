@@ -10,7 +10,9 @@
         "editor.fontSize": 12,
         "editor.wordWrap": "on",
         "editor.formatOnSave": true,
+        "editor.insertSpaces": false,
         "editor.renderWhitespace": "all",
+        "editor.detectIndentation": false,
         "editor.renderLineHighlight": "all",
         "editor.acceptSuggestionOnEnter": "off",
         "editor.minimap.renderCharacters": false,
@@ -54,11 +56,7 @@
         },
         "window.zoomLevel": -1,
         "[go]": {
-                "editor.tabSize": 8,
-                "editor.insertSpaces": true,
-                "editor.formatOnSave": true,
-                "editor.formatOnType": true,
-                "editor.formatOnPaste": true,
+                ,
                 "editor.codeActionsOnSave": {
                         "source.organizeImports": true
                 },
