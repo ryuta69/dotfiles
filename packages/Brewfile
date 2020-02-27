@@ -38,7 +38,6 @@ brew "gcc"
 brew "node", link: true
 brew "perl"
 brew "ruby"
-brew "rust"
 brew "cmake"
 brew "rbenv"
 brew "python"

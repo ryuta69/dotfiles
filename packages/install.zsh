@@ -18,6 +18,7 @@ brew upgrade
 brew unlink node
 brew bundle --file ${EXEPATH}/Brewfile
 git lfs install
+rustup-init
 
 npm update -g npm
 npm install -g $(cat ${EXEPATH}/Npmfile)
