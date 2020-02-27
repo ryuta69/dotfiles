@@ -26,7 +26,6 @@ brew "ffmpeg"
 brew "git-lfs"
 brew "gnu-sed"
 brew "ripgrep"
-brew "universal-ctags/universal-ctags/universal-ctags", args: ['HEAD']
 
 # Shell
 brew "zsh"
@@ -39,10 +38,12 @@ brew "gcc"
 brew "node", link: true
 brew "perl"
 brew "ruby"
+brew "rust"
 brew "cmake"
 brew "rbenv"
 brew "python"
 brew "pipenv"
+brew "rustup"
 
 # Database
 brew "mysql"
