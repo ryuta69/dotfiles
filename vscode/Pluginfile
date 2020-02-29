@@ -1,4 +1,5 @@
 ardenivanov.svelte-intellisense
+bungcip.better-toml
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
 CoenraadS.bracket-pair-colorizer
@@ -27,5 +28,6 @@ octref.vetur
 PKief.material-icon-theme
 rust-lang.rust
 streetsidesoftware.code-spell-checker
+TabNine.tabnine-vscode
 teabyii.ayu
 yzhang.markdown-all-in-one
