@@ -16,8 +16,8 @@ export CVSEDITOR="${EDITOR}"
 export SVN_EDITOR="${EDITOR}"
 export GIT_EDITOR="${EDITOR}"
 export HOMEBREW_NO_AUTO_UPDATE=1
-export DOTPATH=~/.ghq/github.com/ryuta69/dotfiles/dotfiles
 export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH
+export DOTPATH=~/.ghq/github.com/ryuta69/dotfiles/dotfiles
 export FZF_DEFAULT_OPTS='
 	--reverse
 	--color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229

@@ -42,7 +42,6 @@ brew "cmake"
 brew "rbenv"
 brew "python"
 brew "pipenv"
-brew "rustup"
 
 # Database
 brew "mysql"
