@@ -25,3 +25,13 @@ npm install -g $(cat ${EXEPATH}/Npmfile)
 
 pip install --upgrade pip
 pip install -r ${EXEPATH}/Pipfile
+
+curl https://sh.rustup.rs -sSf | sh -s -- -y
+rustup install nightly
+rustup default nightly
+rustup component add rls-preview --toolchain nightly
+rustup component add rust-analysis --toolchain nightly
+rustup component add rust-src --toolchain nightly
+cargo install rustsym
+
+# mysql_secure_installation

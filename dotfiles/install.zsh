@@ -19,10 +19,10 @@ for abspath (${EXEPATH}/*); do
 
 	if [[ $filename = 'aliases' ]]; then continue ; fi;
 	if [[ $filename = 'install.zsh' ]]; then continue ; fi;
+	if [[ $filename = '.rustcfg' ]]; then ln -sfnv $abspath ~/.cargo/config ; fi;
 	if [[ $filename = 'init.vim' ]]; then ln -sfnv $abspath ~/.config/nvim/init.vim ; fi;
 
 	ln -sfnv $abspath ~/$filename;
 done
 
 sudo ln -sfnv /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
-# mysql_secure_installation
