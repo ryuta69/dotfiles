@@ -15,6 +15,7 @@ fi;
 
 EXEPATH=$0:A:h
 VSPATH="~/Library/Application\ Support/Code/User"
+mkdir -p ${VSPATH}
 ln -sfnv ${EXEPATH}/settings.json ${VSPATH}/settings.json
 ln -sfnv ${EXEPATH}/keybindings.json ${VSPATH}/keybindings.json
 
