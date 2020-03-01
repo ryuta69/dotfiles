@@ -140,13 +140,9 @@ function rrg() {
 	nvim ${selected};
 }
 
-# Aliases
+# Not using always but useful Aliases Library
 alias vial='nvim `ls -d ${DOTPATH}/aliases/* | fzf --preview "bat {}"`'
 alias sral='source `ls -d ${DOTPATH}/aliases/* | fzf --preview "bat {}"`'
-
-# Package Manager
-alias brup='brew upgrade'
-alias npup='npm update -g npm && npm update -g'
 
 ## ----------------------------------------
 ##	Keymap
