@@ -26,9 +26,3 @@ vscode    : install VSCode settings.
 macos     : install MacOS settings.
 allrun    : install all settings.
 ```
-
-## Thoughts
-Considering to make installing packages for cross platforms.
-Currently, I apply only Rust able to be downloaded by shell.
-
-Just thoughts.

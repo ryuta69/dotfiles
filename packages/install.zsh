@@ -21,7 +21,6 @@ brew upgrade
 brew unlink node
 brew bundle --file ${EXEPATH}/Brewfile
 git lfs install
-rustup-init
 
 ## ----------------------------------------
 ##	Npm Bundle
@@ -36,24 +35,15 @@ pip install --upgrade pip
 pip install -r ${EXEPATH}/Pipfile
 
 ## ----------------------------------------
-##	Rust Bundle
+##	Rust
 ## ----------------------------------------
-curl https://sh.rustup.rs -sSf | sh -s -- -y
-rustup install nightly
-rustup default nightly
-rustup component add rls-preview --toolchain nightly
-rustup component add rust-analysis --toolchain nightly
-rustup component add rust-src --toolchain nightly
-cargo install fd
-cargo install sd
-cargo install bat
-cargo install exa
-cargo install procs
-cargo install ripgrep
-cargo install rustsym
-cargo install hyperfine
+rustup-init -y
+rustup component add rls --toolchain stable
+rustup component add rust-src --toolchain stable
+rustup component add rls-preview --toolchain stable
+rustup component add rust-analysis --toolchain stable
 
 ## ----------------------------------------
-##	MySQL Bundle
+##	MySQL
 ## ----------------------------------------
 # mysql_secure_installation
