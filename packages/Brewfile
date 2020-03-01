@@ -5,10 +5,7 @@ tap "homebrew/cask-cask"
 cask_args appdir: "/Applications"
 
 # Base
-brew "fd"
 brew "jq"
-brew "bat"
-brew "exa"
 brew "fzf"
 brew "ghq"
 brew "git"
@@ -19,18 +16,15 @@ brew "tig"
 brew "vim"
 brew "grep"
 brew "tmux"
-brew "procs"
 brew "mycli"
 brew "neovim"
 brew "ffmpeg"
 brew "git-lfs"
 brew "gnu-sed"
-brew "ripgrep"
 
 # Shell
 brew "zsh"
 brew "zsh-completions"
-brew "bash-completion"
 
 # Language
 brew "go"

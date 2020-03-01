@@ -44,7 +44,14 @@ rustup default nightly
 rustup component add rls-preview --toolchain nightly
 rustup component add rust-analysis --toolchain nightly
 rustup component add rust-src --toolchain nightly
+cargo install fd
+cargo install sd
+cargo install bat
+cargo install exa
+cargo install procs
+cargo install ripgrep
 cargo install rustsym
+cargo install hyperfine
 
 ## ----------------------------------------
 ##	MySQL Bundle
