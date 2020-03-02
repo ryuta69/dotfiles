@@ -63,15 +63,27 @@ function sedr() { sed -i -- $@ **/*(D.); }
 alias lv='nvim `ls | fzf --preview "bat {}"`'
 alias fd='fd -iH --no-ignore-vcs -E ".git|node_modules"'
 alias pskl='ps aux | fzf | awk "{ print \$2 }" | xargs kill -9'
+function absp() { echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"); }
 alias ll='exa -alhF --git-ignore --group-directories-first --time-style=long-iso'
 alias tr2='exa -alhF --git-ignore --group-directories-first --time-style=long-iso -T -L=2 --ignore-glob=".git|node_modules"'
 alias tr3='exa -alhF --git-ignore --group-directories-first --time-style=long-iso -T -L=3 --ignore-glob=".git|node_modules"'
-function absp() { echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"); }
 function lnsv() {
 	if [ -z $2 ];then echo "Specify Target.\n" && return 0;fi;
 	abspath=$(echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"))
 	ln -sfnv ${abspath} $2
 }
+
+# Global Alias
+alias -g G='| grep'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g X='| xargs'
+alias -g C='| wc -l'
+alias -g CP='| pbcopy'
+
+# Suffix Alias
+alias -s {png,jpg,jpeg}='imgcat'
+alias -s {html,mp3,mp4,mov}='open'
 
 # Git
 alias g='git'
@@ -98,17 +110,22 @@ function gcre() {
 
 # Tar
 function tz() { tar zcvf ${1}.tar.gz ${1}; }
-function tunz() {
+function extract() {
 	case $1 in
-		*.zip)     unzip $1    ;;
-		*.tgz)     tar xvzf $1 ;;
-		*.tbz2)    tar xvjf $1 ;;
-		*.tar)     tar xvf $1  ;;
-		*.tar.gz)  tar xvzf $1 ;;
-		*.tar.bz2) tar xvjf $1 ;;
-		*)         echo "Unable to extract '$1'" ;;
+		*.tar.gz|*.tgz) tar xzvf $1;;
+		*.tar.xz) tar Jxvf $1;;
+		*.zip) unzip $1;;
+		*.lzh) lha e $1;;
+		*.tar.bz2|*.tbz) tar xjvf $1;;
+		*.tar.Z) tar zxvf $1;;
+		*.gz) gzip -d $1;;
+		*.bz2) bzip2 -dc $1;;
+		*.Z) uncompress $1;;
+		*.tar) tar xvf $1;;
+		*.arj) unarj $1;;
 	esac
 }
+alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 
 # MySQL
 alias scn='mycli -u root'
