@@ -14,7 +14,6 @@ call plug#begin('~/.config/nvim/plugged/')
 	Plug 'Lokaltog/vim-easymotion'
 	Plug 'prabirshrestha/async.vim'
 	Plug 'bronson/vim-trailing-whitespace'
-	Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
