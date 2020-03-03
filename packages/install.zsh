@@ -37,6 +37,7 @@ pip3 install -r ${EXEPATH}/Pipfile
 ##	Rust
 ## ----------------------------------------
 rustup-init -y
+source ~/.cargo/env
 rustup component add rls --toolchain stable
 rustup component add rust-src --toolchain stable
 rustup component add rls-preview --toolchain stable
