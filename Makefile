@@ -3,8 +3,10 @@ help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "%-10s: %s\n", $$1, $$2}'
 
 init: ## install dependencies.
-	xcode-select --install
 	mkdir -p ~/.ssh
+	mkdir -p ~/work
+	mkdir -p ~/.config/nvim
+	xcode-select --install
 	ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew install zsh
