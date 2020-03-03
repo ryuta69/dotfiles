@@ -23,8 +23,6 @@ https://apps.apple.com/us/app/xcode/id497799835?mt=12
 ### [2/3] install.sh
 All installations are controlled by install.sh on top directory.
 
-`./install.sh --init` must be executed first.
-
 ```
 ❯ ./install.sh --help
 
@@ -44,3 +42,14 @@ all:      All installations (except init).
 This process can't be automated.
 
 Import GPG Key if you have it on other computers.
+
+## References
+https://qiita.com/b4b4r07/items/b70178e021bef12cd4a2
+
+https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+
+https://github.com/atomantic/dotfiles/blob/master/install.sh
+
+https://github.com/daneden/dotfiles/blob/master/os/install.sh
+
+https://github.com/tech-otaku/macos-config-mojave/blob/master/macos-config.sh
