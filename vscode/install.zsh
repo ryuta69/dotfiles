@@ -19,4 +19,10 @@ mkdir -p ${VSPATH}
 ln -sfnv ${EXEPATH}/settings.json ${VSPATH}/settings.json
 ln -sfnv ${EXEPATH}/keybindings.json ${VSPATH}/keybindings.json
 
-if [[ -z "${opthash[(i)--test]}" ]]; then code --install-extension $(cat ${EXEPATH}/Pluginfile) ; fi;
+if [[ -z "${opthash[(i)--test]}" ]]; then
+	plugins=($(cat ${EXEPATH}/Pluginfile))
+	for plugin in ${plugins}; do
+		echo ${plugin}
+		code --install-extension ${plugin}
+	done
+fi;
