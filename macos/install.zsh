@@ -13,12 +13,19 @@ if [[ -z "${opthash[(i)--force]}"  ]]; then
         if [[ $Ans != 'Y' ]]; then echo 'Canceled\n' && exit; fi;
 fi;
 
-# Close setting panel
-osascript -e 'tell application "System Preferences" to quit'  > /dev/null 2>&1
+## ----------------------------------------
+##	Software Preferences
+## ----------------------------------------
+EXEPATH=$0:A:h
+ln -sfnv ${EXEPATH}/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+ln -sfnv ${EXEPATH}/com.knollsoft.Rectangle.plist ~/Library/Preferences/com.knollsoft.Rectangle.plist
 
 ## ----------------------------------------
 ##	System Preferences
 ## ----------------------------------------
+# Close setting panel
+osascript -e 'tell application "System Preferences" to quit'  > /dev/null 2>&1
+
 # General > Appearance > Dark
 defaults write -g AppleInterfaceStyle -string Dark
 # General > Sidebar icon size > Small
