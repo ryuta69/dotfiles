@@ -8,6 +8,8 @@ init: ## install dependencies.
 	brew install zsh
 	sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells'
 	sudo chsh -s /usr/local/bin/zsh
+	chmod 755 /usr/local/share/zsh
+	chmod 755 /usr/local/share/zsh/site-functions
 	brew tap homebrew/bundle
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
