@@ -26,6 +26,7 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 alias virc='nvim ~/.zshrc'
 alias sorc='source ~/.zshrc'
+[ -f ~/.extension_settings.zsh ] && source ~/.extension_settings.zsh
 
 ## ----------------------------------------
 ##	Autoload

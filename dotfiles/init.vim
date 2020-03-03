@@ -49,6 +49,9 @@ set guicursor=a:ver25-blinkon10
 set fileencodings=cp932,sjis,euc-jp,utf-8,iso-2022-jp
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 	\| exe "normal! g'\"" | endif
+if filereadable(expand('~/.config/nvim/extension_settings.vim'))
+	source ~/.config/nvim/extension_settings.vim
+endif
 
 "" ----------------------------------------
 ""	Mapping
