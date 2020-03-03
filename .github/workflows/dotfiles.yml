@@ -11,13 +11,18 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run help command.
       run: |
-        make help
+        ./install.sh --help
     - name: Install dependencies.
       run: |
+        mkdir -p ~/.ssh
+        mkdir -p ~/work
+        mkdir -p ~/.config/nvim
+        brew tap homebrew/bundle
         brew install zsh
         sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells'
         sudo chsh -s /usr/local/bin/zsh
-        brew tap homebrew/bundle
+        chmod 755 /usr/local/share/zsh
+        chmod 755 /usr/local/share/zsh/site-functions
         curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     - name: Install package files.
       run: |
