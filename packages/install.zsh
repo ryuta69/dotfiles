@@ -18,7 +18,6 @@ EXEPATH=$0:A:h
 ##	Brew Bundle
 ## ----------------------------------------
 brew upgrade
-brew unlink node
 brew bundle --file ${EXEPATH}/Brewfile
 git lfs install
 
