@@ -4,6 +4,8 @@ help:
 
 init: ## install dependencies.
 	xcode-select --install
+	mkdir -p ~/.ssh
+	ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew install zsh
 	sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells'
