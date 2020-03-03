@@ -1,7 +1,6 @@
 ## ----------------------------------------
 ##	Brewfile
 ## ----------------------------------------
-tap "homebrew/cask-cask"
 cask_args appdir: "/Applications"
 
 # Base
@@ -27,7 +26,6 @@ brew "ffmpeg"
 brew "git-lfs"
 brew "gnu-sed"
 brew "ripgrep"
-brew "rustsym"
 brew "hyperfine"
 
 # Shell
@@ -55,6 +53,7 @@ brew "mongodb-community"
 # iTerm2
 tap  "homebrew/cask-fonts"
 cask "font-source-code-pro"
+cask "font-noto-mono-for-powerline"
 
 # GUI Applications
 cask "zoom"
@@ -62,6 +61,7 @@ cask "local"
 cask "slack"
 cask "alfred"
 cask "docker"
+cask "iterm2"
 cask "kindle"
 cask "discord"
 cask "postman"
