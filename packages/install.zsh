@@ -30,8 +30,8 @@ npm install -g $(cat ${EXEPATH}/Npmfile)
 ## ----------------------------------------
 ##	Pip Bundle
 ## ----------------------------------------
-pip install --upgrade pip
-pip install -r ${EXEPATH}/Pipfile
+pip3 install --upgrade pip
+pip3 install -r ${EXEPATH}/Pipfile
 
 ## ----------------------------------------
 ##	Rust
