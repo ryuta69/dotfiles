@@ -19,6 +19,7 @@ fi;
 EXEPATH=$0:A:h
 ln -sfnv ${EXEPATH}/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 ln -sfnv ${EXEPATH}/com.knollsoft.Rectangle.plist ~/Library/Preferences/com.knollsoft.Rectangle.plist
+defaults write com.knollsoft.Rectangle subsequentExecutionMode -int 2
 mkdir -p ~/Library/ApplicationSupport/Alfred
 ln -sfnv ${EXEPATH}/Alfred.alfredpreferences ~/Library/ApplicationSupport/Alfred/Alfred.alfredpreferences
 
