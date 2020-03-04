@@ -35,10 +35,9 @@ do
 		if [[ "$1" =~ 'init' ]]; then
 			xcode-select --install
 
-			mkdir -p ~/.ssh
 			mkdir -p ~/work
-			mkdir -p ~/.config/nvim
 
+			mkdir -p ~/.ssh
 			ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
 			/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -50,6 +49,7 @@ do
 			chmod 755 /usr/local/share/zsh
 			chmod 755 /usr/local/share/zsh/site-functions
 
+			mkdir -p ~/.config/nvim
 			curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 		fi
 

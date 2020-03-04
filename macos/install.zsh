@@ -17,11 +17,21 @@ fi;
 ##	Software Preferences
 ## ----------------------------------------
 EXEPATH=$0:A:h
+
+# iTerm2
 ln -sfnv ${EXEPATH}/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
-ln -sfnv ${EXEPATH}/com.knollsoft.Rectangle.plist ~/Library/Preferences/com.knollsoft.Rectangle.plist
-defaults write com.knollsoft.Rectangle subsequentExecutionMode -int 2
+
+# Alfred
 mkdir -p ~/Library/ApplicationSupport/Alfred
 ln -sfnv ${EXEPATH}/Alfred.alfredpreferences ~/Library/ApplicationSupport/Alfred/Alfred.alfredpreferences
+
+# Karabiner
+mkdir -p ~/.config/karabiner
+ln -sfnv ${EXEPATH}/karabiner.json ~/.config/karabiner/karabiner.json
+
+# Rectangle
+ln -sfnv ${EXEPATH}/com.knollsoft.Rectangle.plist ~/Library/Preferences/com.knollsoft.Rectangle.plist
+defaults write com.knollsoft.Rectangle subsequentExecutionMode -int 2
 
 ## ----------------------------------------
 ##	System Preferences
@@ -40,12 +50,19 @@ defaults write -g AppleShowScrollBars -string Always
 # General > Click in the scroll bar to > Jump to the spot that's clicked
 defaults write -g AppleScrollerPagingBehavior -bool true
 # General > Ask to keep changes when closing documents > unchecked
-defaults write -g NSCloseAlwaysConfirmsChanges -bool false
+defaults write -g NSCloseAlwaysConfirmsChanges -bool true
 # General > Close windows when quitting an app > checked
 defaults write -g NSQuitAlwaysKeepsWindows -bool false
+# General > Allow Handoff between this Mac and your iCloud devices
+defaults write ~/Library/Preferences/ByHost/com.apple.coreservices.useractivityd.plist ActivityAdvertisingAllowed -bool no
+defaults write ~/Library/Preferences/ByHost/com.apple.coreservices.useractivityd.plist ActivityReceivingAllowed -bool no
 
+# Desktop & Screen Saver > Desktop Picture
+cp ${EXEPATH}/db/mojave-dark-still.db ~/Library/ApplicationSupport/Dock/desktoppicture.db
+sqlite3 ${HOME}/Library/ApplicationSupport/Dock/desktoppicture.db "update data set value = '${EXEPATH}/img/wall_pc.png'"
 # Desktop & Screen Saver > Screen Saver > Start after > Never
 defaults -currentHost write http://com.apple.screensaver idleTime -int 0
+
 # Dock > Size > 32
 defaults write http://com.apple.dock tilesize -int 16
 # Dock > Magnification > unchecked
