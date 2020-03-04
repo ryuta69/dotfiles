@@ -61,30 +61,30 @@ defaults write ~/Library/Preferences/ByHost/com.apple.coreservices.useractivityd
 cp ${EXEPATH}/db/mojave-dark-still.db ~/Library/ApplicationSupport/Dock/desktoppicture.db
 sqlite3 ${HOME}/Library/ApplicationSupport/Dock/desktoppicture.db "update data set value = '${EXEPATH}/img/wall_pc.png'"
 # Desktop & Screen Saver > Screen Saver > Start after > Never
-defaults -currentHost write http://com.apple.screensaver idleTime -int 0
+defaults -currentHost write com.apple.screensaver idleTime -int 0
 
 # Dock > Size > 32
-defaults write http://com.apple.dock tilesize -int 16
+defaults write com.apple.dock tilesize -int 16
 # Dock > Magnification > unchecked
-defaults write http://com.apple.dock magnification -bool false
+defaults write com.apple.dock magnification -bool false
 # Dock > Position on screen > Bottom
-defaults write http://com.apple.dock orientation -string "bottom"
+defaults write com.apple.dock orientation -string "bottom"
 # Dock > Minimize windows using > Scale
-defaults write http://com.apple.dock mineffect -string "scale"
+defaults write com.apple.dock mineffect -string "scale"
 # Dock > Prefer tabs when opening documents > in Full Screen Only
 defaults write -g AppleWindowTabbingMode -string "fullscreen"
 # Dock > Double click a window's title bar to > minimize
 defaults write -g AppleActionOnDoubleClick -string "Minimize"
 # Dock > Minimize windows into application item > checked
-defaults write http://com.apple.dock minimize-to-application -bool true
+defaults write com.apple.dock minimize-to-application -bool true
 # Dock > Animate opening applications > unchecked
-defaults write http://com.apple.dock launchanim -bool false
+defaults write com.apple.dock launchanim -bool false
 # Dock > Autmatically hide and show the Dock > unchecked
-defaults write http://com.apple.dock autohide -bool false
+defaults write com.apple.dock autohide -bool false
 # Dock > Show indicators for open applications > checked
-defaults write http://com.apple.dock show-process-indicators -bool true
+defaults write com.apple.dock show-process-indicators -bool true
 # Dock > Show recent applications in Dock > unchecked
-defaults write http://com.apple.dock show-recents -bool false
+defaults write com.apple.dock show-recents -bool false
 
 # Language & Region > Preferred languages > English, Japanese
 defaults write -g AppleLanguages -array en ja
@@ -96,13 +96,13 @@ defaults write -g InitialKeyRepeat -int 15
 defaults write -g KeyRepeat -int 2
 
 # Trackpad > Tap to click > checked
-defaults write http://com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking 1
 # Trackpad > Secondary click > checked
-defaults write http://com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick 1
 # Trackpad > Click > Firmest
-defaults write -g http://com.apple.trackpad.forceClick 1
+defaults write -g com.apple.trackpad.forceClick 1
 # Trackpad > Tracking speed > Fastest
-defaults write -g http://com.apple.trackpad.scaling 3
+defaults write -g com.apple.trackpad.scaling 3
 
 # Energy Saver > Battery > Turn display off after > 3 minutes
 sudo pmset -b displaysleep 3
@@ -122,47 +122,47 @@ sudo pmset -c womp 1
 sudo pmset -c powernap 0
 
 # Date & Time > Time options > Digital
-defaults write http://com.apple.menuextra.clock IsAnalog -bool false
+defaults write com.apple.menuextra.clock IsAnalog -bool false
 # Date & Time > Flash the time separators > unchecked
-defaults write http://com.apple.menuextra.clock FlashDateSeparators -bool false
+defaults write com.apple.menuextra.clock FlashDateSeparators -bool false
 
 ## ----------------------------------------
 ##	Finder
 ## ----------------------------------------
 # General > Show these items on the desktop: Hard disks > unchecked
-defaults write http://com.apple.finder ShowHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 # General > Show these items on the desktop: External disks > unchecked
-defaults write http://com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
 # General > Show these items on the desktop: CDs, DVDs and iPods > unchecked
-defaults write http://com.apple.finder ShowRemovableMediaOnDesktop -bool false
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 # General > Show these items on the desktop: Connected servers > unchecked
-defaults write http://com.apple.finder ShowMountedServersOnDesktop -bool false
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 # General > New Finder windows show
-defaults write http://com.apple.finder NewWindowTargetPath -string "file://${HOME}/work/"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/work/"
 # General > Open folders in tabs instead of new windows > checked
-defaults write http://com.apple.finder FinderSpawnTab -bool true
+defaults write com.apple.finder FinderSpawnTab -bool true
 # Advanced > Show all file name extensions > checked
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Advanced > Show warning before changing an extension > checked
-defaults write http://com.apple.finder FXEnableExtensionChangeWarning -bool true
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool true
 # Advanced > Show warning before removing iCloud Drive
-defaults write http://com.apple.finder FXEnableRemoveFromICloudDriveWarning -bool false
+defaults write com.apple.finder FXEnableRemoveFromICloudDriveWarning -bool false
 # Advanced > Show warning before emptying the Trash
-defaults write http://com.apple.finder WarnOnEmptyTrash -bool true
+defaults write com.apple.finder WarnOnEmptyTrash -bool true
 # Advanced > Remove items from the Trash after 30 days
-defaults write http://com.apple.finder FXRemoveOldTrashItems -bool true
+defaults write com.apple.finder FXRemoveOldTrashItems -bool true
 # Advanced > Keep folders on top when sorting by name > unchecked
-defaults write http://com.apple.finder _FXSortFoldersFirst -bool false
+defaults write com.apple.finder _FXSortFoldersFirst -bool false
 # Advanced > When performing a search > Search This Mac
-defaults write http://com.apple.finder FXDefaultSearchScope -string "SCev"
+defaults write com.apple.finder FXDefaultSearchScope -string "SCev"
 # View > Show Path Bar > checked
-defaults write http://com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder ShowPathbar -bool true
 # View > Show Status Bar > checked
-defaults write http://com.apple.finder ShowStatusBar -bool true
+defaults write com.apple.finder ShowStatusBar -bool true
 # View > Show Sidebar > checked
-defaults write http://com.apple.finder ShowSidebar -bool true
+defaults write com.apple.finder ShowSidebar -bool true
 # View > Show Preview > checked
-defaults write http://com.apple.finder ShowPreviewPane -bool true
+defaults write com.apple.finder ShowPreviewPane -bool true
 
 ## ----------------------------------------
 ##	Desktop
@@ -176,11 +176,11 @@ defaults write http://com.apple.finder ShowPreviewPane -bool true
 ##	Hidden Command
 ## ----------------------------------------
 # Show hidden file
-defaults write http://com.apple.finder AppleShowAllFiles -string YES
+defaults write com.apple.finder AppleShowAllFiles -string YES
 # Column View
-defaults write http://com.apple.finder FXPreferredViewStyle -string "clmv"
+defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 # Show percentage of battery
-defaults write http://com.apple.menuextra.battery ShowPercent -string "YES"
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
 ## ----------------------------------------
 ##	Google Chrome
