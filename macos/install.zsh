@@ -184,24 +184,25 @@ defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
 ## ----------------------------------------
 ##	Google Chrome
+##	- Setup when you create new user.
 ## ----------------------------------------
 if [[ -z "${opthash[(i)--test]}"  ]]; then
-	# System Preferences > General > Default web browser
-	open -a "Google Chrome" --args --make-default-browser
-	# Adblock
-	open https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom
-	# Lighthouse
-	open https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk
-	# Wappalyzer
-	open https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg
-	# Just Black
-	open https://chrome.google.com/webstore/detail/just-black/aghfnjkcakhmadgdomlmlhhaocbkloab
-	# Clear Cache
-	open https://chrome.google.com/webstore/detail/clear-cache/cppjkneekbjaeellbfkmgnhonkkjfpdn
-	# Leoh New Tab
-	open https://chrome.google.com/webstore/detail/leoh-new-tab/ijhhakihjccpanbibbcceofpjnebokcb
-	# Google Translate
-	open https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb
-	# Youtube Repeat Button
-	open https://chrome.google.com/webstore/detail/youtube-repeat-button/aihdpnkmhcbjkfonmmfepcjjfaenobipl
+	# # System Preferences > General > Default web browser
+	# open -a "Google Chrome" --args --make-default-browser
+	# # Adblock
+	# open https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom
+	# # Lighthouse
+	# open https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk
+	# # Wappalyzer
+	# open https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg
+	# # Just Black
+	# open https://chrome.google.com/webstore/detail/just-black/aghfnjkcakhmadgdomlmlhhaocbkloab
+	# # Clear Cache
+	# open https://chrome.google.com/webstore/detail/clear-cache/cppjkneekbjaeellbfkmgnhonkkjfpdn
+	# # Leoh New Tab
+	# open https://chrome.google.com/webstore/detail/leoh-new-tab/ijhhakihjccpanbibbcceofpjnebokcb
+	# # Google Translate
+	# open https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb
+	# # Youtube Repeat Button
+	# open https://chrome.google.com/webstore/detail/youtube-repeat-button/aihdpnkmhcbjkfonmmfepcjjfaenobipl
 fi;
