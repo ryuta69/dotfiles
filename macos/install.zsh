@@ -57,34 +57,34 @@ defaults write -g NSQuitAlwaysKeepsWindows -bool false
 defaults write ~/Library/Preferences/ByHost/com.apple.coreservices.useractivityd.plist ActivityAdvertisingAllowed -bool no
 defaults write ~/Library/Preferences/ByHost/com.apple.coreservices.useractivityd.plist ActivityReceivingAllowed -bool no
 
-# Desktop & Screen Saver > Desktop Picture
-cp ${EXEPATH}/db/mojave-dark-still.db ~/Library/ApplicationSupport/Dock/desktoppicture.db
-sqlite3 ${HOME}/Library/ApplicationSupport/Dock/desktoppicture.db "update data set value = '${EXEPATH}/img/wall_pc.png'"
+# # Desktop & Screen Saver > Desktop Picture
+# cp ${EXEPATH}/db/mojave-dark-still.db ~/Library/ApplicationSupport/Dock/desktoppicture.db
+# sqlite3 ${HOME}/Library/ApplicationSupport/Dock/desktoppicture.db "update data set value = '${EXEPATH}/img/wall_pc.png'"
 # Desktop & Screen Saver > Screen Saver > Start after > Never
 defaults -currentHost write com.apple.screensaver idleTime -int 0
 
-# Dock > Size > 32
-defaults write com.apple.dock tilesize -int 16
-# Dock > Magnification > unchecked
-defaults write com.apple.dock magnification -bool false
-# Dock > Position on screen > Bottom
-defaults write com.apple.dock orientation -string "bottom"
-# Dock > Minimize windows using > Scale
-defaults write com.apple.dock mineffect -string "scale"
-# Dock > Prefer tabs when opening documents > in Full Screen Only
-defaults write -g AppleWindowTabbingMode -string "fullscreen"
-# Dock > Double click a window's title bar to > minimize
-defaults write -g AppleActionOnDoubleClick -string "Minimize"
-# Dock > Minimize windows into application item > checked
-defaults write com.apple.dock minimize-to-application -bool true
-# Dock > Animate opening applications > unchecked
-defaults write com.apple.dock launchanim -bool false
-# Dock > Autmatically hide and show the Dock > unchecked
-defaults write com.apple.dock autohide -bool false
-# Dock > Show indicators for open applications > checked
-defaults write com.apple.dock show-process-indicators -bool true
-# Dock > Show recent applications in Dock > unchecked
-defaults write com.apple.dock show-recents -bool false
+# # Dock > Size > 32
+# defaults write com.apple.dock tilesize -int 16
+# # Dock > Magnification > unchecked
+# defaults write com.apple.dock magnification -bool false
+# # Dock > Position on screen > Bottom
+# defaults write com.apple.dock orientation -string "bottom"
+# # Dock > Minimize windows using > Scale
+# defaults write com.apple.dock mineffect -string "scale"
+# # Dock > Prefer tabs when opening documents > in Full Screen Only
+# defaults write -g AppleWindowTabbingMode -string "fullscreen"
+# # Dock > Double click a window's title bar to > minimize
+# defaults write -g AppleActionOnDoubleClick -string "Minimize"
+# # Dock > Minimize windows into application item > checked
+# defaults write com.apple.dock minimize-to-application -bool true
+# # Dock > Animate opening applications > unchecked
+# defaults write com.apple.dock launchanim -bool false
+# # Dock > Autmatically hide and show the Dock > unchecked
+# defaults write com.apple.dock autohide -bool false
+# # Dock > Show indicators for open applications > checked
+# defaults write com.apple.dock show-process-indicators -bool true
+# # Dock > Show recent applications in Dock > unchecked
+# defaults write com.apple.dock show-recents -bool false
 
 # Language & Region > Preferred languages > English, Japanese
 defaults write -g AppleLanguages -array en ja
