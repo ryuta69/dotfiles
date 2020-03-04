@@ -125,6 +125,7 @@ map <Leader>s <Plug>(easymotion-sn)
 
 " VimFugitive
 nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>ga :Gwrite<CR>
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>dp :diffput<CR>

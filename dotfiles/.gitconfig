@@ -22,8 +22,10 @@
 	lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cs) %C(bold blue)<%an>%Creset' --abbrev-commit
 	mt  = mergetool
 	st  = status
- 	ps  = !git push origin `git rev-parse --abbrev-ref HEAD`
-	pl  = !git pull origin `git rev-parse --abbrev-ref HEAD`
+ 	ps  = push
+ 	pss = !git push origin `git rev-parse --abbrev-ref HEAD`
+	pl  = pull
+	pll = !git pull origin `git rev-parse --abbrev-ref HEAD`
 	rb  = rebase
 	rf  = reflog --date=iso
 	rs  = reset
