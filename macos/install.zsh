@@ -57,13 +57,13 @@ defaults write -g NSQuitAlwaysKeepsWindows -bool false
 defaults write ~/Library/Preferences/ByHost/com.apple.coreservices.useractivityd.plist ActivityAdvertisingAllowed -bool no
 defaults write ~/Library/Preferences/ByHost/com.apple.coreservices.useractivityd.plist ActivityReceivingAllowed -bool no
 
-# # Desktop & Screen Saver > Desktop Picture
+# Desktop & Screen Saver > Desktop Picture
 osascript -e "tell application \"Finder\" to set desktop picture to \"${EXEPATH}/img/wall_phone.jpg\" as POSIX file"
 # Desktop & Screen Saver > Screen Saver > Start after > Never
 defaults -currentHost write com.apple.screensaver idleTime -int 0
 
 # Dock > Size > 32
-defaults write com.apple.dock tilesize -int 16
+defaults write com.apple.dock tilesize -int 30
 # Dock > Magnification > unchecked
 defaults write com.apple.dock magnification -bool false
 # Dock > Position on screen > Bottom
@@ -71,7 +71,7 @@ defaults write com.apple.dock orientation -string "bottom"
 # Dock > Minimize windows using > Scale
 defaults write com.apple.dock mineffect -string "scale"
 # Dock > Prefer tabs when opening documents > in Full Screen Only
-defaults write -g AppleWindowTabbingMode -string "fullscreen"
+defaults write -g AppleWindowTabbingMode -string "always"
 # Dock > Double click a window's title bar to > minimize
 defaults write -g AppleActionOnDoubleClick -string "Minimize"
 # Dock > Minimize windows into application item > checked
@@ -88,20 +88,20 @@ defaults write com.apple.dock show-recents -bool false
 # Language & Region > Preferred languages > English, Japanese
 defaults write -g AppleLanguages -array en ja
 # Language & Region > First day of week > Monday
-defaults write -g AppleFirstWeekday 2
+defaults write -g AppleFirstWeekday -dict gregorian 2
+
+# Security & Privacy > General > Require password immediately
+defaults write com.apple.screensaver askForPassword -bool true
+defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # KeyBoard > Key Repeat & Delay Until Repeat > fastest
 defaults write -g InitialKeyRepeat -int 15
 defaults write -g KeyRepeat -int 2
+# KeyBoard > Touch Bar shows
+osascript ${EXEPATH}/lib/touchbar.applescript
 
-# Trackpad > Tap to click > checked
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking 1
-# Trackpad > Secondary click > checked
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick 1
-# Trackpad > Click > Firmest
-defaults write -g com.apple.trackpad.forceClick 1
-# Trackpad > Tracking speed > Fastest
-defaults write -g com.apple.trackpad.scaling 3
+# Display > Resolution > Scaled > More Space
+osascript ${EXEPATH}/lib/resolution.applescript
 
 # Energy Saver > Battery > Turn display off after > 3 minutes
 sudo pmset -b displaysleep 3
@@ -120,10 +120,29 @@ sudo pmset -c womp 1
 # Energy Saver > Power Adapter > Enable Power Nap > unchecked
 sudo pmset -c powernap 0
 
-# Date & Time > Time options > Digital
+# Trackpad > Tap to click > checked
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+# Trackpad > Secondary click > checked > Click or tap with two fingers
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick 1
+# Trackpad > Tap to click > checked
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+# Trackpad > Click > Firmest
+defaults write -g com.apple.trackpad.forceClick 2
+# Trackpad > Tracking speed > Fastest
+defaults write -g com.apple.trackpad.scaling 3
+
+# Date & Time > Time options > Set date and time automatically
+sudo systemsetup -setusingnetworktime on > /dev/null
+# Date & Time > Clock > Time options > Digital
 defaults write com.apple.menuextra.clock IsAnalog -bool false
-# Date & Time > Flash the time separators > unchecked
+# Date & Time > Clock > Use a 24-hour clock
+defaults write com.apple.menuextra.clock DateFormat -string "HH:mm"
+# Date & Time > Clock > Flash the time separators > unchecked
 defaults write com.apple.menuextra.clock FlashDateSeparators -bool false
+
+# Apply all settings
+killall Dock
 
 ## ----------------------------------------
 ##	Finder
@@ -137,7 +156,7 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 # General > Show these items on the desktop: Connected servers > unchecked
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 # General > New Finder windows show
-defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/work/"
+defaults write com.apple.finder NewWindowTarget -string "~/work"
 # General > Open folders in tabs instead of new windows > checked
 defaults write com.apple.finder FinderSpawnTab -bool true
 # Advanced > Show all file name extensions > checked
@@ -163,6 +182,9 @@ defaults write com.apple.finder ShowSidebar -bool true
 # View > Show Preview > checked
 defaults write com.apple.finder ShowPreviewPane -bool true
 
+# Apply all settings
+killall Finder
+
 ## ----------------------------------------
 ##	Desktop
 ## ----------------------------------------
@@ -180,6 +202,8 @@ defaults write com.apple.finder AppleShowAllFiles -string YES
 defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 # Show percentage of battery
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+# Disable the gAre you sure you want to open this application?h dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 ## ----------------------------------------
 ##	Google Chrome
@@ -187,7 +211,8 @@ defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 ## ----------------------------------------
 if [[ -z "${opthash[(i)--test]}"  ]]; then
 	# # System Preferences > General > Default web browser
-	# open -a "Google Chrome" --args --make-default-browser
+	osascript ${EXEPATH}/lib/defaultbrowser.applescript
+	open -a "Google Chrome" --args --make-default-browser
 	# # Adblock
 	# open https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom
 	# # Lighthouse

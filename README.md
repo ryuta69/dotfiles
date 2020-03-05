@@ -44,10 +44,12 @@ This process can't be automated.
 Import GPG Key if you have it on other computers.
 
 ## Thanks
-These gave me idea and motivations.
+These gave me ideas and motivations.
 
 https://qiita.com/b4b4r07/items/b70178e021bef12cd4a2
 
-https://github.com/rgcr/m-cli
+https://github.com/joeyhoer/starter/tree/master/system
+
+https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 
 https://github.com/tech-otaku/macos-config-mojave/blob/master/macos-config.sh
