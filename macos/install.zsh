@@ -58,9 +58,7 @@ defaults write ~/Library/Preferences/ByHost/com.apple.coreservices.useractivityd
 defaults write ~/Library/Preferences/ByHost/com.apple.coreservices.useractivityd.plist ActivityReceivingAllowed -bool no
 
 # # Desktop & Screen Saver > Desktop Picture
-# # This breaks! Now I'm finding solutions.
-# cp ${EXEPATH}/db/mojave-dark-still.db ~/Library/ApplicationSupport/Dock/desktoppicture.db
-# sqlite3 ${HOME}/Library/ApplicationSupport/Dock/desktoppicture.db "update data set value = '${EXEPATH}/img/wall_pc.png'"
+osascript -e "tell application \"Finder\" to set desktop picture to \"${EXEPATH}/img/wall_phone.jpg\" as POSIX file"
 # Desktop & Screen Saver > Screen Saver > Start after > Never
 defaults -currentHost write com.apple.screensaver idleTime -int 0
 

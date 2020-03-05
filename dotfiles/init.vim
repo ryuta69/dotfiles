@@ -124,6 +124,7 @@ let g:EasyMotion_enter_jump_first = 1
 map <Leader>s <Plug>(easymotion-sn)
 
 " VimFugitive
+set diffopt+=vertical
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>ga :Gwrite<CR>
 nnoremap <Leader>gb :Gblame<CR>
