@@ -16,7 +16,7 @@ I do not take any responsibility for any loss caused.
 ### [1/3] Xcode
 This process can't be automated.
 
-You can download Xcode by a link below manually.
+You can download Xcode by a link below with login.
 
 https://apps.apple.com/us/app/xcode/id497799835?mt=12
 
@@ -30,7 +30,7 @@ All installations are controlled by install.sh on top directory.
 
 Options for install.sh
 =================================================
-init:     Core sttings for all installations.
+init:     Core settings for all installations.
 packages: Package manager installations.
 dotfiles: Dotfiles installations.
 vscode:   VSCode settings installations.
@@ -44,7 +44,7 @@ This process can't be automated.
 Import GPG Key if you have it on other computers.
 
 ## Thanks
-These gave me ideas and motivations.
+These links gave me ideas and motivations.
 
 https://qiita.com/b4b4r07/items/b70178e021bef12cd4a2
 

@@ -84,6 +84,9 @@ defaults write com.apple.dock autohide -bool false
 defaults write com.apple.dock show-process-indicators -bool true
 # Dock > Show recent applications in Dock > unchecked
 defaults write com.apple.dock show-recents -bool false
+# Set appilication on Dock
+defaults delete com.apple.dock persistent-apps
+osascript ${EXEPATH}/lib/dockitem.applescript
 
 # Language & Region > Preferred languages > English, Japanese
 defaults write -g AppleLanguages -array en ja
