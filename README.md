@@ -38,7 +38,7 @@ macos:    MacOS settings installations.
 all:      All installations (except init).
 ```
 
-### [3/3] Import GPG Key
+### [3/3] Import GPG Key (Optional)
 This process can't be automated.
 
 Import GPG Key if you have it on other computers.
