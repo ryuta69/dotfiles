@@ -123,6 +123,9 @@ sudo pmset -c womp 1
 # Energy Saver > Power Adapter > Enable Power Nap > unchecked
 sudo pmset -c powernap 0
 
+# Keyboard > Input Sources > Add Google Japanese Input
+osascript ${EXEPATH}/lib/inputsource.applescript
+
 # Trackpad > Tap to click > checked
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 # Trackpad > Secondary click > checked > Click or tap with two fingers
