@@ -85,6 +85,7 @@ alias -g CP='| pbcopy'
 # Suffix Alias
 alias -s {png,jpg,jpeg}='imgcat'
 alias -s {html,mp3,mp4,mov}='open'
+alias -s {applescript}='osascript'
 
 # Git
 alias g='git'
