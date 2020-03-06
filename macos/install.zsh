@@ -144,6 +144,10 @@ defaults write com.apple.menuextra.clock DateFormat -string "HH:mm"
 # Date & Time > Clock > Flash the time separators > unchecked
 defaults write com.apple.menuextra.clock FlashDateSeparators -bool false
 
+# Users & Groups > Change user icon
+U_NAME=$(whoami)
+sudo dscl . create /Users/${U_NAME} Picture "${EXEPATH}/img/icon.jpeg"
+
 # Apply all settings
 killall Dock
 
