@@ -100,7 +100,7 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 # KeyBoard > Key Repeat & Delay Until Repeat > fastest
 defaults write -g InitialKeyRepeat -int 15
 defaults write -g KeyRepeat -int 2
-# KeyBoard > Touch Bar shows
+# KeyBoard > Touch Bar shows > Expanded Control Strip
 osascript ${EXEPATH}/lib/touchbar.applescript
 
 # Display > Resolution > Scaled > More Space
@@ -124,7 +124,8 @@ sudo pmset -c womp 1
 sudo pmset -c powernap 0
 
 # Keyboard > Input Sources > Add Google Japanese Input
-osascript ${EXEPATH}/lib/inputsource.applescript
+IS_SET_GJIME=$(defaults read com.apple.HIToolbox AppleEnabledInputSources | grep "InputSourceKind = \"Keyboard Input Method\"")
+[[ -z  ${IS_SET_GJIME} ]] && osascript ${EXEPATH}/lib/inputsource.applescript
 
 # Trackpad > Tap to click > checked
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
