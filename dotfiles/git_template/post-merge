@@ -1,3 +1,25 @@
-#!/bin/sh
+#! /bin/bash
+
 command -v git-lfs >/dev/null 2>&1 || { echo >&2 "\nThis repository is configured for Git LFS but 'git-lfs' was not found on your path. If you no longer wish to use Git LFS, remove this hook by deleting .git/hooks/post-merge.\n"; exit 2; }
 git lfs post-merge "$@"
+
+branch_name=$( git branch | grep "*" | sed "s/\* //" )
+reflog_message=$( git reflog -1 )
+merged_branch_name=$( echo $reflog_message | cut -d" " -f 4 | sed "s/://" )
+
+[[ $merged_branch_name = "master" ]] && exit 0
+
+echo "You've just merged the branch \"$merged_branch_name\" into \"$branch_name\". "
+read -p "Do you want to delete the \"$merged_branch_name\" branch? (Y/n) " answer
+
+if [[ "$answer" == "Y" ]]; then
+	echo "Deleting local branch \"$merged_branch_name\""
+	git branch -d $merged_branch_name
+
+	echo "Deleting remote branch"
+	git push origin --delete $merged_branch_name
+
+	exit 1
+else
+	echo "Did not delete the \"$merged_branch_name\" branch"
+fi
