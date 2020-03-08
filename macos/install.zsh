@@ -97,12 +97,6 @@ defaults write -g AppleFirstWeekday -dict gregorian 2
 defaults write com.apple.screensaver askForPassword -bool true
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-# KeyBoard > Key Repeat & Delay Until Repeat > fastest
-defaults write -g InitialKeyRepeat -int 15
-defaults write -g KeyRepeat -int 2
-# KeyBoard > Touch Bar shows > Expanded Control Strip
-osascript ${EXEPATH}/lib/touchbar.applescript
-
 # Display > Resolution > Scaled > More Space
 osascript ${EXEPATH}/lib/resolution.applescript
 
@@ -123,6 +117,15 @@ sudo pmset -c womp 1
 # Energy Saver > Power Adapter > Enable Power Nap > unchecked
 sudo pmset -c powernap 0
 
+# KeyBoard > Key Repeat & Delay Until Repeat > fastest
+defaults write -g InitialKeyRepeat -int 15
+defaults write -g KeyRepeat -int 2
+# KeyBoard > Touch Bar shows > Expanded Control Strip
+osascript ${EXEPATH}/lib/touchbar.applescript
+# KeyBoard > Shortcuts > Input Sources > uncheck next input source
+osascript ${EXEPATH}/lib/unchecknextsource.applescript
+# KeyBoard > Shortcuts > Spotlight > uncheck Spotlight
+osascript ${EXEPATH}/lib/uncheckspotlight.applescript
 # Keyboard > Input Sources > Add Google Japanese Input
 IS_SET_GJIME=$(defaults read com.apple.HIToolbox AppleEnabledInputSources | grep "InputSourceKind = \"Keyboard Input Method\"")
 [[ -z  ${IS_SET_GJIME} ]] && osascript ${EXEPATH}/lib/inputsource.applescript
