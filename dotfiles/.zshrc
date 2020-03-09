@@ -17,7 +17,6 @@ export SVN_EDITOR="${EDITOR}"
 export GIT_EDITOR="${EDITOR}"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH
-export DOTPATH=~/ghq/github.com/ryuta69/dotfiles/dotfiles
 export FZF_DEFAULT_OPTS='
 	--reverse
 	--color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229
@@ -58,7 +57,6 @@ alias dus='du -sh'
 alias psa='ps aux'
 alias pbcp='pbcopy <'
 alias cdwk='cd ~/work'
-alias cdd='cd ${DOTPATH}'
 function mkcd() { mkdir $@; cd $@; }
 function sedr() { sed -i -- $@ **/*(D.); }
 alias lv='nvim `ls | fzf --preview "bat {}"`'
@@ -160,8 +158,8 @@ function rrg() {
 }
 
 # Not using always but useful Aliases Library
-alias vial='nvim `ls -d ${DOTPATH}/aliases/* | fzf --preview "bat {}"`'
-alias sral='source `ls -d ${DOTPATH}/aliases/* | fzf --preview "bat {}"`'
+alias vial='nvim `ls -d ~/.aliases/* | fzf --preview "bat {}"`'
+alias sral='source `ls -d ~/.aliases/* | fzf --preview "bat {}"`'
 
 ## ----------------------------------------
 ##	Keymap

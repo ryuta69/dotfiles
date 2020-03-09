@@ -17,7 +17,6 @@ EXEPATH=$0:A:h
 for abspath (${EXEPATH}/*); do
 	filename=$(basename -- "$abspath");
 
-	if [[ $filename = 'aliases' ]]; then continue ; fi;
 	if [[ $filename = 'install.zsh' ]]; then continue ; fi;
 	if [[ $filename = '.rustcfg' ]]; then ln -sfnv $abspath ~/.cargo/config ; fi;
 	if [[ $filename = 'init.vim' ]]; then ln -sfnv $abspath ~/.config/nvim/init.vim ; fi;
