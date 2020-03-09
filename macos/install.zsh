@@ -226,10 +226,9 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 ##	Google Chrome
 ##	- Setup when you create new user.
 ## ----------------------------------------
+# System Preferences > General > Default web browser
+osascript ${EXEPATH}/lib/defaultbrowser.applescript
 if [[ -z "${opthash[(i)--test]}"  ]]; then
-	# # System Preferences > General > Default web browser
-	osascript ${EXEPATH}/lib/defaultbrowser.applescript
-	open -a "Google Chrome" --args --make-default-browser
 	# # Adblock
 	# open https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom
 	# # Lighthouse
