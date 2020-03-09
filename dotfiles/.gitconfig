@@ -32,14 +32,14 @@
 	rsh = reset --hard
 [core]
 	editor = nvim
-	hooksPath = ~/git_template
+	hooksPath = ~/.git_template
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 [color]
 	ui = true
 [commit]
 	gpgsign = true
-	template = ~/git_template/commit-template
+	template = ~/.git_template/commit-template
 [credential]
 	helper = osxkeychain
 [diff]
