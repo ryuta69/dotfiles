@@ -23,14 +23,7 @@ The GIF below shows an automation of setting Apps on Dock by Applescript.
 ## Installation
 I do not take any responsibility for any loss caused.
 
-### [1/3] Xcode
-This process can't be automated.
-
-You can download Xcode by a link below with login.
-
-https://apps.apple.com/us/app/xcode/id497799835?mt=12
-
-### [2/3] install.sh
+### [1/3] install.sh
 All installations are controlled by install.sh on top directory.
 
 ```
@@ -48,10 +41,15 @@ macos:    MacOS settings installations.
 all:      All installations (except init).
 ```
 
-### [3/3] Import GPG Key (Optional)
+### [2/3] Import GPG Key (Optional)
 This process can't be automated.
 
 Import GPG Key if you have it on other computers.
+
+### [3/3] Import Adobe XD (Optional)
+This process can't be automated.
+
+Import Adobe XD from Adobe Creative Cloud if necessary.
 
 ## Thanks
 These links gave me great ideas and motivations.
