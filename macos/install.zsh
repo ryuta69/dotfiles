@@ -218,6 +218,9 @@ defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 # Disable the ÅgAre you sure you want to open this application?Åh dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
+# Disable DS_STORE
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 ## ----------------------------------------
 ##	Google Chrome
