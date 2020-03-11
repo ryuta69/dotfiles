@@ -94,7 +94,7 @@ function! Rg()
 	let string = input('Search String: ')
 	call fzf#run(fzf#wrap({
 		\ 'source': 'rg -lin ' . string,
-		\ 'options': '--preview-window bottom:50% --preview "rg -in ' . string . ' {}"'}))
+		\ 'options': '--preview-window bottom:50% --preview "rg -in --color=always ' . string . ' {}"'}))
 endfunction
 nnoremap <Leader>rg :call Rg()<CR>
 
