@@ -97,6 +97,7 @@ function! Rg()
 		\ 'options': '--preview-window bottom:50% --preview "rg -in --color=always ' . string . ' {}"'}))
 endfunction
 nnoremap <Leader>rg :call Rg()<CR>
+command! -bang -nargs=* History call fzf#vim#history(fzf#vim#with_preview('down:50%'))
 command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview('down:50%'), <bang>0)
 
 " VimLsp
