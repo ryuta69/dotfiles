@@ -59,7 +59,7 @@ alias pbcp='pbcopy <'
 alias cdwk='cd ~/work'
 function mkcd() { mkdir $@; cd $@; }
 function sedr() { sed -i -- $@ **/*(D.); }
-alias lv='nvim `ls | fzf --preview "bat {}"`'
+alias lv='nvim `ls | fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"`'
 alias fd='fd -iH --no-ignore-vcs -E ".git|node_modules"'
 alias pskl='ps aux | fzf | awk "{ print \$2 }" | xargs kill -9'
 function absp() { echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"); }
@@ -143,7 +143,7 @@ function vii() {
 }
 function vigo() {
 	nvim -c "call append(0, v:oldfiles)" -c "write! ~/.config/nvim/viminfo.log" -c exit;
-	nvim `bat ~/.config/nvim/viminfo.log | fzf --preview 'bat {}'`;
+	nvim `bat ~/.config/nvim/viminfo.log | fzf --preview 'bat --color=always --style=header,grid --line-range :100 {}'`;
 }
 
 # Ripgrep
@@ -158,8 +158,8 @@ function rrg() {
 }
 
 # Not using always but useful Aliases Library
-alias vial='nvim `ls -d ~/.aliases/* | fzf --preview "bat {}"`'
-alias sral='source `ls -d ~/.aliases/* | fzf --preview "bat {}"`'
+alias vial='nvim `ls -d ~/.aliases/* | fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"`'
+alias sral='source `ls -d ~/.aliases/* | fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"`'
 
 ## ----------------------------------------
 ##	Keymap
