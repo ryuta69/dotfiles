@@ -48,9 +48,6 @@ do
         		sudo chsh -s /usr/local/bin/zsh
 			chmod 755 /usr/local/share/zsh
 			chmod 755 /usr/local/share/zsh/site-functions
-
-			mkdir -p ~/.config/nvim
-			curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 		fi
 
 		if [[ "$1" =~ 'packages' ]]; then
