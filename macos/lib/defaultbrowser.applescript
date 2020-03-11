@@ -6,8 +6,8 @@ tell application "System Events"
 	tell application process "System Preferences"
 		repeat while not (window 1 exists)
 		end repeat
-		tell window "General" of application process "System Preferences" of application "System Events"
-			tell pop up button 3 of window "General" of application process "System Preferences" of application "System Events"
+		tell window "General"
+			tell pop up button 3
 				delay 1
 				click
 				tell menu 1
