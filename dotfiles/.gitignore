@@ -2,6 +2,7 @@
 .env
 tags
 node_modules/
+target
 *.exe
 *.log
 *.out
