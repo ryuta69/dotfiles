@@ -159,7 +159,7 @@ function rrg() {
 
 # Not using always but useful Aliases Library
 alias vial='nvim `ls -d ~/.aliases/* | fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"`'
-alias sral='source `ls -d ~/.aliases/* | fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"`'
+alias soal='source `ls -d ~/.aliases/* | fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"`'
 
 ## ----------------------------------------
 ##	Keymap
