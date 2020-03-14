@@ -14,7 +14,7 @@
 	"editor.renderWhitespace": "all",
 	"editor.detectIndentation": false,
 	"editor.renderLineHighlight": "all",
-	"editor.acceptSuggestionOnEnter": "off",
+	"editor.acceptSuggestionOnEnter": "on",
 	"editor.minimap.renderCharacters": false,
 	"editor.fontFamily": "Noto Mono for Powerline",
 	"editor.suggest.snippetsPreventQuickSuggestions": false,
