@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "extern crate rand;\n\nuse rand::Rng;\n\nfn main() {\n\tlet secret_number = rand::thread_rng().gen_range(1, 101);\n}",
+    "uid" : "876B3460-70DB-4292-BD74-A7D0A21454FB",
+    "name" : "rand_rust",
+    "keyword" : "rand rust"
+  }
+}

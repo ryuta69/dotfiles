@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "use std::cmp::Ordering;\n\nfn main() {\n\tmatch ans.cmp(&secret_number) {\n\t\tOrdering::Less => println!(\"Too small!\"),\n\t\tOrdering::Greater => println!(\"Too big!\"),\n\t\tOrdering::Equal => {\n\t\t\tprintln!(\"You win!\");\n\t\t\tbreak;\n\t\t}\n\t}\n}",
+    "uid" : "644EDF0B-5417-4C74-9FDE-E73D7CEE1EFB",
+    "name" : "match_rust",
+    "keyword" : "match rust"
+  }
+}

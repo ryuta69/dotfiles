@@ -2,7 +2,7 @@
   "alfredsnippet" : {
     "snippet" : "io::stdin()\n\t.read_line({cursor})\n\t.expect(\"Failed to read line\");",
     "uid" : "5048969A-8764-4586-99FA-D89CF6EC0BA3",
-    "name" : "rust_read",
-    "keyword" : "rust_lead"
+    "name" : "read_rust",
+    "keyword" : "read rust"
   }
 }
