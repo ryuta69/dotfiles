@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "let bytes = str.as_bytes();",
+    "uid" : "1BCCA1CE-FAD6-4911-A7D3-BD7F33A3BE97",
+    "name" : "array_str_rust",
+    "keyword" : "array str rust"
+  }
+}
