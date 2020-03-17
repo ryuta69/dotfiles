@@ -18,8 +18,8 @@ for abspath (${EXEPATH}/*); do
 	filename=$(basename -- "$abspath");
 
 	if [[ $filename = 'install.zsh' ]]; then continue ; fi;
-	if [[ $filename = '.rustcfg' ]]; then ln -sfnv $abspath ~/.cargo/config ; fi;
-	if [[ $filename = 'init.vim' ]]; then ln -sfnv $abspath ~/.config/nvim/init.vim ; fi;
+	if [[ $filename = '.rustcfg' ]]; then ln -sfnv $abspath ${HOME}/.cargo/config ; fi;
+	if [[ $filename = 'init.vim' ]]; then ln -sfnv $abspath ${HOME}/.config/nvim/init.vim ; fi;
 
-	ln -sfnv $abspath ~/$filename;
+	ln -sfnv $abspath ${HOME}/$filename;
 done

@@ -19,18 +19,18 @@ fi;
 EXEPATH=$0:A:h
 
 # iTerm2
-ln -sfnv ${EXEPATH}/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+ln -sfnv ${EXEPATH}/com.googlecode.iterm2.plist ${HOME}/Library/Preferences/com.googlecode.iterm2.plist
 
 # Alfred
-mkdir -p ~/Library/ApplicationSupport/Alfred
-ln -sfnv ${EXEPATH}/Alfred.alfredpreferences ~/Library/ApplicationSupport/Alfred/Alfred.alfredpreferences
+mkdir -p ${HOME}/Library/ApplicationSupport/Alfred
+ln -sfnv ${EXEPATH}/Alfred.alfredpreferences ${HOME}/Library/ApplicationSupport/Alfred/Alfred.alfredpreferences
 
 # Karabiner
-mkdir -p ~/.config/karabiner
-ln -sfnv ${EXEPATH}/karabiner.json ~/.config/karabiner/karabiner.json
+mkdir -p ${HOME}/.config/karabiner
+ln -sfnv ${EXEPATH}/karabiner.json ${HOME}/.config/karabiner/karabiner.json
 
 # Rectangle
-ln -sfnv ${EXEPATH}/com.knollsoft.Rectangle.plist ~/Library/Preferences/com.knollsoft.Rectangle.plist
+ln -sfnv ${EXEPATH}/com.knollsoft.Rectangle.plist ${HOME}/Library/Preferences/com.knollsoft.Rectangle.plist
 defaults write com.knollsoft.Rectangle subsequentExecutionMode -int 2
 
 ## ----------------------------------------
@@ -54,8 +54,8 @@ defaults write -g NSCloseAlwaysConfirmsChanges -bool true
 # General > Close windows when quitting an app > checked
 defaults write -g NSQuitAlwaysKeepsWindows -bool false
 # General > Allow Handoff between this Mac and your iCloud devices
-defaults write ~/Library/Preferences/ByHost/com.apple.coreservices.useractivityd.plist ActivityAdvertisingAllowed -bool no
-defaults write ~/Library/Preferences/ByHost/com.apple.coreservices.useractivityd.plist ActivityReceivingAllowed -bool no
+defaults write ${HOME}/Library/Preferences/ByHost/com.apple.coreservices.useractivityd.plist ActivityAdvertisingAllowed -bool no
+defaults write ${HOME}/Library/Preferences/ByHost/com.apple.coreservices.useractivityd.plist ActivityReceivingAllowed -bool no
 
 # Desktop & Screen Saver > Desktop Picture
 osascript -e "tell application \"Finder\" to set desktop picture to \"${EXEPATH}/img/wall_phone.jpg\" as POSIX file"
@@ -170,7 +170,7 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 # General > Show these items on the desktop: Connected servers > unchecked
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 # General > New Finder windows show
-defaults write com.apple.finder NewWindowTarget -string "~/work"
+defaults write com.apple.finder NewWindowTarget -string "${HOME}/work"
 # General > Open folders in tabs instead of new windows > checked
 defaults write com.apple.finder FinderSpawnTab -bool true
 # Advanced > Show all file name extensions > checked
@@ -203,9 +203,9 @@ killall Finder
 ##	Desktop
 ## ----------------------------------------
 # Text size
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:textSize 12" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:textSize 12" ${HOME}/Library/Preferences/com.apple.finder.plist
 # Icon size
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 36" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 36" ${HOME}/Library/Preferences/com.apple.finder.plist
 
 ## ----------------------------------------
 ##	Hidden Command
