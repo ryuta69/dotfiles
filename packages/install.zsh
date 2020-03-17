@@ -37,7 +37,7 @@ pip3 install -r ${EXEPATH}/Pipfile
 ##	Rust Bundle
 ## ----------------------------------------
 rustup-init -y
-source ~/.cargo/env
+source ${HOME}/.cargo/env
 rustup component add rls --toolchain stable
 rustup component add rust-src --toolchain stable
 rustup component add rls-preview --toolchain stable
@@ -56,5 +56,5 @@ sudo ln -sfnv /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /u
 ## ----------------------------------------
 ##	Neovim
 ## ----------------------------------------
-mkdir -p ~/.config/nvim
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+mkdir -p ${HOME}/.config/nvim
+curl -fLo ${HOME}/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
