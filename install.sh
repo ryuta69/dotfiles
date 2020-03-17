@@ -35,10 +35,10 @@ do
 		if [[ "$1" =~ 'init' ]]; then
 			xcode-select --install
 
-			mkdir -p ~/work
+			mkdir -p ${HOME}work
 
-			mkdir -p ~/.ssh
-			ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+			mkdir -p ${HOME}.ssh
+			ssh-keyscan -t rsa github.com >> ${HOME}.ssh/known_hosts
 
 			/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 			brew tap homebrew/bundle
