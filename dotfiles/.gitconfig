@@ -56,7 +56,7 @@
 	process = git-lfs filter-process
 	required = true
 [ghq]
-	root = ~/ghq
+	root = ~/.ghq
 [gpg]
 	program = gpg2
 [merge]
