@@ -25,17 +25,15 @@ I do not take any responsibility for any loss caused.
 
 ### [1/3] curl
 
-Initialize is completed by curl. If you are not with curl but wget, replace it.
+By default, You don't have any CLI such as git, make, nor wget.
+
+This initialization could be completed by curl and bash only.
 
 ```bash
 curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --init
 ```
 
-### [2/3] clone repository
-
-```bash
-git clone https://github.com/ryuta69/dotfiles
-```
+### [2/3] Restart a terminal
 
 ### [3/3] install.sh
 
