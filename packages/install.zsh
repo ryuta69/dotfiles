@@ -49,6 +49,11 @@ rustup component add rust-analysis --toolchain stable
 sudo ln -sfnv /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
 
 ## ----------------------------------------
+##	Tmux
+## ----------------------------------------
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+## ----------------------------------------
 ##	MySQL
 ## ----------------------------------------
 # mysql_secure_installation
