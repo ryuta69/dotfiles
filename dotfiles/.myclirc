@@ -1,4 +1,4 @@
-[master]
+[main]
 timing = True
 enable_pager = True
 table_format = ascii
@@ -9,22 +9,18 @@ prompt = '\t \u@\h:\d> '
 destructive_warning = True
 
 [colors]
-Token.Toolbar.Arg.Text = 'nobold'
+scrollbar = 'bg:#1f2430'
+scrollbar.arrow = 'bg:#1f2430'
+search = 'bg:#1f2430 #ff8f40'
+search.current = '#ffffff bg:#44aa44'
+selected = '#ffffff bg:#44aa44'
 Token.Toolbar = 'bg:#222222 #aaaaaa'
-Token.Toolbar.Arg = 'noinherit bold'
-Token.Toolbar.Search.Text = 'nobold'
-Token.Toolbar.System = 'noinherit bold'
-Token.Toolbar.Search = 'noinherit bold'
 Token.Toolbar.On = 'bg:#222222 #ffffff'
 Token.Toolbar.Off = 'bg:#222222 #888888'
-Token.SearchMatch = '#ffffff bg:#4444aa'
-Token.SelectedText = '#ffffff bg:#6666aa'
-Token.SearchMatch.Current = '#ffffff bg:#44aa44'
-Token.Menu.Completions.ProgressBar = 'bg:#00aaaa'
-Token.Menu.Completions.ProgressButton = 'bg:#003333'
-Token.Menu.Completions.Completion = 'bg:#008888 #ffffff'
-Token.Menu.Completions.MultiColumnMeta = 'bg:#aaffff #000000'
-Token.Menu.Completions.Completion.Current = 'bg:#00aaaa #000000'
+Token.SearchMatch = 'bg:#1f2430 #f0f0f0'
+Token.SearchMatch.Current = 'bg:#1f2430 #ff8f40'
+Token.Menu.Completions.Completion = 'bg:#1f2430 #f0f0f0'
+Token.Menu.Completions.Completion.Current = 'bg:#1f2430 #ff8f40'
 
 [favorite_queries]
 ikey = '''ALTER TABLE `$1`
@@ -32,7 +28,7 @@ ADD INDEX `IDX_$1_$2` (`$2` ASC)'''
 
 fkey = '''ALTER TABLE `$1`
 ADD CONSTRAINT `FK_$1_$2`
-  FOREIGN KEY (`$2`)
-  REFERENCES `$3` (`$2`)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION'''
+FOREIGN KEY (`$2`)
+REFERENCES `$3` (`$2`)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION'''
