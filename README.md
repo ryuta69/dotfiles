@@ -23,7 +23,22 @@ The GIF below shows an automation of setting Apps on Dock by Applescript.
 ## Installation
 I do not take any responsibility for any loss caused.
 
-### [1/3] install.sh
+### [1/3] curl
+
+Initialize is completed by curl. If you are not with curl but wget, replace it.
+
+```bash
+curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --init
+```
+
+### [2/3] clone repository
+
+```bash
+git clone https://github.com/ryuta69/dotfiles
+```
+
+### [3/3] install.sh
+
 All installations are controlled by install.sh on top directory.
 
 ```
@@ -40,16 +55,6 @@ vscode:   VSCode settings installations.
 macos:    MacOS settings installations.
 all:      All installations (except init).
 ```
-
-### [2/3] Import GPG Key (Optional)
-This process can't be automated.
-
-Import GPG Key if you have it on other computers.
-
-### [3/3] Import Adobe XD (Optional)
-This process can't be automated.
-
-Import Adobe XD from Adobe Creative Cloud if necessary.
 
 ## Thanks
 These links gave me great ideas and motivations.
