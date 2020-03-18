@@ -27,3 +27,12 @@ Token.Menu.Completions.MultiColumnMeta = 'bg:#aaffff #000000'
 Token.Menu.Completions.Completion.Current = 'bg:#00aaaa #000000'
 
 [favorite_queries]
+ikey = '''ALTER TABLE `$1`
+ADD INDEX `IDX_$1_$2` (`$2` ASC)'''
+
+fkey = '''ALTER TABLE `$1`
+ADD CONSTRAINT `FK_$1_$2`
+  FOREIGN KEY (`$2`)
+  REFERENCES `$3` (`$2`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION'''
