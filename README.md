@@ -16,7 +16,7 @@ this automates MacOS System Preferences and Applications such as VSCode, Alfred,
 
 The GIF below shows an automation of setting Apps on Dock by Applescript.
 
-![docklist](https://user-images.githubusercontent.com/41639488/76142705-664dab00-60b3-11ea-9057-db185eaa20fc.gif)
+![dockitem](https://user-images.githubusercontent.com/41639488/76946555-8bf67200-6947-11ea-8e80-1f3b0dbec0be.gif)
 
 <br />
 
