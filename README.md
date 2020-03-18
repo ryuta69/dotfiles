@@ -10,13 +10,13 @@
 
 Not only dotfiles,
 
-<img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/76944865-14274800-6945-11ea-97a8-831930f5b5ab.png">
+<img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/76949279-a3375e80-694b-11ea-9567-bda3c484f8f2.png">
 
 this automates MacOS System Preferences and Applications such as VSCode, Alfred, iTerm and more.
 
 The GIF below shows an automation of setting Apps on Dock by Applescript.
 
-![dockitem](https://user-images.githubusercontent.com/41639488/76946555-8bf67200-6947-11ea-8e80-1f3b0dbec0be.gif)
+![dockitem](https://user-images.githubusercontent.com/41639488/76949300-a92d3f80-694b-11ea-9af9-22dba8f3a2c8.gif)
 
 <br />
 
@@ -27,7 +27,7 @@ I do not take any responsibility for any loss caused.
 
 By default, You don't have any CLI such as git, make, nor wget.
 
-This initialization could be completed by curl and bash only.
+This initialization could be completed by curl and bash, and gets CLI.
 
 ```bash
 curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --init
