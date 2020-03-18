@@ -10,7 +10,7 @@
 
 Not only dotfiles,
 
-<img width="600" alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/76142716-89785a80-60b3-11ea-9e0a-d8f2a00025a1.png">
+<img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/76944865-14274800-6945-11ea-97a8-831930f5b5ab.png">
 
 this automates MacOS System Preferences and Applications such as VSCode, Alfred, iTerm and more.
 
