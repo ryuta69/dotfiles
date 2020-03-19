@@ -227,7 +227,7 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 ##	- Setup when you create new user.
 ## ----------------------------------------
 # System Preferences > General > Default web browser
-osascript ${EXEPATH}/lib/defaultbrowser.applescript
+zsh ${EXEPATH}/lib/defaultbrowser.zsh
 if [[ -z "${opthash[(i)--test]}"  ]]; then
 	# # Adblock
 	# open https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom
