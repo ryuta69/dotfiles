@@ -27,7 +27,7 @@ I do not take any responsibility for any loss caused.
 
 By default, You don't have any CLI such as git, make, nor wget.
 
-This initialization could be completed by curl and bash, and gets CLI.
+This initialization could be completed only by curl and bash.
 
 ```bash
 curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --init
@@ -51,7 +51,7 @@ packages: Package manager installations.
 dotfiles: Dotfiles installations.
 vscode:   VSCode settings installations.
 macos:    MacOS settings installations.
-all:      All installations (except init).
+all:      (Recommended) All installations.
 ```
 
 ## Thanks
