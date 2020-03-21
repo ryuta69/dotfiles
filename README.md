@@ -12,7 +12,7 @@ Not only dotfiles,
 
 <img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/76955071-d9c5a700-6954-11ea-818c-19be19be1468.png">
 
-this automates MacOS System Preferences and Applications such as VSCode, Alfred, iTerm and more.
+this also automates MacOS System Preferences and Applications such as VSCode, Alfred, iTerm and more.
 
 The GIF below shows an automation of setting Apps on Dock by Applescript.
 
@@ -23,20 +23,23 @@ The GIF below shows an automation of setting Apps on Dock by Applescript.
 ## Installation
 I do not take any responsibility for any loss caused.
 
-### [1/3] curl
-
+### Initialize by curl
 By default, You don't have any CLI such as git, make, nor wget.
 
-This initialization could be completed only by curl and bash.
+This initialization could be completed only by curl and bash, and it will give you a minimum required dependencies.
 
 ```bash
 curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --init
 ```
 
-### [2/3] Restart a terminal
+This initialization will install these tools.
 
-### [3/3] install.sh
+* **Xcode CLI tools** -- install commonly [61 CLI tools](https://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/).
+* **ssh hostinfo of Github.com** -- add Github host info to .ssh/config.
+* **Brew** -- macos package manager.
+* **zsh** -- install zsh via brew and set as default shell.
 
+### install.sh
 All installations are controlled by install.sh on top directory.
 
 ```
@@ -51,8 +54,65 @@ packages: Package manager installations.
 dotfiles: Dotfiles installations.
 vscode:   VSCode settings installations.
 macos:    MacOS settings installations.
-all:      (Recommended) All installations.
+all:      (Not Recommended) All installations.
 ```
+
+**You should follow the below by its order**. You can look up these configured files and customize as you want, or pick up the only things you want.
+
+#### [1/4] Packages
+```
+./install.sh --packages
+```
+This will install all CLI tools and GUI applications via package managers.
+
+* **CLI tools by Brew** -- configured in packages/Brewfile.
+* **GUI applications by Brew Cask** -- configured in packages/Brewfile.
+* **AppStore applications by mas** -- configured in packages/Brewfile.
+* **Npm Global dependencies by npm** -- configured in packages/Npmfile.
+* **Pip Global dependencies by pip** -- configured in packages/Pipfile.
+* **Rust Bundle and LS by rustup** -- configured in packages/install.zsh.
+* **diff-highlight of git by gitcore** -- configured in packages/install.zsh.
+* **Tmux plugin bundle by git** -- configured in packages/install.zsh.
+* **Neovim plugin bundle by curl** -- configured in packages/install.zsh.
+
+#### [2/4] Dotfiles
+```
+./install.sh --dotfiles
+```
+These dotfiles are tools settings. It will be symlinked with --force to $HOME directory.
+
+* **.zshrc / .zsh** -- zshell configurations.
+* **init.vim** -- neovim configrations. It almost is compatible with vim.
+* **.gitconfig / .gitattributes / .git_template** -- git configrations.
+* **.tmux.conf** -- tmux configurations.
+* **.my.conf / .myclirc** -- mysql and mycli, which is a MySQL interface tool settings.
+* **.tigrc** -- tig, which is a git interface tool settings.
+* **.ctags** -- ctags settings.
+* **.rustcfg** -- rust settings.
+* **.iterm2_shell_integrations.zsh** -- iTerm2 extra command settings.
+* **.aliases** -- my favorite but not used always aliases. They will be loaded by `soal` command which is cofigured in .zshrc.
+
+#### [3/4] VSCode
+```
+./install.sh --vscode
+```
+These configurations are for VSCode. These will be symlinked force to VSCode setting directory.
+
+* **settings.json** -- user Settings.
+* **keybindings.json** -- shortcut Key Settings.
+* **Pluginfile** -- plugins, which will be installed via vscode/install.zsh.
+
+#### [4/4] MacOS (Not Recommended if you're not sure what this is.)
+```
+./install.sh --macos
+```
+These configurations are MacOS System Preferences and Core settings.
+
+* **install.zsh / lib / img** -- all macos configurations.
+* **karabiner.json** -- macos keybindings configurations.
+* **Alfred.alfredpreferences** -- macos lancher configrations. It has All Snippets as well. It contains Premiam features.
+* **com.google.code.iterm2.plist** -- macos terminal simulator configurations.
+* **com.knollsoft.Rectangle.plist** -- macos window controller configurations.
 
 ## Thanks
 These links gave me great ideas and motivations.
