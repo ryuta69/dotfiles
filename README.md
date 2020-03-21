@@ -3,10 +3,10 @@
 
 ## Contents
 
-* **dotfiles** - Main dotfiles. [(Detail)](user-content-14-packages)
-* **macos**    - MacOS settings. [(Detail)](user-content-24-dotfiles)
-* **vscode**   - VSCode settings. [(Detail)](user-content-34-vscode)
-* **packages** - Package Manager files. [(Detail)](user-content-44-macos-not-recommended-if-youre-not-sure-what-this-is)
+* **dotfiles** - Main dotfiles. [(Detail)](#user-content-14-packages)
+* **macos**    - MacOS settings. [(Detail)](#user-content-24-dotfiles)
+* **vscode**   - VSCode settings. [(Detail)](#user-content-34-vscode)
+* **packages** - Package Manager files. [(Detail)](#user-content-44-macos-not-recommended-if-youre-not-sure-what-this-is)
 
 Not only dotfiles,
 
