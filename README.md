@@ -23,7 +23,7 @@ The GIF below shows an automation of setting Apps on Dock by Applescript.
 ## Installation
 I do not take any responsibility for any loss caused.
 
-### Initialize by curl
+### First of all, you need to initialize
 By default, You don't have any CLI such as git, make, nor wget.
 
 This initialization could be completed only by curl and bash, and it will give you a minimum required dependencies.
@@ -39,7 +39,7 @@ This initialization will install these tools. You must restart terminal after co
 * **Brew** -- macos package manager.
 * **zsh** -- install zsh via brew and set as default shell.
 
-### install.sh
+### After initialization, let's install each configurations
 All installations are controlled by install.sh on top directory.
 
 ```
