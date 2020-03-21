@@ -3,10 +3,10 @@
 
 ## Contents
 
-* **dotfiles** - Main dotfiles.
-* **macos**    - MacOS settings.
-* **vscode**   - VSCode settings.
-* **packages** - Package Manager files.
+* **dotfiles** - Main dotfiles. [(Detail)](user-content-14-packages)
+* **macos**    - MacOS settings. [(Detail)](user-content-24-dotfiles)
+* **vscode**   - VSCode settings. [(Detail)](user-content-34-vscode)
+* **packages** - Package Manager files. [(Detail)](user-content-44-macos-not-recommended-if-youre-not-sure-what-this-is)
 
 Not only dotfiles,
 
@@ -32,7 +32,7 @@ This initialization could be completed only by curl and bash, and it will give y
 curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --init
 ```
 
-This initialization will install these tools.
+This initialization will install these tools. You must restart terminal after completed.
 
 * **Xcode CLI tools** -- install commonly [61 CLI tools](https://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/).
 * **ssh hostinfo of Github.com** -- add Github host info to .ssh/config.
@@ -57,7 +57,7 @@ macos:    MacOS settings installations.
 all:      (Not Recommended) All installations.
 ```
 
-**You should follow the below by its order**. You can look up these configured files and customize as you want, or pick up the only things you want.
+You should follow the below by its order. You can look up these configured files and customize as you want, or pick up the only things you want.
 
 #### [1/4] Packages
 ```
@@ -79,7 +79,7 @@ This will install all CLI tools and GUI applications via package managers.
 ```
 ./install.sh --dotfiles
 ```
-These dotfiles are tools settings. It will be symlinked with --force to $HOME directory.
+These dotfiles are tools settings. It will be symlinked forcely to $HOME directory.
 
 * **.zshrc / .zsh** -- zshell configurations.
 * **init.vim** -- neovim configrations. It almost is compatible with vim.
@@ -96,7 +96,7 @@ These dotfiles are tools settings. It will be symlinked with --force to $HOME di
 ```
 ./install.sh --vscode
 ```
-These configurations are for VSCode. These will be symlinked force to VSCode setting directory.
+These configurations are for VSCode. These will be symlinked forcely to VSCode setting directory.
 
 * **settings.json** -- user Settings.
 * **keybindings.json** -- shortcut Key Settings.
