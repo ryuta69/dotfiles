@@ -38,7 +38,10 @@ do
 			mkdir -p ${HOME}/work
 
 			mkdir -p ${HOME}/.ssh
+			ssh-keygen -t rsa -b 4096 -C "eyma22s.yu@gmail.com"
 			ssh-keyscan -t rsa github.com >> ${HOME}/.ssh/known_hosts
+			# API with password will be deprecated in Nov 2020.
+			# curl -u "ryuta69" --data "{\"title\":\"NewSSHKey\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
 
 			/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 			brew tap homebrew/bundle
