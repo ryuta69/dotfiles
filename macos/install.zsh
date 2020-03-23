@@ -22,8 +22,8 @@ EXEPATH=$0:A:h
 ln -sfnv ${EXEPATH}/com.googlecode.iterm2.plist ${HOME}/Library/Preferences/com.googlecode.iterm2.plist
 
 # Alfred
-mkdir -p ${HOME}/Library/ApplicationSupport/Alfred
-ln -sfnv ${EXEPATH}/Alfred.alfredpreferences ${HOME}/Library/ApplicationSupport/Alfred/Alfred.alfredpreferences
+mkdir -p ${HOME}/Library/Application\\\ Support/Alfred
+ln -sfnv ${EXEPATH}/Alfred.alfredpreferences ${HOME}/Library/Application\\\ Support/Alfred/Alfred.alfredpreferences
 
 # Karabiner
 mkdir -p ${HOME}/.config/karabiner

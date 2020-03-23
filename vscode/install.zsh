@@ -14,7 +14,7 @@ if [[ -z "${opthash[(i)--force]}"  ]]; then
 fi;
 
 EXEPATH=$0:A:h
-VSPATH="${HOME}/Library/Application\ Support/Code/User"
+VSPATH="${HOME}/Library/Application\\\ Support/Code/User"
 mkdir -p ${VSPATH}
 ln -sfnv ${EXEPATH}/settings.json ${VSPATH}/settings.json
 ln -sfnv ${EXEPATH}/keybindings.json ${VSPATH}/keybindings.json
