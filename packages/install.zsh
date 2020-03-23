@@ -44,6 +44,11 @@ rustup component add rls-preview --toolchain stable
 rustup component add rust-analysis --toolchain stable
 
 ## ----------------------------------------
+##	Xcode
+## ----------------------------------------
+sudo xcodebuild -license accept
+
+## ----------------------------------------
 ##	Git
 ## ----------------------------------------
 sudo ln -sfnv /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
