@@ -9,6 +9,7 @@
 	br  = branch
 	bra = branch -a
 	brd = !git branch | fzf | xargs git branch -D
+	brr = !git fetch && git checkout -b $1 origin/$1
 	cm  = commit --verbose
 	co  = checkout
 	cob = checkout -b
