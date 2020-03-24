@@ -155,9 +155,6 @@ defaults write com.apple.menuextra.clock FlashDateSeparators -bool false
 U_NAME=$(whoami)
 sudo dscl . create /Users/${U_NAME} Picture "${EXEPATH}/img/icon.jpeg"
 
-# Apply all settings
-killall Dock
-
 ## ----------------------------------------
 ##	Finder
 ## ----------------------------------------
@@ -195,9 +192,6 @@ defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder ShowSidebar -bool true
 # View > Show Preview > checked
 defaults write com.apple.finder ShowPreviewPane -bool true
-
-# Apply all settings
-killall Finder
 
 ## ----------------------------------------
 ##	Desktop
@@ -246,3 +240,15 @@ if [[ -z "${opthash[(i)--test]}"  ]]; then
 	# # Youtube Repeat Button
 	# open https://chrome.google.com/webstore/detail/youtube-repeat-button/aihdpnkmhcbjkfonmmfepcjjfaenobipl
 fi;
+
+## ----------------------------------------
+##	Apply All Settings
+## ----------------------------------------
+for app in \
+	"cfprefsd" \
+	"Activity Monitor" "Address Book" "Calendar" \
+	"Contacts" "Dock" "Finder" "Mail" "Messages" \
+	"SystemUIServer" "Terminal" "Transmission" "iCal"
+do
+	killall ${app}
+done
