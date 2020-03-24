@@ -54,4 +54,5 @@ foreach idx ($(seq 0 $(expr ${DNUM} - 1)))
 		${PLIST}
 end
 
+killall cfprefsd
 killall Dock
