@@ -16,7 +16,6 @@ do
 			echo "init:     Core settings for all installations."
 			echo "packages: Package manager installations."
 			echo "dotfiles: Dotfiles installations."
-			echo "vscode:   VSCode settings installations."
 			echo "macos:    MacOS settings installations."
 			echo "all:      All installations (except init)."
 			exit 0
@@ -27,7 +26,6 @@ do
         		if [[ $Ans != 'Y' ]]; then echo 'Canceled' && exit; fi;
 			./packages/install.zsh --force
 			./dotfiles/install.zsh --force
-			./vscode/install.zsh --force
 			./macos/install.zsh --force
 			exit 0
 		fi
@@ -59,10 +57,6 @@ do
 
 		if [[ "$1" =~ 'dotfiles' ]]; then
 			./dotfiles/install.zsh
-		fi
-
-		if [[ "$1" =~ 'vscode' ]]; then
-			./vscode/install.zsh
 		fi
 
 		if [[ "$1" =~ 'macos' ]]; then
@@ -111,9 +105,6 @@ done
 # dotfiles: ## install dotfiles.
 # 	./dotfiles/install.zsh
 
-# vscode: ## install VSCode settings.
-# 	./vscode/install.zsh
-
 # macos: ## install MacOS settings.
 # 	./macos/install.zsh
 
@@ -121,5 +112,4 @@ done
 # 	@echo "Your file will be overwritten(Y/n)" && read ans && [ $${ans:-N} = Y ]
 # 	./packages/install.zsh --force
 # 	./dotfiles/install.zsh --force
-# 	./vscode/install.zsh --force
 # 	./macos/install.zsh --force
