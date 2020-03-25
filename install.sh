@@ -13,7 +13,7 @@ do
 			echo ""
 			echo "Options for install.sh"
 			echo "================================================="
-			echo "init:     Core settings for all installation"
+			echo "init:     Core initialization"
 			echo "bundle:   Package installation"
 			echo "system:   MacOS system setting"
 			echo "dotfiles: Dotfiles installation"

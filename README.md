@@ -50,7 +50,7 @@ All installations are controlled by install.sh on top directory.
 
 Options for install.sh
 =================================================
-init:     Core settings for all installation
+init:     Core intialization
 bundle:   Package installation
 system:   MacOS system setting
 dotfiles: Dotfiles installation
