@@ -56,6 +56,12 @@ rustup component add rust-analysis --toolchain stable
 sudo ln -sfnv /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
 
 ## ----------------------------------------
+##	Zsh
+## ----------------------------------------
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+zinit self-update
+
+## ----------------------------------------
 ##	Tmux
 ## ----------------------------------------
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -69,6 +75,13 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ##	iTerm2
 ## ----------------------------------------
 curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
+
+## ----------------------------------------
+##	Docker
+## ----------------------------------------
+mkdir -p ${HOME}/.zsh/completion
+curl -L https://raw.githubusercontent.com/docker/compose/1.25.4/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
+curl -L https://raw.githubusercontent.com/docker/machine/v0.16.0/contrib/completion/zsh/_docker-machine > ~/.zsh/completion/_docker-machine
 
 ## ----------------------------------------
 ##	Neovim

@@ -17,14 +17,7 @@ export SVN_EDITOR="${EDITOR}"
 export GIT_EDITOR="${EDITOR}"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH
-export FZF_DEFAULT_OPTS='
-	--reverse
-	--color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229
-	--color info:150,prompt:110,spinner:150,pointer:167,marker:174'
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-alias virc='nvim ~/.zshrc'
-alias sorc='source ~/.zshrc'
 [ -f ~/.extension_settings.zsh ] && source ~/.extension_settings.zsh
 
 ## ----------------------------------------
@@ -36,6 +29,14 @@ autoload -Uz compinit && compinit -i
 compinit
 
 ## ----------------------------------------
+##	Completion
+## ----------------------------------------
+zstyle ':completion:*:default' menu select=1
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
+fpath=(~/.zsh/completion $fpath)
+
+## ----------------------------------------
 ##	Setopt
 ## ----------------------------------------
 setopt no_beep
@@ -44,6 +45,14 @@ setopt auto_list
 setopt auto_menu
 setopt auto_pushd
 setopt list_packed
+
+## ----------------------------------------
+##	Keymap
+## ----------------------------------------
+bindkey '^F' forward-word
+bindkey '^B' backward-word
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
 
 ## ----------------------------------------
 ##	Alias
@@ -58,12 +67,14 @@ alias dus='du -sh'
 alias psa='ps aux'
 alias pbcp='pbcopy <'
 alias cdwk='cd ~/work'
+alias virc='nvim ~/.zshrc'
+alias sorc='source ~/.zshrc'
 function mkcd() { mkdir $@; cd $@; }
 function sedr() { sed -i -- $@ **/*(D.); }
-alias lv='nvim `ls | fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"`'
 alias fd='fd -iH --no-ignore-vcs -E ".git|node_modules"'
 alias pskl='ps aux | fzf | awk "{ print \$2 }" | xargs kill -9'
 function absp() { echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"); }
+alias lv='nvim `ls | fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"`'
 alias ll='exa -alhF --git-ignore --group-directories-first --time-style=long-iso'
 alias tr2='exa -alhF --git-ignore --group-directories-first --time-style=long-iso -T -L=2 --ignore-glob=".git|node_modules"'
 alias tr3='exa -alhF --git-ignore --group-directories-first --time-style=long-iso -T -L=3 --ignore-glob=".git|node_modules"'
@@ -158,28 +169,18 @@ function rrg() {
 	nvim ${selected};
 }
 
-# Not using always but useful Aliases Library
+# Aliases
 alias vial='nvim `ls -d ~/.aliases/* | fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"`'
 alias soal='source `ls -d ~/.aliases/* | fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"`'
 
 ## ----------------------------------------
-##	Keymap
+##	FZF
 ## ----------------------------------------
-bindkey '^F' forward-word
-bindkey '^B' backward-word
-bindkey "^A" beginning-of-line
-bindkey "^E" end-of-line
-
-## ----------------------------------------
-##	Completion
-## ----------------------------------------
-zstyle ':completion:*:default' menu select=1
-zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
-zstyle ':completion:*:*:git:*' script ~/.zsh/completion/git-completion.bash
-fpath=(~/.zsh/completion $fpath)
-source ~/.zsh/completion/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/completion/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/completion/enhancd/init.sh
+export FZF_DEFAULT_OPTS='
+	--reverse
+	--color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229
+	--color info:150,prompt:110,spinner:150,pointer:167,marker:174'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ## ----------------------------------------
 ##	iTerm2
@@ -187,10 +188,28 @@ source ~/.zsh/completion/enhancd/init.sh
 [ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
 
 ## ----------------------------------------
+##	Zinit
+## ----------------------------------------
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+zinit light-mode for zinit-zsh/z-a-patch-dl zinit-zsh/z-a-as-monitor zinit-zsh/z-a-bin-gem-node
+zinit light b4b4r07/enhancd
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma/fast-syntax-highlighting
+
+## ----------------------------------------
 ##	Prompt
 ##	- Must be the end of .zshrc.
 ##	- `p10k configure` to restart setting.
 ## ----------------------------------------
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
-[[ ! -f ~/.zsh/powerlevel10k/.p10k.zsh ]] || source ~/.zsh/powerlevel10k/.p10k.zsh
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+[ -f ~/.p10k.zsh ] && source ~/.p10k.zsh
