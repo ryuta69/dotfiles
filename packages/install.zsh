@@ -64,6 +64,11 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # mysql_secure_installation
 
 ## ----------------------------------------
+##	iTerm2
+## ----------------------------------------
+curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
+
+## ----------------------------------------
 ##	Neovim
 ## ----------------------------------------
 mkdir -p ${HOME}/.config/nvim
