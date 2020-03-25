@@ -24,7 +24,7 @@ jobs:
         mkdir -p ~/work
     - name: Install package files.
       run: |
-        ./packages/install.zsh --force
+        ./packages/install.zsh --force --test
     - name: Install dotfiles settings.
       run: |
         ./dotfiles/install.zsh --force
