@@ -14,7 +14,7 @@ fi
 
 # Check for large files
 filter=$(cat ~/.gitattributes | grep filter=lfs | awk '{printf "-e .%s$ ", $1}')
-files=($(git diff --cached --name-only | grep -v $filter))
+files=($(git diff --cached --name-only --diff-filter=AM | grep -v $filter))
 gpath=$(git rev-parse --show-toplevel)
 for file in ${files}; do
 	file_size=$(ls -l ${gpath}/${file} | awk '{print $5}')
