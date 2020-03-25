@@ -19,7 +19,6 @@ EXEPATH=$0:A:h
 ## ----------------------------------------
 brew upgrade
 brew bundle --file ${EXEPATH}/Brewfile
-git lfs install
 
 ## ----------------------------------------
 ##	Xcode
@@ -53,6 +52,7 @@ rustup component add rust-analysis --toolchain stable
 ## ----------------------------------------
 ##	Git
 ## ----------------------------------------
+git lfs install
 sudo ln -sfnv /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
 
 ## ----------------------------------------
@@ -95,7 +95,7 @@ curl -fLo ${HOME}/.local/share/nvim/site/autoload/plug.vim --create-dirs https:/
 ##      - so option --test will avoid this.
 ## ----------------------------------------
 if [[ -z "${opthash[(i)--test]}" ]]; then
-	plugins=($(cat ${EXEPATH}/VSCodePluginfile))
+	plugins=($(cat ${EXEPATH}/VscodePlugin))
 	for plugin in ${plugins}; do
 		code --install-extension ${plugin}
 	done
