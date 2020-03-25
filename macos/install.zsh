@@ -127,8 +127,8 @@ osascript ${EXEPATH}/lib/unchecknextsource.applescript
 # KeyBoard > Shortcuts > Spotlight > uncheck Spotlight
 osascript ${EXEPATH}/lib/uncheckspotlight.applescript
 # Keyboard > Input Sources > Add Google Japanese Input
-IS_SET_GJIME=$(defaults read com.apple.HIToolbox AppleEnabledInputSources | grep "InputSourceKind = \"Keyboard Input Method\"")
-[[ -z  ${IS_SET_GJIME} ]] && osascript ${EXEPATH}/lib/inputsource.applescript
+# IS_SET_GJIME=$(defaults read com.apple.HIToolbox AppleEnabledInputSources | grep "InputSourceKind = \"Keyboard Input Method\"")
+# [[ -z  ${IS_SET_GJIME} ]] && osascript ${EXEPATH}/lib/inputsource.applescript
 
 # Trackpad > Tap to click > checked
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
