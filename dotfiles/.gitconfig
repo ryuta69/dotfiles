@@ -31,6 +31,7 @@
 	rf  = reflog --date=iso
 	rs  = reset
 	rsh = reset --hard
+	spr = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
 [core]
 	editor = nvim
 	hooksPath = ~/.git_template
