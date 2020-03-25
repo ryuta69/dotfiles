@@ -13,25 +13,7 @@ if [[ -z "${opthash[(i)--force]}"  ]]; then
         if [[ $Ans != 'Y' ]]; then echo 'Canceled\n' && exit; fi;
 fi;
 
-## ----------------------------------------
-##	Software Preferences
-## ----------------------------------------
 EXEPATH=$0:A:h
-
-# iTerm2
-ln -sfnv ${EXEPATH}/com.googlecode.iterm2.plist ${HOME}/Library/Preferences/com.googlecode.iterm2.plist
-
-# Alfred
-mkdir -p ${HOME}/Library/Application\\\ Support/Alfred
-ln -sfnv ${EXEPATH}/Alfred.alfredpreferences ${HOME}/Library/Application\\\ Support/Alfred/Alfred.alfredpreferences
-
-# Karabiner
-mkdir -p ${HOME}/.config/karabiner
-ln -sfnv ${EXEPATH}/karabiner.json ${HOME}/.config/karabiner/karabiner.json
-
-# Rectangle
-ln -sfnv ${EXEPATH}/com.knollsoft.Rectangle.plist ${HOME}/Library/Preferences/com.knollsoft.Rectangle.plist
-defaults write com.knollsoft.Rectangle subsequentExecutionMode -int 2
 
 ## ----------------------------------------
 ##	System Preferences
