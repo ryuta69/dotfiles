@@ -22,6 +22,13 @@ brew bundle --file ${EXEPATH}/Brewfile
 git lfs install
 
 ## ----------------------------------------
+##	Xcode
+##      - Required to run after Brew,
+##      - because xcode is installed by Cask.
+## ----------------------------------------
+sudo xcodebuild -license accept
+
+## ----------------------------------------
 ##	Npm Bundle
 ## ----------------------------------------
 npm update -g npm
@@ -42,11 +49,6 @@ rustup component add rls --toolchain stable
 rustup component add rust-src --toolchain stable
 rustup component add rls-preview --toolchain stable
 rustup component add rust-analysis --toolchain stable
-
-## ----------------------------------------
-##	Xcode
-## ----------------------------------------
-sudo xcodebuild -license accept
 
 ## ----------------------------------------
 ##	Git
@@ -73,3 +75,16 @@ curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utili
 ## ----------------------------------------
 mkdir -p ${HOME}/.config/nvim
 curl -fLo ${HOME}/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+## ----------------------------------------
+##	VSCode
+##      - Github Actions doesn't support this,
+##      - because they don't have GUI,
+##      - so option --test will avoid this.
+## ----------------------------------------
+if [[ -z "${opthash[(i)--test]}" ]]; then
+	plugins=($(cat ${EXEPATH}/VSCodePluginfile))
+	for plugin in ${plugins}; do
+		code --install-extension ${plugin}
+	done
+fi;
