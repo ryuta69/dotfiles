@@ -13,18 +13,18 @@ do
 			echo ""
 			echo "Options for install.sh"
 			echo "================================================="
-			echo "init:     Core settings for all installations."
-			echo "packages: Package manager installations."
-			echo "dotfiles: Dotfiles installations."
-			echo "system:   MacOS system settings installations."
-			echo "all:      All installations (except init)."
+			echo "init:     Core settings for all installation"
+			echo "bundle:   Package installation"
+			echo "system:   MacOS system setting"
+			echo "dotfiles: Dotfiles installation"
+			echo "all:      All installations (except init)"
 			exit 0
 		fi
 
 		if [[ "$1" =~ 'all' ]]; then
         		read -p "Your file will be overwritten(Y/n): " Ans;
         		if [[ $Ans != 'Y' ]]; then echo 'Canceled' && exit; fi;
-			./packages/install.zsh --force
+			./bundle/install.zsh --force
 			./dotfiles/install.zsh --force
 			./system/install.zsh --force
 			exit 0
@@ -51,8 +51,8 @@ do
 			chmod 755 /usr/local/share/zsh/site-functions
 		fi
 
-		if [[ "$1" =~ 'packages' ]]; then
-			./packages/install.zsh
+		if [[ "$1" =~ 'bundle' ]]; then
+			./bundle/install.zsh
 		fi
 
 		if [[ "$1" =~ 'dotfiles' ]]; then
@@ -99,8 +99,8 @@ done
 # 	brew tap homebrew/bundle
 # 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# packages: ## install package manager files.
-# 	./packages/install.zsh
+# bundle: ## install package manager files.
+# 	./bundle/install.zsh
 
 # dotfiles: ## install dotfiles.
 # 	./dotfiles/install.zsh
@@ -110,6 +110,6 @@ done
 
 # all: ## install all settings.
 # 	@echo "Your file will be overwritten(Y/n)" && read ans && [ $${ans:-N} = Y ]
-# 	./packages/install.zsh --force
+# 	./bundle/install.zsh --force
 # 	./dotfiles/install.zsh --force
 # 	./system/install.zsh --force

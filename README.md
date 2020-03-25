@@ -3,9 +3,11 @@
 
 ## Contents
 
-* **dotfiles** - Main dotfiles. [(Detail)](#user-content-14-packages)
-* **system**    - MacOS system settings. [(Detail)](#user-content-24-dotfiles)
-* **packages** - Package Manager files. [(Detail)](#user-content-44-macos-not-recommended-if-youre-not-sure-what-this-is)
+* **dotfiles** - main dotfiles. [(Detail)](#user-content-14-packages)
+* **bundle** - bundlers and packages. [(Detail)](#user-content-44-macos-not-recommended-if-youre-not-sure-what-this-is)
+* **system** - macos system setting. [(Detail)](#user-content-24-dotfiles)
+
+<br />
 
 Not only dotfiles,
 
@@ -48,31 +50,31 @@ All installations are controlled by install.sh on top directory.
 
 Options for install.sh
 =================================================
-init:     Core settings for all installations.
-packages: Package manager installations.
-dotfiles: Dotfiles installations.
-system:   MacOS system settings installations.
-all:      (Not Recommended) All installations.
+init:     Core settings for all installation
+bundle:   Package installation
+system:   MacOS system setting
+dotfiles: Dotfiles installation
+all:      All installations (except init)
 ```
 
 You should follow the below by its order. You can look up these configured files and customize as you want, or pick up the only things you want.
 
-#### [1/3] Packages
+#### [1/3] Bundle
 ```
-./install.sh --packages
+./install.sh --bundle
 ```
 This will install all CLI tools and GUI applications via package managers.
 
-* **CLI tools by Brew** -- configured in packages/Brewfile.
-* **GUI applications by Brew Cask** -- configured in packages/Brewfile.
-* **AppStore applications by mas** -- configured in packages/Brewfile.
-* **Npm Global dependencies by npm** -- configured in packages/Npmfile.
-* **Pip Global dependencies by pip** -- configured in packages/Pipfile.
-* **VSCode plugins by code** -- configured in packages/VSCodePluginfile.
-* **Rust Bundle and LS by rustup** -- configured in packages/install.zsh.
-* **Tmux plugin bundle by git** -- configured in packages/install.zsh.
-* **Neovim plugin bundle by curl** -- configured in packages/install.zsh.
-* **diff-highlight of git by gitcore** -- configured in packages/install.zsh.
+* **CLI tools by Brew** -- configured in bundle/Brewfile.
+* **GUI applications by Brew Cask** -- configured in bundle/Brewfile.
+* **AppStore applications by mas** -- configured in bundle/Brewfile.
+* **Npm Global dependencies by npm** -- configured in bundle/Npmfile.
+* **Pip Global dependencies by pip** -- configured in bundle/Pipfile.
+* **VSCode plugins by code** -- configured in bundle/VSCodePluginfile.
+* **Rust Bundle and LS by rustup** -- configured in bundle/install.zsh.
+* **Tmux plugin bundle by git** -- configured in bundle/install.zsh.
+* **Neovim plugin bundle by curl** -- configured in bundle/install.zsh.
+* **diff-highlight of git by gitcore** -- configured in bundle/install.zsh.
 
 #### [2/3] Dotfiles
 ```
