@@ -57,7 +57,7 @@ bindkey "^E" end-of-line
 ## ----------------------------------------
 ##	Alias
 ## ----------------------------------------
-# Base
+## ========== General ==========
 alias tm='tmux'
 alias sed='gsed'
 alias cdh='cd ~'
@@ -84,7 +84,7 @@ function lnsv() {
 	ln -sfnv ${abspath} $2
 }
 
-# Global Alias
+## ========== Global Alias ==========
 alias -g G='| grep'
 alias -g H='| head'
 alias -g T='| tail'
@@ -92,12 +92,12 @@ alias -g X='| xargs'
 alias -g C='| wc -l'
 alias -g CP='| pbcopy'
 
-# Suffix Alias
+## ========== Suffix Alias ==========
 alias -s {png,jpg,jpeg}='imgcat'
 alias -s {html,mp3,mp4,mov}='open'
 alias -s {applescript}='osascript'
 
-# Git
+## ========== Git ==========
 alias g='git'
 compdef _git g
 alias ghg='ghq get'
@@ -120,7 +120,7 @@ function gcre() {
 	hub browse;
 }
 
-# Tar
+## ========== Tar ==========
 function tz() { tar zcvf ${1}.tar.gz ${1}; }
 function extract() {
 	case $1 in
@@ -139,13 +139,13 @@ function extract() {
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 
-# MySQL
+## ========== MySQL ==========
 alias scn='mycli -u root'
 alias sstart='mysql.server start'
 alias sst='mysql.server status'
 alias sstop='mysql.server stop'
 
-# Neovim
+## ========== Neovim ==========
 alias vi='nvim'
 alias vivi='nvim ~/.config/nvim/init.vim'
 function vii() {
@@ -158,7 +158,7 @@ function vigo() {
 	nvim `bat ~/.config/nvim/viminfo.log | fzf --preview 'bat --color=always --style=header,grid --line-range :100 {}'`;
 }
 
-# Ripgrep
+## ========== Ripgrep ==========
 alias rg="rg --hidden -g '!.git' -g '!.node_modules' --max-columns 200"
 function rrg() {
 	keyword=$1;
@@ -169,7 +169,7 @@ function rrg() {
 	nvim ${selected};
 }
 
-# Aliases
+## ========== Aliases ==========
 alias vial='nvim `ls -d ~/.aliases/* | fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"`'
 alias soal='source `ls -d ~/.aliases/* | fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"`'
 
@@ -213,3 +213,4 @@ zinit light zdharma/fast-syntax-highlighting
 ## ----------------------------------------
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 [ -f ~/.p10k.zsh ] && source ~/.p10k.zsh
+### End of Zinit's installer chunk
