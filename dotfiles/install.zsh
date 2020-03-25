@@ -34,8 +34,8 @@ for abspath (${EXEPATH}/*); do
 	if [[ $filename = 'com.googlecode.iterm2.plist' ]]; then ln -sfnv $abspath ${PLPATH}; continue; fi;
 	if [[ $filename = 'com.knollsoft.Rectangle.plist' ]]; then ln -sfnv $abspath ${PLPATH}; continue; fi;
 	if [[ $filename = 'karabiner.json' ]]; then ln -sfnv $abspath ${HOME}/.config/karabiner; continue; fi;
-	if [[ $filename = '.vscode_settings.json' ]]; then ln -sfnv $abspath ${VSPATH}/settings.json; continue; fi;
-	if [[ $filename = '.vscode_keybindings.json' ]]; then ln -sfnv $abspath ${VSPATH}/keybindings.json; continue; fi;
+	if [[ $filename = '.vscode.settings.json' ]]; then ln -sfnv $abspath ${VSPATH}/settings.json; continue; fi;
+	if [[ $filename = '.vscode.keybindings.json' ]]; then ln -sfnv $abspath ${VSPATH}/keybindings.json; continue; fi;
 
 	ln -sfnv $abspath ${HOME}/$filename;
 done
