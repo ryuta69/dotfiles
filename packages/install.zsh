@@ -69,18 +69,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ##	iTerm2
 ## ----------------------------------------
 curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
-ln -sfnv ${EXEPATH}/com.googlecode.iterm2.plist ${HOME}/Library/Preferences/com.googlecode.iterm2.plist
-
-## ----------------------------------------
-##	Alfred
-## ----------------------------------------
-mkdir -p ${HOME}/Library/Application\\\ Support/Alfred
-ln -sfnv ${EXEPATH}/Alfred.alfredpreferences ${HOME}/Library/Application\\\ Support/Alfred/Alfred.alfredpreferences
 
 ## ----------------------------------------
 ##	Neovim
 ## ----------------------------------------
-mkdir -p ${HOME}/.config/nvim
 curl -fLo ${HOME}/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ## ----------------------------------------
@@ -95,15 +87,3 @@ if [[ -z "${opthash[(i)--test]}" ]]; then
 		code --install-extension ${plugin}
 	done
 fi;
-
-## ----------------------------------------
-##	Karabiner
-## ----------------------------------------
-mkdir -p ${HOME}/.config/karabiner
-ln -sfnv ${EXEPATH}/karabiner.json ${HOME}/.config/karabiner/karabiner.json
-
-## ----------------------------------------
-##	Rectangle
-## ----------------------------------------
-ln -sfnv ${EXEPATH}/com.knollsoft.Rectangle.plist ${HOME}/Library/Preferences/com.knollsoft.Rectangle.plist
-defaults write com.knollsoft.Rectangle subsequentExecutionMode -int 2
