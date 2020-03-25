@@ -16,7 +16,7 @@ do
 			echo "init:     Core settings for all installations."
 			echo "packages: Package manager installations."
 			echo "dotfiles: Dotfiles installations."
-			echo "macos:    MacOS settings installations."
+			echo "system:   MacOS system settings installations."
 			echo "all:      All installations (except init)."
 			exit 0
 		fi
@@ -26,7 +26,7 @@ do
         		if [[ $Ans != 'Y' ]]; then echo 'Canceled' && exit; fi;
 			./packages/install.zsh --force
 			./dotfiles/install.zsh --force
-			./macos/install.zsh --force
+			./system/install.zsh --force
 			exit 0
 		fi
 
@@ -59,8 +59,8 @@ do
 			./dotfiles/install.zsh
 		fi
 
-		if [[ "$1" =~ 'macos' ]]; then
-			./macos/install.zsh
+		if [[ "$1" =~ 'system' ]]; then
+			./system/install.zsh
 		fi
 
 		shift
@@ -105,11 +105,11 @@ done
 # dotfiles: ## install dotfiles.
 # 	./dotfiles/install.zsh
 
-# macos: ## install MacOS settings.
-# 	./macos/install.zsh
+# system: ## install MacOS settings.
+# 	./system/install.zsh
 
 # all: ## install all settings.
 # 	@echo "Your file will be overwritten(Y/n)" && read ans && [ $${ans:-N} = Y ]
 # 	./packages/install.zsh --force
 # 	./dotfiles/install.zsh --force
-# 	./macos/install.zsh --force
+# 	./system/install.zsh --force
