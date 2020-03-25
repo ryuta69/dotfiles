@@ -5,7 +5,6 @@
 
 * **dotfiles** - Main dotfiles. [(Detail)](#user-content-14-packages)
 * **macos**    - MacOS settings. [(Detail)](#user-content-24-dotfiles)
-* **vscode**   - VSCode settings. [(Detail)](#user-content-34-vscode)
 * **packages** - Package Manager files. [(Detail)](#user-content-44-macos-not-recommended-if-youre-not-sure-what-this-is)
 
 Not only dotfiles,
@@ -52,14 +51,13 @@ Options for install.sh
 init:     Core settings for all installations.
 packages: Package manager installations.
 dotfiles: Dotfiles installations.
-vscode:   VSCode settings installations.
 macos:    MacOS settings installations.
 all:      (Not Recommended) All installations.
 ```
 
 You should follow the below by its order. You can look up these configured files and customize as you want, or pick up the only things you want.
 
-#### [1/4] Packages
+#### [1/3] Packages
 ```
 ./install.sh --packages
 ```
@@ -70,12 +68,13 @@ This will install all CLI tools and GUI applications via package managers.
 * **AppStore applications by mas** -- configured in packages/Brewfile.
 * **Npm Global dependencies by npm** -- configured in packages/Npmfile.
 * **Pip Global dependencies by pip** -- configured in packages/Pipfile.
+* **VSCode plugins by code** -- configured in packages/VSCodePluginfile.
 * **Rust Bundle and LS by rustup** -- configured in packages/install.zsh.
 * **diff-highlight of git by gitcore** -- configured in packages/install.zsh.
 * **Tmux plugin bundle by git** -- configured in packages/install.zsh.
 * **Neovim plugin bundle by curl** -- configured in packages/install.zsh.
 
-#### [2/4] Dotfiles
+#### [2/3] Dotfiles
 ```
 ./install.sh --dotfiles
 ```
@@ -91,18 +90,10 @@ These dotfiles are tools settings. It will be symlinked forcely to $HOME directo
 * **.rustcfg** -- rust settings.
 * **.iterm2_shell_integrations.zsh** -- iTerm2 extra command settings.
 * **.aliases** -- my favorite but not used always aliases. They will be loaded by `soal` command which is cofigured in .zshrc.
+* **.vscode_settings.json** -- vscode user settings.
+* **.vscode_keybindings.json** -- vscode shortcut key settings.
 
-#### [3/4] VSCode
-```
-./install.sh --vscode
-```
-These configurations are for VSCode. These will be symlinked forcely to VSCode setting directory.
-
-* **settings.json** -- user Settings.
-* **keybindings.json** -- shortcut Key Settings.
-* **Pluginfile** -- plugins, which will be installed via vscode/install.zsh.
-
-#### [4/4] MacOS (Not Recommended if you're not sure what this is.)
+#### [3/3] MacOS (Not Recommended if you're not sure what this is.)
 ```
 ./install.sh --macos
 ```
