@@ -68,7 +68,7 @@ defaults write com.apple.dock show-process-indicators -bool true
 defaults write com.apple.dock show-recents -bool false
 # Set appilication on Dock
 defaults delete com.apple.dock persistent-apps
-osascript ${EXEPATH}/lib/dockitem.applescript
+zsh ${EXEPATH}/lib/dockitem.zsh
 
 # Language & Region > Preferred languages > English, Japanese
 defaults write -g AppleLanguages -array en ja
@@ -80,7 +80,7 @@ defaults write com.apple.screensaver askForPassword -bool true
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Display > Resolution > Scaled > More Space
-osascript ${EXEPATH}/lib/resolution.applescript
+# osascript ${EXEPATH}/lib/resolution.applescript
 
 # Energy Saver > Battery > Turn display off after > 3 minutes
 sudo pmset -b displaysleep 3
@@ -103,11 +103,11 @@ sudo pmset -c powernap 0
 defaults write -g InitialKeyRepeat -int 15
 defaults write -g KeyRepeat -int 2
 # KeyBoard > Touch Bar shows > Expanded Control Strip
-osascript ${EXEPATH}/lib/touchbar.applescript
+# osascript ${EXEPATH}/lib/touchbar.applescript
 # KeyBoard > Shortcuts > Input Sources > uncheck next input source
-osascript ${EXEPATH}/lib/unchecknextsource.applescript
+# osascript ${EXEPATH}/lib/unchecknextsource.applescript
 # KeyBoard > Shortcuts > Spotlight > uncheck Spotlight
-osascript ${EXEPATH}/lib/uncheckspotlight.applescript
+# osascript ${EXEPATH}/lib/uncheckspotlight.applescript
 # Keyboard > Input Sources > Add Google Japanese Input
 # IS_SET_GJIME=$(defaults read com.apple.HIToolbox AppleEnabledInputSources | grep "InputSourceKind = \"Keyboard Input Method\"")
 # [[ -z  ${IS_SET_GJIME} ]] && osascript ${EXEPATH}/lib/inputsource.applescript
@@ -203,34 +203,18 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 ##	- Setup when you create new user.
 ## ----------------------------------------
 # System Preferences > General > Default web browser
-# zsh ${EXEPATH}/lib/defaultbrowser.zsh
-if [[ -z "${opthash[(i)--test]}"  ]]; then
-	# # Adblock
-	# open https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom
-	# # Lighthouse
-	# open https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk
-	# # Wappalyzer
-	# open https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg
-	# # Just Black
-	# open https://chrome.google.com/webstore/detail/just-black/aghfnjkcakhmadgdomlmlhhaocbkloab
-	# # Clear Cache
-	# open https://chrome.google.com/webstore/detail/clear-cache/cppjkneekbjaeellbfkmgnhonkkjfpdn
-	# # Leoh New Tab
-	# open https://chrome.google.com/webstore/detail/leoh-new-tab/ijhhakihjccpanbibbcceofpjnebokcb
-	# # Google Translate
-	# open https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb
-	# # Youtube Repeat Button
-	# open https://chrome.google.com/webstore/detail/youtube-repeat-button/aihdpnkmhcbjkfonmmfepcjjfaenobipl
-fi;
+zsh ${EXEPATH}/lib/defaultbrowser.zsh
 
 ## ----------------------------------------
 ##	Apply All Settings
 ## ----------------------------------------
-for app in \
-	"cfprefsd" \
-	"Activity Monitor" "Address Book" "Calendar" \
-	"Contacts" "Dock" "Finder" "Mail" "Messages" \
-	"SystemUIServer" "Terminal" "Transmission" "iCal"
-do
-	killall ${app}
-done
+if [[ -z "${opthash[(i)--test]}"  ]]; then
+	for app in \
+		"cfprefsd" \
+		"Activity Monitor" "Address Book" "Calendar" \
+		"Contacts" "Dock" "Finder" "Mail" "Messages" \
+		"SystemUIServer" "Terminal" "Transmission" "iCal"
+	do
+		killall ${app}
+	done
+fi;
