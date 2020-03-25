@@ -3,9 +3,9 @@
 
 ## Contents
 
-* **dotfiles** - main dotfiles. [(Detail)](#user-content-14-packages)
-* **bundle** - bundlers and packages. [(Detail)](#user-content-44-macos-not-recommended-if-youre-not-sure-what-this-is)
-* **system** - macos system setting. [(Detail)](#user-content-24-dotfiles)
+* **dotfiles** - main dotfiles. [(Detail)](#user-content-23-dotfiles)
+* **bundle** - bundlers and packages. [(Detail)](#user-content-13-bundle)
+* **system** - macos system setting. [(Detail)](#user-content-33-system)
 
 <br />
 
@@ -63,18 +63,18 @@ You should follow the below by its order. You can look up these configured files
 ```
 ./install.sh --bundle
 ```
-This will install all CLI tools and GUI applications via package managers.
+This will install CLI tools and GUI applications below via package managers.
 
-* **CLI tools by Brew** -- configured in bundle/Brewfile.
-* **GUI applications by Brew Cask** -- configured in bundle/Brewfile.
-* **AppStore applications by mas** -- configured in bundle/Brewfile.
-* **Npm Global dependencies by npm** -- configured in bundle/Npmfile.
-* **Pip Global dependencies by pip** -- configured in bundle/Pipfile.
-* **VSCode plugins by code** -- configured in bundle/VSCodePluginfile.
-* **Rust Bundle and LS by rustup** -- configured in bundle/install.zsh.
-* **Tmux plugin bundle by git** -- configured in bundle/install.zsh.
-* **Neovim plugin bundle by curl** -- configured in bundle/install.zsh.
-* **diff-highlight of git by gitcore** -- configured in bundle/install.zsh.
+* **CLI tools by Brew**
+* **AppStore applications by mas**
+* **GUI applications by Brew Cask**
+* **Npm Global dependencies by npm**
+* **Pip Global dependencies by pip**
+* **VSCode plugins by code**
+* **Tmux plugin bundle by git**
+* **Rust Bundle and LS by rustup**
+* **Neovim plugin bundle by curl**
+* **diff-highlight of git by gitcore**
 
 #### [2/3] Dotfiles
 ```
@@ -84,11 +84,12 @@ These dotfiles are tools settings. It will be symlinked forcely to $HOME directo
 
 * **.ctags** -- ctags settings.
 * **.rustcfg** -- rust settings.
+* **.zshrc** -- zshell configurations.
 * **.tmux.conf** -- tmux configurations.
-* **.zshrc / .zsh** -- zshell configurations.
+* **.p10k.zsh** -- prompt configurations.
 * **.tigrc** -- tig, which is a git interface tool settings.
-* **.gitconfig / .gitattributes / .git_template** -- git configrations.
 * **init.vim** -- neovim configrations. It almost is compatible with vim.
+* **.gitconfig / .gitattributes / .git_template / .gitignore** -- git configrations.
 * **.my.conf / .myclirc** -- mysql and mycli, which is a MySQL interface tool settings.
 * **.aliases** -- my favorite but not used always aliases. They will be loaded by `soal` command which is cofigured in .zshrc.
 * **.vscode_settings.json** -- vscode user settings.
@@ -98,7 +99,7 @@ These dotfiles are tools settings. It will be symlinked forcely to $HOME directo
 * **com.knollsoft.Rectangle.plist** -- macos window controller configurations.
 * **Alfred.alfredpreferences** -- macos lancher configrations. It has All Snippets as well. It contains Premiam features.
 
-#### [3/3] System (Not Recommended if you're not sure what this is.)
+#### [3/3] System
 ```
 ./install.sh --system
 ```
