@@ -58,7 +58,6 @@ bindkey "^E" end-of-line
 ##	Alias
 ## ----------------------------------------
 ## ========== General ==========
-alias tm='tmux'
 alias sed='gsed'
 alias cdh='cd ~'
 alias op='open ./'
@@ -69,6 +68,7 @@ alias pbcp='pbcopy <'
 alias cdwk='cd ~/work'
 alias virc='nvim ~/.zshrc'
 alias sorc='source ~/.zshrc'
+alias tm='tmux attach || tmux new'
 function mkcd() { mkdir $@; cd $@; }
 function sedr() { sed -i -- $@ **/*(D.); }
 alias fd='fd -iH --no-ignore-vcs -E ".git|node_modules"'
