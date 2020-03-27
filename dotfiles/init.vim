@@ -78,7 +78,7 @@ map <Leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 "" ----------------------------------------
 ""	PluginSetting
 "" ----------------------------------------
-" AyuVim
+"" ========== Ayu Vim ==========
 colorscheme ayu
 let ayucolor="dark"
 highlight DiffAdd    gui=none guifg=none    guibg=#003366
@@ -86,7 +86,7 @@ highlight DiffDelete gui=bold guifg=#660000 guibg=#660000
 highlight DiffChange gui=none guifg=none    guibg=#006666
 highlight DiffText   gui=none guifg=none    guibg=#013220
 
-" VimFzf
+"" ========== Fzf Vim ==========
 nnoremap <Leader>file :Files<CR>
 nnoremap <Leader>hist :History<CR>
 let g:fzf_layout = { 'right': '~50%' }
@@ -100,32 +100,32 @@ nnoremap <Leader>rg :call Rg()<CR>
 command! -bang -nargs=* History call fzf#vim#history(fzf#vim#with_preview('down:50%'))
 command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview('down:50%'), <bang>0)
 
-" VimLsp
+"" ========== Vim LSP ==========
 nnoremap <Leader>lsphv :LspHover<CR>
 nnoremap <Leader>lspst :LspStatus<CR>
 nnoremap <Leader>lspup :LspInstallServer<CR>
 nnoremap <Leader>lspfm :LspDocumentFormat<CR>
 nnoremap <Leader>lspdf :LspPeekDefinition<CR>
 
-" VimPlug
+"" ========== Vim Plug ==========
 nnoremap <Leader>clean :PlugClean<CR>
 nnoremap <Leader>update :PlugUpdate<CR>
 nnoremap <Leader>install :PlugInstall<CR>
 
-" Deoplete
+"" ========== Deoplete ==========
 let g:deoplete#enable_at_startup = 1
 
-" Ultisnips
+"" ========== Ultisnips ==========
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
-" EasyMotion
+"" ========== Easy Motion ==========
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_enter_jump_first = 1
 map <Leader>s <Plug>(easymotion-sn)
 
-" VimFugitive
+"" ========== Vim Fugitive ==========
 set diffopt+=vertical
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>ga :Gwrite<CR>
@@ -136,9 +136,9 @@ nnoremap <Leader>du :diffupdate<CR>
 nnoremap <Leader>dgl :diffget //2 \| diffupdate<CR>
 nnoremap <Leader>dgr :diffget //3 \| diffupdate<CR>
 
-" NvimMiniyank
+"" ========== Nvim Miniyank ==========
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
 
-" VimTrailingWhitespace
+"" ========== Vim Trailing Space ==========
 nnoremap <Leader>trim :FixWhitespace<CR>
