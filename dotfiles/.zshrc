@@ -91,6 +91,9 @@ alias -g T='| tail'
 alias -g X='| xargs'
 alias -g C='| wc -l'
 alias -g CP='| pbcopy'
+alias -g TA='> ~/work/temp/a.log'
+alias -g TB='> ~/work/temp/b.log'
+alias dflg='diff ~/work/temp/a.log ~/work/temp/b.log'
 
 ## ========== Suffix Alias ==========
 alias -s {png,jpg,jpeg}='imgcat'
