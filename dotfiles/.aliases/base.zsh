@@ -1,7 +1,7 @@
 ## ----------------------------------------
 ##	Package Manager
 ## ----------------------------------------
-alias brup='brew upgrade && brew cask upgrade'
+alias brup='brew upgrade && brew update && brew cask upgrade'
 alias npup='npm update -g npm && npm update -g'
 alias zsup='zinit self-update && zinit update'
 
