@@ -294,9 +294,9 @@ defaults write .GlobalPreferences AppleLocale -string "en-JP"
 defaults write .GlobalPreferences AppleMeasurementUnits -string "Centimeters"
 defaults write .GlobalPreferences AppleMetricUnits -int 1
 # 2: United States
-defaults write .GlobalPreferences AppleLocale -string "en-US"
-defaults write .GlobalPreferences AppleMeasurementUnits -string "Inches"
-defaults write .GlobalPreferences AppleMetricUnits -int 0
+# defaults write .GlobalPreferences AppleLocale -string "en-US"
+# defaults write .GlobalPreferences AppleMeasurementUnits -string "Inches"
+# defaults write .GlobalPreferences AppleMetricUnits -int 0
 
 # First day of week
 # 1: Sunday
@@ -430,35 +430,66 @@ osascript ${EXEPATH}/lib/resolution.applescript
 # Color Temperature
 
 ## ========== Energy Saver ==========
-# Automatic graphics switching
-
 # Show battery status in menu bar
 
 ## <Tab> Battery
 # Turn display off after
+# params: minutes
+sudo pmset -b displaysleep 3
 
 # Put hard disks to sleep when possible
+# 1: Checked
+sudo pmset -b disksleep 1
+# 2: Unchecked
+# sudo pmset -b disksleep 0
 
 # Slightly dim the display while on battery power
+# 1: Checked
+# sudo pmset -b lessbright 0
+# 2: Unchecked
+sudo pmset -b lessbright 0
 
 # Enable Power Nap while on battery power
+# 1: Checked
+# sudo pmset -b powernap 1
+# 2: Unchecked
+sudo pmset -b powernap 0
 
 ## <Tab> Power Adapter
 # Turn display off after
+# params: minutes
+sudo pmset -c displaysleep 3
 
 # Prevent computer from sleeping automatically when the display is off
+sudo pmset -c sleep 0 
 
 # Put hard disks to sleep when possible
+# 1: Checked
+# sudo pmset -c disksleep 1
+# 2: Unchecked
+sudo pmset -c disksleep 0
 
 # Wake for Wi-Fi network access
+# 1: Checked
+sudo pmset -c womp 1
+# 2: Unchecked
+# sudo pmset -c womp 0
 
 # Enable Power Nap while plugged into a power adapter
+# 1: Checked
+# sudo pmset -c powernap 1
+# 2: Unchecked
+sudo pmset -c powernap 0
 
 ## ========== Keyboard ==========
 ## <Tab> Keyboard
 # Key Repeat
+# params: 15 is the fastest
+defaults write .GlobalPreferences InitialKeyRepeat -int 15
 
 # Delay Until Repeat
+# params: 2 is the fastest
+defaults write .GlobalPreferences KeyRepeat -int 2
 
 # Adjust keyboard brightness in low light
 
@@ -469,8 +500,10 @@ osascript ${EXEPATH}/lib/resolution.applescript
 # Touch Bar shows
 # 1: App Control
 # 2: Expanded Control Strip
+osascript ${EXEPATH}/lib/touchbar.applescript
 # 3: F1, F2, etc. Keys
 # 4: Quick Actions
+
 
 # Press Fn key to
 # 1: App Control
@@ -565,6 +598,7 @@ osascript ${EXEPATH}/lib/resolution.applescript
 # Select the previous input source
 
 # Select next source in Input menu
+osascript ${EXEPATH}/lib/unchecknextsource.applescript
 
 ## <Menu> Screenshots
 # Save picture of screen as a file
@@ -585,6 +619,7 @@ osascript ${EXEPATH}/lib/resolution.applescript
 
 ## <Menu> Spotlight
 # Show Spotlight search
+osascript ${EXEPATH}/lib/uncheckspotlight.applescript
 
 # Show Finder search window
 
@@ -596,7 +631,9 @@ osascript ${EXEPATH}/lib/resolution.applescript
 ## <Menu> Function Keys
 
 ## <Tab> Input Sources
-# Add Input Sources
+Add Input Sources
+GJIME=$(defaults read com.apple.HIToolbox AppleEnabledInputSources | grep "InputSourceKind = \"Keyboard Input Method\"")
+[[ -z  ${GJIME} ]] && osascript ${EXEPATH}/lib/inputsource.applescript
 
 # Show Input menu in menu bar
 
@@ -622,17 +659,23 @@ osascript ${EXEPATH}/lib/resolution.applescript
 # 2: Tap with Three fingers
 
 # Secondary click
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 
 # `Secondary click` pop up menu
 # 1: Click or tap with two fingers
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick 1
 # 2: Click in bottom right corner
 # 3: Click in bottom left corner
 
 # Tap to click
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Click
+defaults write -g com.apple.trackpad.forceClick 2
 
 # Tracking speed
+defaults write -g com.apple.trackpad.scaling 3
 
 # Force Click and haptic feedback
 
@@ -737,6 +780,8 @@ osascript ${EXEPATH}/lib/resolution.applescript
 
 ## ========== Users & Groups ==========
 # Profile Picture
+UNM=$(whoami)
+sudo dscl . create /Users/${UNM} Picture "${EXEPATH}/img/icon.jpeg"
 
 ## ========== Parental Controls ==========
 
@@ -755,6 +800,8 @@ osascript ${EXEPATH}/lib/resolution.applescript
 
 ## ========== Date & Time ==========
 ## <Tab> Date & Time
+# Set date and time automatically
+sudo systemsetup -setusingnetworktime on > /dev/null
 
 ## <Tab> Time Zone
 
@@ -763,13 +810,16 @@ osascript ${EXEPATH}/lib/resolution.applescript
 
 # Time options
 # 1: Digital
+defaults write com.apple.menuextra.clock IsAnalog -bool false
 # 2: Analog
 
 # Display the time with seconds
 
 # Flash the time separators
+defaults write com.apple.menuextra.clock FlashDateSeparators -bool false
 
 # Use a 24-hour clock
+defaults write com.apple.menuextra.clock DateFormat -string "HH:mm"
 
 # Show AM/PM
 
@@ -795,13 +845,19 @@ osascript ${EXEPATH}/lib/resolution.applescript
 ## ========== General ==========
 # Show these items on the desktop
 # 1: Hard disks
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 # 2: External disks
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
 # 3: CDs, DVDs, and iPods
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 # 4: Connected servers
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 
 # New Finder windows show
+defaults write com.apple.finder NewWindowTarget -string "${HOME}/work"
 
 # Open folders in tabs instead of new windows
+defaults write com.apple.finder FinderSpawnTab -bool true
 
 ## ========== Tags ==========
 # Show these tags in the sidebar
@@ -815,29 +871,37 @@ osascript ${EXEPATH}/lib/resolution.applescript
 
 ## ========== Advanced ==========
 # Show all filename extensions
+defaults write -g AppleShowAllExtensions -bool true
 
 # Show warning before changing an extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Show warning before removing from iCloud Drive
+defaults write com.apple.finder FXEnableRemoveFromICloudDriveWarning -bool false
 
 # Show warning before emptying the Trash
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 # Remove items from the Trash after 30 days
+defaults write com.apple.finder FXRemoveOldTrashItems -bool true
 
 # Keep folders on top
 # 1: In windows when sorting by name
+defaults write com.apple.finder _FXSortFoldersFirst -bool false
 # 2: On Desktop
 
 # When Performing a search
 # 1: Search This Mac
+defaults write com.apple.finder FXDefaultSearchScope -string "SCev"
 # 2: Search the Current Folder
 # 3: Use the Previous Search Scope
 
 ## ========== Right Click ==========
 # View
 # 1: as Icons
-# 2: as  List
+# 2: as List
 # 3: as Columns
+defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 # 4: as Gallary View
 
 # Use Groups
@@ -854,10 +918,12 @@ osascript ${EXEPATH}/lib/resolution.applescript
 
 # <Button> View Options
 # Icon Size
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 36" ${HOME}/Library/Preferences/com.apple.finder.plist
 
 # Grid Spacing
 
 # Text Size
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:textSize 12" ${HOME}/Library/Preferences/com.apple.finder.plist
 
 # Label Position
 # 1: Bottom
@@ -870,6 +936,17 @@ osascript ${EXEPATH}/lib/resolution.applescript
 # Show Icon Preview
 
 # Show Column Preview
+
+## ========== View ==========
+# Show Toolbar
+defaults write com.apple.finder ShowSidebar -bool true
+defaults write com.apple.finder ShowPreviewPane -bool true
+# Show Path Bar
+defaults write com.apple.finder ShowPathbar -bool true
+# Show Tab Bar
+defaults write com.apple.finder ShowTabView -bool true
+# Show Status Bar
+defaults write com.apple.finder ShowStatusBar -bool true
 
 ## ----------------------------------------
 ##	Desktop
@@ -895,6 +972,10 @@ osascript ${EXEPATH}/lib/resolution.applescript
 # 8: Tags
 
 # Icon Size
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 36" ${HOME}/Library/Preferences/com.apple.finder.plist
+
+# Text Size
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:textSize 12" ${HOME}/Library/Preferences/com.apple.finder.plist
 
 # Grid Spacing
 
@@ -905,10 +986,36 @@ osascript ${EXEPATH}/lib/resolution.applescript
 ## ----------------------------------------
 ##	Extra
 ## ----------------------------------------
-## ========== Dock Notification ==========
+## ========== Dock Applications ==========
 zsh ${EXEPATH}/lib/dockitem.zsh
 
 ## ========== Default Application ==========
 
 ## ========== Remove Notification ==========
+defaults write com.apple.LaunchServices LSQuarantine -bool false
 
+## ========== Disable DS_STORE in Network and USB ==========
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+## ========== Show Hidden Files ==========
+defaults write com.apple.finder AppleShowAllFiles true
+
+## ========== Show Directory Details ==========
+defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder ShowStatusBar -bool true
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+## ----------------------------------------
+##	Apply All Settings
+## ----------------------------------------
+if [[ -z "${opthash[(i)--test]}"  ]]; then
+	for app in \
+		"cfprefsd" \
+		"Activity Monitor" "Address Book" "Calendar" \
+		"Contacts" "Dock" "Finder" "Mail" "Messages" \
+		"SystemUIServer" "Terminal" "Transmission" "iCal"
+	do
+		killall ${app}
+	done
+fi;
