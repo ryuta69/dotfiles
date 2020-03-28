@@ -70,6 +70,7 @@ nnoremap <silent> <Tab> 15<Right>
 nnoremap <silent> <S-Tab> 15<Left>
 nnoremap <Leader>code :!code %:p<CR>
 nnoremap <Leader>wkdir :!code %:p:h<CR>
+nnoremap <Leader>sh :split \| terminal<CR>
 nnoremap <Leader>1 :diffget LOCAL<CR>
 nnoremap <Leader>2 :diffget BASE<CR>
 nnoremap <Leader>3 :diffget REMOTE<CR>
