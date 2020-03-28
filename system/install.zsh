@@ -1006,6 +1006,10 @@ defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
+## ========== Disable System Preferences Red Bubble Notification ==========
+defaults write com.apple.systempreferences AttentionPrefBundleIDs 0
+
+
 ## ----------------------------------------
 ##	Apply All Settings
 ## ----------------------------------------
