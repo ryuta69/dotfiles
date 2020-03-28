@@ -36,6 +36,7 @@ dockitem=(
 	"Automator"           "com.apple.Automator"                       "file:///Applications/Automator.app/"
 	"Digital Color Meter" "com.apple.DigitalColorMeter"               "file:///Applications/Utilities/Digital%20Color%20Meter.app/"
 	"System Preferences"  "com.apple.systempreferences"               "file:///Applications/System%20Preferences.app/"
+	"Script Editor"       "com.apple.ScriptEditor2"                   "file:///Applications/Utilities/Script%20Editor.app/"
 )
 
 PLIST="${HOME}/Library/Preferences/com.apple.dock.plist"
