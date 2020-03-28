@@ -115,9 +115,13 @@ nnoremap <Leader>install :PlugInstall<CR>
 
 "" ========== Deoplete ==========
 let g:deoplete#enable_at_startup = 1
+inoremap <expr> <up>    pumvisible() ? '<c-e><up>'   : '<up>'
+inoremap <expr> <down>  pumvisible() ? '<c-e><down>' : '<down>'
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>"      : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>"      : "\<S-Tab>"
 
 "" ========== Ultisnips ==========
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger='<c-e>'
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
