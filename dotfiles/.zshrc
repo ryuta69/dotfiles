@@ -23,10 +23,16 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 ## ----------------------------------------
 ##	Autoload
 ## ----------------------------------------
-autoload -Uz colors
-colors
-autoload -Uz compinit && compinit -i
-compinit
+autoload -Uz colors && colors
+autoload -Uz compinit && compinit -i && compinit
+
+## ----------------------------------------
+##	Language
+## ----------------------------------------
+export LANGUAGE="en_US.UTF-8"
+export LANG="${LANGUAGE}"
+export LC_ALL="${LANGUAGE}"
+export LC_CTYPE="${LANGUAGE}"
 
 ## ----------------------------------------
 ##	Completion
