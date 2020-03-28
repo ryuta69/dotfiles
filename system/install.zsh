@@ -363,6 +363,51 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 ## ========== Spotlight ==========
 # Search Results
+SCAT=(
+	# Applications
+	"APPLICATIONS"               true
+	# Bookmarks & History
+	"BOOKMARKS"                  true
+	# Calculator
+	"MENU_EXPRESSION"            true
+	# Contacts
+	"CONTACT"                    true
+	# Conversion
+	"MENU_CONVERSION"            true
+	# Conversion
+	"MENU_DEFINITION"            true
+	# Developer
+	"SOURCE"                     true
+	# Documents
+	"DOCUMENTS"                  true
+	# Events & Reminders
+	"EVENT_TODO"                 true
+	# Folders
+	"DIRECTORIES"                true
+	# Fonts
+	"FONTS"                      true
+	# Images
+	"IMAGES"                     true
+	# Mail & Messages
+	"MESSAGES"                   true
+	# Movies
+	"MOVIES"                     true
+	# Music
+	"MUSIC"                      true
+	# Other
+	"MENU_OTHER"                 true
+	# PDF Documents
+	"PDF"                        true
+	# Presentations
+	"PRESENTATIONS"              true
+	# Spreadsheets
+	"SPREADSHEETS"               true
+	# Spotlight Suggestions
+	"MENU_SPOTLIGHT_SUGGESTIONS" true
+	# System Preferences
+	"SYSTEM_PREFS"               true
+)
+zsh ${EXEPATH}/lib/spotlightSearchResults.zsh $(echo ${SCAT})
 
 # Allow Spotlight Suggestions in Look up
 
