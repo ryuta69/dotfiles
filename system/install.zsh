@@ -95,7 +95,7 @@ defaults write .GlobalPreferences AppleScrollerPagingBehavior -bool true
 
 # Default web browser
 # 1: Google Chrome
-zsh ./lib/defaultbrowser.zsh
+zsh ${EXEPATH}/lib/defaultbrowser.zsh
 
 # Ask to keep changes when closing documents
 # 1: Checked
@@ -410,48 +410,83 @@ SCAT=(
 zsh ${EXEPATH}/lib/spotlightSearchResults.zsh $(echo ${SCAT})
 
 # Allow Spotlight Suggestions in Look up
+# 1: Checked
+defaluts write com.apple.lookup.shared LookupSuggestionsDisabled -bool true
+# 2: Unchecked
+# defaluts write com.apple.lookup.shared LookupSuggestionsDisabled -bool false
 
 ## ========== Notifications ==========
-## <Section> Turn of Do Not Disturb
+## <Section> Turn on Do Not Disturb
+# From to
+# 1: Checked
 # From
-
+# params: Hours devided by 60 from 0:00. 1320 is 22:00.
+# defaults -currentHost write com.apple.notificationcenterui dndStart -int 1320
 # to
+# params: Hours devided by 60 from 0:00. 420 is 7:00.
+# defaults -currentHost write com.apple.notificationcenterui dndEnd -int 420
+# 2: Unchecked
+defaults -currentHost delete com.apple.notificationcenterui dndStart
+defaults -currentHost delete com.apple.notificationcenterui dndEnd
 
 # When the display is sleeping
+# 1: Checked
+defaults -currentHost write com.apple.notificationcenterui dndEnabledDisplaySleep -bool true
+# 2: Unchecked
+# defaults -currentHost delete com.apple.notificationcenterui dndEnabledDisplaySleep
 
 # When mirroring to TVs and projectors
+# 1: Checked
+defaults -currentHost delete com.apple.notificationcenterui dndMirroring
+# 2: Unchecked
+# defaults -currentHost write com.apple.notificationcenterui dndMirroring -bool false
 
 ## <Section> When Do Not Distrub is
 # Allow calls from everyone
+# 1: Checked
+# defaults -currentHost write com.apple.notificationcenterui dndFacetime -bool true
+# 2: Unchecked
+defaults -currentHost delete com.apple.notificationcenterui dndFacetime
 
 # Allow repeated calls
+# 1: Checked
+defaults -currentHost write com.apple.notificationcenterui dndFacetime -bool true
+defaults -currentHost write com.apple.notificationcenterui dndFacetimeRepeatedCalls -bool true
+# 2: Unchecked
+defaults -currentHost delete com.apple.notificationcenterui dndFacetime
+defaults -currentHost delete com.apple.notificationcenterui dndFacetimeRepeatedCalls
 
 # Notification Center sort order
 # 1: Recents
 # 2: Recents by App
 # 3: Manually by App
+# !!! not right now. MacOS changed it to sfl2 binary...
 
 ## ========== Displays ==========
-# AirPlay Display
-
 # Show mirroring options in the menu bar when available
+# 1: Checked
+defaults write com.apple.airplay showInMenuBarIfPresent -bool true
+defaults write com.apple.airplay "NSStatusItem Visible com.apple.menuextra.airplay" -bool true
+# 2: Unchecked
+# defaults write com.apple.airplay showInMenuBarIfPresent -bool false
+# defaults write com.apple.airplay "NSStatusItem Visible com.apple.menuextra.airplay" -bool false
 
 ## <Tab> Display
 # Resolution
-osascript ${EXEPATH}/lib/resolution.applescript
-
+# Default for display
 # `Scaled` ranged menu
 # 1: Larger Text
 # 2: Second Larger Text
 # 3: Middle
 # 4: Default
 # 5: More Space
+osascript ${EXEPATH}/lib/resolution.applescript
 
 # Brightness
+# params: 1.lightest 0.darkest
+brightness 1
 
 # Automatically adjust brightness
-
-# True Tone
 
 ## <Tab> Color
 # Display profile

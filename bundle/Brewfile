@@ -25,6 +25,7 @@ brew "git-lfs"
 brew "gnu-sed"
 brew "ripgrep"
 brew "hyperfine"
+brew "brightness"
 
 # Shell
 brew "zsh"
