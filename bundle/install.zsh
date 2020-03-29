@@ -60,13 +60,11 @@ sudo ln -sfnv /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /u
 ## ----------------------------------------
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 zinit self-update
-source ${HOME}/.zshrc
 
 ## ----------------------------------------
 ##	Tmux
 ## ----------------------------------------
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-${HOME}/.tmux/plugins/tpm/scripts/install_plugins.sh
 
 ## ----------------------------------------
 ##	MySQL
@@ -89,7 +87,6 @@ curl -L https://raw.githubusercontent.com/docker/machine/v0.16.0/contrib/complet
 ##	Neovim
 ## ----------------------------------------
 curl -fLo ${HOME}/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-nvim +'PlugInstall --sync' +qa
 
 ## ----------------------------------------
 ##	VSCode
