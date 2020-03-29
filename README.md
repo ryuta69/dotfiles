@@ -3,9 +3,9 @@
 
 ## Contents
 
-* **dotfiles** - main dotfiles. [(Detail)](#user-content-23-dotfiles)
-* **bundle** - bundlers and packages. [(Detail)](#user-content-13-bundle)
-* **system** - macos system setting. [(Detail)](#user-content-33-system)
+* **dotfiles** - main dotfiles[(detail)](#user-content-23-dotfiles).
+* **bundle** - bundlers and packages[(detail)](#user-content-13-bundle).
+* **system** - macos system setting[(detail)](#user-content-33-system).
 
 <br />
 
@@ -76,6 +76,13 @@ This will install CLI tools and GUI applications below via package managers.
 ./install.sh --dotfiles
 ```
 These dotfiles are tools settings. It will be symlinked forcely to $HOME directory.
+
+* **vscode config** -- settings.json, keybingings.json
+* **alias** -- .aliases ([editor aliases are in Alfred](https://github.com/ryuta69/dotfiles/tree/master/dotfiles/Alfred.alfredpreferences/snippets).)
+* **macos config** -- [com.knollsoft.Rectangle.plist](https://github.com/rxhanson/Rectangle), [karabiner.json](https://github.com/pqrs-org/Karabiner-Elements)
+* **application configs** -- [.ctags](https://github.com/universal-ctags/ctags), [.my.conf](https://github.com/mysql), [.myclirc](https://github.com/dbcli/mycli), [.rustcfg](https://github.com/rust-lang/rust), [.tigrc](https://github.com/jonas/tig)
+* **git config** -- .gitconfig, .gitattributes, .gitignore, .git_template
+* **terminal config** -- [.zshrc](https://github.com/zsh-users/zsh), [com.googlecode.iterm2.plist](https://github.com/gnachman/iTerm2), [.p10k.zsh](https://github.com/romkatv/powerlevel10k), [.tmux.conf](https://github.com/tmux/tmux)
 
 #### [3/3] System
 ```
