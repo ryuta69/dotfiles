@@ -39,10 +39,3 @@ for abspath (${EXEPATH}/*); do
 
 	ln -sfnv $abspath ${HOME}/$filename;
 done
-
-## ----------------------------------------
-##	Plugins
-## ----------------------------------------
-source ${HOME}/.zshrc
-nvim +'PlugInstall --sync' +qa
-${HOME}/.tmux/plugins/tpm/scripts/install_plugins.sh
