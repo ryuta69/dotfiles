@@ -81,7 +81,14 @@ curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utili
 ## ----------------------------------------
 ##	Anyenv
 ## ----------------------------------------
-anyenv install --init
+if [ ! -d ${HOME}/.config/anyenv/anyenv-install ]; then
+	expect -c "
+		spawn anyenv install --init
+		expect \"Do you want to checkout ? \[y\/N\]: \"
+		send \"y\n\"
+		expect eof
+	"
+fi
 
 ## ----------------------------------------
 ##	Docker
