@@ -16,6 +16,7 @@ export CVSEDITOR="${EDITOR}"
 export SVN_EDITOR="${EDITOR}"
 export GIT_EDITOR="${EDITOR}"
 export HOMEBREW_NO_AUTO_UPDATE=1
+export PATH="$HOME/.anyenv/bin:$PATH"
 export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 [ -f ~/.extension_settings.zsh ] && source ~/.extension_settings.zsh
