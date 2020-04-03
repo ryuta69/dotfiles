@@ -2,13 +2,16 @@
 ""	Plugin
 "" ----------------------------------------
 call plug#begin('~/.config/nvim/plugged/')
+	Plug 'tpope/vim-repeat'
 	Plug 'SirVer/ultisnips'
+	Plug 'junegunn/fzf.vim'
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'honza/vim-snippets'
-	Plug 'jiangmiao/auto-pairs'
+	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-commentary'
 	Plug 'bfredl/nvim-miniyank'
+	Plug 'jiangmiao/auto-pairs'
 	Plug 'prabirshrestha/vim-lsp'
 	Plug 'mattn/vim-lsp-settings'
 	Plug 'Lokaltog/vim-easymotion'
@@ -17,7 +20,6 @@ call plug#begin('~/.config/nvim/plugged/')
 	Plug 'bronson/vim-trailing-whitespace'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-	Plug 'junegunn/fzf.vim'
 call plug#end()
 
 "" ----------------------------------------
@@ -68,12 +70,12 @@ nnoremap <Down> gj
 nnoremap <Leader>t :tabnew<CR>
 nnoremap <silent> <Tab> 15<Right>
 nnoremap <silent> <S-Tab> 15<Left>
-nnoremap <Leader>code :!code %:p<CR>
-nnoremap <Leader>wkdir :!code %:p:h<CR>
-nnoremap <Leader>sh :split \| terminal<CR>
 nnoremap <Leader>1 :diffget LOCAL<CR>
 nnoremap <Leader>2 :diffget BASE<CR>
 nnoremap <Leader>3 :diffget REMOTE<CR>
+nnoremap <Leader>code :!code %:p<CR>
+nnoremap <Leader>wkdir :!code -r %:p:h<CR>
+nnoremap <Leader>sh :split \| terminal<CR>
 map <Leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 "" ----------------------------------------
