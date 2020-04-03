@@ -1,10 +1,15 @@
 {
 	"cSpell.userWords": [
 		"Vuex",
+		"bufread",
 		"firestore",
 		"nuxt",
+		"pathspec",
+		"refname",
+		"revparse",
 		"socketio",
-		"vuexfire"
+		"vuexfire",
+		"xargs"
 	],
 	"editor.tabSize": 8,
 	"editor.fontSize": 12,
