@@ -1,18 +1,17 @@
-*.jpg filter=lfs diff=lfs merge=lfs
-*.jpeg filter=lfs diff=lfs merge=lfs
-*.png filter=lfs diff=lfs merge=lfs
-*.gif filter=lfs diff=lfs merge=lfs
-*.psd filter=lfs diff=lfs merge=lfs
-*.ai filter=lfs diff=lfs merge=lfs
-*.mp3 filter=lfs diff=lfs merge=lfs
-*.wav filter=lfs diff=lfs merge=lfs
-*.ogg filter=lfs diff=lfs merge=lfs
-*.mp4 filter=lfs diff=lfs merge=lfs
-*.mov filter=lfs diff=lfs merge=lfs
-*.FBX filter=lfs diff=lfs merge=lfs
-*.fbx filter=lfs diff=lfs merge=lfs
-*.blend filter=lfs diff=lfs merge=lfs
-*.obj filter=lfs diff=lfs merge=lfs
-*.pdf filter=lfs diff=lfs merge=lfs
-*.zip filter=lfs diff=lfs merge=lfs
-
+# *.jpg filter=lfs diff=lfs merge=lfs
+# *.jpeg filter=lfs diff=lfs merge=lfs
+# *.png filter=lfs diff=lfs merge=lfs
+# *.gif filter=lfs diff=lfs merge=lfs
+# *.psd filter=lfs diff=lfs merge=lfs
+# *.ai filter=lfs diff=lfs merge=lfs
+# *.mp3 filter=lfs diff=lfs merge=lfs
+# *.wav filter=lfs diff=lfs merge=lfs
+# *.ogg filter=lfs diff=lfs merge=lfs
+# *.mp4 filter=lfs diff=lfs merge=lfs
+# *.mov filter=lfs diff=lfs merge=lfs
+# *.FBX filter=lfs diff=lfs merge=lfs
+# *.fbx filter=lfs diff=lfs merge=lfs
+# *.blend filter=lfs diff=lfs merge=lfs
+# *.obj filter=lfs diff=lfs merge=lfs
+# *.pdf filter=lfs diff=lfs merge=lfs
+# *.zip filter=lfs diff=lfs merge=lfs
