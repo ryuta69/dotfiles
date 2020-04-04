@@ -27,10 +27,7 @@ call plug#end()
 "" ----------------------------------------
 set nobomb
 set hidden
-set autoread
 set nobackup
-set hlsearch
-set incsearch
 set smartcase
 set ignorecase
 set lazyredraw
@@ -40,20 +37,16 @@ set splitbelow
 set termguicolors
 set tabstop=8
 set shiftwidth=8
-set scrolloff=10
+set scrolloff=20
 set encoding=utf-8
+set inccommand=split
 let $LANG='en_US.UTF-8'
 let mapleader="\<Space>"
 set clipboard=unnamedplus
 set fileformats=unix,dos,mac
-set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,]
 set fileencodings=cp932,sjis,euc-jp,utf-8,iso-2022-jp
-autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-	\| exe "normal! g'\"" | endif
-if filereadable(expand('~/.config/nvim/extension_settings.vim'))
-	source ~/.config/nvim/extension_settings.vim
-endif
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 "" ----------------------------------------
 ""	Mapping
