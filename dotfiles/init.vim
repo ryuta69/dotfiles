@@ -18,6 +18,8 @@ call plug#begin('~/.config/nvim/plugged/')
 	Plug 'prabirshrestha/async.vim'
 	Plug 'yuttie/comfortable-motion.vim'
 	Plug 'bronson/vim-trailing-whitespace'
+	Plug 'thomasfaingnaert/vim-lsp-snippets'
+	Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call plug#end()
@@ -118,7 +120,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>"      : "\<S-Tab>"
 "" ========== Ultisnips ==========
 let g:UltiSnipsExpandTrigger='<c-e>'
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 "" ========== Easy Motion ==========
 let g:EasyMotion_do_mapping = 0
