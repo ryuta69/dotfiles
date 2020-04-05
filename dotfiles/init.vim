@@ -13,7 +13,6 @@ call plug#begin('~/.config/nvim/plugged/')
 	Plug 'bronson/vim-trailing-whitespace'
 	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 	Plug 'tpope/vim-surround' | Plug 'tpope/vim-repeat'
-	Plug 'junegunn/goyo.vim' | Plug 'junegunn/limelight.vim'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call plug#end()
@@ -34,6 +33,7 @@ set termguicolors
 set tabstop=8
 set scrolloff=20
 set shiftwidth=8
+set laststatus=0
 set encoding=utf-8
 set inccommand=split
 let $LANG='en_US.UTF-8'
@@ -126,13 +126,6 @@ set diffopt+=vertical
 "" ========== NvimMiniyank ==========
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
-
-"" ========== Goyo & Limelight ==========
-au  VimEnter * Goyo
-au  User GoyoLeave q
-au  User GoyoEnter Limelight
-let g:limelight_priority=-1
-let g:limelight_default_coefficient=0.8
 
 "" ========== VimTrailingSpace ==========
 nn <Leader>trim :FixWhitespace<CR>
