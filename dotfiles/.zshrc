@@ -85,7 +85,7 @@ alias tr3='exa -alhF --git-ignore --group-directories-first --time-style=long-is
 mkcd() { mkdir $@; cd $@; }
 absp() { echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"); }
 lnsv() {
-	if [ -z $2 ];then echo "Specify Target.\n" && return 0;fi;
+	if [ -z $2 ]; then echo "Specify Target" && return 0; fi;
 	abspath=$(echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"))
 	ln -sfnv ${abspath} $2
 }
@@ -109,22 +109,16 @@ alias -s {applescript}='osascript'
 ## ========== Git ==========
 alias g='git'
 compdef _git g
-alias ghg='ghq get'
-alias opg='hub browse'
 alias vig='vi ~/.gitconfig'
 alias cdgh='cd `ghq list -p | fzf`'
-alias rmgh='rm -rf `ghq list -p | fzf`'
-alias opis='hub issue show `hub issue | fzf`'
 alias cdg='cd `git rev-parse --show-toplevel`'
-alias oppr='hub pr show `hub pr list | fzf`'
-alias copr='hub pr checkout `hub pr list | fzf`'
-alias opgh='hub browse `ghq list | fzf | cut -d "/" -f 2,3`'
 gcre() {
+	if [ -z "$(ls -A ./)" ]; then echo "Fail: Empty" && return 0; fi;
 	git init;
 	git add -A && git commit;
 	read name"?type repo name        : ";
 	read description"?type repo description : ";
-	hub create ${name} -p ${description};
+	hub create ${name} -d ${description} -p;
 	git push --set-upstream origin master;
 	hub browse;
 }
@@ -172,9 +166,9 @@ alias rg="rg --hidden -g '!.git' -g '!.node_modules' --max-columns 200"
 rrg() {
 	keyword=$1;
 	[ -z $2 ] && matches=`rg -il ${keyword}` || matches=`rg --files | rg -i ${keyword}`;
-	if [ -z ${matches} ];then echo "no matches\n" && return 0;fi;
+	if [ -z ${matches} ]; then echo "no matches\n" && return 0; fi;
 	selected=`echo ${matches} | fzf --preview "rg -in ${keyword} {}"`;
-	if [ -z ${selected} ];then echo "canceled\n" && return 0;fi;
+	if [ -z ${selected} ]; then echo "canceled\n" && return 0; fi;
 	nvim ${selected};
 }
 

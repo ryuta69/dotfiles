@@ -2,6 +2,7 @@
 	name       = ryuta69
 	email      = eyma22s.yu@gmail.com
 	signingkey = 7EB4C638CC86724B
+
 [alias]
 	ad  = add
 	ada = add -A
@@ -11,18 +12,25 @@
 	brd = !git branch | fzf | xargs git branch -D
 	brr = !git fetch && git checkout -b $1 origin/$1
 	cm  = commit --verbose
+	cl  = clean -fd
 	co  = checkout
 	cob = checkout -b
 	cof = !git branch | fzf | xargs git checkout
+	cop = !hub pr checkout `hub pr list | fzf`
+	cp  = cherry-pick
 	df  = diff
 	dfh = diff HEAD
 	dft = difftool
+	g   = !ghg get
 	lg  = log
 	lgp = log -p
 	lgs = log -stat
 	lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cs) %C(bold blue)<%an>%Creset' --abbrev-commit
 	mt  = mergetool
-	st  = status
+	op  = !hub browse
+	opg = !hub browse `ghq list | fzf | cut -d "/" -f 2,3`
+	opi = !hub issue show `hub issue | fzf`
+	opp = !hub pr show `hub pr list | fzf`
  	ps  = push
  	pss = !git push origin `git rev-parse --abbrev-ref HEAD`
 	pl  = pull
@@ -31,49 +39,70 @@
 	rf  = reflog --date=iso
 	rs  = reset
 	rsh = reset --hard
+	rmg = !rm -rf `ghq list -p | fzf`
+	st  = status
+	sl  = stash list
+	ss  = stash save
+	sp  = stash pop
 	spr = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
+
 [core]
 	editor = nvim
 	hooksPath = ~/.git_template
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
+
 [color]
 	ui = true
+
 [commit]
 	gpgsign = true
 	template = ~/.git_template/commit-template
+
 [credential]
 	helper = osxkeychain
+
 [diff]
 	tool      = vimdiff
 	prompt    = false
 	algorithm = histogram
+
 [difftool]
 	prompt = false
+
 [difftool "vimdiff"]
 	path   = nvim
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
 [ghq]
 	root = ~/.ghq
+
 [gpg]
 	program = gpg2
+
 [merge]
 	ff            = false
 	tool          = vimdiff
 	conflictstyle = diff3
+
 [mergetool]
 	prompt = false
+
 [mergetool "vimdiff"]
 	path   = nvim
+
 [pager]
 	log  = diff-highlight | less
 	show = diff-highlight | less
 	diff = diff-highlight | less
+
 [pull]
 	ff = only
+
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
