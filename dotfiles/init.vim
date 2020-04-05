@@ -3,25 +3,18 @@
 "" ----------------------------------------
 call plug#begin('~/.config/nvim/plugged/')
 	Plug 'tpope/vim-repeat'
-	Plug 'SirVer/ultisnips'
-	Plug 'junegunn/fzf.vim'
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'tpope/vim-fugitive'
-	Plug 'honza/vim-snippets'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-commentary'
 	Plug 'bfredl/nvim-miniyank'
 	Plug 'jiangmiao/auto-pairs'
-	Plug 'prabirshrestha/vim-lsp'
-	Plug 'mattn/vim-lsp-settings'
 	Plug 'Lokaltog/vim-easymotion'
-	Plug 'prabirshrestha/async.vim'
 	Plug 'yuttie/comfortable-motion.vim'
 	Plug 'bronson/vim-trailing-whitespace'
-	Plug 'thomasfaingnaert/vim-lsp-snippets'
-	Plug 'thomasfaingnaert/vim-lsp-ultisnips'
+	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call plug#end()
 
 "" ----------------------------------------
@@ -54,17 +47,11 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 ""	Mapping
 "" ----------------------------------------
 nnoremap Y y$
-nnoremap <C-e> $
-nnoremap <C-a> 0
-nnoremap <C-f> W
-nnoremap <C-b> B
 nnoremap + <C-a>
 nnoremap - <C-x>
 nnoremap <Up> gk
 nnoremap <Down> gj
 nnoremap <Leader>t :tabnew<CR>
-nnoremap <silent> <Tab> 15<Right>
-nnoremap <silent> <S-Tab> 15<Left>
 nnoremap <Leader>1 :diffget LOCAL<CR>
 nnoremap <Leader>2 :diffget BASE<CR>
 nnoremap <Leader>3 :diffget REMOTE<CR>
@@ -76,7 +63,7 @@ map <Leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 "" ----------------------------------------
 ""	PluginSetting
 "" ----------------------------------------
-"" ========== Ayu Vim ==========
+"" ========== AyuVim ==========
 colorscheme ayu
 let ayucolor="dark"
 highlight DiffAdd    gui=none guifg=none    guibg=#003366
@@ -84,7 +71,7 @@ highlight DiffDelete gui=bold guifg=#660000 guibg=#660000
 highlight DiffChange gui=none guifg=none    guibg=#006666
 highlight DiffText   gui=none guifg=none    guibg=#013220
 
-"" ========== Fzf Vim ==========
+"" ========== FzfVim ==========
 nnoremap <Leader>file :Files<CR>
 nnoremap <Leader>hist :History<CR>
 let g:fzf_layout = { 'right': '~50%' }
@@ -98,14 +85,7 @@ nnoremap <Leader>rg :call Rg()<CR>
 command! -bang -nargs=* History call fzf#vim#history(fzf#vim#with_preview('down:50%'))
 command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview('down:50%'), <bang>0)
 
-"" ========== Vim LSP ==========
-nnoremap <Leader>lsphv :LspHover<CR>
-nnoremap <Leader>lspst :LspStatus<CR>
-nnoremap <Leader>lspup :LspInstallServer<CR>
-nnoremap <Leader>lspfm :LspDocumentFormat<CR>
-nnoremap <Leader>lspdf :LspPeekDefinition<CR>
-
-"" ========== Vim Plug ==========
+"" ========== VimPlug ==========
 nnoremap <Leader>clean :PlugClean<CR>
 nnoremap <Leader>update :PlugUpdate<CR>
 nnoremap <Leader>install :PlugInstall<CR>
@@ -119,14 +99,15 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>"      : "\<S-Tab>"
 
 "" ========== Ultisnips ==========
 let g:UltiSnipsExpandTrigger='<c-e>'
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-"" ========== Easy Motion ==========
+"" ========== EasyMotion ==========
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_enter_jump_first = 1
 map <Leader>s <Plug>(easymotion-sn)
 
-"" ========== Vim Fugitive ==========
+"" ========== VimFugitive ==========
 set diffopt+=vertical
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>ga :Gwrite<CR>
@@ -137,9 +118,9 @@ nnoremap <Leader>du :diffupdate<CR>
 nnoremap <Leader>dgl :diffget //2 \| diffupdate<CR>
 nnoremap <Leader>dgr :diffget //3 \| diffupdate<CR>
 
-"" ========== Nvim Miniyank ==========
+"" ========== NvimMiniyank ==========
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
 
-"" ========== Vim Trailing Space ==========
+"" ========== VimTrailingSpace ==========
 nnoremap <Leader>trim :FixWhitespace<CR>
