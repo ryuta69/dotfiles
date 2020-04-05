@@ -83,7 +83,6 @@ alias ll='exa -alhF --git-ignore --group-directories-first --time-style=long-iso
 alias tr2='exa -alhF --git-ignore --group-directories-first --time-style=long-iso -T -L=2 --ignore-glob=".git|node_modules"'
 alias tr3='exa -alhF --git-ignore --group-directories-first --time-style=long-iso -T -L=3 --ignore-glob=".git|node_modules"'
 mkcd() { mkdir $@; cd $@; }
-sedr() { sed -i -- $@ **/*(D.); }
 absp() { echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"); }
 lnsv() {
 	if [ -z $2 ];then echo "Specify Target.\n" && return 0;fi;
@@ -160,7 +159,7 @@ alias vi='nvim'
 alias vivi='nvim ~/.config/nvim/init.vim'
 vii() {
 	FORMAT=`nkf -g $@`;
-	FORMAT=(${FORMAT}// /);
+	FORMAT=$(echo ${FORMAT});
 	nvim -c ":e ++enc=${FORMAT}" $@;
 }
 vigo() {
