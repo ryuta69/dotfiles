@@ -2,10 +2,8 @@
 ""	Plugin
 "" ----------------------------------------
 call plug#begin('~/.config/nvim/plugged/')
-	Plug 'tpope/vim-repeat'
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'tpope/vim-fugitive'
-	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-commentary'
 	Plug 'bfredl/nvim-miniyank'
 	Plug 'jiangmiao/auto-pairs'
@@ -14,6 +12,7 @@ call plug#begin('~/.config/nvim/plugged/')
 	Plug 'yuttie/comfortable-motion.vim'
 	Plug 'bronson/vim-trailing-whitespace'
 	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+	Plug 'tpope/vim-surround' | Plug 'tpope/vim-repeat'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call plug#end()
@@ -37,7 +36,7 @@ set shiftwidth=8
 set encoding=utf-8
 set inccommand=split
 let $LANG='en_US.UTF-8'
-let mapleader="\<Space>"
+let mapleader='\<Space>'
 set clipboard=unnamedplus
 set fileformats=unix,dos,mac
 set whichwrap=b,s,h,l,<,>,[,]
@@ -66,7 +65,7 @@ map <Leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 "" ----------------------------------------
 "" ========== AyuVim ==========
 colo ayu
-let  ayucolor="dark"
+let  ayucolor='dark'
 hi   DiffAdd    gui=none guifg=none    guibg=#003366
 hi   DiffDelete gui=bold guifg=#660000 guibg=#660000
 hi   DiffChange gui=none guifg=none    guibg=#006666
@@ -100,8 +99,8 @@ ino <expr> <S-Tab> pumvisible() ? "\<C-p>"      : "\<S-Tab>"
 
 "" ========== Ultisnips ==========
 let g:UltiSnipsExpandTrigger='<c-e>'
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsJumpForwardTrigger='<tab>'
+let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 
 "" ========== EasyAlign ==========
 xm ga <Plug>(LiveEasyAlign)
