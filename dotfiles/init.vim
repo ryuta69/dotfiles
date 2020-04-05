@@ -9,6 +9,7 @@ call plug#begin('~/.config/nvim/plugged/')
 	Plug 'tpope/vim-commentary'
 	Plug 'bfredl/nvim-miniyank'
 	Plug 'jiangmiao/auto-pairs'
+	Plug 'junegunn/vim-easy-align'
 	Plug 'Lokaltog/vim-easymotion'
 	Plug 'yuttie/comfortable-motion.vim'
 	Plug 'bronson/vim-trailing-whitespace'
@@ -86,8 +87,8 @@ command! -bang -nargs=* History call fzf#vim#history(fzf#vim#with_preview('down:
 command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview('down:50%'), <bang>0)
 
 "" ========== VimPlug ==========
-nnoremap <Leader>clean :PlugClean<CR>
-nnoremap <Leader>update :PlugUpdate<CR>
+nnoremap <Leader>clean   :PlugClean<CR>
+nnoremap <Leader>update  :PlugUpdate<CR>
 nnoremap <Leader>install :PlugInstall<CR>
 
 "" ========== Deoplete ==========
@@ -101,6 +102,10 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>"      : "\<S-Tab>"
 let g:UltiSnipsExpandTrigger='<c-e>'
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+"" ========== EasyAlign ==========
+xm ga <Plug>(LiveEasyAlign)
+nm ga <Plug>(LiveEasyAlign)
 
 "" ========== EasyMotion ==========
 let g:EasyMotion_do_mapping = 0
