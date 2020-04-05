@@ -76,16 +76,16 @@ alias cdwk='cd ~/work'
 alias virc='nvim ~/.zshrc'
 alias sorc='source ~/.zshrc'
 alias tm='tmux attach || tmux new'
-function mkcd() { mkdir $@; cd $@; }
-function sedr() { sed -i -- $@ **/*(D.); }
 alias fd='fd -iH --no-ignore-vcs -E ".git|node_modules"'
 alias pskl='ps aux | fzf | awk "{ print \$2 }" | xargs kill -9'
-function absp() { echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"); }
 alias lv='nvim `ls | fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"`'
 alias ll='exa -alhF --git-ignore --group-directories-first --time-style=long-iso'
 alias tr2='exa -alhF --git-ignore --group-directories-first --time-style=long-iso -T -L=2 --ignore-glob=".git|node_modules"'
 alias tr3='exa -alhF --git-ignore --group-directories-first --time-style=long-iso -T -L=3 --ignore-glob=".git|node_modules"'
-function lnsv() {
+mkcd() { mkdir $@; cd $@; }
+sedr() { sed -i -- $@ **/*(D.); }
+absp() { echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"); }
+lnsv() {
 	if [ -z $2 ];then echo "Specify Target.\n" && return 0;fi;
 	abspath=$(echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"))
 	ln -sfnv ${abspath} $2
@@ -120,7 +120,7 @@ alias cdg='cd `git rev-parse --show-toplevel`'
 alias oppr='hub pr show `hub pr list | fzf`'
 alias copr='hub pr checkout `hub pr list | fzf`'
 alias opgh='hub browse `ghq list | fzf | cut -d "/" -f 2,3`'
-function gcre() {
+gcre() {
 	git init;
 	git add -A && git commit;
 	read name"?type repo name        : ";
@@ -131,8 +131,8 @@ function gcre() {
 }
 
 ## ========== Tar ==========
-function tz() { tar zcvf ${1}.tar.gz ${1}; }
-function extract() {
+tz() { tar zcvf ${1}.tar.gz ${1}; }
+extract() {
 	case $1 in
 		*.tar.gz|*.tgz) tar xzvf $1;;
 		*.tar.xz) tar Jxvf $1;;
@@ -158,19 +158,19 @@ alias sstop='mysql.server stop'
 ## ========== Neovim ==========
 alias vi='nvim'
 alias vivi='nvim ~/.config/nvim/init.vim'
-function vii() {
+vii() {
 	FORMAT=`nkf -g $@`;
 	FORMAT=(${FORMAT}// /);
 	nvim -c ":e ++enc=${FORMAT}" $@;
 }
-function vigo() {
+vigo() {
 	nvim -c "call append(0, v:oldfiles)" -c "write! ~/.config/nvim/viminfo.log" -c exit;
 	nvim `bat ~/.config/nvim/viminfo.log | fzf --preview 'bat --color=always --style=header,grid --line-range :100 {}'`;
 }
 
 ## ========== Ripgrep ==========
 alias rg="rg --hidden -g '!.git' -g '!.node_modules' --max-columns 200"
-function rrg() {
+rrg() {
 	keyword=$1;
 	[ -z $2 ] && matches=`rg -il ${keyword}` || matches=`rg --files | rg -i ${keyword}`;
 	if [ -z ${matches} ];then echo "no matches\n" && return 0;fi;
@@ -186,10 +186,7 @@ alias soal='source `ls -d ~/.aliases/* | fzf --preview "bat --color=always --sty
 ## ----------------------------------------
 ##	FZF
 ## ----------------------------------------
-export FZF_DEFAULT_OPTS='
-	--reverse
-	--color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229
-	--color info:150,prompt:110,spinner:150,pointer:167,marker:174'
+export FZF_DEFAULT_OPTS='--reverse --color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229 --color info:150,prompt:110,spinner:150,pointer:167,marker:174'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ## ----------------------------------------
