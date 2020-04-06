@@ -5,7 +5,7 @@ EXEPATH=$0:A:h
 ## ----------------------------------------
 ##	VSCode plugins
 ## ----------------------------------------
-code --list-extensions > ${EXEPATH}/Pluginfile
+code --list-extensions > ${EXEPATH}/Vsplug
 
 ## ----------------------------------------
 ##	Npm global packages
