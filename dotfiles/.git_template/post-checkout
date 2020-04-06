@@ -1,7 +1,9 @@
 #! /bin/bash
 
 CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
-exists=`git show-ref remotes/origin/${CURRENT_BRANCH}`
-if [ -n "$exists" ]; then
+diffs=`git diff remotes/origin/${CURRENT_BRANCH}`
+if [ -n "$diffs" ]; then
+	read -p "There are commits ahead on remote. Do you want to pull? (Y/n): " Ans;
+	if [[ $Ans != 'Y' ]]; then echo 'Not pulling.' && exit; fi;
 	git pull origin $CURRENT_BRANCH
 fi
