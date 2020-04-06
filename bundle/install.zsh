@@ -1,5 +1,6 @@
 #! /usr/local/bin/zsh
 
+EXEPATH=$0:A:h
 local -A opthash
 zparseopts -D -A opthash -- -force -help
 
@@ -11,8 +12,6 @@ if [[ -z ${opthash[(i)--force]}  ]]; then
         read Ans"?Your file will be overwritten(Y/n): ";
         if [[ $Ans != 'Y' ]]; then echo 'Canceled' && exit; fi;
 fi
-
-EXEPATH=$0:A:h
 
 ## ----------------------------------------
 ##	Brew Bundle

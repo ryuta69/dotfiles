@@ -1,5 +1,6 @@
 #! /usr/local/bin/zsh
 
+EXEPATH=$0:A:h
 setopt globdots
 local -A opthash
 zparseopts -D -A opthash -- -force -help -test
@@ -12,8 +13,6 @@ if [[ -z "${opthash[(i)--force]}"  ]]; then
         read Ans"?Your file will be overwritten(Y/n): "
         if [[ $Ans != 'Y' ]]; then echo 'Canceled\n' && exit; fi;
 fi;
-
-EXEPATH=$0:A:h
 
 osascript -e 'tell application "System Preferences" to quit' > /dev/null 2>&1
 
