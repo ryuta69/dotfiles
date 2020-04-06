@@ -68,7 +68,7 @@ This will install CLI tools and GUI applications below via package managers.
 * **Brewfile** -- cli tools by brew, gui applications by cask, appstore applications by mas
 * **Npmfile** -- npm global dependencies
 * **Pipfile** -- pip global dependencies
-* **VscodePlugin** -- vscode plugins
+* **Vsplug** -- vscode plugins
 * **install.zsh** -- tmux plugin bundler, neovim plugin bundler, rustup bundler, zsh-completions
 
 #### [2/3] Dotfiles

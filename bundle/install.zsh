@@ -112,7 +112,7 @@ curl -L https://raw.githubusercontent.com/docker/machine/v0.16.0/contrib/complet
 ##      - so option --test will avoid this.
 ## ----------------------------------------
 if [[ -z "${opthash[(i)--test]}" ]]; then
-	plugins=($(cat ${EXEPATH}/VscodePlugin))
+	plugins=($(cat ${EXEPATH}/Vsplug))
 	for plugin in ${plugins}; do
 		code --install-extension ${plugin}
 	done
