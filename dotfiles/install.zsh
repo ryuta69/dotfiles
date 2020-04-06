@@ -1,5 +1,6 @@
 #! /usr/local/bin/zsh
 
+EXEPATH=$0:A:h
 setopt globdots
 local -A opthash
 zparseopts -D -A opthash -- -force -help
@@ -13,29 +14,30 @@ if [[ -z "${opthash[(i)--force]}"  ]]; then
         if [[ $Ans != 'Y' ]]; then echo 'Canceled\n' && exit; fi;
 fi;
 
-EXEPATH=$0:A:h
-PLPATH="${HOME}/Library/Preferences"
-ALPATH="${HOME}/Library/Application Support/Alfred"
-VSPATH="${HOME}/Library/Application Support/Code/User"
-
-mkdir -p ${ALPATH}
-mkdir -p ${VSPATH}
-mkdir -p ~/.cargo
-mkdir -p ~/.config/nvim
-mkdir -p ${HOME}/.config/karabiner
+CRPATH="${HOME}/.cargo"                                && mkdir -p ${CRPATH}
+NVPATH="${HOME}/.config/nvim"                          && mkdir -p ${NVPATH}
+KRPATH="${HOME}/.config/karabiner"                     && mkdir -p ${KRPATH}
+PLPATH="${HOME}/Library/Preferences"                   && mkdir -p ${PLPATH}
+ALPATH="${HOME}/Library/Application Support/Alfred"    && mkdir -p ${ALPATH}
+VSPATH="${HOME}/Library/Application Support/Code/User" && mkdir -p ${VSPATH}
+SKIPLIST=("install.zsh" ".library" ".vscode")
 
 for abspath (${EXEPATH}/*); do
 	filename=$(basename -- "$abspath");
+	if [[ ${SKIPLIST[(ie)$filename]} -le ${#SKIPLIST} ]]; then continue; fi;
+	if [[ $filename = '.vimrc' ]]; then ln -sfnv $abspath ${NVPATH}/init.vim; fi;
+	if [[ $filename = '.rustcfg' ]]; then ln -sfnv $abspath ${CRPATH}/config; continue; fi;
+	ln -sfnv $abspath ${HOME};
+done
 
-	if [[ $filename = 'install.zsh' ]]; then continue ; fi;
-	if [[ $filename = '.vimrc' ]]; then ln -sfnv $abspath ${HOME}/.config/nvim/init.vim; fi;
-	if [[ $filename = '.rustcfg' ]]; then ln -sfnv $abspath ${HOME}/.cargo/config; continue; fi;
+for abspath (${EXEPATH}/.vscode/*); do
+	ln -sfnv $abspath ${VSPATH};
+done
+
+for abspath (${EXEPATH}/.library/*); do
+	filename=$(basename -- "$abspath");
 	if [[ $filename = 'Alfred.alfredpreferences' ]]; then ln -sfnv $abspath ${ALPATH}; continue; fi;
 	if [[ $filename = 'com.googlecode.iterm2.plist' ]]; then ln -sfnv $abspath ${PLPATH}; continue; fi;
 	if [[ $filename = 'com.knollsoft.Rectangle.plist' ]]; then ln -sfnv $abspath ${PLPATH}; continue; fi;
-	if [[ $filename = 'karabiner.json' ]]; then ln -sfnv $abspath ${HOME}/.config/karabiner; continue; fi;
-	if [[ $filename = '.vscode.settings.json' ]]; then ln -sfnv $abspath ${VSPATH}/settings.json; continue; fi;
-	if [[ $filename = '.vscode.keybindings.json' ]]; then ln -sfnv $abspath ${VSPATH}/keybindings.json; continue; fi;
-
-	ln -sfnv $abspath ${HOME}/$filename;
+	if [[ $filename = 'karabiner.json' ]]; then ln -sfnv $abspath ${KRPATH}; continue; fi;
 done
