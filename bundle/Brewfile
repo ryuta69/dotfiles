@@ -3,7 +3,7 @@
 ## ----------------------------------------
 cask_args appdir: "/Applications"
 
-# Base
+## ========== Base ==========
 brew "fd"
 brew "jq"
 brew "bat"
@@ -27,12 +27,14 @@ brew "gnu-sed"
 brew "ripgrep"
 brew "hyperfine"
 brew "brightness"
+tap  "cjbassi/ytop"
+brew "ytop"
 
-# Shell
+## ========== Shell ==========
 brew "zsh"
 brew "zsh-completions"
 
-# Language
+## ========== Language ==========
 brew "go"
 brew "gcc"
 brew "node", link: true
@@ -44,18 +46,18 @@ brew "python"
 brew "pipenv"
 brew "rustup"
 
-# Database
+## ========== Database ==========
 brew "mysql"
 brew "redis"
 tap  "mongodb/brew"
 brew "mongodb-community"
 
-# iTerm2
+## ========== Fonts ==========
 tap  "homebrew/cask-fonts"
 cask "font-source-code-pro"
 cask "font-noto-mono-for-powerline"
 
-# GUI Applications
+## ========== Applications ==========
 cask "local"
 cask "slack"
 cask "alfred"

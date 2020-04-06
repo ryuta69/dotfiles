@@ -51,7 +51,6 @@ rustup component add rust-analysis --toolchain stable
 ## ----------------------------------------
 ##	Git
 ## ----------------------------------------
-git lfs install
 sudo ln -sfnv /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
 
 ## ----------------------------------------
