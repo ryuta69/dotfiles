@@ -63,6 +63,14 @@ zinit self-update
 source ${HOME}/.zshrc
 
 ## ----------------------------------------
+##	Vim
+## ----------------------------------------
+curl -fLo ${HOME}/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim +'PlugInstall --sync' +qa
+curl -fLo ${HOME}/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+nvim +'PlugInstall --sync' +qa
+
+## ----------------------------------------
 ##	Tmux
 ## ----------------------------------------
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -96,12 +104,6 @@ fi
 mkdir -p ${HOME}/.zsh/completion
 curl -L https://raw.githubusercontent.com/docker/compose/1.25.4/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
 curl -L https://raw.githubusercontent.com/docker/machine/v0.16.0/contrib/completion/zsh/_docker-machine > ~/.zsh/completion/_docker-machine
-
-## ----------------------------------------
-##	Neovim
-## ----------------------------------------
-curl -fLo ${HOME}/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-nvim +'PlugInstall --sync' +qa
 
 ## ----------------------------------------
 ##	VSCode

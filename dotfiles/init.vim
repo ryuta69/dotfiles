@@ -1,7 +1,8 @@
 "" ----------------------------------------
 ""	Plugin
 "" ----------------------------------------
-call plug#begin('~/.config/nvim/plugged/')
+let  plugpath = has('nvim') ? '~/.config/nvim/plugged/' : '~/.vim/plugged'
+call plug#begin(plugpath)
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
@@ -12,10 +13,14 @@ call plug#begin('~/.config/nvim/plugged/')
 	Plug 'bronson/vim-trailing-whitespace'
 	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 	Plug 'tpope/vim-surround' | Plug 'tpope/vim-repeat'
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	if has('nvim')
 		Plug 'bfredl/nvim-miniyank'
+		Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	else
+		Plug 'roxma/nvim-yarp'
+		Plug 'Shougo/deoplete.nvim'
+		Plug 'roxma/vim-hug-neovim-rpc'
 	endif
 call plug#end()
 
@@ -37,7 +42,6 @@ set scrolloff=20
 set shiftwidth=8
 set laststatus=0
 set encoding=utf-8
-set inccommand=split
 let $LANG='en_US.UTF-8'
 let mapleader="\<Space>"
 set clipboard=unnamedplus
@@ -45,6 +49,20 @@ set fileformats=unix,dos,mac
 set whichwrap=b,s,h,l,<,>,[,]
 set fileencodings=cp932,sjis,euc-jp,utf-8,iso-2022-jp
 au  BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+if  has('nvim')
+	set inccommand=split
+else
+	syntax on
+	set showcmd
+	set autoread
+	set hlsearch
+	set wildmenu
+	set incsearch
+	set belloff=all
+	set nocompatible
+	filetype plugin indent on
+	set backspace=indent,eol,start
+endif
 
 "" ----------------------------------------
 ""	Mapping
@@ -69,20 +87,20 @@ map <Leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 "" ========== AyuVim ==========
 colo ayu
 let  ayucolor='dark'
-hi   DiffAdd    gui=none guifg=none    guibg=#003366
+hi   DiffAdd    gui=NONE guifg=NONE    guibg=#003366
 hi   DiffDelete gui=bold guifg=#660000 guibg=#660000
-hi   DiffChange gui=none guifg=none    guibg=#006666
-hi   DiffText   gui=none guifg=none    guibg=#013220
+hi   DiffChange gui=NONE guifg=NONE    guibg=#006666
+hi   DiffText   gui=NONE guifg=NONE    guibg=#013220
 
 "" ========== FzfVim ==========
 nn   <Leader>file :Files<CR>
 nn   <Leader>hist :History<CR>
 nn   <Leader>rg   :call Rg()<CR>
-let  g:fzf_layout = { 'right': '~50%' }
+let  g:fzf_layout={ 'right': '~50%' }
 com! -bang -nargs=* History call fzf#vim#history(fzf#vim#with_preview('down:50%'))
 com! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview('down:50%'), <bang>0)
 fun! Rg()
-	let string = input('Search String: ')
+	let string=input('Search String: ')
 	call fzf#run(fzf#wrap({
 		\ 'source': 'rg -lin ' . string,
 		\ 'options': '--preview-window bottom:50% --preview "rg -in --color=always ' . string . ' {}"'}))
