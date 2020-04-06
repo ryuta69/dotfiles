@@ -28,7 +28,7 @@ for abspath (${EXEPATH}/*); do
 	filename=$(basename -- "$abspath");
 
 	if [[ $filename = 'install.zsh' ]]; then continue ; fi;
-	if [[ $filename = 'init.vim' ]]; then ln -sfnv $abspath ${HOME}/.config/nvim; continue; fi;
+	if [[ $filename = '.vimrc' ]]; then ln -sfnv $abspath ${HOME}/.config/nvim/init.vim; fi;
 	if [[ $filename = '.rustcfg' ]]; then ln -sfnv $abspath ${HOME}/.cargo/config; continue; fi;
 	if [[ $filename = 'Alfred.alfredpreferences' ]]; then ln -sfnv $abspath ${ALPATH}; continue; fi;
 	if [[ $filename = 'com.googlecode.iterm2.plist' ]]; then ln -sfnv $abspath ${PLPATH}; continue; fi;
