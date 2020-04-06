@@ -1,7 +1,7 @@
 "" ----------------------------------------
 ""	Plugin
 "" ----------------------------------------
-let  plugdir=has('nvim') ? '~/.config/nvim/plugged/' : '~/.vim/plugged'
+let plugdir=has('nvim') ? '~/.config/nvim/plugged/' : '~/.vim/plugged'
 call plug#begin(plugdir)
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'tpope/vim-fugitive'
@@ -48,8 +48,8 @@ set clipboard=unnamedplus
 set fileformats=unix,dos,mac
 set whichwrap=b,s,h,l,<,>,[,]
 set fileencodings=cp932,sjis,euc-jp,utf-8,iso-2022-jp
-au  BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-if  has('nvim')
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+if has('nvim')
 	set inccommand=split
 else
 	syntax on
@@ -66,18 +66,18 @@ endif
 "" ----------------------------------------
 ""	Mapping
 "" ----------------------------------------
-nn  Y y$
-nn  + <C-a>
-nn  - <C-x>
-nn  <Up> gk
-nn  <Down> gj
-nn  <Leader>t :tabnew<CR>
-nn  <Leader>1 :diffget LOCAL<CR>
-nn  <Leader>2 :diffget BASE<CR>
-nn  <Leader>3 :diffget REMOTE<CR>
-nn  <Leader>code :!code %:p<CR>
-nn  <Leader>wkdir :!code -r %:p:h<CR>
-nn  <Leader>sh :split \| terminal<CR>
+nn Y y$
+nn + <C-a>
+nn - <C-x>
+nn <Up> gk
+nn <Down> gj
+nn <Leader>t :tabnew<CR>
+nn <Leader>1 :diffget LOCAL<CR>
+nn <Leader>2 :diffget BASE<CR>
+nn <Leader>3 :diffget REMOTE<CR>
+nn <Leader>code  :!code %:p<CR>
+nn <Leader>wkdir :!code -r %:p:h<CR>
+nn <Leader>term  :split \| terminal<CR>
 map <Leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 "" ----------------------------------------
@@ -85,17 +85,17 @@ map <Leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 "" ----------------------------------------
 "" ========== AyuVim ==========
 colo ayu
-let  ayucolor='dark'
-hi   DiffAdd    gui=NONE guifg=NONE    guibg=#003366
-hi   DiffDelete gui=bold guifg=#660000 guibg=#660000
-hi   DiffChange gui=NONE guifg=NONE    guibg=#006666
-hi   DiffText   gui=NONE guifg=NONE    guibg=#013220
+let ayucolor='dark'
+hi DiffAdd    gui=NONE guifg=NONE    guibg=#003366
+hi DiffDelete gui=bold guifg=#660000 guibg=#660000
+hi DiffChange gui=NONE guifg=NONE    guibg=#006666
+hi DiffText   gui=NONE guifg=NONE    guibg=#013220
 
 "" ========== FzfVim ==========
-nn   <Leader>file :Files<CR>
-nn   <Leader>hist :History<CR>
-nn   <Leader>rg   :call Rg()<CR>
-let  g:fzf_layout={ 'right': '~50%' }
+nn <Leader>file :Files<CR>
+nn <Leader>hist :History<CR>
+nn <Leader>rg   :call Rg()<CR>
+let g:fzf_layout={ 'right': '~50%' }
 com! -bang -nargs=* History call fzf#vim#history(fzf#vim#with_preview('down:50%'))
 com! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview('down:50%'), <bang>0)
 fun! Rg()
@@ -132,14 +132,14 @@ let g:EasyMotion_enter_jump_first=1
 map <Leader>s <Plug>(easymotion-sn)
 
 "" ========== VimFugitive ==========
-nn  <Leader>gd  :Gdiff<CR>
-nn  <Leader>ga  :Gwrite<CR>
-nn  <Leader>gb  :Gblame<CR>
-nn  <Leader>gs  :Gstatus<CR>
-nn  <Leader>dp  :diffput<CR>
-nn  <Leader>du  :diffupdate<CR>
-nn  <Leader>dgl :diffget //2 \| diffupdate<CR>
-nn  <Leader>dgr :diffget //3 \| diffupdate<CR>
+nn <Leader>gd  :Gdiff<CR>
+nn <Leader>ga  :Gwrite<CR>
+nn <Leader>gb  :Gblame<CR>
+nn <Leader>gs  :Gstatus<CR>
+nn <Leader>dp  :diffput<CR>
+nn <Leader>du  :diffupdate<CR>
+nn <Leader>dgl :diffget //2 \| diffupdate<CR>
+nn <Leader>dgr :diffget //3 \| diffupdate<CR>
 set diffopt+=vertical
 
 "" ========== NvimMiniyank ==========
