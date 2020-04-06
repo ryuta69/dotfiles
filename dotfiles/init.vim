@@ -5,7 +5,6 @@ call plug#begin('~/.config/nvim/plugged/')
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
-	Plug 'bfredl/nvim-miniyank'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'junegunn/vim-easy-align'
 	Plug 'Lokaltog/vim-easymotion'
@@ -15,6 +14,9 @@ call plug#begin('~/.config/nvim/plugged/')
 	Plug 'tpope/vim-surround' | Plug 'tpope/vim-repeat'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	if has('nvim')
+		Plug 'bfredl/nvim-miniyank'
+	endif
 call plug#end()
 
 "" ----------------------------------------
@@ -124,8 +126,10 @@ nn  <Leader>dgr :diffget //3 \| diffupdate<CR>
 set diffopt+=vertical
 
 "" ========== NvimMiniyank ==========
-map p <Plug>(miniyank-autoput)
-map P <Plug>(miniyank-autoPut)
+if has("nvim")
+	map p <Plug>(miniyank-autoput)
+	map P <Plug>(miniyank-autoPut)
+endif
 
 "" ========== VimTrailingSpace ==========
 nn <Leader>trim :FixWhitespace<CR>
