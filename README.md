@@ -80,7 +80,7 @@ These dotfiles are tools settings. It will be symlinked forcely to $HOME directo
 * **vscode config** -- settings.json, keybingings.json
 * **alias** -- .aliases ([editor aliases are in Alfred](https://github.com/ryuta69/dotfiles/tree/master/dotfiles/Alfred.alfredpreferences/snippets).)
 * **macos config** -- [com.knollsoft.Rectangle.plist](https://github.com/rxhanson/Rectangle), [karabiner.json](https://github.com/pqrs-org/Karabiner-Elements)
-* **application configs** -- [.ctags](https://github.com/universal-ctags/ctags), [.my.conf](https://github.com/mysql), [.myclirc](https://github.com/dbcli/mycli), [.rustcfg](https://github.com/rust-lang/rust), [.tigrc](https://github.com/jonas/tig)
+* **application configs** -- [.ctags](https://github.com/universal-ctags/ctags), [.my.conf](https://github.com/mysql), [.myclirc](https://github.com/dbcli/mycli), [.rustcfg](https://github.com/rust-lang/rust), [.tigrc](https://github.com/jonas/tig), [.vimrc/init.vim](https://github.com/neovim/neovim)
 * **git config** -- .gitconfig, .gitattributes, .gitignore, .git_template
 * **terminal config** -- [.zshrc](https://github.com/zsh-users/zsh), [com.googlecode.iterm2.plist](https://github.com/gnachman/iTerm2), [.p10k.zsh](https://github.com/romkatv/powerlevel10k), [.tmux.conf](https://github.com/tmux/tmux)
 
