@@ -1,8 +1,8 @@
 "" ----------------------------------------
 ""	Plugin
 "" ----------------------------------------
-let  plugpath = has('nvim') ? '~/.config/nvim/plugged/' : '~/.vim/plugged'
-call plug#begin(plugpath)
+let  plugdir=has('nvim') ? '~/.config/nvim/plugged/' : '~/.vim/plugged'
+call plug#begin(plugdir)
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
@@ -59,7 +59,6 @@ else
 	set wildmenu
 	set incsearch
 	set belloff=all
-	set nocompatible
 	filetype plugin indent on
 	set backspace=indent,eol,start
 endif
