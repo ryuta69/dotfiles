@@ -1,6 +1,5 @@
 #! /usr/local/bin/zsh
 
-# pattern='^(Add|Delete|Feature|Fix|Refactor|Doc)\([\S|\s]+\): [\S|\s]+[^.]$[\n]{2}[\S|\s]+|^Merge'
 pattern='^(Add|Delete|Feature|Fix|Refactor|Doc)\([\S|\s]+\): [\S|\s]+[^.]$|^Merge'
 
 if ! grep -P ${pattern} $1; then
