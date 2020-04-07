@@ -1,6 +1,7 @@
 #! /bin/bash
 
 CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
+[[ -z `git show-ref remotes/origin/${CURRENT_BRANCH}` ]] && exit 0
 diffs=`git diff remotes/origin/${CURRENT_BRANCH}`
 if [ -n "$diffs" ]; then
 	read -p "There are commits ahead on remote. Do you want to pull? (Y/n): " Ans;
