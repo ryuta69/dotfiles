@@ -21,7 +21,7 @@
 	df  = diff
 	dfh = diff HEAD
 	dft = difftool
-	g   = !ghg get
+	g   = !ghq get
 	lg  = log
 	lgp = log -p
 	lgs = log -stat
