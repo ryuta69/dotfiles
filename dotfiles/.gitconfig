@@ -20,6 +20,7 @@
 	cp  = cherry-pick
 	df  = diff
 	dfh = diff HEAD
+	dfr = !git diff origin `git rev-parse --abbrev-ref HEAD`
 	dft = difftool
 	g   = !ghq get
 	lg  = log
