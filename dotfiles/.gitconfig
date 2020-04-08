@@ -42,9 +42,10 @@
 	rsh = reset --hard
 	rmg = !rm -rf `ghq list -p | fzf`
 	st  = status
-	sl  = stash list
 	ss  = stash save
 	sp  = stash pop
+	sl  = stash list
+	sc  = stash clear
 	spr = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
 
 [core]
