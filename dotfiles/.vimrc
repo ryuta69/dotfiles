@@ -37,9 +37,7 @@ set noswapfile
 set splitright
 set splitbelow
 set termguicolors
-set tabstop=8
 set scrolloff=20
-set shiftwidth=8
 set laststatus=0
 set encoding=utf-8
 let $LANG='en_US.UTF-8'
