@@ -43,8 +43,8 @@
 	rmg = !rm -rf `ghq list -p | fzf`
 	st  = status
 	ss  = stash save
-	sp  = stash pop
-	sl  = stash list
+	sl  = !git stash list | awk -F':' '{print $1}' | fzf --preview 'git stash show -p {}'
+	sp  = !git stash pop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git stash show -p {}'`
 	sc  = stash clear
 	spr = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
 
