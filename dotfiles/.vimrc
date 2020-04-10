@@ -109,6 +109,15 @@ nn <Leader>clean   :PlugClean<CR>
 nn <Leader>update  :PlugUpdate<CR>
 nn <Leader>install :PlugInstall<CR>
 
+"" ========== EmmetVim ==========
+let g:user_emmet_settings = {
+	\ 'javascript.jsx' : {
+	\	'extends' : 'jsx',
+	\ },
+	\ 'typescript' : {
+	\	'extends' : 'jsx',
+	\ }}
+
 "" ========== Deoplete ==========
 let g:deoplete#enable_at_startup = 1
 ino <expr> <up>    pumvisible() ? '<c-e><up>'   : '<up>'
