@@ -43,10 +43,12 @@
 	rmg = !rm -rf `ghq list -p | fzf`
 	st  = status
 	ss  = stash save
-	sl  = !git stash list | awk -F':' '{print $1}' | fzf --preview 'git stash show -p {}'
-	sp  = !git stash pop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git stash show -p {}'`
 	sc  = stash clear
+	sl  = !git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'
+	sp  = !git stash pop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
+	sd  = !git stash drop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
 	spr = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
+	vi  = !vi ~/.gitconfig
 
 [core]
 	editor = nvim

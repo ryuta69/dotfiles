@@ -109,7 +109,6 @@ alias -s {applescript}='osascript'
 ## ========== Git ==========
 alias g='git'
 compdef _git g
-alias vig='vi ~/.gitconfig'
 alias cdgh='cd `ghq list -p | fzf`'
 alias cdg='cd `git rev-parse --show-toplevel`'
 gcre() {
