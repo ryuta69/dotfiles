@@ -94,7 +94,7 @@ defaults write .GlobalPreferences AppleScrollerPagingBehavior -bool true
 
 # Default web browser
 # 1: Google Chrome
-zsh ${EXEPATH}/lib/defaultbrowser.zsh
+zsh ${EXEPATH}/defaultbrowser.zsh
 
 # Ask to keep changes when closing documents
 # 1: Checked
@@ -128,7 +128,7 @@ defaults -currentHost delete .GlobalPreferences AppleFontSmoothing
 ## ========== Desktop & Screen Saver ==========
 ## <Tab> Desktop
 # Desktop Picture
-osascript -e "tell application \"Finder\" to set desktop picture to \"${EXEPATH}/img/wall_phone.jpg\" as POSIX file"
+osascript -e "tell application \"Finder\" to set desktop picture to \"${EXEPATH}/img/desktop.jpg\" as POSIX file"
 
 # `DesktopPicture` pop up menu
 # 1: Fill Screen
@@ -406,7 +406,7 @@ SCAT=(
 	# System Preferences
 	"SYSTEM_PREFS"               true
 )
-zsh ${EXEPATH}/lib/spotlightSearchResults.zsh $(echo ${SCAT})
+zsh ${EXEPATH}/spotlightSearchResults.zsh $(echo ${SCAT})
 
 # Allow Spotlight Suggestions in Look up
 # 1: Checked
@@ -479,7 +479,7 @@ defaults write com.apple.airplay "NSStatusItem Visible com.apple.menuextra.airpl
 # 3: Middle
 # 4: Default
 # 5: More Space
-osascript ${EXEPATH}/lib/resolution.applescript
+osascript ${EXEPATH}/resolution.applescript
 
 # Brightness
 # params: 1.lightest 0.darkest
@@ -579,7 +579,7 @@ defaults write .GlobalPreferences KeyRepeat -int 2
 # Touch Bar shows
 # 1: App Control
 # 2: Expanded Control Strip
-osascript ${EXEPATH}/lib/touchbar.applescript
+osascript ${EXEPATH}/touchbar.applescript
 # 3: F1, F2, etc. Keys
 # 4: Quick Actions
 
@@ -677,7 +677,7 @@ osascript ${EXEPATH}/lib/touchbar.applescript
 # Select the previous input source
 
 # Select next source in Input menu
-osascript ${EXEPATH}/lib/unchecknextsource.applescript
+osascript ${EXEPATH}/unchecknextsource.applescript
 
 ## <Menu> Screenshots
 # Save picture of screen as a file
@@ -698,7 +698,7 @@ osascript ${EXEPATH}/lib/unchecknextsource.applescript
 
 ## <Menu> Spotlight
 # Show Spotlight search
-osascript ${EXEPATH}/lib/uncheckspotlight.applescript
+osascript ${EXEPATH}/uncheckspotlight.applescript
 
 # Show Finder search window
 
@@ -712,7 +712,7 @@ osascript ${EXEPATH}/lib/uncheckspotlight.applescript
 ## <Tab> Input Sources
 Add Input Sources
 GJIME=$(defaults read com.apple.HIToolbox AppleEnabledInputSources | grep "InputSourceKind = \"Keyboard Input Method\"")
-[[ -z  ${GJIME} ]] && osascript ${EXEPATH}/lib/inputsource.applescript
+[[ -z  ${GJIME} ]] && osascript ${EXEPATH}/inputsource.applescript
 
 # Show Input menu in menu bar
 
@@ -1066,7 +1066,7 @@ defaults write com.apple.finder ShowStatusBar -bool true
 ##	Extra
 ## ----------------------------------------
 ## ========== Dock Applications ==========
-zsh ${EXEPATH}/lib/dockitem.zsh
+zsh ${EXEPATH}/dockitem.zsh
 
 ## ========== Default Application ==========
 
