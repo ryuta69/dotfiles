@@ -12,7 +12,7 @@
 		"xargs"
 	],
 	"editor.tabSize": 8,
-	"editor.fontSize": 12,
+	"editor.fontSize": 14,
 	"editor.wordWrap": "on",
 	"editor.formatOnSave": true,
 	"editor.insertSpaces": false,
