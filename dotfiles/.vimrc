@@ -7,12 +7,13 @@ call plug#begin(plugdir)
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
 	Plug 'jiangmiao/auto-pairs'
+	Plug 'sheerun/vim-polyglot'
 	Plug 'junegunn/vim-easy-align'
 	Plug 'Lokaltog/vim-easymotion'
 	Plug 'yuttie/comfortable-motion.vim'
 	Plug 'bronson/vim-trailing-whitespace'
-	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 	Plug 'tpope/vim-surround' | Plug 'tpope/vim-repeat'
+	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'mattn/emmet-vim'
 	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	if has('nvim')
 		Plug 'bfredl/nvim-miniyank'
