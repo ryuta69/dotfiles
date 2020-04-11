@@ -6,8 +6,8 @@ call plug#begin(plugdir)
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
-	Plug 'jiangmiao/auto-pairs'
 	Plug 'sheerun/vim-polyglot'
+	Plug 'jiangmiao/auto-pairs'
 	Plug 'junegunn/vim-easy-align'
 	Plug 'Lokaltog/vim-easymotion'
 	Plug 'yuttie/comfortable-motion.vim'
@@ -101,7 +101,8 @@ fun! Rg()
 	let string=input('Search String: ')
 	call fzf#run(fzf#wrap({
 		\ 'source': 'rg -lin ' . string,
-		\ 'options': '--preview-window bottom:50% --preview "rg -in --color=always ' . string . ' {}"'}))
+		\ 'options': '--preview-window bottom:50% --preview "rg -in --color=always ' . string . ' {}"'
+	\ }))
 endfun
 
 "" ========== VimPlug ==========
@@ -111,12 +112,9 @@ nn <Leader>install :PlugInstall<CR>
 
 "" ========== EmmetVim ==========
 let g:user_emmet_settings = {
-	\ 'javascript.jsx' : {
-	\	'extends' : 'jsx',
-	\ },
-	\ 'typescript' : {
-	\	'extends' : 'jsx',
-	\ }}
+	\ 'typescript'     : { 'extends' : 'jsx' },
+	\ 'javascript.jsx' : { 'extends' : 'jsx' }
+\ }
 
 "" ========== Deoplete ==========
 let g:deoplete#enable_at_startup = 1
