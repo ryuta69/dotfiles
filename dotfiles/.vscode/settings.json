@@ -31,6 +31,7 @@
 	"files.autoGuessEncoding": true,
 	"javascript.format.semicolons": "insert",
 	"terminal.external.osxExec": "iTerm.app",
+	"terminal.integrated.fontSize": 14,
 	"terminal.integrated.cursorStyle": "line",
 	"terminal.integrated.shell.osx": "/usr/local/bin/zsh",
 	"terminal.integrated.fontFamily": "Noto Mono for Powerline",
