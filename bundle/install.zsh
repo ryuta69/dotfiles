@@ -120,4 +120,4 @@ if [[ -z "${opthash[(i)--test]}" ]]; then
 	for plugin in ${plugins}; do
 		code --install-extension ${plugin}
 	done
-fi;
+fi

@@ -12,7 +12,7 @@ fi
 if [[ -z "${opthash[(i)--force]}"  ]]; then
         read Ans"?Your file will be overwritten(Y/n): "
         if [[ $Ans != 'Y' ]]; then echo 'Canceled\n' && exit; fi;
-fi;
+fi
 
 CRPATH="${HOME}/.cargo"                                && mkdir -p ${CRPATH}
 NVPATH="${HOME}/.config/nvim"                          && mkdir -p ${NVPATH}
@@ -41,3 +41,11 @@ for abspath (${EXEPATH}/.library/*); do
 	if [[ $filename = 'com.googlecode.iterm2.plist' ]]; then ln -sfnv $abspath ${PLPATH}; continue; fi;
 	if [[ $filename = 'com.knollsoft.Rectangle.plist' ]]; then ln -sfnv $abspath ${PLPATH}; continue; fi;
 done
+
+if [[ -z "${opthash[(i)--test]}" ]]; then
+	zinit self-update
+	source ${HOME}/.zshrc
+	vim  +'PlugInstall --sync' +qa
+	nvim +'PlugInstall --sync' +qa
+	${HOME}/.tmux/plugins/tpm/scripts/install_plugins.sh
+fi

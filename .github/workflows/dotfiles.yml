@@ -27,7 +27,7 @@ jobs:
         ./bundle/install.zsh --force --test
     - name: Install dotfiles
       run: |
-        ./dotfiles/install.zsh --force
+        ./dotfiles/install.zsh --force --test
     - name: Install macos system setting
       run: |
         ./system/install.zsh --force --test

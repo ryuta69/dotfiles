@@ -12,7 +12,7 @@ fi
 if [[ -z "${opthash[(i)--force]}"  ]]; then
         read Ans"?Your file will be overwritten(Y/n): "
         if [[ $Ans != 'Y' ]]; then echo 'Canceled\n' && exit; fi;
-fi;
+fi
 
 osascript -e 'tell application "System Preferences" to quit' > /dev/null 2>&1
 
@@ -1123,4 +1123,4 @@ if [[ -z "${opthash[(i)--test]}"  ]]; then
 	do
 		killall ${app}
 	done
-fi;
+fi
