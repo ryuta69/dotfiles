@@ -238,11 +238,11 @@ defaults delete com.apple.dock autohide
 # 1: Checked
 defaults write com.apple.dock show-process-indicators -bool true
 # 2: Unchecked
-defaults write com.apple.dock show-process-indicators -bool false
+# defaults write com.apple.dock show-process-indicators -bool false
 
 # Show recent applications in Dock
 # 1: Checked
-defaults write com.apple.dock show-recents -bool true
+# defaults write com.apple.dock show-recents -bool true
 # 2: Unchecked
 defaults write com.apple.dock show-recents -bool false
 
@@ -289,13 +289,13 @@ defaults write .GlobalPreferences AppleLanguages -array en ja
 
 # Region
 # 1: Japan
+defaults write .GlobalPreferences AppleMetricUnits -int 1
 defaults write .GlobalPreferences AppleLocale -string "en-JP"
 defaults write .GlobalPreferences AppleMeasurementUnits -string "Centimeters"
-defaults write .GlobalPreferences AppleMetricUnits -int 1
 # 2: United States
+# defaults write .GlobalPreferences AppleMetricUnits -int 0
 # defaults write .GlobalPreferences AppleLocale -string "en-US"
 # defaults write .GlobalPreferences AppleMeasurementUnits -string "Inches"
-# defaults write .GlobalPreferences AppleMetricUnits -int 0
 
 # First day of week
 # 1: Sunday
@@ -330,7 +330,7 @@ defaults delete .GlobalPreferences AppleICUForce12HourTime
 # 1: Celsius
 defaults write .GlobalPreferences AppleTemperatureUnit -string "Celsius"
 # 2: Fahrenheit
-defaults write .GlobalPreferences AppleTemperatureUnit -string "Fahrenheit"
+# defaults write .GlobalPreferences AppleTemperatureUnit -string "Fahrenheit"
 
 # List sort order
 # 1: Universal
@@ -346,7 +346,7 @@ defaults delete .GlobalPreferences AppleCollationOrder
 # 1: Checked
 defaults write com.apple.screensaver askForPassword -bool true
 # 2: Unchecked
-defaults write com.apple.screensaver askForPassword -bool false
+# defaults write com.apple.screensaver askForPassword -bool false
 
 # `Require password ~~~ after sleep or screen saver begins` pop up menu
 # params: seconds
@@ -540,7 +540,7 @@ sudo pmset -b powernap 0
 sudo pmset -c displaysleep 3
 
 # Prevent computer from sleeping automatically when the display is off
-sudo pmset -c sleep 0 
+sudo pmset -c sleep 0
 
 # Put hard disks to sleep when possible
 # 1: Checked
@@ -923,30 +923,53 @@ defaults write com.apple.menuextra.clock DateFormat -string "HH:mm"
 ## ----------------------------------------
 ## ========== General ==========
 # Show these items on the desktop
-# 1: Hard disks
+# Hard disks
+# 1: Checked
+# defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+# 2: Unchecked
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
-# 2: External disks
+# External disks
+# 1: Checked
+# defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+# 2: Unchecked
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
-# 3: CDs, DVDs, and iPods
+# CDs, DVDs, and iPods
+# 1: Checked
+# defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+# 2: Unchecked
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
-# 4: Connected servers
+# Connected servers
+# 1: Checked
+# defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+# 2: Unchecked
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 
 # New Finder windows show
 defaults write com.apple.finder NewWindowTarget -string "${HOME}/work"
 
 # Open folders in tabs instead of new windows
+# 1: Checked
 defaults write com.apple.finder FinderSpawnTab -bool true
+# 2: Unchecked
+# defaults write com.apple.finder FinderSpawnTab -bool false
 
 ## ========== Tags ==========
 # Show these tags in the sidebar
+# Todo: Make applescript
 
 ## ========== Sidebar ==========
 # Favorite
+# Todo: Make applescript
 
 # Locations
+# Todo: Make applescript
 
 # Tags
+# Recent Tags
+# 1: Checked
+# defaults write com.apple.finder ShowRecentTags -bool true
+# 2: Unchecked
+defaults write com.apple.finder ShowRecentTags -bool false
 
 ## ========== Advanced ==========
 # Show all filename extensions
@@ -1087,7 +1110,6 @@ defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
 ## ========== Disable System Preferences Red Bubble Notification ==========
 defaults write com.apple.systempreferences AttentionPrefBundleIDs 0
-
 
 ## ----------------------------------------
 ##	Apply All Settings
