@@ -49,6 +49,12 @@ rustup component add rls-preview --toolchain stable
 rustup component add rust-analysis --toolchain stable
 
 ## ----------------------------------------
+##	Perl Cpanm
+## ----------------------------------------
+cpanm App::cpanminus
+cpanm Perl::Tidy
+
+## ----------------------------------------
 ##	Git
 ## ----------------------------------------
 sudo ln -sfnv /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight

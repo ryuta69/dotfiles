@@ -41,6 +41,7 @@ brew "node", link: true
 brew "perl"
 brew "ruby"
 brew "cmake"
+brew "cpanm"
 brew "rbenv"
 brew "python"
 brew "pipenv"
