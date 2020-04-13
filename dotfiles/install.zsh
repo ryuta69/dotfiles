@@ -20,7 +20,7 @@ KRPATH="${HOME}/.config/karabiner"                     && mkdir -p ${KRPATH}
 PLPATH="${HOME}/Library/Preferences"                   && mkdir -p ${PLPATH}
 ALPATH="${HOME}/Library/Application Support/Alfred"    && mkdir -p ${ALPATH}
 VSPATH="${HOME}/Library/Application Support/Code/User" && mkdir -p ${VSPATH}
-SKIPLIST=("install.zsh" ".library" ".vscode")
+SKIPLIST=("install.zsh" ".library" ".vscode" ".node_template")
 
 for abspath (${EXEPATH}/*); do
 	filename=$(basename -- "$abspath");
