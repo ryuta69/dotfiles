@@ -109,7 +109,7 @@ defaults write .GlobalPreferences NSCloseAlwaysConfirmsChanges -bool false
 defaults write .GlobalPreferences NSQuitAlwaysKeepsWindows -bool true
 
 # Recent items
-# !!! not right now. MacOS changed it to sfl2 binary...
+# [ToDo] sfl2
 
 # Allow Handoff between this Mac and your iCloud devices
 # 1: Checked
@@ -136,17 +136,17 @@ osascript -e "tell application \"Finder\" to set desktop picture to \"${EXEPATH}
 # 3: Streach to Fill Screen
 # 4: Center
 # 5: Tile
-# !!! not right now. MacOS changed it to sfl2 binary...
+# [ToDo] sfl2
 
 # Change picture
-# !!! not right now. MacOS changed it to sfl2 binary...
+# [ToDo] sfl2
 
 # `Change picture` pop up menu
 # 1: When logging in
 # 2: When waking from sleep
 # 3: Every ~ seconds/minutes
 # 4: Random order(active when `Change picture is set`)
-# !!! not right now. MacOS changed it to sfl2 binary...
+# [ToDo] sfl2
 
 ## <Tab> Screen Saver
 # Start After
@@ -459,7 +459,7 @@ defaults -currentHost delete com.apple.notificationcenterui dndFacetimeRepeatedC
 # 1: Recents
 # 2: Recents by App
 # 3: Manually by App
-# !!! not right now. MacOS changed it to sfl2 binary...
+# [ToDo] sfl2
 
 ## ========== Displays ==========
 # Show mirroring options in the menu bar when available
@@ -486,30 +486,40 @@ osascript ${EXEPATH}/resolution.applescript
 brightness 1
 
 # Automatically adjust brightness
+# [ToDo]
 
 ## <Tab> Color
 # Display profile
+# [ToDo]
 
 ## <Tab> Night Shift
 # Schedule
 # 1: Off
 # 2: Custom
 # 3: Sunset to Sunrise
+# [ToDo]
 
 # `Off` Turn On Until Tomorrow
+# [ToDo]
 
 # `Custom` From
+# [ToDo]
 
 # `Custom` to
+# [ToDo]
 
 # `Custom` Turn On Until Later Today
+# [ToDo]
 
 # `Sunset to Sunrise` Turn On Until Sunrise
+# [ToDo]
 
 # Color Temperature
+# [ToDo]
 
 ## ========== Energy Saver ==========
 # Show battery status in menu bar
+# [ToDo]
 
 ## <Tab> Battery
 # Turn display off after
@@ -571,10 +581,13 @@ defaults write .GlobalPreferences InitialKeyRepeat -int 15
 defaults write .GlobalPreferences KeyRepeat -int 2
 
 # Adjust keyboard brightness in low light
+# [ToDo]
 
 # Turn keyboard backlight off after ~~~ of inactivity
+# [ToDo]
 
 # `Turn keyboard backlight off after ~~~ of inactivity` seconds
+# [ToDo]
 
 # Touch Bar shows
 # 1: App Control
@@ -589,110 +602,154 @@ osascript ${EXEPATH}/touchbar.applescript
 # 2: Expanded Control Strip
 # 3: F1, F2, etc. Keys
 # 4: Quick Actions
+# [ToDo]
 
 # Show keyboard and emoji viewers in menu bar
+# [ToDo]
 
 # Use F1, F2, etx. keys as standard function keys on external keyboards
+# [ToDo]
 
 # <Button> Modifier Keys
 # Select keyboard
+# [ToDo]
 
 # Caps Lock Key
+# [ToDo]
 
 # Control Key
+# [ToDo]
 
 # Option Key
+# [ToDo]
 
 # Command Key
+# [ToDo]
 
 # Function Key
+# [ToDo]
 
 ## <Tab> Text
 # Correct spelling automatically
+# [ToDo]
 
 # Capitalize words automatically
+# [ToDo]
 
 # Add period with double-space
+# [ToDo]
 
 # Touch Bar typing suggestions
+# [ToDo]
 
 # Use smart quotes and dashes
+# [ToDo]
 
 ## <Tab> Shortcuts
 # Full Keyboard Access
 # 1: Text boxes and lists only
 # 2: All controls
+# [ToDo]
 
 ## <Menu> Launchpad & Dock
 # Turn Dock Hiding On/Off
+# [ToDo]
 
 # Show Launchpad
+# [ToDo]
 
 ## <Menu> Display
 # Decrease display brightness
+# [ToDo]
 
 # Increase display brightness
+# [ToDo]
 
 ## <Menu> Mission Control
 # Mission Control
+# [ToDo]
 
 # Show Notification Center
+# [ToDo]
 
 # Turn Do Not Disturb On/Off
+# [ToDo]
 
 # Application windows
+# [ToDo]
 
 # Show Desktop
+# [ToDo]
 
 # Show Dashboard
+# [ToDo]
 
 # Move left a space
+# [ToDo]
 
 # Move right a space
+# [ToDo]
 
 # Switch to Desktop 1
+# [ToDo]
 
 ## <Menu> Keyboard
 # Change the way Tab moves focus
+# [ToDo]
 
 # Turn keyboard access on or off
+# [ToDo]
 
 # Move focus to the menu bar
+# [ToDo]
 
 # Move focus to the Dock
+# [ToDo]
 
 # Move focus to active or next window
+# [ToDo]
 
 # Move focus to the window toolbar
+# [ToDo]
 
 # Move focus to the floating window
+# [ToDo]
 
 # Move focus to next window
+# [ToDo]
 
 # Move focus to the window drawer
+# [ToDo]
 
 # Move focus to status menus
+# [ToDo]
 
 ## <Menu> Input Sources
 # Select the previous input source
-
 # Select next source in Input menu
 osascript ${EXEPATH}/unchecknextsource.applescript
 
 ## <Menu> Screenshots
 # Save picture of screen as a file
+# [ToDo]
 
 # Copy picture of screen to the clipboard
+# [ToDo]
 
 # Save picture of selected area as a file
+# [ToDo]
 
 # Copy picture of sel...area to the clipboard
+# [ToDo]
 
 # Screenshot and recording options
+# [ToDo]
 
 # Save picture of the Touch Bar as a file
+# [ToDo]
 
 # Copy picture of the...Bar to the clipboard
+# [ToDo]
 
 ## <Menu> Services
 
@@ -701,11 +758,13 @@ osascript ${EXEPATH}/unchecknextsource.applescript
 osascript ${EXEPATH}/uncheckspotlight.applescript
 
 # Show Finder search window
+# [ToDo]
 
 ## <Menu> Accessibility
 
 ## <Menu> App Shortcuts
 # Show Help menu
+# [ToDo]
 
 ## <Menu> Function Keys
 
@@ -715,27 +774,35 @@ GJIME=$(defaults read com.apple.HIToolbox AppleEnabledInputSources | grep "Input
 [[ -z  ${GJIME} ]] && osascript ${EXEPATH}/inputsource.applescript
 
 # Show Input menu in menu bar
+# [ToDo]
 
 # Automatically switch to a document's input source
+# [ToDo]
 
 ## <Tab> Dictation
 # Dictation
+# [ToDo]
 
 # Use Enhanced Dictation
+# [ToDo]
 
 # Language
+# [ToDo]
 
 # Shortcut
+# [ToDo]
 
 ## ========== Mouse ==========
 
 ## ========== Trackpad ==========
 ## <Tab> Point & Click
 # Look up & data detectors
+# [ToDo]
 
 # `Look up & data detectors` pop up menu
 # 1: Force Click with one finger
 # 2: Tap with Three fingers
+# [ToDo]
 
 # Secondary click
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
@@ -757,62 +824,83 @@ defaults write -g com.apple.trackpad.forceClick 2
 defaults write -g com.apple.trackpad.scaling 3
 
 # Force Click and haptic feedback
+# [ToDo]
 
 ## <Tab> Scroll & Zoom
 # Scroll direction: Natural
+# [ToDo]
 
 # Zoom in or out
+# [ToDo]
 
 # Smart zoom
+# [ToDo]
 
 # Rotate
+# [ToDo]
 
 ## <Tab> More Gestures
 # Swipe between pages
+# [ToDo]
 
 # `Swipe between pages` pop up menu
 # 1: Scroll left or right with two fingers
 # 2: Swipe with three fingers
 # 3: Swipe with two or three fingers
+# [ToDo]
 
 # Swipe between full-screen apps
+# [ToDo]
 
 # `Swipe between full-screen apps` pop up menu
 # 1: Scroll left or right with three fingers
 # 2: Scroll left or right with four fingers
+# [ToDo]
 
 # Notification Center
+# [ToDo]
 
 # Mission Control
+# [ToDo]
 
 # `Mission Control` pop up menu
 # 1: Swipe up with three fingers
 # 2: Swipe up with four fingers
+# [ToDo]
 
 # App Expose
+# [ToDo]
 
 # `App Expose` pop up menu
 # 1: Swipe down with three fingers
 # 2: Swipe down with four fingers
+# [ToDo]
 
 # Launchpad
+# [ToDo]
 
 # Show Desktop
+# [ToDo]
 
 ## ========== Printers & Scanners ==========
 
 ## ========== Sound ==========
 # Show volume in menu bar
+# [ToDo]
 
 ## <Tab> Sound Effects
 # Select an alert sound
+# [ToDo]
 
 # Play user interface sound effects
+# [ToDo]
 
 # Play feedback when volume is changed
+# [ToDo]
 
 ## <Tab> Output
 # Balance
+# [ToDo]
 
 ## <Tab> Input
 
@@ -826,30 +914,41 @@ defaults write -g com.apple.trackpad.scaling 3
 
 ## ========== Software Update ==========
 # Automatically keep my Mac up to date
+# [ToDo]
 
 ## <Button> Advanced
 # Check for updates
+# [ToDo]
 
 # Download new updates when available
+# [ToDo]
 
 # Install macOS updates
+# [ToDo]
 
 # Install app updates from the App Store
+# [ToDo]
 
 # Install system data files and security updates
+# [ToDo]
 
 ## ========== Network ==========
 # Show Wi-Fi status in menu bar
+# [ToDo]
 
 ## ========== Bluetooth ==========
 # Show Bluetooth status in menu bar
+# [ToDo]
 
 ## <Button> Advanced
 # Open Bluetooth Setup Assistant at startup if no keyboard is detected
+# [ToDo]
 
 # Open Bluetooth Setup Assistant at startup if no mouse or trackpad is detected
+# [ToDo]
 
 # Allow Bluetooth devices to wake this computer
+# [ToDo]
 
 ## ========== Extensions ==========
 
@@ -866,16 +965,22 @@ sudo dscl . create /Users/${UNM} Picture "${EXEPATH}/img/icon.jpeg"
 
 ## ========== Siri ==========
 # Listen for "Hey Siri"
+# [ToDo]
 
 # Keyboard Shortcut
+# [ToDo]
 
 # Language
+# [ToDo]
 
 # Siri Voice
+# [ToDo]
 
 # Voice Feedback
+# [ToDo]
 
 # Show Siri in menu bar
+# [ToDo]
 
 ## ========== Date & Time ==========
 ## <Tab> Date & Time
@@ -886,13 +991,16 @@ sudo systemsetup -setusingnetworktime on > /dev/null
 
 ## <Tab> Clock
 # Show date and time in menu bar
+# [ToDo]
 
 # Time options
 # 1: Digital
 defaults write com.apple.menuextra.clock IsAnalog -bool false
 # 2: Analog
+# defaults write com.apple.menuextra.clock IsAnalog -bool true
 
 # Display the time with seconds
+# [ToDo]
 
 # Flash the time separators
 defaults write com.apple.menuextra.clock FlashDateSeparators -bool false
@@ -901,20 +1009,25 @@ defaults write com.apple.menuextra.clock FlashDateSeparators -bool false
 defaults write com.apple.menuextra.clock DateFormat -string "HH:mm"
 
 # Show AM/PM
+# [ToDo]
 
 # Show the day of the week
+# [ToDo]
 
 # Show date
+# [ToDo]
 
 # Announce the time
+# [ToDo]
 
 ## ========== Time Machine ==========
 # Back Up Automatically
+# [ToDo]
 
 # Show Time Machine in menu bar
+# [ToDo]
 
 ## ========== Accessibility ==========
-# !!! This should not be automated
 
 ## ========== Profiles ==========
 
@@ -955,14 +1068,14 @@ defaults write com.apple.finder FinderSpawnTab -bool true
 
 ## ========== Tags ==========
 # Show these tags in the sidebar
-# Todo: Make applescript
+# [ToDo]
 
 ## ========== Sidebar ==========
 # Favorite
-# Todo: Make applescript
+# [ToDo]
 
 # Locations
-# Todo: Make applescript
+# [ToDo]
 
 # Tags
 # Recent Tags
@@ -1007,6 +1120,7 @@ defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 # 4: as Gallary View
 
 # Use Groups
+# [ToDo]
 
 # SortBy
 # 1: Name
@@ -1017,12 +1131,14 @@ defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 # 6: Date Created
 # 7: Size
 # 8: Tags
+# [ToDo]
 
 # <Button> View Options
 # Icon Size
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 36" ${HOME}/Library/Preferences/com.apple.finder.plist
 
 # Grid Spacing
+# [ToDo]
 
 # Text Size
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:textSize 12" ${HOME}/Library/Preferences/com.apple.finder.plist
@@ -1030,16 +1146,22 @@ defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 # Label Position
 # 1: Bottom
 # 2: Right
+# [ToDo]
 
 # Show Item Info
+# [ToDo]
 
 # Show Icons
+# [ToDo]
 
 # Show Icon Preview
+# [ToDo]
 
 # Show Column Preview
+# [ToDo]
 
 ## ========== View ==========
+# [ToDo] false version
 # Show Toolbar
 defaults write com.apple.finder ShowSidebar -bool true
 defaults write com.apple.finder ShowPreviewPane -bool true
@@ -1062,6 +1184,7 @@ defaults write com.apple.finder ShowStatusBar -bool true
 # 4: Date Modified
 # 5: Date Created
 # 6: Tags
+# [ToDo]
 
 # SortBy
 # 1: Name
@@ -1072,6 +1195,7 @@ defaults write com.apple.finder ShowStatusBar -bool true
 # 6: Date Created
 # 7: Size
 # 8: Tags
+# [ToDo]
 
 # Icon Size
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 36" ${HOME}/Library/Preferences/com.apple.finder.plist
@@ -1080,10 +1204,13 @@ defaults write com.apple.finder ShowStatusBar -bool true
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:textSize 12" ${HOME}/Library/Preferences/com.apple.finder.plist
 
 # Grid Spacing
+# [ToDo]
 
 # Show Item Info
+# [ToDo]
 
 # Show Icon Preview
+# [ToDo]
 
 ## ----------------------------------------
 ##	Extra
@@ -1092,6 +1219,7 @@ defaults write com.apple.finder ShowStatusBar -bool true
 zsh ${EXEPATH}/dockitem.zsh
 
 ## ========== Default Application ==========
+# [ToDo]
 
 ## ========== Remove Notification ==========
 defaults write com.apple.LaunchServices LSQuarantine -bool false
