@@ -28,6 +28,7 @@
 	lgs = log -stat
 	lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cs) %C(bold blue)<%an>%Creset' --abbrev-commit
 	mt  = mergetool
+	md  = !git branch -r --merged | grep -v '\\*\\|master\\|develop' | sed 's/origin\\///' | xargs -n 1 git push --delete origin && git fetch origin --prune
 	op  = !hub browse
 	opg = !hub browse `ghq list | fzf | cut -d "/" -f 2,3`
 	opi = !hub issue show `hub issue | fzf`
