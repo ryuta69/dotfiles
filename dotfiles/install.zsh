@@ -42,10 +42,10 @@ for abspath (${EXEPATH}/.library/*); do
 	if [[ $filename = 'com.knollsoft.Rectangle.plist' ]]; then ln -sfnv $abspath ${PLPATH}; continue; fi;
 done
 
-if [[ -z "${opthash[(i)--test]}" ]]; then
-	zinit self-update
-	source ${HOME}/.zshrc
-	vim  +'PlugInstall --sync' +qa
-	nvim +'PlugInstall --sync' +qa
-	${HOME}/.tmux/plugins/tpm/scripts/install_plugins.sh
-fi
+# if [[ -z "${opthash[(i)--test]}" ]]; then
+# 	zinit self-update
+# 	source ${HOME}/.zshrc
+# 	vim  +'PlugInstall --sync' +qa
+# 	nvim +'PlugInstall --sync' +qa
+# 	${HOME}/.tmux/plugins/tpm/scripts/install_plugins.sh
+# fi
