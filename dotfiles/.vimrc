@@ -124,9 +124,15 @@ ino <expr> <Tab>   pumvisible() ? "\<C-n>"      : "\<Tab>"
 ino <expr> <S-Tab> pumvisible() ? "\<C-p>"      : "\<S-Tab>"
 
 "" ========== Ultisnips ==========
-let g:UltiSnipsExpandTrigger='<c-e>'
+let g:UltiSnipsExpandTrigger='<f10>'
 let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+let g:ulti_expand_or_jump_res = 0
+fun! UltiExpand()
+	call UltiSnips#ExpandSnippetOrJump()
+	return g:ulti_expand_or_jump_res
+endfun
+ino <CR> <C-R>=(UltiExpand() > 0) ? "" : "\n"<CR>
 
 "" ========== EasyAlign ==========
 xm ga <Plug>(LiveEasyAlign)
