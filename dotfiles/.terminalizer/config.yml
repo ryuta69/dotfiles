@@ -1,0 +1,17 @@
+command: zsh
+cwd: null
+env:
+  recording: true
+cols: 30
+rows: 30
+repeat: 0
+frameDelay: auto
+maxIdleTime: 2000
+frameBox:
+  type: window
+  title: Terminal
+cursorStyle: block
+fontFamily: "Noto Mono for Powerline"
+fontSize: 25
+lineHeight: 1
+letterSpacing: 0
