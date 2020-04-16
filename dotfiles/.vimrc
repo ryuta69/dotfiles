@@ -13,6 +13,7 @@ call plug#begin(plugdir)
 	Plug 'yuttie/comfortable-motion.vim'
 	Plug 'bronson/vim-trailing-whitespace'
 	Plug 'tpope/vim-surround' | Plug 'tpope/vim-repeat'
+	Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
 	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'mattn/emmet-vim'
 	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	if has('nvim')
@@ -116,6 +117,12 @@ let g:user_emmet_settings = {
 	\ 'javascript.jsx' : { 'extends' : 'jsx' }
 \ }
 
+"" ========== VsnipVim ==========
+imap <expr> <c-f> vsnip#available(1)  ? '<Plug>(vsnip-jump-next)' : '<c-f>'
+smap <expr> <c-f> vsnip#available(1)  ? '<Plug>(vsnip-jump-next)' : '<c-f>'
+imap <expr> <c-b> vsnip#available(-1) ? '<Plug>(vsnip-jump-prev)' : '<c-b>'
+smap <expr> <c-b> vsnip#available(-1) ? '<Plug>(vsnip-jump-prev)' : '<c-b>'
+
 "" ========== Deoplete ==========
 let g:deoplete#enable_at_startup = 1
 ino <expr> <up>    pumvisible() ? '<c-e><up>'   : '<up>'
@@ -124,15 +131,28 @@ ino <expr> <Tab>   pumvisible() ? "\<C-n>"      : "\<Tab>"
 ino <expr> <S-Tab> pumvisible() ? "\<C-p>"      : "\<S-Tab>"
 
 "" ========== Ultisnips ==========
-let g:UltiSnipsExpandTrigger='<f10>'
+let g:ulti_expand_or_jump_res = 0
+let g:UltiSnipsExpandTrigger='<NUL>'
 let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
-let g:ulti_expand_or_jump_res = 0
-fun! UltiExpand()
+fun! DeoEnter()
+	if vsnip#available(1)
+		call vsnip#expand()
+		return "\<c-y>"
+	endif
+
 	call UltiSnips#ExpandSnippetOrJump()
-	return g:ulti_expand_or_jump_res
+	if g:ulti_expand_or_jump_res > 0
+		return ""
+	endif
+
+	if pumvisible()
+		return "\<c-y> "
+	endif
+
+	return "\n"
 endfun
-ino <CR> <C-R>=(UltiExpand() > 0) ? "" : "\n"<CR>
+ino <CR> <C-R>=DeoEnter()<CR>
 
 "" ========== EasyAlign ==========
 xm ga <Plug>(LiveEasyAlign)
