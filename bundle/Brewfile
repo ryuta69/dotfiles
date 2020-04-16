@@ -27,6 +27,7 @@ brew "gnu-sed"
 brew "ripgrep"
 brew "hyperfine"
 brew "brightness"
+brew "chromedriver"
 tap  "cjbassi/ytop"
 brew "ytop"
 
