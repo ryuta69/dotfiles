@@ -39,6 +39,7 @@ set noswapfile
 set splitright
 set splitbelow
 set termguicolors
+set wildignorecase
 set scrolloff=20
 set laststatus=0
 set encoding=utf-8
