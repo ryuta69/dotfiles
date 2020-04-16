@@ -56,6 +56,7 @@ brew "mongodb-community"
 
 ## ========== Fonts ==========
 tap  "homebrew/cask-fonts"
+cask "font-hack-nerd-font"
 cask "font-source-code-pro"
 cask "font-noto-mono-for-powerline"
 
