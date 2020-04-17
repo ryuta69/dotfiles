@@ -119,6 +119,7 @@ let g:user_emmet_settings = {
 \ }
 
 "" ========== VsnipVim ==========
+nn <Leader>vop :VsnipOpen<CR>
 imap <expr> <c-f> vsnip#available(1)  ? '<Plug>(vsnip-jump-next)' : '<c-f>'
 smap <expr> <c-f> vsnip#available(1)  ? '<Plug>(vsnip-jump-next)' : '<c-f>'
 imap <expr> <c-b> vsnip#available(-1) ? '<Plug>(vsnip-jump-prev)' : '<c-b>'

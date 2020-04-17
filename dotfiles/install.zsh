@@ -28,6 +28,7 @@ SKIPLIST=("install.zsh" ".library" ".vscode" ".node_template")
 for abspath (${EXEPATH}/*); do
 	filename=$(basename -- "$abspath");
 	if [[ ${SKIPLIST[(ie)$filename]} -le ${#SKIPLIST} ]]; then continue; fi;
+	if [[ $filename = '.vsnip' ]]; then ln -sfnv $abspath ${VSPATH}/snippets; fi;
 	if [[ $filename = '.vimrc' ]]; then ln -sfnv $abspath ${NVPATH}/init.vim; fi;
 	if [[ $filename = '.rustcfg' ]]; then ln -sfnv $abspath ${CRPATH}/config; continue; fi;
 	ln -sfnv $abspath ${HOME};
