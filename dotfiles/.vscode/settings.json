@@ -21,7 +21,7 @@
 	"editor.renderLineHighlight": "all",
 	"editor.acceptSuggestionOnEnter": "on",
 	"editor.minimap.renderCharacters": false,
-	"editor.fontFamily": "Noto Mono for Powerline",
+	"editor.fontFamily": "Hack Nerd Font",
 	"editor.suggest.snippetsPreventQuickSuggestions": false,
 	"emmet.includeLanguages": {
 		"javascript": "javascriptreact",
