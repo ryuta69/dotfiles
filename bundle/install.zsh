@@ -86,6 +86,11 @@ ${HOME}/.tmux/plugins/tpm/scripts/install_plugins.sh
 # mysql_secure_installation
 
 ## ----------------------------------------
+##	Gcloud
+## ----------------------------------------
+curl https://sdk.cloud.google.com | bash
+
+## ----------------------------------------
 ##	iTerm2
 ## ----------------------------------------
 curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash

@@ -187,6 +187,12 @@ export FZF_DEFAULT_OPTS='--reverse --color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:
 [ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
 
 ## ----------------------------------------
+##	Gcloud
+## ----------------------------------------
+if [ -f '/Users/kohei.murakami/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kohei.murakami/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/kohei.murakami/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kohei.murakami/google-cloud-sdk/completion.zsh.inc'; fi
+
+## ----------------------------------------
 ##	Zinit
 ## ----------------------------------------
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
