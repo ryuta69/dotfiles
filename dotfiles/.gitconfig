@@ -49,7 +49,7 @@
 	sp  = !git stash pop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
 	sd  = !git stash drop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
 	spr = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
-	vi  = !vi ~/.gitconfig
+	vi  = !nvim ~/.gitconfig
 
 [core]
 	editor = nvim
@@ -59,6 +59,12 @@
 
 [color]
 	ui = true
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
 
 [commit]
 	gpgsign = true
