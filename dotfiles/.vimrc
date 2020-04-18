@@ -96,14 +96,14 @@ hi DiffText   gui=NONE guifg=NONE    guibg=#013220
 nn <Leader>file :Files<CR>
 nn <Leader>hist :History<CR>
 nn <Leader>rg   :call Rg()<CR>
-let g:fzf_layout={ 'right': '~50%' }
+let g:fzf_layout={ 'right': '~45%' }
 com! -bang -nargs=* History call fzf#vim#history(fzf#vim#with_preview('down:50%'))
 com! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview('down:50%'), <bang>0)
 fun! Rg()
 	let string=input('Search String: ')
 	call fzf#run(fzf#wrap({
 		\ 'source': 'rg -lin ' . string,
-		\ 'options': '--preview-window bottom:50% --preview "rg -in --color=always ' . string . ' {}"'
+		\ 'options': '--preview-window bottom:60% --preview "rg -in --color=always ' . string . ' {}"'
 	\ }))
 endfun
 
@@ -138,17 +138,17 @@ let g:UltiSnipsExpandTrigger='<NUL>'
 let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 fun! DeoEnter()
-	if vsnip#available(1)
-		call vsnip#expand()
-		return "\<c-y>"
-	endif
-
-	call UltiSnips#ExpandSnippetOrJump()
-	if g:ulti_expand_or_jump_res > 0
-		return ""
-	endif
-
 	if pumvisible()
+		if vsnip#available(1)
+			call vsnip#expand()
+			return "\<c-y>"
+		endif
+
+		call UltiSnips#ExpandSnippetOrJump()
+		if g:ulti_expand_or_jump_res > 0
+			return ""
+		endif
+
 		return "\<c-y> "
 	endif
 
