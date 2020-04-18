@@ -1,4 +1,6 @@
 numpy
+imgcat
+pillow
 pynvim
 requests
 selenium
