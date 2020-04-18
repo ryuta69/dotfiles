@@ -457,6 +457,8 @@
 	</dict>
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>0 119 224 275 0 0 1440 877 </string>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>255 193 445 205 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 372 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
@@ -1187,7 +1189,7 @@
 					<key>algorithm</key>
 					<integer>1</integer>
 					<key>font</key>
-					<string>HackNerdFontComplete-Regular 12</string>
+					<string>HackNerdFontComplete-Italic 10</string>
 				</dict>
 				<key>components</key>
 				<array>
@@ -1211,6 +1213,8 @@
 							<dict>
 								<key>algorithm</key>
 								<integer>1</integer>
+								<key>font</key>
+								<string>HackNerdFontComplete-Italic 10</string>
 							</dict>
 						</dict>
 					</dict>
@@ -1246,7 +1250,7 @@
 								<key>algorithm</key>
 								<integer>1</integer>
 								<key>font</key>
-								<string>HackNerdFontComplete-Regular 12</string>
+								<string>HackNerdFontComplete-Italic 10</string>
 							</dict>
 						</dict>
 					</dict>
@@ -1270,6 +1274,8 @@
 							<dict>
 								<key>algorithm</key>
 								<integer>1</integer>
+								<key>font</key>
+								<string>HackNerdFontComplete-Italic 10</string>
 							</dict>
 						</dict>
 					</dict>
@@ -1305,7 +1311,7 @@
 								<key>algorithm</key>
 								<integer>1</integer>
 								<key>font</key>
-								<string>HackNerdFontComplete-Regular 12</string>
+								<string>HackNerdFontComplete-Italic 10</string>
 							</dict>
 						</dict>
 					</dict>
@@ -1329,6 +1335,8 @@
 							<dict>
 								<key>algorithm</key>
 								<integer>1</integer>
+								<key>font</key>
+								<string>HackNerdFontComplete-Italic 10</string>
 							</dict>
 						</dict>
 					</dict>
@@ -1368,7 +1376,7 @@
 								<key>algorithm</key>
 								<integer>1</integer>
 								<key>font</key>
-								<string>HackNerdFontComplete-Regular 12</string>
+								<string>HackNerdFontComplete-Italic 10</string>
 							</dict>
 						</dict>
 					</dict>
@@ -1392,6 +1400,8 @@
 							<dict>
 								<key>algorithm</key>
 								<integer>1</integer>
+								<key>font</key>
+								<string>HackNerdFontComplete-Italic 10</string>
 							</dict>
 						</dict>
 					</dict>
@@ -1429,7 +1439,7 @@
 								<key>algorithm</key>
 								<integer>1</integer>
 								<key>font</key>
-								<string>HackNerdFontComplete-Regular 12</string>
+								<string>HackNerdFontComplete-Italic 10</string>
 							</dict>
 						</dict>
 					</dict>
@@ -1453,6 +1463,8 @@
 							<dict>
 								<key>algorithm</key>
 								<integer>1</integer>
+								<key>font</key>
+								<string>HackNerdFontComplete-Italic 10</string>
 							</dict>
 						</dict>
 					</dict>
@@ -1488,7 +1500,7 @@
 								<key>algorithm</key>
 								<integer>1</integer>
 								<key>font</key>
-								<string>HackNerdFontComplete-Regular 12</string>
+								<string>HackNerdFontComplete-Italic 10</string>
 							</dict>
 						</dict>
 					</dict>
@@ -1512,6 +1524,8 @@
 							<dict>
 								<key>algorithm</key>
 								<integer>1</integer>
+								<key>font</key>
+								<string>HackNerdFontComplete-Italic 10</string>
 							</dict>
 						</dict>
 					</dict>
@@ -1574,7 +1588,7 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1680, 1050}}</string>
 		<key>topLeft</key>
-		<string>{24, 874}</string>
+		<string>{0, 757}</string>
 	</dict>
 	<key>NoSyncInstallUtilitiesPackage</key>
 	<true/>
@@ -1585,7 +1599,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>602972547.35146105</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>86</integer>
+	<integer>87</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2376,7 +2390,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-04-17T04:39:01Z</date>
+	<date>2020-04-18T04:39:02Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
