@@ -1,11 +1,11 @@
 <h3 align="center">My Dotfiles</h3>
 <p align="center">ᓚᘏᗢ Just personal settings.</p>
 
-<img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/76955071-d9c5a700-6954-11ea-818c-19be19be1468.png">
+<img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/79629086-6399a780-8181-11ea-8959-e6f29a2fe6d4.png">
 
 Not only symlinking dotfiles, this repository also installs applications and configures MacOS system.
 
-The gif below shows this repository's feature that automates setting dock application.
+The gif below shows this repository's feature that automates setting dock applications.
 
 ![dockitem](https://user-images.githubusercontent.com/41639488/76949300-a92d3f80-694b-11ea-9af9-22dba8f3a2c8.gif)
 
@@ -14,7 +14,7 @@ The gif below shows this repository's feature that automates setting dock applic
 ## Installation
 
 ```bash
-# Initialization to install Core tools such as Xcode, Brew, and zsh.
+# Initialize to install core tools such as xcode, brew, and zsh.
 # By default, You don't have any CLI such as git, make, nor wget.
 # This uses only by curl and bash, and it will be completed automatically.
 curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --init
