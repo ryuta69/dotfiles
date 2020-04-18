@@ -7,7 +7,7 @@ Not only symlinking dotfiles, this repository also installs applications and con
 
 The gif below shows this repository's feature that automates setting dock applications.
 
-![dockitem](https://user-images.githubusercontent.com/41639488/76949300-a92d3f80-694b-11ea-9af9-22dba8f3a2c8.gif)
+![dockitem](https://user-images.githubusercontent.com/41639488/79629823-76af7600-8187-11ea-8a5c-39f49caf4159.gif)
 
 <br />
 
