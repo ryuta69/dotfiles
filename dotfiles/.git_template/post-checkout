@@ -1,12 +1,11 @@
 #! /bin/bash
 
-CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
-[[ -z `git show-ref remotes/origin/${CURRENT_BRANCH}` ]] && exit 0
+# CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
+# [[ -z `git show-ref remotes/origin/${CURRENT_BRANCH}` ]] && exit 0
 
-LOCAL=$(git rev-parse @)
-BASE=$(git merge-base @ "$UPSTREAM")
-if [ $LOCAL = $BASE ]; then
-	read -p "There are commits ahead on remote. Do you want to pull? (Y/n): " Ans;
-	if [[ $Ans != 'Y' ]]; then echo 'Not pulling.' && exit; fi;
-	git pull origin $CURRENT_BRANCH
-fi
+# diffs=`git diff remotes/origin/${CURRENT_BRANCH}`
+# if [ -n "$diffs" ]; then
+# 	read -p "There are commits ahead on remote. Do you want to pull? (Y/n): " Ans;
+# 	if [[ $Ans != 'Y' ]]; then echo 'Not pulling.' && exit; fi;
+# 	git pull origin $CURRENT_BRANCH
+# fi

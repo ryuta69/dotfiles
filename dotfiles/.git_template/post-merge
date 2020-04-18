@@ -1,24 +1,24 @@
 #! /bin/bash
 
-branch_name=$( git branch | grep "*" | sed "s/\* //" )
-reflog_message=$( git reflog -1 )
-merged_branch_name=$( echo $reflog_message | cut -d" " -f 4 | sed "s/://" )
+# branch_name=$( git branch | grep "*" | sed "s/\* //" )
+# reflog_message=$( git reflog -1 )
+# merged_branch_name=$( echo $reflog_message | cut -d" " -f 4 | sed "s/://" )
 
-[[ $reflog_message =~ "pull" ]] && exit 0
-[[ $merged_branch_name = "master" ]] && exit 0
+# [[ $reflog_message =~ "pull" ]] && exit 0
+# [[ $merged_branch_name = "master" ]] && exit 0
 
-echo "You've just merged the branch \"$merged_branch_name\" into \"$branch_name\". "
-exec < /dev/tty
-read -p "Do you want to delete the \"$merged_branch_name\" branch? (Y/n) " answer
+# echo "You've just merged the branch \"$merged_branch_name\" into \"$branch_name\". "
+# exec < /dev/tty
+# read -p "Do you want to delete the \"$merged_branch_name\" branch? (Y/n) " answer
 
-if [[ "$answer" == "Y" ]]; then
-	echo "Deleting local branch \"$merged_branch_name\""
-	git branch -d $merged_branch_name
+# if [[ "$answer" == "Y" ]]; then
+# 	echo "Deleting local branch \"$merged_branch_name\""
+# 	git branch -d $merged_branch_name
 
-	echo "Deleting remote branch"
-	git push origin --delete $merged_branch_name
+# 	echo "Deleting remote branch"
+# 	git push origin --delete $merged_branch_name
 
-	exit 1
-else
-	echo "Did not delete the \"$merged_branch_name\" branch"
-fi
+# 	exit 1
+# else
+# 	echo "Did not delete the \"$merged_branch_name\" branch"
+# fi
