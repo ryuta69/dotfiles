@@ -37,6 +37,7 @@ dockitem=(
 	"Karabiner-Elements"  "org.pqrs.Karabiner-Elements.Preferences"   "file:///Applications/Karabiner-Elements.app/"
 	"Automator"           "com.apple.Automator"                       "file:///Applications/Automator.app/"
 	"Digital Color Meter" "com.apple.DigitalColorMeter"               "file:///Applications/Utilities/Digital%20Color%20Meter.app/"
+	"GPG Keychain"        "org.gpgtools.gpgkeychain"                  "file:///Applications/GPG%20Keychain.app/"
 	"System Preferences"  "com.apple.systempreferences"               "file:///Applications/System%20Preferences.app/"
 	"Script Editor"       "com.apple.ScriptEditor2"                   "file:///Applications/Utilities/Script%20Editor.app/"
 )
