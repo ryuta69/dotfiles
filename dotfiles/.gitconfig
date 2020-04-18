@@ -25,7 +25,7 @@
 	g   = !ghq get
 	lg  = log
 	lgp = log -p
-	lgs = log -stat
+	lgs = log --stat
 	lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cs) %C(bold blue)<%an>%Creset' --abbrev-commit
 	mt  = mergetool
 	md  = !git branch -r --merged | grep -v '\\*\\|master\\|develop' | sed 's/origin\\///' | xargs -n 1 git push --delete origin && git fetch origin --prune
@@ -59,12 +59,26 @@
 
 [color]
 	ui = true
+	diff = auto
+	branch = auto
+	status = auto
+        showbranch = auto
+
+[color "branch"]
+	local = green
+	remote = red
+	current = green reverse
 
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
 	old = red bold
 	new = green bold
+	meta = yellow bold
+	frag = magenta bold
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
 
 [commit]
 	gpgsign = true
@@ -74,8 +88,8 @@
 	helper = osxkeychain
 
 [diff]
-	tool      = vimdiff
 	prompt    = false
+	tool      = vimdiff
 	algorithm = histogram
 
 [difftool]
@@ -98,8 +112,8 @@
 
 [merge]
 	ff            = false
-	tool          = vimdiff
 	conflictstyle = diff3
+	tool          = vimdiff
 
 [mergetool]
 	prompt = false
