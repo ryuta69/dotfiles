@@ -233,9 +233,9 @@ defaults write com.apple.dock launchanim -bool false
 
 # Automatically hide and show the Dock
 # 1: Checked
-# defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide -bool true
 # 2: Unchecked
-defaults delete com.apple.dock autohide
+# defaults delete com.apple.dock autohide
 
 # Show indicators for open applications
 # 1: Checked
