@@ -685,7 +685,7 @@
 				<real>0.94117647409439087</real>
 			</dict>
 			<key>Automatically Log</key>
-			<true/>
+			<false/>
 			<key>BM Growl</key>
 			<false/>
 			<key>Background Color</key>
@@ -1526,7 +1526,7 @@
 			<key>Thin Strokes</key>
 			<integer>4</integer>
 			<key>Title Components</key>
-			<integer>512</integer>
+			<integer>2</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Unlimited Scrollback</key>
@@ -1585,7 +1585,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>602972547.35146105</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>84</integer>
+	<integer>86</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
