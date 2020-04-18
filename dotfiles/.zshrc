@@ -171,7 +171,8 @@ rrg() {
 	nvim ${selected};
 }
 
-## ========== Aliases ==========
+## ========== Aliases && Snippets ==========
+alias visn='nvim `ls -d ~/.vsnip/* | fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"`'
 alias vial='nvim `ls -d ~/.aliases/* | fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"`'
 alias soal='source `ls -d ~/.aliases/* | fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"`'
 
@@ -186,7 +187,7 @@ export FZF_DEFAULT_OPTS='--reverse --color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:
 ##	iTerm2
 ## ----------------------------------------
 [ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
-alias imgcat='/usr/local/bin/imgcat'
+unalias imgcat
 
 ## ----------------------------------------
 ##	Gcloud
