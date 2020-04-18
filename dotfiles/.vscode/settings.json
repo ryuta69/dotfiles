@@ -1,4 +1,5 @@
 {
+	"breadcrumbs.enabled": false,
 	"cSpell.userWords": [
 		"Vuex",
 		"bufread",
@@ -14,30 +15,38 @@
 	"editor.tabSize": 8,
 	"editor.fontSize": 14,
 	"editor.wordWrap": "on",
+	"editor.fontWeight": "400",
 	"editor.formatOnSave": true,
+	"editor.tabCompletion": "on",
 	"editor.insertSpaces": false,
+	"editor.minimap.size": "fill",
+	"editor.smoothScrolling": true,
+	"editor.cursorBlinking": "solid",
 	"editor.renderWhitespace": "all",
 	"editor.detectIndentation": false,
 	"editor.renderLineHighlight": "all",
+	"editor.fontFamily": "Hack Nerd Font",
 	"editor.acceptSuggestionOnEnter": "on",
 	"editor.minimap.renderCharacters": false,
-	"editor.fontFamily": "Hack Nerd Font",
-	"editor.suggest.snippetsPreventQuickSuggestions": false,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"emmet.includeLanguages": {
 		"javascript": "javascriptreact",
 		"vue-html": "html"
 	},
 	"files.autoSave": "afterDelay",
+	"files.trimFinalNewlines": true,
 	"files.autoGuessEncoding": true,
+	"files.trimTrailingWhitespace": true,
+	"files.exclude": {
+		"**/node_modules": true
+	},
 	"javascript.format.semicolons": "insert",
 	"terminal.external.osxExec": "iTerm.app",
 	"terminal.integrated.fontSize": 14,
 	"terminal.integrated.cursorStyle": "line",
-	"terminal.integrated.shell.osx": "/usr/local/bin/zsh",
 	"terminal.integrated.fontFamily": "Hack Nerd Font",
+	"terminal.integrated.shell.osx": "/usr/local/bin/zsh",
 	"workbench.colorTheme": "Ayu Dark",
-	"workbench.editor.tabSizing": "shrink",
-	"workbench.editor.labelFormat": "short",
 	"workbench.iconTheme": "material-icon-theme",
 	"workbench.colorCustomizations": {
 		"sideBar.foreground": "#626A73",
@@ -58,22 +67,19 @@
 		"breadcrumb.foreground": "#626A73",
 		"foreground": "#626A73",
 		"editorLineNumber.foreground": "#626A73",
-		"editorLineNumber.activeForeground": "#F0F0F0",
+		"editorLineNumber.activeForeground": "#F0F0F0"
 	},
-	"window.zoomLevel": -1,
 	"[go]": {
 		"editor.codeActionsOnSave": {
 			"source.organizeImports": true
-		},
+		}
 	},
 	"go.alternateTools": {
 		"go-langserver": "gopls"
 	},
 	"go.buildOnSave": "package",
 	"go.formatTool": "goimports",
-	"go.formatFlags": [
-		"-w"
-	],
+	"go.formatFlags": ["-w"],
 	"go.gocodeAutoBuild": true,
 	"go.installDependenciesWhenBuilding": true,
 	"go.languageServerExperimentalFeatures": {
@@ -88,7 +94,7 @@
 		"documentSymbols": true,
 		"workspaceSymbols": true,
 		"goToTypeDefinition": true,
-		"goToImplementation": true,
+		"goToImplementation": true
 	},
 	"go.lintTool": "golint",
 	"go.lintOnSave": "package",
@@ -97,10 +103,22 @@
 		"enhancedHover": false,
 		"usePlaceholders": false,
 		"watchFileChanges": true,
-		"completeUnimported": true,
+		"completeUnimported": true
 	},
 	"go.testOnSave": false,
 	"go.useLanguageServer": true,
 	"go.vetOnSave": "package",
-	"rust-client.channel": "stable"
+	"rust-client.channel": "stable",
+	"prettier.tabWidth": 8,
+	"prettier.useTabs": true,
+	"prettier.singleQuote": true,
+	"prettier.jsxSingleQuote": true,
+	"prettier.jsxBracketSameLine": true,
+	"prettier.vueIndentScriptAndStyle": true,
+	"workbench.tips.enabled": false,
+	"workbench.settings.editor": "json",
+	"workbench.statusBar.visible": false,
+	"workbench.fontAliasing": "antialiased",
+	"workbench.editor.closeOnFileDelete": true,
+	"window.zoomLevel": -1
 }
