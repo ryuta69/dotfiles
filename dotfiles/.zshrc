@@ -178,6 +178,7 @@ alias soal='source `ls -d ~/.aliases/* | fzf --preview "bat --color=always --sty
 ## ----------------------------------------
 ##	FZF
 ## ----------------------------------------
+export FZF_DEFAULT_COMMAND="rg --hidden -g '!.git' -g '!.node_modules' --max-columns 200"
 export FZF_DEFAULT_OPTS='--reverse --color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229 --color info:150,prompt:110,spinner:150,pointer:167,marker:174'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
