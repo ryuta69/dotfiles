@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "my @input = glob<>;",
-    "uid" : "EBAD0D52-49E5-4F7F-BB07-3BC6C8910E71",
-    "name" : "input2_perl",
-    "keyword" : "input2 perl"
-  }
-}

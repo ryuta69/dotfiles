@@ -87,10 +87,11 @@ map <Leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 "" ========== AyuVim ==========
 colo ayu
 let ayucolor='dark'
-hi DiffAdd    gui=NONE guifg=NONE    guibg=#003366
-hi DiffDelete gui=bold guifg=#660000 guibg=#660000
-hi DiffChange gui=NONE guifg=NONE    guibg=#006666
-hi DiffText   gui=NONE guifg=NONE    guibg=#013220
+hi EndOfBuffer ctermfg=0 guifg=bg
+hi DiffAdd     gui=NONE  guifg=NONE    guibg=#003366
+hi DiffDelete  gui=bold  guifg=#660000 guibg=#660000
+hi DiffChange  gui=NONE  guifg=NONE    guibg=#006666
+hi DiffText    gui=NONE  guifg=NONE    guibg=#013220
 
 "" ========== FzfVim ==========
 nn <Leader>file :Files<CR>

@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "use MLog;\nuse Date::Dumper;\nMLog::write(\"$_::LOG_DIR\/murakami\", Dumper {cursor})",
-    "uid" : "3482B038-3E6F-4A93-BC99-5B697A5609BF",
-    "name" : "mlog_perl",
-    "keyword" : "mlog perl"
-  }
-}

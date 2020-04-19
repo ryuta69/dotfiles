@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "for (my $i=0; $i<{cursor}; $i--) {\n\n}",
-    "uid" : "627C16BC-5C26-4622-B0E9-70CD25C35184",
-    "name" : "forr_perl",
-    "keyword" : "forr perl"
-  }
-}

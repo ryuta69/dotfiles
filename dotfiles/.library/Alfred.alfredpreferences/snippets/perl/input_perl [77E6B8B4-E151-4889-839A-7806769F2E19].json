@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "my $input = <>;",
-    "uid" : "77E6B8B4-E151-4889-839A-7806769F2E19",
-    "name" : "input_perl",
-    "keyword" : "input perl"
-  }
-}

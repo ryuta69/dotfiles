@@ -1,11 +1,32 @@
 {
-	"For": {
-		"prefix": ["for"],
+	"For Else": {
+		"prefix": ["fore"],
 		"body": [
-			"for (my $$i=0; $$i<${1}; $$i++) {", //
+			"for (my $$i=0; $$i<${1}; $$i++) {",
 			"\t$2",
+			"} else {",
+			"\t$3",
 			"}"
 		],
-		"description": "Get element by query."
+		"description": "For statement."
+	},
+	"Input": {
+		"prefix": ["input"],
+		"body": ["my @input = glob<>;"],
+		"description": "Get input values."
+	},
+	"MLog": {
+		"prefix": ["mlog"],
+		"body": [
+			"use MLog;",
+			"use Date::Dumper;",
+			"MLog::write('$_::LOG_DIR/murakami', Dumper $1)"
+		],
+		"description": "Dump log."
+	},
+	"SortHash": {
+		"prefix": ["sorthash"],
+		"body": ["my @sorted = sort{$$a->{$1} <=> $$b->{$2}} $3"],
+		"description": "Dump log."
 	}
 }

@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "if ({cursor}) {\n\n}",
-    "uid" : "BBCC8B9F-7446-46D6-8118-318D16247AF9",
-    "name" : "if_perl",
-    "keyword" : "if perl"
-  }
-}

@@ -8,6 +8,7 @@ DavidAnson.vscode-markdownlint
 dbaeumer.vscode-eslint
 dunstontc.viml
 eg2.vscode-npm-script
+esbenp.prettier-vscode
 fivethree.vscode-svelte-snippets
 formulahendry.auto-rename-tag
 formulahendry.docker-explorer

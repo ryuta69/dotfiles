@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "print({cursor});",
-    "uid" : "B88FD2D0-D866-4DE5-B2E1-45C41ECE8EEA",
-    "name" : "print_perl",
-    "keyword" : "print_perl"
-  }
-}

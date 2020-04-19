@@ -83,11 +83,11 @@ defaults write .GlobalPreferences _HIHideMenuBar -bool true
 
 # Show scroll bars
 # 1: Automatically based on mouse or trackpad
-# defaults write .GlobalPreferences AppleShowScrollBars -string "Automatic"
+defaults write .GlobalPreferences AppleShowScrollBars -string "Automatic"
 # 2: When scrolling
 # defaults write .GlobalPreferences AppleShowScrollBars -string "WhenScrolling"
 # 3: Always
-defaults write .GlobalPreferences AppleShowScrollBars -string "Always"
+# defaults write .GlobalPreferences AppleShowScrollBars -string "Always"
 
 # Click in the scroll bar to
 # 1: Jump to the next page
