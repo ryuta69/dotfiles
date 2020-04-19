@@ -12,7 +12,7 @@ jobs:
     - name: Run help command.
       run: |
         curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --help
-    - name: Initialize
+    - name: Configure all test
       run: |
         brew tap homebrew/bundle
         brew install zsh
@@ -22,12 +22,7 @@ jobs:
         chmod 755 /usr/local/share/zsh/site-functions
         mkdir -p ~/.ssh
         mkdir -p ~/work
-    - name: Install bundle
-      run: |
+        touch ~/.hushlogin
         ./bundle/install.zsh --force --test
-    - name: Install dotfiles
-      run: |
         ./dotfiles/install.zsh --force --test
-    - name: Install macos system setting
-      run: |
         ./system/install.zsh --force --test

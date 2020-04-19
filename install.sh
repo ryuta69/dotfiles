@@ -34,11 +34,12 @@ do
 			sudo -v
 			while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+			touch ${HOME}/.hushlogin
+			mkdir -p ${HOME}/work
+			mkdir -p ${HOME}/.ssh
+
 			xcode-select --install
 
-			mkdir -p ${HOME}/work
-
-			mkdir -p ${HOME}/.ssh
 			ssh-keygen -t rsa -b 4096 -C "eyma22s.yu@gmail.com"
 			ssh-keyscan -t rsa github.com >> ${HOME}/.ssh/known_hosts
 			# API with password will be deprecated in Nov 2020.
