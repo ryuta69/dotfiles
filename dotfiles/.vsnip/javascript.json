@@ -9,5 +9,10 @@
 			"}"
 		],
 		"description": "Class definition template."
+	},
+	"Query Selector": {
+		"prefix": ["query selector"],
+		"body": ["document.querySelector($1)"],
+		"description": "Get element by query."
 	}
 }

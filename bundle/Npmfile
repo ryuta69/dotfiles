@@ -10,3 +10,7 @@ npm
 expect
 terminalizer
 carbon-now-cli
+eslint
+prettier
+eslint-config-prettier
+eslint-plugin-prettier

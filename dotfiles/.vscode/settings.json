@@ -13,9 +13,8 @@
 		"xargs"
 	],
 	"editor.tabSize": 8,
-	"editor.fontSize": 14,
+	"editor.fontSize": 17,
 	"editor.wordWrap": "on",
-	"editor.fontWeight": "400",
 	"editor.formatOnSave": true,
 	"editor.tabCompletion": "on",
 	"editor.insertSpaces": false,
@@ -28,11 +27,27 @@
 	"editor.fontFamily": "Hack Nerd Font",
 	"editor.acceptSuggestionOnEnter": "on",
 	"editor.minimap.renderCharacters": false,
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
 	"emmet.includeLanguages": {
 		"javascript": "javascriptreact",
+		"typescript": "typescriptreact",
 		"vue-html": "html"
 	},
+	"eslint.options": {
+		"configFile": "~/.eslintrc.json"
+	},
+	"eslint.probe": [
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+		"html",
+		"vue",
+		"markdown",
+		"json"
+	],
 	"files.autoSave": "afterDelay",
 	"files.trimFinalNewlines": true,
 	"files.autoGuessEncoding": true,
@@ -42,7 +57,7 @@
 	},
 	"javascript.format.semicolons": "insert",
 	"terminal.external.osxExec": "iTerm.app",
-	"terminal.integrated.fontSize": 14,
+	"terminal.integrated.fontSize": 17,
 	"terminal.integrated.cursorStyle": "line",
 	"terminal.integrated.fontFamily": "Hack Nerd Font",
 	"terminal.integrated.shell.osx": "/usr/local/bin/zsh",
@@ -117,8 +132,8 @@
 	"prettier.vueIndentScriptAndStyle": true,
 	"workbench.tips.enabled": false,
 	"workbench.settings.editor": "json",
-	"workbench.statusBar.visible": false,
+	"workbench.statusBar.visible": true,
 	"workbench.fontAliasing": "antialiased",
 	"workbench.editor.closeOnFileDelete": true,
-	"window.zoomLevel": -1
+	"window.zoomLevel": -2
 }

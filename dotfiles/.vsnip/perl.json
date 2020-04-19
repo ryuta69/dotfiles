@@ -1,0 +1,11 @@
+{
+	"For": {
+		"prefix": ["for"],
+		"body": [
+			"for (my $$i=0; $$i<${1}; $$i++) {", //
+			"\t$2",
+			"}"
+		],
+		"description": "Get element by query."
+	}
+}
