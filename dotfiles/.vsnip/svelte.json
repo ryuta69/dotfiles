@@ -1,0 +1,241 @@
+{
+	"svelte-create-component": {
+		"prefix": "s-create-component",
+		"body": [
+			"const component = new ${1:App}({",
+			"\ttarget: ${2|target,document.body|},",
+			"\tprops: ${3:props},",
+			"\tanchor: ${4:anchor},",
+			"\thydrate: ${5|false,true|},",
+			"\tintro: ${5|false,true|}",
+			"})"
+		],
+		"description": "svelte create component"
+	},
+	"svelte-reactive-statement": {
+		"prefix": "s-reactive-statement",
+		"body": ["$: ${1:variable} = ${2:prop}"],
+		"description": "reactive statement"
+	},
+	"svelte-reactive-block": {
+		"prefix": "s-reactive-block",
+		"body": ["$: { ${1:console.log(${2prop});}}"],
+		"description": "reactive block"
+	},
+	"svelte-action": {
+		"prefix": "s-action",
+		"body": [
+			"function ${1:foo}(node) {",
+			"\t// the node has been mounted in the DOM",
+			"\treturn {",
+			"\t\tdestroy() {",
+			"\t\t\t// the node has been removed from the DOM",
+			"\t\t}",
+			"\t};",
+			"}"
+		],
+		"description": "action function"
+	},
+	"svelte-action-parameters": {
+		"prefix": "s-action-parameters",
+		"body": [
+			"function ${1:foo}(node, ${2:parameters}) {",
+			"\t// the node has been mounted in the DOM",
+			"\treturn {",
+			"\t\tdestroy() {",
+			"\t\t\t// the node has been removed from the DOM",
+			"\t\t}",
+			"\t};",
+			"}"
+		],
+		"description": "action function"
+	},
+	"svelte-action-update": {
+		"prefix": "s-action-update",
+		"body": [
+			"function ${1:foo}(node, ${2:parameters}) {",
+			"\t// the node has been mounted in the DOM",
+			"\treturn {",
+			"\t\tupdate(${2:parameters}) {",
+			"\t\t\t// the value of `${2:parameters}` has changed",
+			"\t\t}",
+			"\t\tdestroy() {",
+			"\t\t\t// the node has been removed from the DOM",
+			"\t\t}",
+			"\t};",
+			"}"
+		],
+		"description": "action w/ update function"
+	},
+	"svelte-on-mount": {
+		"prefix": "s-lifecycle-mount",
+		"body": ["onMount(() => {", "\t${1:// content here}", "});"],
+		"description": "onMount lifecycle function"
+	},
+	"svelte-before-update": {
+		"prefix": "s-lifecycle-before-update",
+		"body": [
+			"beforeUpdate(() => {",
+			"\t${1:// content here}",
+			"});"
+		],
+		"description": "beforeUpdate lifecycle function"
+	},
+	"svelte-after-update": {
+		"prefix": "s-lifecycle-after-update",
+		"body": [
+			"afterUpdate(() => {",
+			"\t${1:// content here}",
+			"});"
+		],
+		"description": "afterUpdate lifecycle function"
+	},
+	"svelte-on-destroy": {
+		"prefix": "s-lifecycle-destroy",
+		"body": ["onDestroy(() => {", "\t${1:// content here}", "});"],
+		"description": "onDestroy lifecycle function"
+	},
+	"svelte-tick": {
+		"prefix": "s-tick",
+		"body": ["await tick()"],
+		"description": "svelte tick function"
+	},
+	"svelte-set-context": {
+		"prefix": "s-set-content",
+		"body": ["setContext(${1:key}, ${2:context})"],
+		"description": "svelte setContext"
+	},
+	"svelte-get-context": {
+		"prefix": "s-get-content",
+		"body": ["getContext(${1:key})"],
+		"description": "svelte getContext"
+	},
+	"svelte-dispatch": {
+		"prefix": "s-dispatch",
+		"body": ["const dispatch = createEventDispatcher();"],
+		"description": "svelte dispatch"
+	},
+	"svelte-dispatch-event": {
+		"prefix": "s-dispatch-event",
+		"body": ["dispatch(${1:key},${2:data})"],
+		"description": "svelte dispatch event"
+	},
+	"svelte-writeable": {
+		"prefix": "s-writeable",
+		"body": ["const ${1:store} = writable(${2:initialValue});"],
+		"description": "svelte writeable"
+	},
+	"svelte-writeable-set": {
+		"prefix": "s-writeable-set",
+		"body": [
+			"const ${1:store} = writable(${2:initialValue}, () => {",
+			"\t${3:console.log('got a subscriber');}",
+			"\treturn () => ${4:console.log('no more subscribers');}",
+			"});"
+		],
+		"description": "svelte writeable w/ set function"
+	},
+	"svelte-readable": {
+		"prefix": "s-readable",
+		"body": [
+			"const ${1:store} = readable(${2:initialValue}, () => {",
+			"\t${3:console.log('got a subscriber');}",
+			"\treturn () => ${4:console.log('no more subscribers');}",
+			"});"
+		],
+		"description": "svelte readable (set function required)"
+	},
+	"svelte-derived": {
+		"prefix": "s-derived",
+		"body": [
+			"const ${1:derivedStore} = derived(${2:storeA}, $${2:storeA} => $${2:storeA} * 2);"
+		],
+		"description": "svelte derived store"
+	},
+	"svelte-derived-multiple": {
+		"prefix": "s-derived-multiple",
+		"body": [
+			"const ${1:derivedStore} = derived([${2:storeA}, ${3:storeB}], ([$${2:storeA}, $${3:storeB}]) => $${2:storeA} + $${3:storeB});"
+		],
+		"description": "svelte derived store"
+	},
+	"svelte-derived-set": {
+		"prefix": "s-derived-set",
+		"body": [
+			"const ${1:derivedStore} = derived(${2:storeA}, ($${2:storeA}, set) => {",
+			"\tsetTimeout(() => set($${2:storeA}), 1000);",
+			"}, 'one moment...');"
+		],
+		"description": "svelte derived store"
+	},
+	"svelte-derived-multiple-set": {
+		"prefix": "s-derived-multiple-set",
+		"body": [
+			"const ${1:derivedStore} = derived([${2:storeA}, ${3:storeB}], ([$${2:storeA}, $${3:storeB}], set) => {",
+			"\tsetTimeout(() => set($${2:storeA} + $${3:storeB}), 1000);",
+			"}, 'one moment...');"
+		],
+		"description": "svelte derived store"
+	},
+	"svelte-store-get": {
+		"prefix": "s-store-get-value",
+		"body": ["const ${1:value} = get(${2:store});"],
+		"description": "svelte get value from store"
+	},
+	"svelte-component-set": {
+		"prefix": "s-component-set",
+		"body": ["${1:component}.$set(${2: params});"],
+		"description": "svelte component api $set"
+	},
+	"svelte-component-on": {
+		"prefix": "s-component-on",
+		"body": ["${1:component}.$on(${2:eventname}, ${3:handler});"],
+		"description": "svelte component api $on"
+	},
+	"svelte-component-destroy": {
+		"prefix": "s-component-destroy",
+		"body": ["${1:component}.$destroy();"],
+		"description": "svelte component api $destroy"
+	},
+	"svelte-render-component": {
+		"prefix": "s-render-component",
+		"body": [
+			"const { head, html, css } = ${1:App}.render({",
+			"\tprops: ${3:props},",
+			"})"
+		],
+		"description": "svelte render component"
+	},
+	"svelte-tweened": {
+		"prefix": "s-tweened",
+		"body": [
+			"const ${1:store} = tweened(${2:value}, ${3:options});"
+		],
+		"description": "svelte create tweened store"
+	},
+	"svelte-spring": {
+		"prefix": "s-spring",
+		"body": [
+			"const ${1:store} = spring(${2:value}, ${3:options});"
+		],
+		"description": "svelte create spring store"
+	},
+	"svelte-register": {
+		"prefix": "s-register",
+		"body": [
+			"require('svelte/register');",
+			"const ${1:App} = require('${2:./App.svelte}').default;"
+		],
+		"description": "svelte register"
+	},
+	"svelte-global-style": {
+		"prefix": "s-global-style",
+		"body": [
+			":global(${1:body}) {",
+			"\t/* this will apply to <body> */",
+			"\t${2:/* your styles go here */}",
+			"}"
+		],
+		"description": "add global styles to your style tag"
+	}
+}
