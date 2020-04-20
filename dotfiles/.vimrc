@@ -131,7 +131,9 @@ let g:deoplete#enable_at_startup = 1
 ino <expr> <UP>    pumvisible() ? '<C-e><UP>'   : '<UP>'
 ino <expr> <DOWN>  pumvisible() ? '<C-e><DOWN>' : '<DOWN>'
 fun! DeoEnter()
-	if !pumvisible() | return "\n" | endif
+	if !pumvisible()
+		return "\n"
+	endif
 
 	if vsnip#available(1)
 		call vsnip#expand()

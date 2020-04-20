@@ -1,4 +1,14 @@
 {
+	"Template": {
+		"prefix": ["template"],
+		"body": [
+			"use strict;",
+			"use warnings;",
+			"",
+			"$1"
+		],
+		"description": "Get input values."
+	},
 	"For Else": {
 		"prefix": ["fore"],
 		"body": [
@@ -24,9 +34,19 @@
 		],
 		"description": "Dump log."
 	},
+	"Sort": {
+		"prefix": ["sort"],
+		"body": ["my @sorted = sort{$$a <=> $$b} $1"],
+		"description": "Sort by a value of int."
+	},
 	"SortHash": {
 		"prefix": ["sorthash"],
-		"body": ["my @sorted = sort{$$a->{$1} <=> $$b->{$2}} $3"],
-		"description": "Dump log."
+		"body": ["my @sorted = sort{$$a->{$1} <=> $$b->{$1}} $2"],
+		"description": "Sort by a value of hash."
+	},
+	"SortLength": {
+		"prefix": ["sortlength"],
+		"body": ["my @sorted = sort{length $$a cmp length $$b} $1"],
+		"description": "Sort by a length of string."
 	}
 }
