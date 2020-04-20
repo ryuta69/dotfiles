@@ -121,28 +121,26 @@ let g:user_emmet_settings = {
 
 "" ========== VsnipVim ==========
 nn <Leader>vop :VsnipOpen<CR>
-imap <expr> <c-f> vsnip#available(1)  ? '<Plug>(vsnip-jump-next)' : '<c-f>'
-smap <expr> <c-f> vsnip#available(1)  ? '<Plug>(vsnip-jump-next)' : '<c-f>'
-imap <expr> <c-b> vsnip#available(-1) ? '<Plug>(vsnip-jump-prev)' : '<c-b>'
-smap <expr> <c-b> vsnip#available(-1) ? '<Plug>(vsnip-jump-prev)' : '<c-b>'
-
-"" ========== Deoplete ==========
-let g:deoplete#enable_at_startup = 1
-ino <expr> <up>    pumvisible() ? '<c-e><up>'   : '<up>'
-ino <expr> <down>  pumvisible() ? '<c-e><down>' : '<down>'
-ino <expr> <Tab>   pumvisible() ? "\<C-n>"      : "\<Tab>"
-ino <expr> <S-Tab> pumvisible() ? "\<C-p>"      : "\<S-Tab>"
+imap <expr> <C-f> vsnip#available(1)  ? '<Plug>(vsnip-jump-next)' : '<C-f>'
+smap <expr> <C-f> vsnip#available(1)  ? '<Plug>(vsnip-jump-next)' : '<C-f>'
+imap <expr> <C-b> vsnip#available(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-b>'
+smap <expr> <C-b> vsnip#available(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-b>'
 
 "" ========== Ultisnips ==========
 let g:ulti_expand_or_jump_res = 0
 let g:UltiSnipsExpandTrigger='<NUL>'
-let g:UltiSnipsJumpForwardTrigger='<tab>'
-let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+let g:UltiSnipsJumpForwardTrigger='<Tab>'
+let g:UltiSnipsJumpBackwardTrigger='<S-Tab>'
+
+"" ========== Deoplete ==========
+let g:deoplete#enable_at_startup = 1
+ino <expr> <UP>    pumvisible() ? '<C-e><UP>'   : '<UP>'
+ino <expr> <DOWN>  pumvisible() ? '<C-e><DOWN>' : '<DOWN>'
 fun! DeoEnter()
 	if pumvisible()
 		if vsnip#available(1)
 			call vsnip#expand()
-			return "\<c-y>"
+			return "\<C-y>"
 		endif
 
 		call UltiSnips#ExpandSnippetOrJump()
@@ -150,12 +148,36 @@ fun! DeoEnter()
 			return ""
 		endif
 
-		return "\<c-y> "
+		return "\<C-y>"
 	endif
 
 	return "\n"
 endfun
 ino <CR> <C-R>=DeoEnter()<CR>
+fun! DeoTab()
+	if pumvisible()
+		" if vsnip#available(1)
+		" 	exe '<Plug>(vsnip-jump-next)'
+		" endif
+
+		return "\<C-n>"
+	endif
+
+	return "\<Tab>"
+endfun
+ino <Tab> <C-R>=DeoTab()<CR>
+fun! DeoShiftTab()
+	if pumvisible()
+		" if vsnip#available(-1)
+		" 	exe '<Plug>(vsnip-jump-prev)'
+		" endif
+
+		return "\<C-p>"
+	endif
+
+	return "\<S-Tab>"
+endfun
+ino <S-Tab> <C-R>=DeoShiftTab()<CR>
 
 "" ========== EasyAlign ==========
 xm ga <Plug>(LiveEasyAlign)
