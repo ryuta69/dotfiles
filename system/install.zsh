@@ -77,9 +77,9 @@ defaults write .GlobalPreferences NSTableViewDefaultSizeMode -int 1
 
 # Automatically hide and show the menu bar
 # 1: Checked
-defaults write .GlobalPreferences _HIHideMenuBar -bool true
-# 2: Unchecked
 # defaults write .GlobalPreferences _HIHideMenuBar -bool true
+# 2: Unchecked
+defaults write .GlobalPreferences _HIHideMenuBar -bool false
 
 # Show scroll bars
 # 1: Automatically based on mouse or trackpad
