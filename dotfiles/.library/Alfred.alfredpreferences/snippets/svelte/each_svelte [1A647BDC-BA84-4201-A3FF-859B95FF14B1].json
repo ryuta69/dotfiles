@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "{#each {cursor} as ___ (___)}\n\n{\/each}",
-    "uid" : "1A647BDC-BA84-4201-A3FF-859B95FF14B1",
-    "name" : "each_svelte",
-    "keyword" : "each svelte"
-  }
-}

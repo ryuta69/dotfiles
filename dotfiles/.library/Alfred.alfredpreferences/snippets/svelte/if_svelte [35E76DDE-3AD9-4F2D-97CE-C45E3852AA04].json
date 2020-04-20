@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "{#if {cursor}}\n\n{:else if}\n\n{:else}\n\n{\/if}\n",
-    "uid" : "35E76DDE-3AD9-4F2D-97CE-C45E3852AA04",
-    "name" : "if_svelte",
-    "keyword" : "if svelte"
-  }
-}

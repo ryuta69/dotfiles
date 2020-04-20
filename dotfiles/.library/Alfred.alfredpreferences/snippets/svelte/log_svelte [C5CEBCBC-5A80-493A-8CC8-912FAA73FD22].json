@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "$: console.log({cursor});",
-    "uid" : "C5CEBCBC-5A80-493A-8CC8-912FAA73FD22",
-    "name" : "log_svelte",
-    "keyword" : "log svelte"
-  }
-}

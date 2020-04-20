@@ -50,6 +50,8 @@
 	sd  = !git stash drop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
 	spr = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
 	vi  = !nvim ~/.gitconfig
+	lf  = !git lfs install
+	ulf = !git lfs uninstall && touch **/* && git commit -a
 
 [core]
 	editor = nvim
@@ -97,12 +99,6 @@
 
 [difftool "vimdiff"]
 	path   = nvim
-
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
 
 [ghq]
 	root = ~/.ghq

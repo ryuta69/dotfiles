@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "on:click={() => {cursor}()}",
-    "uid" : "04C41BE9-2DFC-4BE7-A2C2-736978621BD8",
-    "name" : "onclick_svelte",
-    "keyword" : "onclick svelte"
-  }
-}
