@@ -125,31 +125,28 @@ nn <Leader>vop :VsnipOpen<CR>
 "" ========== Ultisnips ==========
 let g:ulti_expand_or_jump_res = 0
 let g:UltiSnipsExpandTrigger='<NUL>'
-let g:UltiSnipsJumpForwardTrigger='<Tab>'
-let g:UltiSnipsJumpBackwardTrigger='<S-Tab>'
 
 "" ========== Deoplete ==========
 let g:deoplete#enable_at_startup = 1
 ino <expr> <UP>    pumvisible() ? '<C-e><UP>'   : '<UP>'
 ino <expr> <DOWN>  pumvisible() ? '<C-e><DOWN>' : '<DOWN>'
 fun! DeoEnter()
-	if pumvisible()
-		if vsnip#available(1)
-			call vsnip#expand()
-			return "\<C-y>"
-		endif
+	if !pumvisible() | return "\n" | endif
 
-		call UltiSnips#ExpandSnippetOrJump()
-		if g:ulti_expand_or_jump_res > 0
-			return ""
-		endif
-
+	if vsnip#available(1)
+		call vsnip#expand()
 		return "\<C-y>"
 	endif
 
-	return "\n"
+	call UltiSnips#ExpandSnippetOrJump()
+	if g:ulti_expand_or_jump_res > 0
+		return ""
+	endif
+
+	return "\<C-y>"
 endfun
 ino <CR> <C-R>=DeoEnter()<CR>
+
 fun! DeoTab()
 	if vsnip#available(1)
 		return "\<Plug>(vsnip-jump-next)"
@@ -163,6 +160,8 @@ fun! DeoTab()
 endfun
 imap <expr> <Tab> DeoTab()
 smap <expr> <Tab> DeoTab()
+let g:UltiSnipsJumpForwardTrigger='<Tab>'
+
 fun! DeoShiftTab()
 	if vsnip#available(-1)
 		return "\<Plug>(vsnip-jump-prev)"
@@ -174,8 +173,9 @@ fun! DeoShiftTab()
 
 	return "\<S-Tab>"
 endfun
-imap <expr> <Tab> DeoShiftTab()
-smap <expr> <Tab> DeoShiftTab()
+imap <expr> <S-Tab> DeoShiftTab()
+smap <expr> <S-Tab> DeoShiftTab()
+let g:UltiSnipsJumpBackwardTrigger='<S-Tab>'
 
 "" ========== EasyAlign ==========
 xm ga <Plug>(LiveEasyAlign)
