@@ -121,10 +121,6 @@ let g:user_emmet_settings = {
 
 "" ========== VsnipVim ==========
 nn <Leader>vop :VsnipOpen<CR>
-imap <expr> <C-f> vsnip#available(1)  ? '<Plug>(vsnip-jump-next)' : '<C-f>'
-smap <expr> <C-f> vsnip#available(1)  ? '<Plug>(vsnip-jump-next)' : '<C-f>'
-imap <expr> <C-b> vsnip#available(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-b>'
-smap <expr> <C-b> vsnip#available(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-b>'
 
 "" ========== Ultisnips ==========
 let g:ulti_expand_or_jump_res = 0
@@ -155,29 +151,31 @@ fun! DeoEnter()
 endfun
 ino <CR> <C-R>=DeoEnter()<CR>
 fun! DeoTab()
-	if pumvisible()
-		" if vsnip#available(1)
-		" 	exe '<Plug>(vsnip-jump-next)'
-		" endif
+	if vsnip#available(1)
+		return "\<Plug>(vsnip-jump-next)"
+	endif
 
+	if pumvisible()
 		return "\<C-n>"
 	endif
 
 	return "\<Tab>"
 endfun
-ino <Tab> <C-R>=DeoTab()<CR>
+imap <expr> <Tab> DeoTab()
+smap <expr> <Tab> DeoTab()
 fun! DeoShiftTab()
-	if pumvisible()
-		" if vsnip#available(-1)
-		" 	exe '<Plug>(vsnip-jump-prev)'
-		" endif
+	if vsnip#available(-1)
+		return "\<Plug>(vsnip-jump-prev)"
+	endif
 
+	if pumvisible()
 		return "\<C-p>"
 	endif
 
 	return "\<S-Tab>"
 endfun
-ino <S-Tab> <C-R>=DeoShiftTab()<CR>
+imap <expr> <Tab> DeoShiftTab()
+smap <expr> <Tab> DeoShiftTab()
 
 "" ========== EasyAlign ==========
 xm ga <Plug>(LiveEasyAlign)
