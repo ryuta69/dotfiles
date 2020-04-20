@@ -52,6 +52,7 @@ setopt auto_list
 setopt auto_menu
 setopt auto_pushd
 setopt list_packed
+setopt no_flow_control
 
 ## ----------------------------------------
 ##	Keymap
