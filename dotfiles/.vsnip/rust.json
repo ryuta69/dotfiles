@@ -1,0 +1,18 @@
+{
+	"ForArray": {
+		"prefix": ["forarray"],
+		"body": [
+			"for (i, &item) in arr.iter().enumerate() {",
+			"\tprintln!(\"the value is: {}\", &item);",
+			"}"
+		],
+		"description": "Print characters in array."
+	},
+	"StrToArray": {
+		"prefix": ["strtoarray"],
+		"body": [
+			"let bytes = str.as_bytes();"
+		],
+		"description": ""
+	}
+}

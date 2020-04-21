@@ -11,8 +11,18 @@
 		"description": "Class definition template."
 	},
 	"Query Selector": {
-		"prefix": ["query selector"],
+		"prefix": ["queryselector"],
 		"body": ["document.querySelector($1)"],
 		"description": "Get element by query."
+	},
+	"Console Log": {
+		"prefix": ["consolelog"],
+		"body": ["console.log($1)"],
+		"description": "Dump a log."
+	},
+	"Require": {
+		"prefix": ["require"],
+		"body": ["const $1 = require($1)"],
+		"description": "Require a package"
 	}
 }

@@ -1,0 +1,45 @@
+{
+	"Shell": {
+		"prefix": ["shell"],
+		"body": ["do shell script 'echo' & $1"],
+		"description": "Exec Shell (It allows once)."
+	},
+	"Panes": {
+		"prefix": ["panes"],
+		"body": [
+			"tell application \"System Preferences\"",
+			"\tname of panes",
+			"end tell"
+		],
+		"description": "Reveal all panes"
+	},
+	"Anchors": {
+		"prefix": ["anchors"],
+		"body": [
+			"tell application \"System Preferences\"",
+			"\treveal pane id \"com.apple.preference.general\"",
+			"\tget name of every anchor",
+			"end tell"
+		],
+		"description": "Reveal all anchors in pane"
+	},
+	"UIElements": {
+		"prefix": ["uielements"],
+		"body": [
+			"tell application \"System Preferences\"",
+			"\treveal pane id \"com.apple.preference.general\"",
+			"\tget name of every anchor",
+			"end tell",
+			"tell application \"System Events\"",
+			"\ttell application process \"System Preferences\"",
+			"\t\trepeat while not (window 1 exists)",
+			"\t\tend repeat",
+			"\t\ttell window \"General\"",
+			"\t\t\tevery UI element",
+			"\t\tend tell",
+			"\tend tell",
+			"end tell"
+		],
+		"description": "Reveal all anchors in pane"
+	}
+}

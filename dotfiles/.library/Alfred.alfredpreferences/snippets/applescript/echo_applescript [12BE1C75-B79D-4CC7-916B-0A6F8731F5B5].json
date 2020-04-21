@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "do shell script \"echo \" & {cursor}",
-    "uid" : "12BE1C75-B79D-4CC7-916B-0A6F8731F5B5",
-    "name" : "echo_applescript",
-    "keyword" : "echo applescript"
-  }
-}
