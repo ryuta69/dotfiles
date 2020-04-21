@@ -76,7 +76,6 @@ alias pbcp='pbcopy <'
 alias cdwk='cd ~/work'
 alias virc='nvim ~/.zshrc'
 alias sorc='source ~/.zshrc'
-alias tm='tmux attach || tmux new'
 alias fd='fd -iH --no-ignore-vcs -E ".git|node_modules"'
 alias pskl='ps aux | fzf | awk "{ print \$2 }" | xargs kill -9'
 alias lv='nvim `ls | fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"`'
@@ -141,6 +140,14 @@ extract() {
 	esac
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
+
+## ========== Tmux ==========
+alias tm='tmux'
+compdef _tmux tm
+alias tma='tmux a -t'
+alias tmls='tmux list-sessions'
+alias tmkl='tmux kill-session -t'
+alias tmrn='tmux rename-session -t'
 
 ## ========== MySQL ==========
 alias scn='mycli -u root'

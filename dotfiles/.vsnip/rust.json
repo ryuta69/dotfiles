@@ -13,6 +13,6 @@
 		"body": [
 			"let bytes = str.as_bytes();"
 		],
-		"description": ""
+		"description": "Replace String to Char array."
 	}
 }
