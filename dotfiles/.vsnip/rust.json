@@ -10,9 +10,72 @@
 	},
 	"StrToArray": {
 		"prefix": ["strtoarray"],
-		"body": [
-			"let bytes = str.as_bytes();"
-		],
+		"body": ["let bytes = str.as_bytes();"],
 		"description": "Replace String to Char array."
+	},
+	"ReverseArray": {
+		"prefix": ["reversearray"],
+		"body": ["$1.rev()"],
+		"description": "Reverse array."
+	},
+	"Int Case": {
+		"prefix": ["int case"],
+		"body": [
+			"use std::cmp::Ordering;",
+			"",
+			"fn main() {",
+			"\tmatch ans.cmp(&secret_number) {",
+			"\t\tOrdering::Less => println!(\"Too small!\"),",
+			"\t\tOrdering::Greater => println!(\"Too big!\"),",
+			"\t\tOrdering::Equal => {",
+			"\t\t\tprintln!(\"You win!\");",
+			"\t\t\tbreak;",
+			"\t\t}",
+			"\t}",
+			"}"
+		],
+		"description": "Matching int case."
+	},
+	"Print": {
+		"prefix": ["print"],
+		"body": ["println!(\"{}\", $1)"],
+		"description": "Print."
+	},
+	"Random": {
+		"prefix": ["random"],
+		"body": [
+			"extern crate rand;",
+			"use rand::Rng;",
+			"fn main() {",
+			"\tlet secret_number = rand::thread_rng().gen_range(1, 101);",
+			"}"
+		],
+		"description": "Random."
+	},
+	"Read": {
+		"prefix": ["read"],
+		"body": [
+			"io::stdin()",
+			"\t.read_line($1)",
+			"\t.expect(\"Failed to read line\");"
+		],
+		"description": "Read."
+	},
+	"Template": {
+		"prefix": ["template"],
+		"body": [
+			"use std::io::stdin;",
+			"fn read() -> i32 {",
+			"\tlet mut s = String::new();",
+			"\tstdin().read_line(&mut s).ok();",
+			"\treturn s.trim().parse().unwrap();",
+			"}",
+			"",
+			"fn main() {",
+			"\tlet n = read();",
+			"\tprintln!(\"{}\", ans);",
+			"}"
+		],
+		"description": "Template."
 	}
 }

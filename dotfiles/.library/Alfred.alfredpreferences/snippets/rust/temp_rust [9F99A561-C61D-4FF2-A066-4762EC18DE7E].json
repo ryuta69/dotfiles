@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "use std::io::stdin;\nfn read() -> i32 {\n\tlet mut s = String::new();\n\tstdin().read_line(&mut s).ok();\n\treturn s.trim().parse().unwrap();\n}\n \nfn main() {\n\tlet n = read();\n\tprintln!(\"{}\", ans);\n}",
-    "uid" : "9F99A561-C61D-4FF2-A066-4762EC18DE7E",
-    "name" : "temp_rust",
-    "keyword" : "temp rust"
-  }
-}

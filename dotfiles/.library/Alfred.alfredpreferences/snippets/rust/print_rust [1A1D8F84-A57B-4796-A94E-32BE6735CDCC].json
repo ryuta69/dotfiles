@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "println!(\"{}\", {cursor});",
-    "uid" : "1A1D8F84-A57B-4796-A94E-32BE6735CDCC",
-    "name" : "print_rust",
-    "keyword" : "print rust"
-  }
-}

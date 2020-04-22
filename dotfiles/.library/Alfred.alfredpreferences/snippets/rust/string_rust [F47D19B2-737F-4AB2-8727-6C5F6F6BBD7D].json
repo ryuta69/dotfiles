@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "let str = String::from(\"{cursor}\");",
-    "uid" : "F47D19B2-737F-4AB2-8727-6C5F6F6BBD7D",
-    "name" : "string_rust",
-    "keyword" : "string rust"
-  }
-}

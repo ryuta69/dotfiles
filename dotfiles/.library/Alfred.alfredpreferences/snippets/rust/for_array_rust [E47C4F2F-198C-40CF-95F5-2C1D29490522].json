@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "for (i, &item) in arr.iter().enumerate() {\n\tprintln!(\"the value is: {}\", &item);\n}",
-    "uid" : "E47C4F2F-198C-40CF-95F5-2C1D29490522",
-    "name" : "for_array_rust",
-    "keyword" : "for array rust"
-  }
-}

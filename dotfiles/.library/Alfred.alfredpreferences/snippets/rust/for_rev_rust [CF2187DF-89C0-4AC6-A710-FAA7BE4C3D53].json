@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "for number in (1..{cursor}).rev() {\n\tprintln!(\"{}!\", number);\n}",
-    "uid" : "CF2187DF-89C0-4AC6-A710-FAA7BE4C3D53",
-    "name" : "for_rev_rust",
-    "keyword" : "for rev rust"
-  }
-}
