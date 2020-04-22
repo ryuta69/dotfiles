@@ -53,6 +53,10 @@ do
         		sudo chsh -s /usr/local/bin/zsh
 			chmod 755 /usr/local/share/zsh
 			chmod 755 /usr/local/share/zsh/site-functions
+
+			exec -l ${SHELL}
+			git clone https://github.com/ryuta69/dotfiles
+			cd dotfiles
 		fi
 
 		if [[ "$1" =~ 'bundle' ]]; then
