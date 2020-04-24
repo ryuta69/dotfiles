@@ -29,6 +29,7 @@ call plug#end()
 "" ----------------------------------------
 ""	Configure
 "" ----------------------------------------
+set title
 set nobomb
 set hidden
 set nobackup
@@ -43,6 +44,7 @@ set wildignorecase
 set scrolloff=20
 set laststatus=0
 set encoding=utf-8
+set titlestring=%F
 let $LANG='en_US.UTF-8'
 let mapleader="\<Space>"
 set clipboard=unnamedplus
