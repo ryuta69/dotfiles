@@ -91,7 +91,7 @@ ${HOME}/.tmux/plugins/tpm/scripts/install_plugins.sh
 ## ----------------------------------------
 ##	Gcloud
 ## ----------------------------------------
-curl https://sdk.cloud.google.com | bash
+curl https://sdk.cloud.google.com | /bin/bash -s -- --disable-prompts
 
 ## ----------------------------------------
 ##	iTerm2
