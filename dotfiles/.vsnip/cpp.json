@@ -1,0 +1,77 @@
+{
+	"Average": {
+		"prefix": ["average"],
+		"body": [
+			"int ave = accumulate(vec.begin(), vec.end(), 0) / vec.size();"
+		],
+		"description": "Get average from array."
+	},
+	"Binarysearch": {
+		"prefix": ["binarysearch"],
+		"body": [
+			"sort(vec.begin(), vec.end());",
+			"int target = ${1};",
+			"int l = 0;",
+			"int r = vec.size();",
+			"",
+			"while (r - l >= 1) {",
+			"\tint middle = (r + l) / 2;",
+			"\tif (vec.at(middle) == target) {",
+			"\t\tcout << \"Yes\" << endl;",
+			"\t\treturn 0;",
+			"\t} else if (vec.at(middle) < target) {",
+			"\t\tl = middle + 1;",
+			"\t} else {",
+			"\t\tr = middle;",
+			"\t}",
+			"}",
+			"",
+			"cout << \"No\" << endl;"
+		],
+		"description": "Get average from array."
+	},
+	"CastDouble": {
+		"prefix": ["castdouble"],
+		"body": [
+			"double d = (round((double)$1 / 60 * pow(10, 2 - 1))) / pow(10, 2 - 1);"
+		],
+		"description": "Get doubled number"
+	},
+	"CastStr": {
+		"prefix": ["caststr"],
+		"body": ["string a = to_string(${1});"],
+		"description": "Cast to string"
+	},
+	"CastInt": {
+		"prefix": ["castint"],
+		"body": ["int a = atoi({cursor}.c_str());"],
+		"description": "Cast to integer"
+	},
+	"CountChar": {
+		"prefix": ["countchar"],
+		"body": ["int charnum = count(str.begin(), str.end(), $1);"],
+		"description": "Count char in string"
+	},
+	"Cin1": {
+		"prefix": ["cin1"],
+		"body": ["int a;", "cin >> a;"],
+		"description": "Cin for one element."
+	},
+	"Cin2": {
+		"prefix": ["cin2"],
+		"body": ["int a, b;", "cin >> a >> b;"],
+		"description": "Cin for two elements."
+	},
+	"Cinv": {
+		"prefix": ["cinv"],
+		"body": [
+			"int a;",
+			"cin >> a;",
+			"vector<int> vec(a);",
+			"for (int i = 0; i < a; i++) {",
+			"\tcin >> vec.at(i);",
+			"}"
+		],
+		"description": "Cin for array."
+	}
+}

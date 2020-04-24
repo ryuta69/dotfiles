@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "static int ave = accumulate(vec.begin(), vec.end(), 0) \/ vec.size();",
-    "uid" : "3D32CF8D-E2D5-422A-A165-CA85884F6493",
-    "name" : "ave_cpp",
-    "keyword" : "ave cpp"
-  }
-}

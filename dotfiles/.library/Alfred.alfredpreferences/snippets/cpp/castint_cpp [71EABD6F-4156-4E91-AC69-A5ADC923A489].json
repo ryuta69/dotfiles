@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "static string a = to_string({cursor});",
-    "uid" : "71EABD6F-4156-4E91-AC69-A5ADC923A489",
-    "name" : "castint_cpp",
-    "keyword" : "castint cpp"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "static int a = atoi({cursor}.c_str());",
-    "uid" : "8D496837-F9D2-4641-8515-F35195266B70",
-    "name" : "caststr_cpp",
-    "keyword" : "caststr cpp"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "sort(vec.begin(), vec.end());\nint target = ${1:target_num};\nint l = 0;\nint r = vec.size();\nwhile (r - l >= 1) {\n\tint middle = (r + l) \/ 2;\n\tif (vec.at(middle) == target) {\n\t\tcout << \\\"Yes\\\" << endl;\n\t\treturn 0;\n\t} else if (vec.at(middle) < target) {\n\t\tl = middle + 1;\n\t} else {\n\t\tr = middle;\n\t}\n}\ncout << \\\"No\\\" << endl;",
-    "uid" : "89548112-B0DF-4720-97A3-363742D1A05B",
-    "name" : "binsearch_cpp",
-    "keyword" : "binsearch cpp"
-  }
-}

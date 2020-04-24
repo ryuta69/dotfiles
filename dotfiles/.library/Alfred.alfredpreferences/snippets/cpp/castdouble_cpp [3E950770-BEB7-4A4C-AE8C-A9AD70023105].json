@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "double d = (round((double){cursor} \/ 60 * pow(10, 2 - 1))) \/ pow(10, 2 - 1);",
-    "uid" : "3E950770-BEB7-4A4C-AE8C-A9AD70023105",
-    "name" : "castdouble_cpp",
-    "keyword" : "castdouble cpp"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "static int charnum = count(str.cbegin(), str.cend(), {cursor});",
-    "uid" : "BE81A8BB-E1DE-43B9-9EEE-4709B81B056A",
-    "name" : "charcnt_cpp",
-    "keyword" : "charcnt cpp"
-  }
-}

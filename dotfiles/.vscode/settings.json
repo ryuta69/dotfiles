@@ -45,12 +45,12 @@
 		"typescriptreact",
 		"html",
 		"vue",
-		"markdown",
-		"json"
+		"markdown"
 	],
 	"files.autoSave": "afterDelay",
 	"files.trimFinalNewlines": true,
 	"files.autoGuessEncoding": true,
+	"files.insertFinalNewline": false,
 	"files.trimTrailingWhitespace": true,
 	"files.exclude": {
 		"**/node_modules": true
@@ -61,29 +61,7 @@
 	"terminal.integrated.cursorStyle": "line",
 	"terminal.integrated.fontFamily": "Hack Nerd Font",
 	"terminal.integrated.shell.osx": "/usr/local/bin/zsh",
-	"workbench.colorTheme": "Ayu Dark",
-	"workbench.iconTheme": "material-icon-theme",
-	"workbench.colorCustomizations": {
-		"sideBar.foreground": "#626A73",
-		"sideBarTitle.foreground": "#626A73",
-		"sideBarSectionHeader.foreground": "#626A73",
-		"list.activeSelectionForeground": "#F0F0F0",
-		"list.inactiveSelectionForeground": "#F0F0F0",
-		"tab.activeForeground": "#F0F0F0",
-		"tab.focusForeground": "#F0F0F0",
-		"tab.inactiveForeground": "#626A73",
-		"activityBar.foreground": "#626A73",
-		"input.foreground": "#626A73",
-		"input.placeholderForeground": "#626A73",
-		"dropdown.foreground": "#626A73",
-		"panelTitle.activeForeground": "#F0F0F0",
-		"panelTitle.inactiveForeground": "#626A73",
-		"statusBar.foreground": "#626A73",
-		"breadcrumb.foreground": "#626A73",
-		"foreground": "#626A73",
-		"editorLineNumber.foreground": "#626A73",
-		"editorLineNumber.activeForeground": "#F0F0F0"
-	},
+	"git.enabled": false,
 	"[go]": {
 		"editor.codeActionsOnSave": {
 			"source.organizeImports": true
@@ -94,7 +72,9 @@
 	},
 	"go.buildOnSave": "package",
 	"go.formatTool": "goimports",
-	"go.formatFlags": ["-w"],
+	"go.formatFlags": [
+		"-w"
+	],
 	"go.gocodeAutoBuild": true,
 	"go.installDependenciesWhenBuilding": true,
 	"go.languageServerExperimentalFeatures": {
@@ -125,9 +105,32 @@
 	"go.vetOnSave": "package",
 	"rust-client.channel": "stable",
 	"workbench.tips.enabled": false,
+	"workbench.colorTheme": "Ayu Dark",
 	"workbench.settings.editor": "json",
 	"workbench.statusBar.visible": false,
 	"workbench.fontAliasing": "antialiased",
 	"workbench.editor.closeOnFileDelete": true,
+	"workbench.iconTheme": "material-icon-theme",
+	"workbench.colorCustomizations": {
+		"sideBar.foreground": "#626A73",
+		"sideBarTitle.foreground": "#626A73",
+		"sideBarSectionHeader.foreground": "#626A73",
+		"list.activeSelectionForeground": "#F0F0F0",
+		"list.inactiveSelectionForeground": "#F0F0F0",
+		"tab.activeForeground": "#F0F0F0",
+		"tab.focusForeground": "#F0F0F0",
+		"tab.inactiveForeground": "#626A73",
+		"activityBar.foreground": "#626A73",
+		"input.foreground": "#626A73",
+		"input.placeholderForeground": "#626A73",
+		"dropdown.foreground": "#626A73",
+		"panelTitle.activeForeground": "#F0F0F0",
+		"panelTitle.inactiveForeground": "#626A73",
+		"statusBar.foreground": "#626A73",
+		"breadcrumb.foreground": "#626A73",
+		"foreground": "#626A73",
+		"editorLineNumber.foreground": "#626A73",
+		"editorLineNumber.activeForeground": "#F0F0F0"
+	},
 	"window.zoomLevel": -2
 }
