@@ -29,39 +29,32 @@ call plug#end()
 "" ----------------------------------------
 ""	Configure
 "" ----------------------------------------
-set title
 set nobomb
-set hidden
-set nobackup
-set smartcase
-set ignorecase
 set lazyredraw
-set noswapfile
-set splitright
-set splitbelow
-set termguicolors
-set wildignorecase
-set scrolloff=20
 set laststatus=0
-set encoding=utf-8
-set titlestring=%F
+set termguicolors
 let $LANG='en_US.UTF-8'
 let mapleader="\<Space>"
+set title titlestring=%F
+set splitright splitbelow
 set clipboard=unnamedplus
 set fileformats=unix,dos,mac
 set whichwrap=b,s,h,l,<,>,[,]
-set fileencodings=cp932,sjis,euc-jp,utf-8,iso-2022-jp
+set hidden nobackup noswapfile
+set smartcase ignorecase wildignorecase
+set rulerformat=%40(%=%l,%-(%c%V%)\ %=%t%)%*
+set encoding=utf-8 fileencodings=cp932,sjis,euc-jp,utf-8,iso-2022-jp
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 if has('nvim')
 	set inccommand=split
 else
 	syntax on
-	set showcmd
+	set ttyfast
 	set autoread
-	set hlsearch
 	set wildmenu
-	set incsearch
 	set belloff=all
+	set ruler showcmd
+	set hlsearch incsearch
 	filetype plugin indent on
 	set backspace=indent,eol,start
 endif
