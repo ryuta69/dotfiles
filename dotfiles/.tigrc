@@ -77,7 +77,7 @@ color "Acked-by"		yellow	default
 color "Tested-by"		yellow	default
 color "Reviewed-by"		yellow	default
 color default			default	default	normal
-color cursor			white	black	bold
+color cursor			black	black	bold
 color status			green	default
 color delimiter			magenta	default
 color date			blue	default
@@ -91,8 +91,8 @@ color file			default	default
 color grep.file			blue	default
 color file-size			default	default
 color line-number		cyan	default
-color title-blur		white	black
-color title-focus		white	black	bold
+color title-blur		black	black	bold
+color title-focus		black	black	bold
 color main-commit		default	default
 color main-annotated		default	default	bold
 color main-tag			magenta	default	bold
