@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "func LoggingSettings(logFile string) {\n\tlogfile, _ := os.OpenFile(logFile, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)\n\tmultiLogFIle := io.MultiWriter(os.Stdout, logfile)\n\tlog.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)\n\tlog.SetOutput(multiLogFIle)\n}\n\nfunc main() {\n\tLoggingSettings(\"test.log\")\n\tlog.Println({cursor})\n}",
-    "uid" : "542C37A7-B507-4E1A-9ADD-781283567596",
-    "name" : "logset_go",
-    "keyword" : "logset go"
-  }
-}

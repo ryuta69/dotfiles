@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "fmt.Println({cursor})",
-    "uid" : "68F5561E-0E47-4A74-8E51-98BC0EDA2C45",
-    "name" : "print_go",
-    "keyword" : "print go"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "strconv.Atoi({cursor})",
-    "uid" : "9F008BA6-8023-473C-9565-7E5DE0FA98CC",
-    "name" : "caststr_go",
-    "keyword" : "caststr go"
-  }
-}

@@ -1,0 +1,121 @@
+{
+	"CastToStr": {
+		"prefix": ["casttostr"],
+		"body": ["strconv.Atoi($1);"],
+		"description": "Cast to String"
+	},
+	"Error": {
+		"prefix": ["error"],
+		"body": ["if err != nil {", "\tlog.Fatal(\"Error\")", "}"],
+		"description": "Error fatal output."
+	},
+	"LogSetting": {
+		"prefix": ["logsetting"],
+		"body": [
+			"func LoggingSettings(logFile string) {",
+			"\tlogfile, _ := os.OpenFile(logFile, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)",
+			"\tmultiLogFIle := io.MultiWriter(os.Stdout, logfile)",
+			"\tlog.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)",
+			"\tlog.SetOutput(multiLogFIle)",
+			"}",
+			"",
+			"func main() {",
+			"\tLoggingSettings(\"test.log\")",
+			"\tlog.Println({cursor})",
+			"}"
+		],
+		"description": "Logging settings."
+	},
+	"RegMatch": {
+		"prefix": ["regmatch"],
+		"body": ["match, _ := regexp.MatchString(pattern, $1)"],
+		"description": "Regex matches."
+	},
+	"FindMin": {
+		"prefix": ["findmin"],
+		"body": [
+			"min := l[0]",
+			"for _, arg := range l {",
+			"\tif arg < min {",
+			"\t\tmin = arg",
+			"\t}",
+			"}"
+		],
+		"description": "Find a min value."
+	},
+	"FindMax": {
+		"prefix": ["findmax"],
+		"body": [
+			"min := l[0]",
+			"for _, arg := range l {",
+			"\tif arg > min {",
+			"\t\tmax = arg",
+			"\t}",
+			"}"
+		],
+		"description": "Find a max value."
+	},
+	"Open": {
+		"prefix": ["open"],
+		"body": [
+			"file, _ := os.Open($1)",
+			"defer file.Close()",
+			"data := make([]byte, 100)",
+			"file.Read(data)",
+			"fmt.Println(string(data))"
+		],
+		"description": "Open a file."
+	},
+	"Print": {
+		"prefix": ["print"],
+		"body": ["fmt.Println($1)"],
+		"description": "Print fmt."
+	},
+	"Printf": {
+		"prefix": ["printf"],
+		"body": ["fmt.Printf(\"%T\", $1)"],
+		"description": "Print fmt."
+	},
+	"Readfile": {
+		"prefix": ["readfile"],
+		"body": [
+			"content, err := ioutil.ReadFile($1)",
+			"if err != nil {",
+			"\tlog.Fatal(err)",
+			"}",
+			"fmt.Println(string(content))"
+		],
+		"description": "Read a file."
+	},
+	"HttpRequest": {
+		"prefix": ["httprequest"],
+		"body": [
+			"req, _ := http.NewRequest(\"GET\", {cursor}, nil)",
+			"var client *http.Client = &http.Client{}",
+			"resp, _ := client.Do(req)",
+			"body, _ := ioutil.ReadAll(resp.Body)",
+			"fmt.Println(string(body))"
+		],
+		"description": "Request a http."
+	},
+	"Sleep": {
+		"prefix": ["sleep"],
+		"body": ["time.Sleep($1 * time.Second)"],
+		"description": "Sleep a specific second."
+	},
+	"Template": {
+		"prefix": ["template"],
+		"body": ["package main", "", "func main() {", "\t$1", "}"],
+		"description": "Template."
+	},
+	"WriteFile": {
+		"prefix": ["writefile"],
+		"body": [
+			"err := ioutil.WriteFile({cursor}, content, 0666)",
+			"\tif err != nil {",
+			"\tlog.Fatalln(err)",
+			"}"
+		],
+		"description": "Write a file."
+	}
+}

@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "match, _ := regexp.MatchString(pattern, {cursor})",
-    "uid" : "BC9E7E76-3C08-4B49-BE6F-630801BA2AD1",
-    "name" : "match_go",
-    "keyword" : "match go"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "err := ioutil.WriteFile({cursor}, content, 0666)\n\tif err != nil {\n\tlog.Fatalln(err)\n}",
-    "uid" : "E1534067-9FEB-4AC4-BC67-79F980E31451",
-    "name" : "writefile_go",
-    "keyword" : "writefile go"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "sort.Strings({cursor})",
-    "uid" : "AE0260FD-9EB3-4165-A49C-54944BA8EFDF",
-    "name" : "sorts_go",
-    "keyword" : "sorts go"
-  }
-}

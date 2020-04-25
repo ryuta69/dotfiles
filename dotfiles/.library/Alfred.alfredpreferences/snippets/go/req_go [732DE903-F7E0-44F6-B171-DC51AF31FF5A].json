@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "req, _ := http.NewRequest(\"GET\", {cursor}, nil)\nvar client *http.Client = &http.Client{}\nresp, _ := client.Do(req)\nbody, _ := ioutil.ReadAll(resp.Body)\nfmt.Println(string(body))",
-    "uid" : "732DE903-F7E0-44F6-B171-DC51AF31FF5A",
-    "name" : "req_go",
-    "keyword" : "req go"
-  }
-}

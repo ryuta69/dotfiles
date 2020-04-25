@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "sort.Slice({cursor}, func(i, j int) bool { return ${struct}[i].Name < ${struct}[j].Name })",
-    "uid" : "00D5EFFD-4957-4594-96FC-86631BC6ECFE",
-    "name" : "sortst_go",
-    "keyword" : "sortst go"
-  }
-}

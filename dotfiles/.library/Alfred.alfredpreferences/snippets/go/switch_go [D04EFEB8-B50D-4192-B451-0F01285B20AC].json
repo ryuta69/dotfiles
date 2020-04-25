@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "switch {cursor} {\n\tcase:\n\t\t\n\tdefault:\n\t\t\n}",
-    "uid" : "D04EFEB8-B50D-4192-B451-0F01285B20AC",
-    "name" : "switch_go",
-    "keyword" : "switch go"
-  }
-}
