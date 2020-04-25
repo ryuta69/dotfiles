@@ -47,6 +47,7 @@
 		"vue",
 		"markdown"
 	],
+	"explorer.openEditors.visible": 0,
 	"files.autoSave": "afterDelay",
 	"files.trimFinalNewlines": true,
 	"files.autoGuessEncoding": true,
@@ -57,7 +58,7 @@
 	},
 	"javascript.format.semicolons": "insert",
 	"terminal.external.osxExec": "iTerm.app",
-	"terminal.integrated.fontSize": 17,
+	"terminal.integrated.fontSize": 14,
 	"terminal.integrated.cursorStyle": "line",
 	"terminal.integrated.fontFamily": "Hack Nerd Font",
 	"terminal.integrated.shell.osx": "/usr/local/bin/zsh",
