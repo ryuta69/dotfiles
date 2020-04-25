@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "static int min_num = *min_element(vec.begin(), vec.end());\nvector<int>::iterator index = min_element(vec.begin(), vec.end());\nstatic int idx = index - vec.begin();",
-    "uid" : "519A2A1F-349C-4AD0-876D-9A65E89A449F",
-    "name" : "min_cpp",
-    "keyword" : "min cpp"
-  }
-}

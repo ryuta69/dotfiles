@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "if (a.find(\"{cursor}\") != string::npos) {\n\n}",
-    "uid" : "79E2CB02-DC4F-4CD8-85A0-05AEC25C584D",
-    "name" : "finds_cpp",
-    "keyword" : "finds cpp"
-  }
-}

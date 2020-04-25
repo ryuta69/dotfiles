@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "static int sum = accumulate(vec.begin(), vec.end(), 0);",
-    "uid" : "7990EE29-2E22-4829-8EC4-BEA2E7FCFFFE",
-    "name" : "sum_cpp",
-    "keyword" : "sum cpp"
-  }
-}

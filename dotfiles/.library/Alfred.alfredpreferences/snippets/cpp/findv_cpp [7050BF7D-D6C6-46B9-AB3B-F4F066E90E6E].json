@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "auto itr = find(vec.begin(), vec.end(), \"{cursor}\");\nsize_t index = distance(vec.begin(), itr);\nif (itr != vec.end()) {\n\n}",
-    "uid" : "7050BF7D-D6C6-46B9-AB3B-F4F066E90E6E",
-    "name" : "findv_cpp",
-    "keyword" : "findv cpp"
-  }
-}

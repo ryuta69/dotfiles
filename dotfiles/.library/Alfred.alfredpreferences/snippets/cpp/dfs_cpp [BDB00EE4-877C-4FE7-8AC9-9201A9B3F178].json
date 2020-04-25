@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "struct {\n\tbool operator()(int i, int sum) {\n\t\tif (i == num) return sum == b;\n\t\tif ((*this)(i + 1, sum)) return true;\n\t\tif ((*this)(i + 1, sum + vec.at(i))) return true;\n\n\t\treturn false;\n\t}\n} depsearch;\n",
-    "uid" : "BDB00EE4-877C-4FE7-8AC9-9201A9B3F178",
-    "name" : "dfs_cpp",
-    "keyword" : "dfs cpp"
-  }
-}

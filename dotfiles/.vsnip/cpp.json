@@ -62,8 +62,8 @@
 		"body": ["int a, b;", "cin >> a >> b;"],
 		"description": "Cin for two elements."
 	},
-	"Cinv": {
-		"prefix": ["cinv"],
+	"Cinv1": {
+		"prefix": ["cinv1"],
 		"body": [
 			"int a;",
 			"cin >> a;",
@@ -73,5 +73,229 @@
 			"}"
 		],
 		"description": "Cin for array."
+	},
+	"Cinv2": {
+		"prefix": ["cinv2"],
+		"body": [
+			"int a;",
+			"cin >> a;",
+			"vector<int> vec(a);",
+			"vector<int> vec2(a);",
+			"for (int i = 0; i < a; i++) {",
+			"\tcin >> vec.at(i) >> vec2.at(i);",
+			"}"
+		],
+		"description": "Cin for two arrays."
+	},
+	"Cout1": {
+		"prefix": ["cout1"],
+		"body": ["cout << $1 << endl;"],
+		"description": "Cout 1 element."
+	},
+	"Cout2": {
+		"prefix": ["cout2"],
+		"body": ["cout << $1 << \" \" << $2 << endl;"],
+		"description": "Cout 1 element."
+	},
+	"Coutv": {
+		"prefix": ["coutv"],
+		"body": [
+			"for (int i = 0; i < vec.size(); i++) {",
+			"\tcout << vec.at(i) << endl;",
+			"}"
+		],
+		"description": "Cout array."
+	},
+	"Coutzfill": {
+		"prefix": ["coutzfill"],
+		"body": [
+			"cout << setfill('0') << right << setw($1) << $2 << endl;"
+		],
+		"description": "Cout with zero fill."
+	},
+	"Dfs": {
+		"prefix": ["dfs"],
+		"body": [
+			"struct {",
+			"\tbool operator()(int i, int sum) {",
+			"\t\tif (i == num) return sum == b;",
+			"\t\tif ((*this)(i + 1, sum)) return true;",
+			"\t\tif ((*this)(i + 1, sum + vec.at(i))) return true;",
+			"\t\treturn false;",
+			"\t}",
+			"} dfs"
+		],
+		"description": "Depth first search."
+	},
+	"SumDigit": {
+		"prefix": ["sumdigit"],
+		"body": [
+			"int sumdigit = 0;",
+			"string aa = to_string($1);",
+			"for (size_t i = 0; i < aa.length(); i++) {",
+			"\tsumdigit += aa[i] - '0';",
+			"}"
+		],
+		"description": "Sum each digit number."
+	},
+	"EraseIndex": {
+		"prefix": ["eraseindex"],
+		"body": ["vec.erase(vec.begin() + $1)"],
+		"description": "Erase element of specified index."
+	},
+	"EraseString": {
+		"prefix": ["erasestring"],
+		"body": [
+			"size_t pos;",
+			"string tmp = $1;",
+			"while ((pos = $2.find(tmp)) != string::npos) {",
+			"\ta.erase(pos, tmp.length());",
+			"}"
+		],
+		"description": "Erase string from string."
+	},
+	"Erasuto": {
+		"prefix": ["erasuto"],
+		"body": [
+			"int N = {cursor};",
+			"int arr[N];",
+			"static int count_prime = 0;",
+			"static vector<int> vec_prime(0);",
+			"",
+			"for (int i = 0; i < N; i++) {",
+			"\tarr[i] = 1;",
+			"}",
+			"",
+			"for (int i = 2; i < sqrt(N); i++) {",
+			"\tif (arr[i]) {",
+			"\t\tfor (int j = 0; i * (j + 2) < N; j++) {",
+			"\t\t\tarr[i * (j + 2)] = 0;",
+			"\t\t}",
+			"\t}",
+			"}",
+			"",
+			"for (int i = 2; i < N; i++) {",
+			"\tif (arr[i]) {",
+			"\t\tvec_prime.push_back(i);",
+			"\t\t\tcount_prime++;",
+			"\t}",
+			"}"
+		],
+		"description": "Erastotenes's coam."
+	},
+	"FindString": {
+		"prefix": ["findstring"],
+		"body": ["if (a.find(\"$1\") != string::npos) {", "\t", "}"],
+		"description": "Find string in string."
+	},
+	"FindArray": {
+		"prefix": ["findarray"],
+		"body": [
+			"auto itr = find(vec.begin(), vec.end(), \"$1\");",
+			"size_t index = distance(vec.begin(), itr);",
+			"if (itr != vec.end()) {",
+			"\t",
+			"}"
+		],
+		"description": "Find item in array."
+	},
+	"FindMax": {
+		"prefix": ["findmax"],
+		"body": [
+			"int max_num = *max_element(vec.begin(), vec.end());",
+			"vector<int>::iterator index = max_element(vec.begin(), vec.end());",
+			"int idx = index - vec.begin();"
+		],
+		"description": "Find max item in array."
+	},
+	"FindMin": {
+		"prefix": ["findmin"],
+		"body": [
+			"int min_num = *min_element(vec.begin(), vec.end());",
+			"vector<int>::iterator index = min_element(vec.begin(), vec.end());",
+			"int idx = index - vec.begin();"
+		],
+		"description": "Find min item in array."
+	},
+	"Reverse": {
+		"prefix": ["reverse"],
+		"body": ["string rev = reverse(vec.begin(), vec.end());"],
+		"description": "Reverse string."
+	},
+	"FindRoot": {
+		"prefix": ["findroot"],
+		"body": ["int root = log10($1 / log10(2);"],
+		"description": "Find root value."
+	},
+	"PrimeFactory": {
+		"prefix": ["primefactory"],
+		"body": [
+			"int n = {cursor};",
+			"static vector<int> avec;",
+			"",
+			"while (n % 2 == 0) {",
+			"\tavec.push_back(2);",
+			"\tn = n / 2;",
+			"}",
+			"",
+			"for (int i = 3; i <= sqrt(n); i = i + 2) {",
+			"\twhile (n % i == 0) {",
+			"\t\tavec.push_back(i);",
+			"\t\tn = n / i;",
+			"\t}",
+			"}",
+			"",
+			"if (n > 2){",
+			"\tavec.push_back(n);",
+			"}"
+		],
+		"description": "Find root value."
+	},
+	"SortArray": {
+		"prefix": ["sortarray"],
+		"body": ["sort(vec.begin(), vec.end());"],
+		"description": "Sort array."
+	},
+	"SplitString": {
+		"prefix": ["splitstring"],
+		"body": [
+			"vector<string> v;",
+			"stringstream ss($1);",
+			"string buffer;",
+			"while (getline(ss, buffer, '$2')) {",
+			"\tv.push_back(buffer);",
+			"}"
+		],
+		"description": "Split String."
+	},
+	"SumArray": {
+		"prefix": ["sumarray"],
+		"body": ["int sum = accumulate(vec.begin(), vec.end(), 0);"],
+		"description": "Sum Array."
+	},
+	"UniqueArray": {
+		"prefix": ["uniquearray"],
+		"body": [
+			"sort(vec.begin(), vec.end());",
+			"vec.erase(unique(vec.begin(), vec.end()), vec.end());"
+		],
+		"description": "Unique Array."
+	},
+	"Template": {
+		"prefix": ["template"],
+		"body": [
+			"#include <bits/stdc++.h>",
+			"using namespace std;",
+			"",
+			"static int main() {",
+			"\tcin.tie(0);",
+			"\tios::sync_with_stdio(false);",
+			"",
+			"\t$1",
+			"",
+			"\treturn 0;",
+			"}"
+		],
+		"description": "Unique Array."
 	}
 }

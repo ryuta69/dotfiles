@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "sort(vec.begin(), vec.end());\nvec.erase(unique(vec.begin(), vec.end()), vec.end());",
-    "uid" : "FFF9870F-8861-4FBE-9F19-54CB850C49D4",
-    "name" : "uniq_cpp",
-    "keyword" : "uniq cpp"
-  }
-}

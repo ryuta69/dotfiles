@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "for (int i = 0; i < vec.size(); i++)\n{\n\tcout << vec.at(i) << endl;\n}",
-    "uid" : "FE276B1E-EDEC-4CC3-90FA-81AFDF8E32EB",
-    "name" : "coutv_cpp",
-    "keyword" : "coutv cpp"
-  }
-}

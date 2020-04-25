@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "static string rev = reverse(vec.begin(), vec.end());",
-    "uid" : "F8740493-87EB-47D3-8EE1-E525C85B1FF5",
-    "name" : "reverse_cpp",
-    "keyword" : "reverse cpp"
-  }
-}

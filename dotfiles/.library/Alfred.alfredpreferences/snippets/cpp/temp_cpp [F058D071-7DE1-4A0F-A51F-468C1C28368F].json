@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "#include <bits\/stdc++.h>\nusing namespace std;\n\nstatic int main()\n{\n\tcin.tie(0);\n\tios::sync_with_stdio(false);\n\n\t{cursor}\n\n\treturn 0;\n}",
-    "uid" : "F058D071-7DE1-4A0F-A51F-468C1C28368F",
-    "name" : "temp_cpp",
-    "keyword" : "temp cpp"
-  }
-}

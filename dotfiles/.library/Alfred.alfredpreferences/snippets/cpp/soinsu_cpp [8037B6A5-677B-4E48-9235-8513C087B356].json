@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "int n = {cursor};\nstatic vector<int> avec;\n\n\/\/ まず2で叩く\nwhile (n % 2 == 0) {\n\tavec.push_back(2);\n\tn = n \/ 2;\n}\n\/\/ 素数で叩いていく\nfor (int i = 3; i <= sqrt(n); i = i + 2) {\n\twhile (n % i == 0) {\n\t\tavec.push_back(i);\n\t\tn = n \/ i;\n\t}\n}\n\/\/ 最後に残った数字を入れる\nif (n > 2){\n\tavec.push_back(n);\n}",
-    "uid" : "8037B6A5-677B-4E48-9235-8513C087B356",
-    "name" : "soinsu_cpp",
-    "keyword" : "soinsu cpp"
-  }
-}

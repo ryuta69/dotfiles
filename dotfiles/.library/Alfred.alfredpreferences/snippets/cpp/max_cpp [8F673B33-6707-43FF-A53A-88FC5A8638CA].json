@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "static int max_num = *max_element(vec.begin(), vec.end());\nvector<int>::iterator index = max_element(vec.begin(), vec.end());\nstatic int idx = index - vec.begin();",
-    "uid" : "8F673B33-6707-43FF-A53A-88FC5A8638CA",
-    "name" : "max_cpp",
-    "keyword" : "max cpp"
-  }
-}
