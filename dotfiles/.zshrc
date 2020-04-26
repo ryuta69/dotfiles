@@ -144,10 +144,19 @@ alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 ## ========== Tmux ==========
 alias tm='tmux'
 compdef _tmux tm
-alias tma='tmux a -t'
 alias tmls='tmux list-sessions'
+alias tmkla='tmux kill-session'
+alias tmrn='tmux rename-session'
 alias tmkl='tmux kill-session -t'
-alias tmrn='tmux rename-session -t'
+tmsw() {
+	selected=`tmux list-sessions | fzf | cut -d : -f 1`
+	[ -z ${selected} ] && echo "canceled" && exit 0;
+	if [ -z "${TMUX}" ]; then
+		tmux a -t ${selected}
+	else
+		tmux switch -t ${selected}
+	fi
+}
 
 ## ========== MySQL ==========
 alias scn='mycli -u root'
@@ -207,11 +216,11 @@ if [ -f '/Users/kohei.murakami/google-cloud-sdk/completion.zsh.inc' ]; then . '/
 ##	Zinit
 ## ----------------------------------------
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
-    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
-        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+	print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
+	command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+	command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+		print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+		print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
