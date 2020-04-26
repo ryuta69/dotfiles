@@ -1,7 +1,7 @@
 <h3 align="center">My Dotfiles</h3>
 <p align="center">ᓚᘏᗢ Just personal settings.</p>
 
-<img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/79629086-6399a780-8181-11ea-8959-e6f29a2fe6d4.png">
+<img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/80315012-ee3c6f80-882f-11ea-8d35-2697844c22d6.png">
 
 Not only symlinking dotfiles, this repository also installs applications and configures MacOS system.
 
