@@ -8,6 +8,7 @@
 		"vuexfire",
 		"xargs"
 	],
+	"editor.colorDecorators": false,
 	"editor.tabSize": 8,
 	"editor.fontSize": 17,
 	"editor.wordWrap": "on",
@@ -25,6 +26,11 @@
 	"editor.fontFamily": "Hack Nerd Font",
 	"editor.acceptSuggestionOnEnter": "on",
 	"editor.minimap.renderCharacters": false,
+	"editor.quickSuggestions": {
+		"comments": true,
+		"strings": true,
+		"other": true,
+	},
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": true
 	},
