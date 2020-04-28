@@ -462,7 +462,7 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 372 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>840 0 840 1027 0 0 1680 1027 </string>
+	<string>0 0 1680 1027 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 42 1680 985 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_905E02DC-EC49-4A6B-9EE6-E73A88A9B2DB</key>
@@ -475,6 +475,8 @@
 			<key>ASCII Anti Aliased</key>
 			<true/>
 			<key>ASCII Ligatures</key>
+			<false/>
+			<key>Allow Title Setting</key>
 			<false/>
 			<key>Ambiguous Double Width</key>
 			<false/>
@@ -1599,7 +1601,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>602972547.35146105</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>115</integer>
+	<integer>116</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
