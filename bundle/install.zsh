@@ -31,6 +31,7 @@ sudo xcodebuild -license accept
 
 ## ----------------------------------------
 ##	Npm Bundle
+##	- npm list -g --depth 0 | sed '1d' | awk '{ print $2 }' | awk -F'@[0-9]' '{ print $1 }' > Npmfile
 ## ----------------------------------------
 npm update -g npm
 npm install -g $(cat ${EXEPATH}/Npmfile)
@@ -119,9 +120,7 @@ curl -L https://raw.githubusercontent.com/docker/machine/v0.16.0/contrib/complet
 
 ## ----------------------------------------
 ##	VSCode
-##      - Github Actions doesn't support this,
-##      - because they don't have GUI,
-##      - so option --test will avoid this.
+##      - code --list-extensions > Vsplug
 ## ----------------------------------------
 if [[ -z "${opthash[(i)--test]}" ]]; then
 	plugins=($(cat ${EXEPATH}/Vsplug))
