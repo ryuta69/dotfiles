@@ -11,8 +11,8 @@ call plug#begin(plugdir)
 	Plug 'Lokaltog/vim-easymotion'
 	Plug 'yuttie/comfortable-motion.vim'
 	Plug 'bronson/vim-trailing-whitespace'
-	Plug 'sheerun/vim-polyglot' | Plug 'ap/vim-css-color'
 	Plug 'tpope/vim-surround' | Plug 'tpope/vim-repeat'
+	Plug 'sheerun/vim-polyglot' | Plug 'ap/vim-css-color'
 	Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
 	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'mattn/emmet-vim'
 	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
