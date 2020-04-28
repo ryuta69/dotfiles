@@ -3,11 +3,11 @@
 "" ----------------------------------------
 let plugdir=has('nvim') ? '~/.config/nvim/plugged/' : '~/.vim/plugged'
 call plug#begin(plugdir)
+	Plug 'cohama/lexima.vim'
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
 	Plug 'sheerun/vim-polyglot'
-	Plug 'jiangmiao/auto-pairs'
 	Plug 'junegunn/vim-easy-align'
 	Plug 'Lokaltog/vim-easymotion'
 	Plug 'yuttie/comfortable-motion.vim'
