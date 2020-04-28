@@ -1,6 +1,6 @@
 [
 	{
-		"key": "shift+cmd+h",
+		"key": "shift+cmd+l",
 		"command": "workbench.actions.view.problems"
 	},
 	{
@@ -43,4 +43,14 @@
 		"command": "-selectPrevSuggestion",
 		"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
 	},
+	{
+		"key": "ctrl+n",
+		"command": "workbench.action.terminal.focusNext",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+p",
+		"command": "workbench.action.terminal.focusPrevious",
+		"when": "terminalFocus"
+	}
 ]

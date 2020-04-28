@@ -2,24 +2,22 @@
 	"breadcrumbs.enabled": false,
 	"cSpell.userWords": [
 		"Vuex",
-		"bufread",
 		"firestore",
 		"nuxt",
-		"pathspec",
-		"refname",
-		"revparse",
 		"socketio",
 		"vuexfire",
 		"xargs"
 	],
 	"editor.tabSize": 8,
-	"editor.fontSize": 16,
+	"editor.fontSize": 17,
 	"editor.wordWrap": "on",
 	"editor.formatOnSave": true,
-	"editor.tabCompletion": "on",
 	"editor.insertSpaces": false,
+	"editor.tabCompletion": "on",
+	"editor.fontLigatures": true,
 	"editor.minimap.size": "fill",
 	"editor.smoothScrolling": true,
+	"editor.minimap.enabled": false,
 	"editor.cursorBlinking": "solid",
 	"editor.renderWhitespace": "none",
 	"editor.detectIndentation": false,
@@ -30,13 +28,35 @@
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": true
 	},
+	"editor.tokenColorCustomizations": {
+		"textMateRules": [
+			{
+				"scope": [
+					"meta",
+					"markup",
+					"source",
+					"string",
+					"entity",
+					"invalid",
+					"comment",
+					"support",
+					"storage",
+					"keyword",
+					"constant",
+					"variable",
+					"support.type.property-name.json"
+				],
+				"settings": {
+					"fontStyle": "italic"
+				}
+			}
+		]
+	},
 	"emmet.includeLanguages": {
+		"php": "html",
+		"vue-html": "html",
 		"javascript": "javascriptreact",
 		"typescript": "typescriptreact",
-		"vue-html": "html"
-	},
-	"eslint.options": {
-		"configFile": "~/.eslintrc.json"
 	},
 	"eslint.probe": [
 		"javascript",
@@ -113,25 +133,52 @@
 	"workbench.editor.closeOnFileDelete": true,
 	"workbench.iconTheme": "material-icon-theme",
 	"workbench.colorCustomizations": {
+		"activityBar.border": "#000000",
+		"activityBar.foreground": "#626A73",
+		"activityBar.background": "#000000",
+		"activityBarBadge.foreground": "#000000",
+		"badge.foreground": "#000000",
+		"button.foreground": "#000000",
+		"dropdown.foreground": "#626A73",
+		"editor.background": "#000000",
+		"editorLineNumber.foreground": "#626A73",
+		"editorGroupHeader.tabsBorder": "#000000",
+		"editor.findRangeHighlightBorder": "#000000",
+		"editorGroupHeader.tabsBackground": "#000000",
+		"editorLineNumber.activeForeground": "#F0F0F0",
+		"editorGroupHeader.noTabsBackground": "#000000",
+		"extensionButton.prominentForeground": "#000000",
+		"foreground": "#626A73",
+		"sideBar.border": "#000000",
+		"sideBar.background": "#000000",
 		"sideBar.foreground": "#626A73",
 		"sideBarTitle.foreground": "#626A73",
 		"sideBarSectionHeader.foreground": "#626A73",
+		"sideBarSectionHeader.background": "#000000",
 		"list.activeSelectionForeground": "#F0F0F0",
 		"list.inactiveSelectionForeground": "#F0F0F0",
-		"tab.activeForeground": "#F0F0F0",
+		"tab.border": "#000000",
 		"tab.focusForeground": "#F0F0F0",
+		"tab.activeBackground": "#000000",
+		"tab.activeForeground": "#F0F0F0",
+		"tab.inactiveBackground": "#000000",
 		"tab.inactiveForeground": "#626A73",
-		"activityBar.foreground": "#626A73",
+		"terminal.background": "#000000",
+		"titleBar.border": "#000000",
+		"titleBar.activeBackground": "#000000",
+		"titleBar.inactiveBackground": "#000000",
 		"input.foreground": "#626A73",
 		"input.placeholderForeground": "#626A73",
-		"dropdown.foreground": "#626A73",
 		"panelTitle.activeForeground": "#F0F0F0",
 		"panelTitle.inactiveForeground": "#626A73",
+		"statusBar.border": "#000000",
 		"statusBar.foreground": "#626A73",
-		"breadcrumb.foreground": "#626A73",
-		"foreground": "#626A73",
-		"editorLineNumber.foreground": "#626A73",
-		"editorLineNumber.activeForeground": "#F0F0F0"
+		"statusBar.background": "#000000",
+		"statusBar.debuggingForeground": "#000000",
+		"inputValidation.errorBackground": "#000000",
+		"inputValidation.infoBackground": "#000000",
+		"inputValidation.warningBackground": "#000000",
+		"panel.background": "#000000",
 	},
-	"window.zoomLevel": -2
+	"window.zoomLevel": -2,
 }
