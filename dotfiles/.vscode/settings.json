@@ -17,7 +17,6 @@
 	"editor.insertSpaces": false,
 	"editor.tabCompletion": "on",
 	"editor.fontLigatures": true,
-	"editor.minimap.size": "fill",
 	"editor.smoothScrolling": true,
 	"editor.minimap.enabled": false,
 	"editor.cursorBlinking": "solid",
@@ -26,7 +25,7 @@
 	"editor.renderLineHighlight": "all",
 	"editor.fontFamily": "Hack Nerd Font",
 	"editor.acceptSuggestionOnEnter": "on",
-	"editor.minimap.renderCharacters": false,
+	"editor.scrollbar.verticalScrollbarSize": 0,
 	"editor.quickSuggestions": {
 		"other": true,
 		"strings": true,
