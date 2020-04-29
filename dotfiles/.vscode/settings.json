@@ -11,7 +11,7 @@
 	],
 	"editor.colorDecorators": false,
 	"editor.tabSize": 8,
-	"editor.fontSize": 17,
+	"editor.fontSize": 15,
 	"editor.wordWrap": "on",
 	"editor.formatOnSave": true,
 	"editor.insertSpaces": false,
