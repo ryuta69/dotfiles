@@ -178,7 +178,7 @@ vigo() {
 }
 
 ## ========== Ripgrep ==========
-alias rg="rg --hidden -g '!.git' -g '!.node_modules' --max-columns 200"
+alias rg="rg --hidden -g '!.git' -g '!.node_modules' --max-columns 200 -i"
 rrg() {
 	keyword=$1;
 	[ -z $2 ] && matches=`rg -il ${keyword}` || matches=`rg --files | rg -i ${keyword}`;

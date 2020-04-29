@@ -97,7 +97,7 @@ defaults write .GlobalPreferences AppleScrollerPagingBehavior -bool true
 
 # Default web browser
 # 1: Google Chrome
-zsh ${EXEPATH}/defaultbrowser.zsh
+# Defined in Default Application
 
 # Ask to keep changes when closing documents
 # 1: Checked
@@ -1222,7 +1222,10 @@ defaults write com.apple.finder ShowStatusBar -bool true
 zsh ${EXEPATH}/dockitem.zsh
 
 ## ========== Default Application ==========
-# [ToDo]
+# Browser - Chrome
+zsh ${EXEPATH}/defaultbrowser.zsh
+# Editor - TextEdit
+zsh ${EXEPATH}/defaulteditor.zsh
 
 ## ========== Remove Notification ==========
 defaults write com.apple.LaunchServices LSQuarantine -bool false

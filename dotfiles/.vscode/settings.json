@@ -50,6 +50,7 @@
 					"keyword",
 					"constant",
 					"variable",
+					"support.type.property-name.css",
 					"support.type.property-name.json"
 				],
 				"settings": {
