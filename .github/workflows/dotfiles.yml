@@ -14,7 +14,7 @@ jobs:
         curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --help
     - name: Run initial setup.
       run: |
-        curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --force --test --init
+        curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --init
     - name: Run all test.
       run: |
         /bin/bash install.sh --force --test --init --all
