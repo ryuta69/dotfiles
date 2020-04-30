@@ -3,6 +3,7 @@
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+shopt -s dotglob
 EXEPATH=$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)
 
 symlink_dotfiles () {
@@ -16,7 +17,7 @@ symlink_dotfiles () {
 	VSPATH="${HOME}/Library/Application Support/Code/User" && mkdir -p ${VSPATH}
 	SKIPLIST=("install.zsh" ".library" ".vscode" ".node_template")
 
-	for abspath (${CWD}/*); do
+	for abspath in ${CWD}/*; do
 		filename=$(basename -- "$abspath");
 		if [[ ${SKIPLIST[(ie)$filename]} -le ${#SKIPLIST} ]]; then continue; fi;
 		if [[ $filename = '.vsnip' ]]; then ln -sfnv $abspath ${VSPATH}/snippets; fi;
@@ -25,11 +26,11 @@ symlink_dotfiles () {
 		ln -sfnv $abspath ${HOME};
 	done
 
-	for abspath (${CWD}/.vscode/*); do
+	for abspath in ${CWD}/.vscode/*; do
 		ln -sfnv $abspath ${VSPATH};
 	done
 
-	for abspath (${CWD}/.library/*); do
+	for abspath in ${CWD}/.library/*; do
 		filename=$(basename -- "$abspath");
 		if [[ $filename = 'karabiner.json' ]]; then ln -sfnv $abspath ${KRPATH}; continue; fi;
 		if [[ $filename = 'Alfred.alfredpreferences' ]]; then ln -sfnv $abspath ${ALPATH}; continue; fi;
@@ -174,7 +175,7 @@ install_bundle () {
 	##      - code --list-extensions > Vsplug
 	## ----------------------------------------
 	if [[ -z "${opthash[(i)--test]}" ]]; then
-		plugins=($(cat ${CWD}/Vsplug))
+		plugins=$(cat ${CWD}/Vsplug)
 		for plugin in ${plugins}; do
 			code --install-extension ${plugin}
 		done
