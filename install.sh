@@ -68,35 +68,25 @@ configure_system() {
 install_bundle() {
 	CWD=${EXEPATH}/bundle
 
-	## ----------------------------------------
-	##	Brew Bundle
-	## ----------------------------------------
+	## ========== Brew Bundle ==========
 	brew upgrade
 	brew bundle --file ${CWD}/Brewfile
 
-	## ----------------------------------------
-	##	Xcode
-	##      - Required to run after Brew,
-	##      - because xcode is installed by Cask.
-	## ----------------------------------------
+	## ========== Xcode ==========
+	## - Required to run after Brew,
+	## - because xcode is installed by Cask.
 	sudo xcodebuild -license accept
 
-	## ----------------------------------------
-	##	Npm Bundle
-	##	- npm list -g --depth 0 | sed '1d' | awk '{ print $2 }' | awk -F'@[0-9]' '{ print $1 }' > Npmfile
-	## ----------------------------------------
+	## ========== Npm ==========
+	## - npm list -g --depth 0 | sed '1d' | awk '{ print $2 }' | awk -F'@[0-9]' '{ print $1 }' > Npmfile
 	npm update -g npm
 	npm install -g $(cat ${CWD}/Npmfile)
 
-	## ----------------------------------------
-	##	Pip Bundle
-	## ----------------------------------------
+	## ========== Pip ==========
 	pip3 install --upgrade pip
 	pip3 install -r ${CWD}/Pipfile
 
-	## ----------------------------------------
-	##	Rust Bundle
-	## ----------------------------------------
+	## ========== Rust ==========
 	rustup-init -y
 	source ${HOME}/.cargo/env
 	rustup component add rls --toolchain stable
@@ -104,56 +94,38 @@ install_bundle() {
 	rustup component add rls-preview --toolchain stable
 	rustup component add rust-analysis --toolchain stable
 
-	## ----------------------------------------
-	##	Perl Cpanm
-	## ----------------------------------------
+	## ========== Perl ==========
 	cpanm App::cpanminus
 	cpanm Perl::Tidy
 
-	## ----------------------------------------
-	##	Git
-	## ----------------------------------------
+	## ========== Git ==========
 	sudo ln -sfnv /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
 
-	## ----------------------------------------
-	##	Zsh
-	## ----------------------------------------
+	## ========== Zsh ==========
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 	zinit self-update
 	source ${HOME}/.zshrc
 
-	## ----------------------------------------
-	##	Vim
-	## ----------------------------------------
+	## ========== Vim ==========
 	curl -fLo ${HOME}/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	vim +'PlugInstall --sync' +qa
 	curl -fLo ${HOME}/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	nvim +'PlugInstall --sync' +qa
 
-	## ----------------------------------------
-	##	Tmux
-	## ----------------------------------------
+	## ========== Tmux ==========
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	${HOME}/.tmux/plugins/tpm/scripts/install_plugins.sh
 
-	## ----------------------------------------
-	##	MySQL
-	## ----------------------------------------
+	## ========== MySQL ==========
 	# mysql_secure_installation
 
-	## ----------------------------------------
-	##	Gcloud
-	## ----------------------------------------
+	## ========== Gcloud ==========
 	curl https://sdk.cloud.google.com | /bin/bash -s -- --disable-prompts
 
-	## ----------------------------------------
-	##	iTerm2
-	## ----------------------------------------
+	## ========== iTerm2 ==========
 	curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
 
-	## ----------------------------------------
-	##	Anyenv
-	## ----------------------------------------
+	## ========== Anyenv ==========
 	if [ ! -d ${HOME}/.config/anyenv/anyenv-install ]; then
 		expect -c "
 			spawn anyenv install --init
@@ -163,17 +135,13 @@ install_bundle() {
 		"
 	fi
 
-	## ----------------------------------------
-	##	Docker
-	## ----------------------------------------
+	## ========== Docker ==========
 	mkdir -p ${HOME}/.zsh/completion
 	curl -L https://raw.githubusercontent.com/docker/compose/1.25.4/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
 	curl -L https://raw.githubusercontent.com/docker/machine/v0.16.0/contrib/completion/zsh/_docker-machine > ~/.zsh/completion/_docker-machine
 
-	## ----------------------------------------
-	##	VSCode
-	##      - code --list-extensions > Vsplug
-	## ----------------------------------------
+	## ========== VSCode ==========
+	## - code --list-extensions > Vsplug
 	if ! ${TESTMODE}; then
 		plugins=$(cat ${CWD}/Vsplug)
 		for plugin in ${plugins}; do
