@@ -1,11 +1,11 @@
 #!/bin/bash
 
-sudo -v
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
 shopt -s dotglob
 EXEPATH=$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)
 
+## ----------------------------------------
+##	Functions
+## ----------------------------------------
 symlink_dotfiles() {
 	CWD=${EXEPATH}/dotfiles
 
@@ -38,7 +38,7 @@ symlink_dotfiles() {
 		if [[ $filename = 'com.knollsoft.Rectangle.plist' ]]; then ln -sfnv $abspath ${PLPATH}; continue; fi;
 	done
 
-	if [[ -z "${opthash[(i)--test]}" ]]; then
+	if ! ${TESTMODE}; then
 		zinit self-update
 		source ${HOME}/.zshrc
 		vim  +'PlugInstall --sync' +qa
@@ -53,7 +53,7 @@ configure_system() {
 	osascript -e 'tell application "System Preferences" to quit' > /dev/null 2>&1
 	${CWD}/macos.sh
 
-	if [[ -z "${opthash[(i)--test]}"  ]]; then
+	if ! ${TESTMODE}; then
 		for app in \
 			"cfprefsd" \
 			"Activity Monitor" "Address Book" "Calendar" \
@@ -174,7 +174,7 @@ install_bundle() {
 	##	VSCode
 	##      - code --list-extensions > Vsplug
 	## ----------------------------------------
-	if [[ -z "${opthash[(i)--test]}" ]]; then
+	if ! ${TESTMODE}; then
 		plugins=$(cat ${CWD}/Vsplug)
 		for plugin in ${plugins}; do
 			code --install-extension ${plugin}
@@ -191,7 +191,6 @@ initialize() {
 
 	ssh-keygen -t rsa -b 4096 -C "eyma22s.yu@gmail.com"
 	ssh-keyscan -t rsa github.com >> ${HOME}/.ssh/known_hosts
-	# API with password will be deprecated in Nov 2020.
 	# curl -u "ryuta69" --data "{\"title\":\"NewSSHKey\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
 
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -220,54 +219,42 @@ usage() {
 		system:   MacOS system setting"
 		dotfiles: Dotfiles installation"
 		all:      All installations (except init)"
+
 	EOS
 }
 
-declare -i argc=0
-declare -a argv=()
+## ----------------------------------------
+##	Main
+## ----------------------------------------
+argv=$@
 
-while (( $# > 0 ))
-do
-	case $1 in
-	-*)
-		if [[ "$1" =~ 'init' ]]; then
-			initialize
-			exit 0
-		fi
+if [[ ${argv[@]} =~ "--help" ]]; then
+	usage
+	exit 0
+fi
 
-		if [[ "$1" =~ 'bundle' ]]; then
-			install_bundle
-			exit 0
-		fi
+if [[ ${argv[@]} =~ "--force" ]]; then
+	argv=( ${argv[@]/"--force"} )
+else
+	read -p "Your file will be overwritten. OK? (Y/n): " Ans;
+        [[ $Ans != 'Y' ]] && echo 'Canceled' && exit 0;
+fi
 
-		if [[ "$1" =~ 'dotfiles' ]]; then
-			symlink_dotfiles
-			exit 0
-		fi
+if [[ ${argv[@]} =~ "--test" ]]; then
+        TESTMODE=true
+	argv=( ${argv[@]/"--test"} )
+fi
 
-		if [[ "$1" =~ 'system' ]]; then
-			configure_system
-			exit 0
-		fi
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-		if [[ "$1" =~ 'all' ]]; then
-			install_bundle
-			symlink_dotfiles
-			configure_system
-			exit 0
-		fi
-
-		if [[ "$1" =~ 'help' ]]; then
-			usage
-			exit 0
-		fi
-
-		shift
-		;;
-	*)
-		((++argc))
-		argv=("${argv[@]}" "$1")
-		shift
-		;;
+for opt in ${argv[@]}; do
+        case $opt in
+		--init)     initialize; ;;
+		--bundle)   install_bundle; ;;
+		--system)   configure_system; ;;
+		--dotfiles) symlink_dotfiles; ;;
+		--all)      install_bundle; symlink_dotfiles; configure_system; ;;
+		*)          echo "invalid option $1"; ;;
 	esac
 done
