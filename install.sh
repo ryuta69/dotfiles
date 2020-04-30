@@ -15,7 +15,7 @@ symlink_dotfiles() {
 	PLPATH="${HOME}/Library/Preferences"                   && mkdir -p ${PLPATH}
 	ALPATH="${HOME}/Library/Application Support/Alfred"    && mkdir -p ${ALPATH}
 	VSPATH="${HOME}/Library/Application Support/Code/User" && mkdir -p ${VSPATH}
-	SKIPLIST=("install.zsh" ".library" ".vscode" ".node_template")
+	SKIPLIST=(".library" ".vscode" ".node_template")
 
 	for abspath in ${CWD}/*; do
 		filename=$(basename -- "$abspath");
@@ -43,7 +43,7 @@ symlink_dotfiles() {
 		source ${HOME}/.zshrc
 		vim  +'PlugInstall --sync' +qa
 		nvim +'PlugInstall --sync' +qa
-		${HOME}/.tmux/plugins/tpm/scripts/install_plugins.sh
+		/bin/bash ${HOME}/.tmux/plugins/tpm/scripts/install_plugins.sh
 	fi
 }
 
@@ -51,7 +51,7 @@ configure_system() {
 	CWD=${EXEPATH}/system
 
 	osascript -e 'tell application "System Preferences" to quit' > /dev/null 2>&1
-	${CWD}/macos.sh
+	/bin/bash ${CWD}/macos.sh
 
 	if ! ${TESTMODE}; then
 		for app in \
@@ -114,7 +114,7 @@ install_bundle() {
 
 	## ========== Tmux ==========
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-	${HOME}/.tmux/plugins/tpm/scripts/install_plugins.sh
+	/bin/bash ${HOME}/.tmux/plugins/tpm/scripts/install_plugins.sh
 
 	## ========== MySQL ==========
 	# mysql_secure_installation
