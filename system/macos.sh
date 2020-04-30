@@ -1,4 +1,4 @@
-#! /usr/local/bin/zsh
+#! /bin/bash
 
 EXEPATH=$0:A:h
 setopt globdots
