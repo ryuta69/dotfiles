@@ -392,7 +392,7 @@ SCAT=(
 	# System Preferences
 	"SYSTEM_PREFS"               true
 )
-zsh ${EXEPATH}/lib/spotlightSearchResults.zsh $(echo ${SCAT})
+/bin/bash ${EXEPATH}/lib/spotlightSearchResults.sh $(echo ${SCAT})
 
 # Allow Spotlight Suggestions in Look up
 # 1: Checked
@@ -1202,13 +1202,13 @@ defaults write com.apple.finder ShowStatusBar -bool true
 ##	Extra
 ## ----------------------------------------
 ## ========== Dock Applications ==========
-zsh ${EXEPATH}/lib/dockitem.zsh
+/bin/bash ${EXEPATH}/lib/dockitem.sh
 
 ## ========== Default Application ==========
 # Browser - Chrome
-zsh ${EXEPATH}/lib/defaultbrowser.zsh
+/bin/bash ${EXEPATH}/lib/defaultbrowser.sh
 # Editor - TextEdit
-zsh ${EXEPATH}/lib/defaulteditor.zsh
+/bin/bash ${EXEPATH}/lib/defaulteditor.sh
 
 ## ========== Remove Notification ==========
 defaults write com.apple.LaunchServices LSQuarantine -bool false
