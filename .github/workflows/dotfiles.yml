@@ -12,6 +12,9 @@ jobs:
     - name: Run help command.
       run: |
         curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --help
-    - name: Configure all test
+    - name: Run initial setup.
+      run: |
+        curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --force --test --init
+    - name: Run all test.
       run: |
         /bin/bash install.sh --force --test --init --all
