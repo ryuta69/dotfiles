@@ -1,23 +1,6 @@
 #! /bin/bash
 
-EXEPATH=$0:A:h
-setopt globdots
-local -A opthash
-zparseopts -D -A opthash -- -force -help -test
-
-if [[ -n "${opthash[(i)--help]}" ]]; then
-        echo "Add option --force to install without checking." && exit;
-fi
-
-if [[ -z "${opthash[(i)--force]}"  ]]; then
-        read Ans"?Your file will be overwritten(Y/n): "
-        if [[ $Ans != 'Y' ]]; then echo 'Canceled\n' && exit; fi;
-fi
-
-sudo -v
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-osascript -e 'tell application "System Preferences" to quit' > /dev/null 2>&1
+EXEPATH=$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)
 
 ## ----------------------------------------
 ##	System Preferences
@@ -409,7 +392,7 @@ SCAT=(
 	# System Preferences
 	"SYSTEM_PREFS"               true
 )
-zsh ${EXEPATH}/spotlightSearchResults.zsh $(echo ${SCAT})
+zsh ${EXEPATH}/lib/spotlightSearchResults.zsh $(echo ${SCAT})
 
 # Allow Spotlight Suggestions in Look up
 # 1: Checked
@@ -482,7 +465,7 @@ defaults write com.apple.airplay "NSStatusItem Visible com.apple.menuextra.airpl
 # 3: Middle
 # 4: Default
 # 5: More Space
-osascript ${EXEPATH}/resolution.applescript
+osascript ${EXEPATH}/lib/resolution.applescript
 
 # Brightness
 # params: 1.lightest 0.darkest
@@ -595,7 +578,7 @@ defaults write .GlobalPreferences KeyRepeat -int 2
 # Touch Bar shows
 # 1: App Control
 # 2: Expanded Control Strip
-osascript ${EXEPATH}/touchbar.applescript
+osascript ${EXEPATH}/lib/touchbar.applescript
 # 3: F1, F2, etc. Keys
 # 4: Quick Actions
 
@@ -730,7 +713,7 @@ osascript ${EXEPATH}/touchbar.applescript
 ## <Menu> Input Sources
 # Select the previous input source
 # Select next source in Input menu
-osascript ${EXEPATH}/unchecknextsource.applescript
+osascript ${EXEPATH}/lib/unchecknextsource.applescript
 
 ## <Menu> Screenshots
 # Save picture of screen as a file
@@ -758,7 +741,7 @@ osascript ${EXEPATH}/unchecknextsource.applescript
 
 ## <Menu> Spotlight
 # Show Spotlight search
-osascript ${EXEPATH}/uncheckspotlight.applescript
+osascript ${EXEPATH}/lib/uncheckspotlight.applescript
 
 # Show Finder search window
 # [ToDo]
@@ -774,7 +757,7 @@ osascript ${EXEPATH}/uncheckspotlight.applescript
 ## <Tab> Input Sources
 Add Input Sources
 GJIME=$(defaults read com.apple.HIToolbox AppleEnabledInputSources | grep "InputSourceKind = \"Keyboard Input Method\"")
-[[ -z  ${GJIME} ]] && osascript ${EXEPATH}/inputsource.applescript
+[[ -z  ${GJIME} ]] && osascript ${EXEPATH}/lib/inputsource.applescript
 
 # Show Input menu in menu bar
 # [ToDo]
@@ -962,7 +945,7 @@ defaults write -g com.apple.trackpad.scaling 3
 ## ========== Users & Groups ==========
 # Profile Picture
 UNM=$(whoami)
-sudo dscl . create /Users/${UNM} Picture "${EXEPATH}/img/icon.jpeg"
+sudo dscl . create /Users/${UNM} Picture "${EXEPATH}/lib/img/icon.jpeg"
 
 ## ========== Parental Controls ==========
 
@@ -1219,13 +1202,13 @@ defaults write com.apple.finder ShowStatusBar -bool true
 ##	Extra
 ## ----------------------------------------
 ## ========== Dock Applications ==========
-zsh ${EXEPATH}/dockitem.zsh
+zsh ${EXEPATH}/lib/dockitem.zsh
 
 ## ========== Default Application ==========
 # Browser - Chrome
-zsh ${EXEPATH}/defaultbrowser.zsh
+zsh ${EXEPATH}/lib/defaultbrowser.zsh
 # Editor - TextEdit
-zsh ${EXEPATH}/defaulteditor.zsh
+zsh ${EXEPATH}/lib/defaulteditor.zsh
 
 ## ========== Remove Notification ==========
 defaults write com.apple.LaunchServices LSQuarantine -bool false
@@ -1244,17 +1227,3 @@ defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
 ## ========== Disable System Preferences Red Bubble Notification ==========
 defaults write com.apple.systempreferences AttentionPrefBundleIDs 0
-
-## ----------------------------------------
-##	Apply All Settings
-## ----------------------------------------
-if [[ -z "${opthash[(i)--test]}"  ]]; then
-	for app in \
-		"cfprefsd" \
-		"Activity Monitor" "Address Book" "Calendar" \
-		"Contacts" "Dock" "Finder" "Mail" "Messages" \
-		"SystemUIServer" "Terminal" "Transmission" "iCal"
-	do
-		killall ${app}
-	done
-fi
