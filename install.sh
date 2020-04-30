@@ -6,7 +6,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 shopt -s dotglob
 EXEPATH=$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)
 
-symlink_dotfiles () {
+symlink_dotfiles() {
 	CWD=${EXEPATH}/dotfiles
 
 	CRPATH="${HOME}/.cargo"                                && mkdir -p ${CRPATH}
@@ -47,7 +47,7 @@ symlink_dotfiles () {
 	fi
 }
 
-configure_system () {
+configure_system() {
 	CWD=${EXEPATH}/system
 
 	osascript -e 'tell application "System Preferences" to quit' > /dev/null 2>&1
@@ -65,7 +65,7 @@ configure_system () {
 	fi
 }
 
-install_bundle () {
+install_bundle() {
 	CWD=${EXEPATH}/bundle
 
 	## ----------------------------------------
@@ -182,6 +182,47 @@ install_bundle () {
 	fi
 }
 
+initialize() {
+	touch ${HOME}/.hushlogin
+	mkdir -p ${HOME}/work
+	mkdir -p ${HOME}/.ssh
+
+	xcode-select --install
+
+	ssh-keygen -t rsa -b 4096 -C "eyma22s.yu@gmail.com"
+	ssh-keyscan -t rsa github.com >> ${HOME}/.ssh/known_hosts
+	# API with password will be deprecated in Nov 2020.
+	# curl -u "ryuta69" --data "{\"title\":\"NewSSHKey\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
+
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	brew tap homebrew/bundle
+
+	brew install zsh
+	sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells'
+	sudo chsh -s /usr/local/bin/zsh
+	chmod 755 /usr/local/share/zsh
+	chmod 755 /usr/local/share/zsh/site-functions
+
+	exec -l ${SHELL}
+	git clone https://github.com/ryuta69/dotfiles
+	cd dotfiles
+}
+
+usage() {
+	cat <<- EOS
+
+		ᓚᘏᗢ < This is my personal dotfiles.
+
+		Options for install.sh"
+		================================================="
+		init:     Core initialization"
+		bundle:   Package installation"
+		system:   MacOS system setting"
+		dotfiles: Dotfiles installation"
+		all:      All installations (except init)"
+	EOS
+}
+
 declare -i argc=0
 declare -a argv=()
 
@@ -189,68 +230,36 @@ while (( $# > 0 ))
 do
 	case $1 in
 	-*)
-		if [[ "$1" =~ 'help' ]]; then
-			echo ""
-			echo "ᓚᘏᗢ < This is my personal dotfiles."
-			echo ""
-			echo "Options for install.sh"
-			echo "================================================="
-			echo "init:     Core initialization"
-			echo "bundle:   Package installation"
-			echo "system:   MacOS system setting"
-			echo "dotfiles: Dotfiles installation"
-			echo "all:      All installations (except init)"
-			exit 0
-		fi
-
-		if [[ "$1" =~ 'all' ]]; then
-        		read -p "Your file will be overwritten(Y/n): " Ans;
-        		if [[ $Ans != 'Y' ]]; then echo 'Canceled' && exit; fi;
-			install_bundle
-			symlink_dotfiles
-			configure_system
-			exit 0
-		fi
-
 		if [[ "$1" =~ 'init' ]]; then
-			sudo -v
-			while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-			touch ${HOME}/.hushlogin
-			mkdir -p ${HOME}/work
-			mkdir -p ${HOME}/.ssh
-
-			xcode-select --install
-
-			ssh-keygen -t rsa -b 4096 -C "eyma22s.yu@gmail.com"
-			ssh-keyscan -t rsa github.com >> ${HOME}/.ssh/known_hosts
-			# API with password will be deprecated in Nov 2020.
-			# curl -u "ryuta69" --data "{\"title\":\"NewSSHKey\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
-
-			/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-			brew tap homebrew/bundle
-
-			brew install zsh
-			sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells'
-        		sudo chsh -s /usr/local/bin/zsh
-			chmod 755 /usr/local/share/zsh
-			chmod 755 /usr/local/share/zsh/site-functions
-
-			exec -l ${SHELL}
-			git clone https://github.com/ryuta69/dotfiles
-			cd dotfiles
+			initialize
+			exit 0
 		fi
 
 		if [[ "$1" =~ 'bundle' ]]; then
 			install_bundle
+			exit 0
 		fi
 
 		if [[ "$1" =~ 'dotfiles' ]]; then
 			symlink_dotfiles
+			exit 0
 		fi
 
 		if [[ "$1" =~ 'system' ]]; then
 			configure_system
+			exit 0
+		fi
+
+		if [[ "$1" =~ 'all' ]]; then
+			install_bundle
+			symlink_dotfiles
+			configure_system
+			exit 0
+		fi
+
+		if [[ "$1" =~ 'help' ]]; then
+			usage
+			exit 0
 		fi
 
 		shift
