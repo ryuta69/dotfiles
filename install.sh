@@ -151,28 +151,26 @@ install_bundle() {
 }
 
 initialize() {
-	touch ${HOME}/.hushlogin
-	mkdir -p ${HOME}/work
-	mkdir -p ${HOME}/.ssh
+	if ! ${TESTMODE}; then
+		xcode-select --install
+		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-	xcode-select --install
+		mkdir -p ${HOME}/.ssh
+		ssh-keygen -t rsa -b 4096 -C "eyma22s.yu@gmail.com"
+		ssh-keyscan -t rsa github.com >> ${HOME}/.ssh/known_hosts
+		# curl -u "ryuta69" --data "{\"title\":\"NewSSHKey\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
+	fi
 
-	ssh-keygen -t rsa -b 4096 -C "eyma22s.yu@gmail.com"
-	ssh-keyscan -t rsa github.com >> ${HOME}/.ssh/known_hosts
-	# curl -u "ryuta69" --data "{\"title\":\"NewSSHKey\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
-
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew tap homebrew/bundle
-
 	brew install zsh
 	sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells'
 	sudo chsh -s /usr/local/bin/zsh
 	chmod 755 /usr/local/share/zsh
 	chmod 755 /usr/local/share/zsh/site-functions
 
+	touch ${HOME}/.hushlogin
+	mkdir -p ${HOME}/work
 	exec -l ${SHELL}
-	git clone https://github.com/ryuta69/dotfiles
-	cd dotfiles
 }
 
 usage() {

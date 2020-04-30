@@ -14,15 +14,4 @@ jobs:
         curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --help
     - name: Configure all test
       run: |
-        brew tap homebrew/bundle
-        brew install zsh
-        sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells'
-        sudo chsh -s /usr/local/bin/zsh
-        chmod 755 /usr/local/share/zsh
-        chmod 755 /usr/local/share/zsh/site-functions
-        mkdir -p ~/.ssh
-        mkdir -p ~/work
-        touch ~/.hushlogin
-        ./bundle/install.zsh --force --test
-        ./dotfiles/install.zsh --force --test
-        ./system/install.zsh --force --test
+        /bin/bash install.sh --force --test --init --all
