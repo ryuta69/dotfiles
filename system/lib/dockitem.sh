@@ -1,4 +1,4 @@
-#! /usr/local/bin/zsh
+#! /bin/bash
 
 defaults delete com.apple.dock persistent-apps
 
@@ -46,7 +46,7 @@ PLIST="${HOME}/Library/Preferences/com.apple.dock.plist"
 /usr/libexec/PlistBuddy -c "Add persistent-apps array" ${PLIST}
 
 DNUM=$(expr ${dockitem[(I)$dockitem[-1]]} / 3)
-foreach idx ($(seq 0 $(expr ${DNUM} - 1)))
+for idx in $(seq 0 $(expr ${HNUM} - 1)); do
 	NAMEIDX=${dockitem[$(( ${idx} * 3 + 1 ))]}
 	ITEMIDX=${dockitem[$(( ${idx} * 3 + 2 ))]}
 	PATHIDX=${dockitem[$(( ${idx} * 3 + 3 ))]}
@@ -60,7 +60,7 @@ foreach idx ($(seq 0 $(expr ${DNUM} - 1)))
 		-c "Add persistent-apps:${idx}:tile-data:file-data:_CFURLString string ${PATHIDX}" \
 		-c "Add persistent-apps:${idx}:tile-data:file-data:_CFURLStringType integer 15" \
 		${PLIST}
-end
+done
 
 killall cfprefsd
 killall Dock

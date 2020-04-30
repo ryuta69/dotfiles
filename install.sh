@@ -1,123 +1,226 @@
 #!/bin/bash
 
-declare -i argc=0
-declare -a argv=()
+shopt -s dotglob
+EXEPATH=$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)
 
-while (( $# > 0 ))
-do
-	case $1 in
-	-*)
-		if [[ "$1" =~ 'help' ]]; then
-			echo ""
-			echo "ᓚᘏᗢ < This is my personal dotfiles."
-			echo ""
-			echo "Options for install.sh"
-			echo "================================================="
-			echo "init:     Core initialization"
-			echo "bundle:   Package installation"
-			echo "system:   MacOS system setting"
-			echo "dotfiles: Dotfiles installation"
-			echo "all:      All installations (except init)"
-			exit 0
-		fi
+## ----------------------------------------
+##	Functions
+## ----------------------------------------
+symlink_dotfiles() {
+	CWD=${EXEPATH}/dotfiles
 
-		if [[ "$1" =~ 'all' ]]; then
-        		read -p "Your file will be overwritten(Y/n): " Ans;
-        		if [[ $Ans != 'Y' ]]; then echo 'Canceled' && exit; fi;
-			./bundle/install.zsh --force
-			./dotfiles/install.zsh --force
-			./system/install.zsh --force
-			exit 0
-		fi
+	CRPATH="${HOME}/.cargo"                                && mkdir -p ${CRPATH}
+	NVPATH="${HOME}/.config/nvim"                          && mkdir -p ${NVPATH}
+	KRPATH="${HOME}/.config/karabiner"                     && mkdir -p ${KRPATH}
+	PLPATH="${HOME}/Library/Preferences"                   && mkdir -p ${PLPATH}
+	ALPATH="${HOME}/Library/Application Support/Alfred"    && mkdir -p ${ALPATH}
+	VSPATH="${HOME}/Library/Application Support/Code/User" && mkdir -p ${VSPATH}
+	SKIPLIST=(".library" ".vscode" ".node_template")
 
-		if [[ "$1" =~ 'init' ]]; then
-			sudo -v
-			while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+	for abspath in ${CWD}/*; do
+		filename=$(basename -- "$abspath");
+		if [[ ${SKIPLIST[@]} =~ $filename ]]; then continue; fi;
+		if [[ $filename = '.vsnip' ]]; then ln -sfnv $abspath ${VSPATH}/snippets; fi;
+		if [[ $filename = '.vimrc' ]]; then ln -sfnv $abspath ${NVPATH}/init.vim; fi;
+		if [[ $filename = '.rustcfg' ]]; then ln -sfnv $abspath ${CRPATH}/config; continue; fi;
+		ln -sfnv $abspath ${HOME};
+	done
 
-			touch ${HOME}/.hushlogin
-			mkdir -p ${HOME}/work
-			mkdir -p ${HOME}/.ssh
+	for abspath in ${CWD}/.vscode/*; do
+		ln -sfnv $abspath ${VSPATH};
+	done
 
-			xcode-select --install
+	for abspath in ${CWD}/.library/*; do
+		filename=$(basename -- "$abspath");
+		if [[ $filename = 'karabiner.json' ]]; then ln -sfnv $abspath ${KRPATH}; continue; fi;
+		if [[ $filename = 'Alfred.alfredpreferences' ]]; then ln -sfnv $abspath ${ALPATH}; continue; fi;
+		if [[ $filename = 'com.googlecode.iterm2.plist' ]]; then ln -sfnv $abspath ${PLPATH}; continue; fi;
+		if [[ $filename = 'com.knollsoft.Rectangle.plist' ]]; then ln -sfnv $abspath ${PLPATH}; continue; fi;
+	done
 
-			ssh-keygen -t rsa -b 4096 -C "eyma22s.yu@gmail.com"
-			ssh-keyscan -t rsa github.com >> ${HOME}/.ssh/known_hosts
-			# API with password will be deprecated in Nov 2020.
-			# curl -u "ryuta69" --data "{\"title\":\"NewSSHKey\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
+	if ! ${TESTMODE}; then
+		zinit self-update
+		source ${HOME}/.zshrc
+		vim  +'PlugInstall --sync' +qa
+		nvim +'PlugInstall --sync' +qa
+		/bin/bash ${HOME}/.tmux/plugins/tpm/scripts/install_plugins.sh
+	fi
+}
 
-			/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-			brew tap homebrew/bundle
+configure_system() {
+	CWD=${EXEPATH}/system
 
-			brew install zsh
-			sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells'
-        		sudo chsh -s /usr/local/bin/zsh
-			chmod 755 /usr/local/share/zsh
-			chmod 755 /usr/local/share/zsh/site-functions
+	osascript -e 'tell application "System Preferences" to quit' > /dev/null 2>&1
+	/bin/bash ${CWD}/macos.sh
 
-			exec -l ${SHELL}
-			git clone https://github.com/ryuta69/dotfiles
-			cd dotfiles
-		fi
+	if ! ${TESTMODE}; then
+		for app in \
+			"cfprefsd" \
+			"Activity Monitor" "Address Book" "Calendar" \
+			"Contacts" "Dock" "Finder" "Mail" "Messages" \
+			"SystemUIServer" "Terminal" "Transmission" "iCal"
+		do
+			killall ${app}
+		done
+	fi
+}
 
-		if [[ "$1" =~ 'bundle' ]]; then
-			./bundle/install.zsh
-		fi
+install_bundle() {
+	CWD=${EXEPATH}/bundle
 
-		if [[ "$1" =~ 'dotfiles' ]]; then
-			./dotfiles/install.zsh
-		fi
+	## ========== Brew Bundle ==========
+	brew upgrade
+	brew bundle --file ${CWD}/Brewfile
 
-		if [[ "$1" =~ 'system' ]]; then
-			./system/install.zsh
-		fi
+	## ========== Xcode ==========
+	## - Required to run after Brew,
+	## - because xcode is installed by Cask.
+	sudo xcodebuild -license accept
 
-		shift
-		;;
-	*)
-		((++argc))
-		argv=("${argv[@]}" "$1")
-		shift
-		;;
+	## ========== Npm ==========
+	## - npm list -g --depth 0 | sed '1d' | awk '{ print $2 }' | awk -F'@[0-9]' '{ print $1 }' > Npmfile
+	npm update -g npm
+	npm install -g $(cat ${CWD}/Npmfile)
+
+	## ========== Pip ==========
+	pip3 install --upgrade pip
+	pip3 install -r ${CWD}/Pipfile
+
+	## ========== Rust ==========
+	rustup-init -y
+	source ${HOME}/.cargo/env
+	rustup component add rls --toolchain stable
+	rustup component add rust-src --toolchain stable
+	rustup component add rls-preview --toolchain stable
+	rustup component add rust-analysis --toolchain stable
+
+	## ========== Perl ==========
+	cpanm App::cpanminus
+	cpanm Perl::Tidy
+
+	## ========== Git ==========
+	sudo ln -sfnv /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+
+	## ========== Zsh ==========
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+	zinit self-update
+	source ${HOME}/.zshrc
+
+	## ========== Vim ==========
+	curl -fLo ${HOME}/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	vim +'PlugInstall --sync' +qa
+	curl -fLo ${HOME}/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	nvim +'PlugInstall --sync' +qa
+
+	## ========== Tmux ==========
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	/bin/bash ${HOME}/.tmux/plugins/tpm/scripts/install_plugins.sh
+
+	## ========== MySQL ==========
+	# mysql_secure_installation
+
+	## ========== Gcloud ==========
+	curl https://sdk.cloud.google.com | /bin/bash -s -- --disable-prompts
+
+	## ========== iTerm2 ==========
+	curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
+
+	## ========== Anyenv ==========
+	if [ ! -d ${HOME}/.config/anyenv/anyenv-install ]; then
+		expect -c "
+			spawn anyenv install --init
+			expect \"Do you want to checkout ? \[y\/N\]: \"
+			send \"y\n\"
+			expect eof
+		"
+	fi
+
+	## ========== Docker ==========
+	mkdir -p ${HOME}/.zsh/completion
+	curl -L https://raw.githubusercontent.com/docker/compose/1.25.4/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
+	curl -L https://raw.githubusercontent.com/docker/machine/v0.16.0/contrib/completion/zsh/_docker-machine > ~/.zsh/completion/_docker-machine
+
+	## ========== VSCode ==========
+	## - code --list-extensions > Vsplug
+	if ! ${TESTMODE}; then
+		plugins=$(cat ${CWD}/Vsplug)
+		for plugin in ${plugins}; do
+			code --install-extension ${plugin}
+		done
+	fi
+}
+
+initialize() {
+	if ! ${TESTMODE}; then
+		xcode-select --install
+		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+		mkdir -p ${HOME}/.ssh
+		ssh-keygen -t rsa -b 4096 -C "eyma22s.yu@gmail.com"
+		ssh-keyscan -t rsa github.com >> ${HOME}/.ssh/known_hosts
+		# curl -u "ryuta69" --data "{\"title\":\"NewSSHKey\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
+	fi
+
+	brew tap homebrew/bundle
+	brew install zsh
+	sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells'
+	sudo chsh -s /usr/local/bin/zsh
+	chmod 755 /usr/local/share/zsh
+	chmod 755 /usr/local/share/zsh/site-functions
+
+	touch ${HOME}/.hushlogin
+	mkdir -p ${HOME}/work
+	exec -l ${SHELL}
+}
+
+usage() {
+	cat <<- EOS
+
+		ᓚᘏᗢ < This is my personal dotfiles.
+
+		Options for install.sh"
+		================================================="
+		init:     Core initialization"
+		bundle:   Package installation"
+		system:   MacOS system setting"
+		dotfiles: Dotfiles installation"
+		all:      All installations (except init)"
+
+	EOS
+}
+
+## ----------------------------------------
+##	Main
+## ----------------------------------------
+argv=$@
+
+if [[ ${argv[@]} =~ "--help" ]]; then
+	usage
+	exit 0
+fi
+
+if [[ ${argv[@]} =~ "--force" ]]; then
+	argv=( ${argv[@]/"--force"} )
+else
+	read -p "Your file will be overwritten. OK? (Y/n): " Ans;
+        [[ $Ans != 'Y' ]] && echo 'Canceled' && exit 0;
+fi
+
+if [[ ${argv[@]} =~ "--test" ]]; then
+        TESTMODE=true
+	argv=( ${argv[@]/"--test"} )
+fi
+
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+for opt in ${argv[@]}; do
+        case $opt in
+		--init)     initialize; ;;
+		--bundle)   install_bundle; ;;
+		--system)   configure_system; ;;
+		--dotfiles) symlink_dotfiles; ;;
+		--all)      install_bundle; symlink_dotfiles; configure_system; ;;
+		*)          echo "invalid option $1"; ;;
 	esac
 done
-
-## ----------------------------------------
-##	Makefile
-##	- This initialize was used to be made with Makefile.
-##	- However, I noticed that make doesn't exist in default OS.
-##	- I leave code here ust for reference.
-## ----------------------------------------
-
-# help:
-# 	@echo "\nᓚᘏᗢ < This is my personal dotfiles.\n"
-# 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "%-10s: %s\n", $$1, $$2}'
-
-# init: ## install dependencies.
-# 	mkdir -p ~/.ssh
-# 	mkdir -p ~/work
-# 	mkdir -p ~/.config/nvim
-# 	xcode-select --install
-# 	ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-# 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-# 	brew install zsh
-# 	sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells'
-# 	sudo chsh -s /usr/local/bin/zsh
-# 	chmod 755 /usr/local/share/zsh
-# 	chmod 755 /usr/local/share/zsh/site-functions
-# 	brew tap homebrew/bundle
-# 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# bundle: ## install package manager files.
-# 	./bundle/install.zsh
-
-# dotfiles: ## install dotfiles.
-# 	./dotfiles/install.zsh
-
-# system: ## install MacOS settings.
-# 	./system/install.zsh
-
-# all: ## install all settings.
-# 	@echo "Your file will be overwritten(Y/n)" && read ans && [ $${ans:-N} = Y ]
-# 	./bundle/install.zsh --force
-# 	./dotfiles/install.zsh --force
-# 	./system/install.zsh --force
