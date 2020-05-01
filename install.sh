@@ -73,8 +73,6 @@ install_bundle() {
 	brew bundle --file ${CWD}/Brewfile
 
 	## ========== Xcode ==========
-	## - Required to run after Brew,
-	## - because xcode is installed by Cask.
 	sudo xcodebuild -license accept
 
 	## ========== Npm ==========
@@ -117,6 +115,8 @@ install_bundle() {
 
 	## ========== MySQL ==========
 	# mysql_secure_installation
+	# - This can be automated by expect, but can't be public.
+	# - [Ref] https://gist.github.com/Mins/4602864
 
 	## ========== Gcloud ==========
 	curl https://sdk.cloud.google.com | /bin/bash -s -- --disable-prompts
