@@ -95,8 +95,7 @@ install_bundle() {
 	rustup component add rust-analysis --toolchain stable
 
 	## ========== Perl ==========
-	cpanm App::cpanminus
-	cpanm Perl::Tidy
+	cpanm $(cat ${CWD}/Cpanfile)
 
 	## ========== Git ==========
 	sudo ln -sfnv /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
