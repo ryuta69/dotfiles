@@ -15,6 +15,7 @@ export TERM=xterm-256color
 export CVSEDITOR="${EDITOR}"
 export SVN_EDITOR="${EDITOR}"
 export GIT_EDITOR="${EDITOR}"
+export SLACK_DEVELOPER_MENU=true
 export HOMEBREW_NO_AUTO_UPDATE=1
 export PATH="$HOME/.anyenv/bin:$PATH"
 export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH
