@@ -1227,3 +1227,12 @@ defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
 ## ========== Disable System Preferences Red Bubble Notification ==========
 defaults write com.apple.systempreferences AttentionPrefBundleIDs 0
+
+## ========== Crash Reporter to be in Notification but Popup Window ==========
+defaults write com.apple.CrashReporter UseUNC 1
+
+## ========== Speed up Window Resize Animation ==========
+defaults write -g NSWindowResizeTime -float 0.001
+
+## ========== Disable Animation in Finder ==========
+defaults write com.apple.finder DisableAllAnimations -bool true
