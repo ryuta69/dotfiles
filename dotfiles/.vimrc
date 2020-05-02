@@ -67,7 +67,6 @@ nn + <C-a>
 nn - <C-x>
 nn <Up> gk
 nn <Down> gj
-nn <Esc> :noh<CR>
 nn <Leader>t :tabnew<CR>
 nn <Leader>1 :diffget LOCAL<CR>
 nn <Leader>2 :diffget BASE<CR>
@@ -75,7 +74,7 @@ nn <Leader>3 :diffget REMOTE<CR>
 nn <Leader>code :!code %:p<CR>
 nn <Leader>dir  :!code -r %:p:h<CR>
 nn <Leader>term :split \| terminal<CR>
-map <Leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+map <Leader>\   :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 "" ----------------------------------------
 ""	PluginSetting
