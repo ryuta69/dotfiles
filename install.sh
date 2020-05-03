@@ -133,6 +133,9 @@ install_bundle() {
 			expect eof
 		"
 	fi
+	anyenv install nodenv
+	nodenv install 13.0.0
+	nodenv global  13.0.0
 
 	## ========== Docker ==========
 	mkdir -p ${HOME}/.zsh/completion

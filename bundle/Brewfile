@@ -38,12 +38,10 @@ brew "zsh-completions"
 ## ========== Language ==========
 brew "go"
 brew "gcc"
-brew "node", link: true
 brew "perl"
 brew "ruby"
 brew "cmake"
 brew "cpanm"
-brew "rbenv"
 brew "python"
 brew "pipenv"
 brew "rustup"
