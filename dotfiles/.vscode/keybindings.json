@@ -80,5 +80,23 @@
 		"key": "alt+cmd+l",
 		"command": "-toggleFindInSelection",
 		"when": "editorFocus"
+	},
+	{
+		"key": "alt+cmd+r",
+		"command": "rerunSearchEditorSearch",
+		"when": "inSearchEditor"
+	},
+	{
+		"key": "shift+cmd+r",
+		"command": "-rerunSearchEditorSearch",
+		"when": "inSearchEditor"
+	},
+	{
+		"key": "shift+cmd+r",
+		"command": "editor.action.startFindReplaceAction"
+	},
+	{
+		"key": "alt+cmd+f",
+		"command": "-editor.action.startFindReplaceAction"
 	}
 ]
