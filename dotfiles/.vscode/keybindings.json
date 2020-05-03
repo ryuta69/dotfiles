@@ -52,5 +52,33 @@
 		"key": "ctrl+p",
 		"command": "workbench.action.terminal.focusPrevious",
 		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+alt+f",
+		"command": "workbench.action.findInFiles"
+	},
+	{
+		"key": "shift+cmd+f",
+		"command": "-workbench.action.findInFiles"
+	},
+	{
+		"key": "ctrl+alt+f",
+		"command": "workbench.view.search",
+		"when": "!searchViewletVisible"
+	},
+	{
+		"key": "shift+cmd+f",
+		"command": "-workbench.view.search",
+		"when": "!searchViewletVisible"
+	},
+	{
+		"key": "shift+cmd+f",
+		"command": "toggleFindInSelection",
+		"when": "editorFocus"
+	},
+	{
+		"key": "alt+cmd+l",
+		"command": "-toggleFindInSelection",
+		"when": "editorFocus"
 	}
 ]
