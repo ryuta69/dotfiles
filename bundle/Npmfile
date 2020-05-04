@@ -13,5 +13,6 @@ carbon-now-cli
 firebase-tools
 create-nuxt-app
 create-react-app
+create-svelte-app
 eslint-config-prettier
 eslint-plugin-prettier

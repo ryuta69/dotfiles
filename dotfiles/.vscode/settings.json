@@ -87,7 +87,7 @@
 	"terminal.integrated.fontSize": 13,
 	"terminal.external.osxExec": "iTerm.app",
 	"terminal.integrated.cursorStyle": "line",
-	"terminal.integrated.fontFamily": "Hack Nerd Font",
+	"terminal.integrated.fontFamily": "Noto Mono for Powerline",
 	"terminal.integrated.shell.osx": "/usr/local/bin/zsh",
 	"git.enabled": false,
 	"[go]": {
