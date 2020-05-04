@@ -189,4 +189,5 @@
 	},
 	"window.zoomLevel": -1,
 	"workbench.activityBar.visible": false,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
 }
