@@ -560,11 +560,11 @@ sudo pmset -c powernap 0
 ## <Tab> Keyboard
 # Key Repeat
 # params: 15 is the fastest
-defaults write .GlobalPreferences InitialKeyRepeat -int 15
+defaults write .GlobalPreferences InitialKeyRepeat -int 10
 
 # Delay Until Repeat
 # params: 2 is the fastest
-defaults write .GlobalPreferences KeyRepeat -int 2
+defaults write .GlobalPreferences KeyRepeat -int 1
 
 # Adjust keyboard brightness in low light
 # [ToDo]
@@ -629,7 +629,12 @@ osascript ${EXEPATH}/lib/touchbar.applescript
 # [ToDo]
 
 # Use smart quotes and dashes
-# [ToDo]
+# 1: Checked
+# defaults write .GlobalPreferences NSAutomaticDashSubstitutionEnabled -bool true
+# defaults write .GlobalPreferences NSAutomaticQuoteSubstitutionEnabled -bool true
+# 2: Unchecked
+defaults write .GlobalPreferences NSAutomaticDashSubstitutionEnabled -bool false
+defaults write .GlobalPreferences NSAutomaticQuoteSubstitutionEnabled -bool false
 
 ## <Tab> Shortcuts
 # Full Keyboard Access
