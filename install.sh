@@ -77,6 +77,9 @@ install_bundle() {
 
 	## ========== Npm ==========
 	## - npm list -g --depth 0 | sed '1d' | awk '{ print $2 }' | awk -F'@[0-9]' '{ print $1 }' > Npmfile
+	anyenv install nodenv
+	nodenv install 13.0.0
+	nodenv global  13.0.0
 	npm update -g npm
 	npm install -g $(cat ${CWD}/Npmfile)
 
@@ -123,19 +126,6 @@ install_bundle() {
 
 	## ========== iTerm2 ==========
 	curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
-
-	## ========== Anyenv ==========
-	if [ ! -d ${HOME}/.config/anyenv/anyenv-install ]; then
-		expect -c "
-			spawn anyenv install --init
-			expect \"Do you want to checkout ? \[y\/N\]: \"
-			send \"y\n\"
-			expect eof
-		"
-	fi
-	anyenv install nodenv
-	nodenv install 13.0.0
-	nodenv global  13.0.0
 
 	## ========== Docker ==========
 	mkdir -p ${HOME}/.zsh/completion
