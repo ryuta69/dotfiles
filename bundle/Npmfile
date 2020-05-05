@@ -1,5 +1,6 @@
 npm
 yarn
+husky
 eslint
 expect
 nodemon
@@ -7,6 +8,7 @@ flow-bin
 prettier
 @vue/cli
 gatsby-cli
+lint-staged
 terminalizer
 @angular/cli
 carbon-now-cli

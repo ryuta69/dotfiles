@@ -15,7 +15,7 @@ symlink_dotfiles() {
 	PLPATH="${HOME}/Library/Preferences"                   && mkdir -p ${PLPATH}
 	ALPATH="${HOME}/Library/Application Support/Alfred"    && mkdir -p ${ALPATH}
 	VSPATH="${HOME}/Library/Application Support/Code/User" && mkdir -p ${VSPATH}
-	SKIPLIST=(".library" ".vscode" ".node_template")
+	SKIPLIST=(".library" ".vscode")
 
 	for abspath in ${CWD}/*; do
 		filename=$(basename -- "$abspath");

@@ -1,0 +1,100 @@
+# yarn add --dev husky lint-staged eslint eslint-config-airbnb prettier
+
+## ========== package.json ==========
+{
+	"scripts": {
+		"prettier": "prettier \"**/*.{js,jsx,css,json}\"",
+		"format": "npm run prettier -- --write",
+		"lint": "eslint src",
+		"lint:fix": "npm run lint -- --fix",
+		"validate": "npm run prettier -- --list-different && npm run lint"
+	},
+	"husky":{
+		"hooks":{
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged":{
+		"**/*.{js,jsx,css}": ["npm run format","npm run lint:fix", "git add"]
+	}
+}
+
+## ========== .eslint.js ==========
+module.exports = {
+	"extends": [
+		"eslint:recommended",
+		"plugin:prettier/recommended"
+	],
+	rules: {
+		"prettier/prettier": [
+			"error", {
+				"semi": false,
+				"tabWidth": 4,
+				"useTabs": true,
+				"singleQuote": true,
+				"trailingComma": "es5",
+				"jsxSingleQuote": true,
+				"jsxBracketSameLine": true
+			}
+		],
+	},
+};
+
+## ========== .prettierrc.js ==========
+module.exports = {
+	semi: false,
+	tabWidth: 4,
+	useTabs: true,
+	singleQuote: true,
+	trailingComma: "es5",
+	jsxSingleQuote: true,
+	jsxBracketSameLine: true
+}
+
+## ========== stylelint.config.json ==========
+module.exports = {
+	extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
+	plugins: ['stylelint-scss'],
+	rules: {
+		'at-rule-no-unknown': null,
+		'scss/at-rule-no-unknown': true
+	}
+}
+
+## ========== tsconfig.json ==========
+{
+	"compilerOptions": {
+		"target": "es2018",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"lib": [
+			"esnext",
+			"esnext.asynciterable",
+			"dom"
+		],
+		"strict": true,
+		"noEmit": true,
+		"allowJs": true,
+		"sourceMap": true,
+		"noImplicitThis": true,
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+		"experimentalDecorators": true,
+		"baseUrl": ".",
+		"paths": {
+			"~/*": [
+				"./*"
+			],
+			"@/*": [
+				"./*"
+			]
+		},
+		"types": [
+			"@types/node"
+		]
+	},
+	"exclude": [
+		"node_modules"
+	]
+}
+
