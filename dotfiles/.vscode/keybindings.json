@@ -98,5 +98,32 @@
 	{
 		"key": "alt+cmd+f",
 		"command": "-editor.action.startFindReplaceAction"
+	},
+	{
+		"key": "ctrl+t",
+		"command": "-editor.action.transposeLetters",
+		"when": "textInputFocus && !editorReadonly"
+	},
+	{
+		"key": "ctrl+t",
+		"command": "workbench.panel.terminal.focus"
+	},
+	{
+		"key": "ctrl+e",
+		"command": "-cursorLineEnd",
+		"when": "textInputFocus"
+	},
+	{
+		"key": "ctrl+e",
+		"command": "workbench.action.focusActiveEditorGroup"
+	},
+	{
+		"key": "cmd+k e",
+		"command": "-workbench.files.action.focusOpenEditorsView",
+		"when": "workbench.explorer.openEditorsView.active"
+	},
+	{
+		"key": "ctrl+s",
+		"command": "workbench.explorer.fileView.focus"
 	}
 ]
