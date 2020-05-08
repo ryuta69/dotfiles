@@ -80,8 +80,8 @@ map <Leader>\   :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 ""	PluginSetting
 "" ----------------------------------------
 "" ========== AyuVim ==========
-colo ayu
 let ayucolor='dark'
+colo ayu
 hi Normal      guibg=Black
 hi EndOfBuffer ctermfg=0 guifg=bg
 hi DiffAdd     gui=NONE  guifg=NONE    guibg=#003366
