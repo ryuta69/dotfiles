@@ -77,9 +77,6 @@ install_bundle() {
 
 	## ========== Npm ==========
 	## - npm list -g --depth 0 | sed '1d' | awk '{ print $2 }' | awk -F'@[0-9]' '{ print $1 }' > Npmfile
-	anyenv install nodenv
-	nodenv install 13.0.0
-	nodenv global  13.0.0
 	npm update -g npm
 	npm install -g $(cat ${CWD}/Npmfile)
 

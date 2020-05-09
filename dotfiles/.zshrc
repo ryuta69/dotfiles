@@ -203,11 +203,6 @@ export FZF_DEFAULT_OPTS='--reverse --color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ## ----------------------------------------
-##	Anyenv
-## ----------------------------------------
-eval "$(anyenv init -)"
-
-## ----------------------------------------
 ##	iTerm2
 ## ----------------------------------------
 [ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
