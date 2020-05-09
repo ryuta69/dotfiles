@@ -49,6 +49,8 @@
 	sp  = !git stash pop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
 	sd  = !git stash drop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
 	spr = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
+	sk  = update-index --skip-worktree
+	usk = update-index --no-skip-worktree
 	vi  = !nvim ~/.gitconfig
 	lf  = !git lfs install
 	ulf = !git lfs uninstall && touch **/* && git commit -a
