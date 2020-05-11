@@ -462,9 +462,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 372 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 41 1680 986 0 0 1680 1027 </string>
+	<string>840 42 840 985 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 643 570 384 0 0 1680 1027 </string>
+	<string>868 344 564 384 0 0 1680 1027 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>897 444 564 384 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_905E02DC-EC49-4A6B-9EE6-E73A88A9B2DB</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_905E02DC-EC49-4A6B-9EE6-E73A88A9B2DB_selection</key>
@@ -1181,7 +1183,7 @@
 			<key>Show Mark Indicators</key>
 			<false/>
 			<key>Show Status Bar</key>
-			<true/>
+			<false/>
 			<key>Silence Bell</key>
 			<false/>
 			<key>Status Bar Layout</key>
@@ -1398,7 +1400,7 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1680, 1050}}</string>
 		<key>topLeft</key>
-		<string>{403, 827}</string>
+		<string>{84, 866}</string>
 	</dict>
 	<key>NoSyncInstallUtilitiesPackage</key>
 	<true/>
@@ -2268,7 +2270,7 @@
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
 	<key>TerminalMargin</key>
-	<integer>5</integer>
+	<integer>2</integer>
 	<key>TerminalVMargin</key>
 	<integer>0</integer>
 	<key>UseBorder</key>
