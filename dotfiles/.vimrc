@@ -82,7 +82,7 @@ map <Leader>\   :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 "" ========== AyuVim ==========
 let ayucolor='dark'
 colo ayu
-hi Normal      guibg=Black
+hi Normal      guibg=#0A0E14
 hi EndOfBuffer ctermfg=0 guifg=bg
 hi DiffAdd     gui=NONE  guifg=NONE    guibg=#003366
 hi DiffDelete  gui=bold  guifg=#660000 guibg=#660000

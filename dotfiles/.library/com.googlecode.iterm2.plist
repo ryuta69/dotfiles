@@ -411,7 +411,7 @@
 	<key>MinimumWeightDifferenceForBoldFont</key>
 	<integer>4</integer>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Downloads/ayu-iTerm-master</string>
+	<string>~/Documents</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -697,13 +697,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.078431372549019607</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.054901960784313725</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.039215686274509803</real>
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>
@@ -820,7 +820,7 @@
 			<key>Horizontal Spacing</key>
 			<real>1</real>
 			<key>Icon</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Jobs to Ignore</key>
@@ -1181,7 +1181,7 @@
 			<key>Show Mark Indicators</key>
 			<false/>
 			<key>Show Status Bar</key>
-			<false/>
+			<true/>
 			<key>Silence Bell</key>
 			<false/>
 			<key>Status Bar Layout</key>
@@ -1590,7 +1590,7 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1680, 1050}}</string>
 		<key>topLeft</key>
-		<string>{596, 895}</string>
+		<string>{39, 728}</string>
 	</dict>
 	<key>NoSyncInstallUtilitiesPackage</key>
 	<true/>
@@ -1601,7 +1601,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>602972547.35146105</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>171</integer>
+	<integer>172</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
