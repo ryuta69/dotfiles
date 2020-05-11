@@ -124,6 +124,16 @@ install_bundle() {
 	## ========== iTerm2 ==========
 	curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
 
+	## ========== Anyenv ==========
+	if [ ! -d ${HOME}/.config/anyenv/anyenv-install ]; then
+		expect -c "
+			spawn anyenv install --init
+			expect \"Do you want to checkout ? \[y\/N\]: \"
+			send \"y\n\"
+			expect eof
+		"
+	fi
+
 	## ========== Docker ==========
 	mkdir -p ${HOME}/.zsh/completion
 	curl -L https://raw.githubusercontent.com/docker/compose/1.25.4/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
