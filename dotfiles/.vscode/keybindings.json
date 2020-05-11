@@ -125,5 +125,13 @@
 	{
 		"key": "ctrl+s",
 		"command": "workbench.explorer.fileView.focus"
+	},
+	{
+		"key": "ctrl+x",
+		"command": "workbench.view.extensions"
+	},
+	{
+		"key": "shift+cmd+x",
+		"command": "-workbench.view.extensions"
 	}
 ]
