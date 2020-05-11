@@ -464,9 +464,9 @@
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>840 42 840 985 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>868 344 564 384 0 0 1680 1027 </string>
+	<string>840 42 840 985 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>897 444 564 384 0 0 1680 1027 </string>
+	<string>897 465 564 363 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_905E02DC-EC49-4A6B-9EE6-E73A88A9B2DB</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_905E02DC-EC49-4A6B-9EE6-E73A88A9B2DB_selection</key>
@@ -1400,7 +1400,7 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1680, 1050}}</string>
 		<key>topLeft</key>
-		<string>{84, 866}</string>
+		<string>{0, 876}</string>
 	</dict>
 	<key>NoSyncInstallUtilitiesPackage</key>
 	<true/>
@@ -2270,9 +2270,9 @@
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
 	<key>TerminalMargin</key>
-	<integer>2</integer>
+	<integer>5</integer>
 	<key>TerminalVMargin</key>
-	<integer>0</integer>
+	<integer>5</integer>
 	<key>UseBorder</key>
 	<false/>
 	<key>VisualIndicatorForEsc</key>
