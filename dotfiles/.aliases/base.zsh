@@ -19,5 +19,5 @@ sshp() {
 dlgr() {
 	read repo"?type <author>/<repo> : ";
 	URL=`curl -s "${repo}" | grep "browser_download_url" | cut -d '"' -f 4 | fzf`
-	curl -O ${URL}
+	curl -sOL ${URL}
 }
