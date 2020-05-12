@@ -17,7 +17,6 @@ export SVN_EDITOR="${EDITOR}"
 export GIT_EDITOR="${EDITOR}"
 export SLACK_DEVELOPER_MENU=true
 export HOMEBREW_NO_AUTO_UPDATE=1
-export PATH="$HOME/.anyenv/bin:$PATH"
 export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 [ -f ~/.extension_settings.zsh ] && source ~/.extension_settings.zsh
@@ -180,7 +179,7 @@ vigo() {
 }
 
 ## ========== Ripgrep ==========
-alias rg="rg --hidden -g '!.git' -g '!.node_modules' --max-columns 200 -i"
+alias rg="rg --hidden -g '!.git' -g '!node_modules' --max-columns 200 -i"
 rrg() {
 	keyword=$1;
 	[ -z $2 ] && matches=`rg -il ${keyword}` || matches=`rg --files | rg -i ${keyword}`;
@@ -198,14 +197,15 @@ alias soal='source `ls -d ~/.aliases/* | fzf --preview "bat --color=always --sty
 ## ----------------------------------------
 ##	FZF
 ## ----------------------------------------
-export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git' -g '!.node_modules' --max-columns 200"
+export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git' -g '!node_modules' --max-columns 200"
 export FZF_DEFAULT_OPTS='--reverse --color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229 --color info:150,prompt:110,spinner:150,pointer:167,marker:174'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ## ----------------------------------------
 ##	Anyenv
 ## ----------------------------------------
-eval "$(anyenv init -)"
+# export PATH="$HOME/.anyenv/bin:$PATH"
+# eval "$(anyenv init -)"
 
 ## ----------------------------------------
 ##	iTerm2

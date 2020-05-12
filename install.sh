@@ -125,14 +125,14 @@ install_bundle() {
 	curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
 
 	## ========== Anyenv ==========
-	if [ ! -d ${HOME}/.config/anyenv/anyenv-install ]; then
-		expect -c "
-			spawn anyenv install --init
-			expect \"Do you want to checkout ? \[y\/N\]: \"
-			send \"y\n\"
-			expect eof
-		"
-	fi
+	# if [ ! -d ${HOME}/.config/anyenv/anyenv-install ]; then
+	# 	expect -c "
+	# 		spawn anyenv install --init
+	# 		expect \"Do you want to checkout ? \[y\/N\]: \"
+	# 		send \"y\n\"
+	# 		expect eof
+	# 	"
+	# fi
 
 	## ========== Docker ==========
 	mkdir -p ${HOME}/.zsh/completion
@@ -142,7 +142,7 @@ install_bundle() {
 	## ========== VSCode ==========
 	## - code --list-extensions > Vsplug
 	if ! ${TESTMODE}; then
-		plugins=$(cat ${CWD}/Vsplug)
+		plugins=($(cat ${CWD}/Vsplug))
 		for plugin in ${plugins}; do
 			code --install-extension ${plugin}
 		done
