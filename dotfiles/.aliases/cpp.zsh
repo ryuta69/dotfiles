@@ -1,2 +1,2 @@
-function runc() { ./main $@; }
-function goc() { g++ main.cpp -o main; ./main $@; }
+runc() { ./main $@; }
+goc() { g++ main.cpp -o main; ./main $@; }

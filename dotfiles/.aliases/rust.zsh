@@ -1,4 +1,4 @@
-function cnew() {
+cnew() {
 	cargo new $1 --bin;
 }
 alias cbl='cargo build'

@@ -3,7 +3,7 @@ alias hrls='heroku apps'
 alias hrin='heroku login'
 alias hrrm='heroku apps:destroy --app'
 alias hrcm='git add -A && git commit && git push heroku master'
-function hrcr() {
+hrcr() {
     git init;
     git add .;
     git commit;

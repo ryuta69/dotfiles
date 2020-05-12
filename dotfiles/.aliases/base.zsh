@@ -8,7 +8,7 @@ alias zsup='zinit self-update && zinit update'
 ## ----------------------------------------
 ##	ssh
 ## ----------------------------------------
-function sshp() {
+sshp() {
 	HOST=grep "Host" ~/.ssh/config | fzf | awk "{ print \$2 }";
 	ssh ${HOST};
 }
@@ -16,7 +16,8 @@ function sshp() {
 ## ----------------------------------------
 ##	Install Github Release
 ## ----------------------------------------
-function dlgr() {
-	URL=`curl -s "${@}" | grep "browser_download_url" | cut -d '"' -f 4 | fzf`
+dlgr() {
+	read repo"?type <author>/<repo> : ";
+	URL=`curl -s "${repo}" | grep "browser_download_url" | cut -d '"' -f 4 | fzf`
 	curl -O ${URL}
 }
