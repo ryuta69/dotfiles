@@ -91,6 +91,7 @@ install_bundle() {
 	rustup component add rust-src --toolchain stable
 	rustup component add rls-preview --toolchain stable
 	rustup component add rust-analysis --toolchain stable
+	cargo install -f --git https://github.com/jez/as-tree
 
 	## ========== Perl ==========
 	cpanm $(cat ${CWD}/Cpanfile)
