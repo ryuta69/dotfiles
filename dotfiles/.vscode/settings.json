@@ -30,7 +30,7 @@
 	"editor.quickSuggestions": {
 		"other": true,
 		"strings": true,
-		"comments": true,
+		"comments": true
 	},
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": true
@@ -64,7 +64,7 @@
 		"php": "html",
 		"vue-html": "html",
 		"javascript": "javascriptreact",
-		"typescript": "typescriptreact",
+		"typescript": "typescriptreact"
 	},
 	"eslint.probe": [
 		"vue",
@@ -73,8 +73,9 @@
 		"javascript",
 		"javascriptreact",
 		"typescript",
-		"typescriptreact",
+		"typescriptreact"
 	],
+	"explorer.confirmDelete": false,
 	"explorer.openEditors.visible": 0,
 	"files.autoSave": "afterDelay",
 	"files.trimFinalNewlines": true,
@@ -101,9 +102,7 @@
 	},
 	"go.buildOnSave": "package",
 	"go.formatTool": "goimports",
-	"go.formatFlags": [
-		"-w"
-	],
+	"go.formatFlags": ["-w"],
 	"go.gocodeAutoBuild": true,
 	"go.installDependenciesWhenBuilding": true,
 	"go.languageServerExperimentalFeatures": {
@@ -188,9 +187,8 @@
 		"sideBarSectionHeader.background": "#0A0E14",
 		"panel.background": "#0A0E14",
 		"panelTitle.activeForeground": "#F0F0F0",
-		"panelTitle.inactiveForeground": "#626A73",
+		"panelTitle.inactiveForeground": "#626A73"
 	},
 	"window.zoomLevel": -1,
-	"workbench.activityBar.visible": false,
-	"explorer.confirmDelete": false
+	"workbench.activityBar.visible": false
 }
