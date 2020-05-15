@@ -8,6 +8,7 @@ flow-bin
 prettier
 @vue/cli
 fkill-cli
+typescript
 gatsby-cli
 lint-staged
 terminalizer

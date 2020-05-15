@@ -1,12 +1,15 @@
 
 
 
-# Add():
-# Delete():
-# Feature():
-# Fix():
-# Refactor():
-# Doc():
+# Add
+# Delete
+# Feature
+# Fix
+# Refactor
+# Update
+# Doc
+# Merge
+# Initial Commit
 #
 # <Type>(<file/func/arg>): <Task Name>
 # What you cared and how you've changed.

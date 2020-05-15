@@ -1,10 +1,10 @@
 #! /usr/local/bin/zsh
 
-pattern='^(Add|Delete|Feature|Fix|Refactor|Doc)\([\S|\s]+\): [\S|\s]+[^.]$|^Merge|^Initial Commit'
+pattern='^(Add|Delete|Feature|Fix|Refactor|Update|Doc) [\S|\s]+[^.]$|^Merge|^Initial Commit'
 
 if ! grep -P ${pattern} $1; then
 	echo "Your commit message doesn't match pattern. Follow the pattern below."
-	echo "<Type>(<file/func/arg>): <Task Name>"
+	echo "<Type> <Task Name>(without period)"
 	echo ""
 	echo "<Body: What you cared and how you've changed.>"
 	exit 1

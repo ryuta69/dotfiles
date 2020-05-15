@@ -191,5 +191,6 @@
 		"panelTitle.inactiveForeground": "#626A73",
 	},
 	"window.zoomLevel": -1,
-	"workbench.activityBar.visible": false
+	"workbench.activityBar.visible": false,
+	"explorer.confirmDelete": false
 }
