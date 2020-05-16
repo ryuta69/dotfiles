@@ -1,6 +1,7 @@
 adpyke.codesnap
 ardenivanov.svelte-intellisense
 Atishay-Jain.All-Autocomplete
+austin.code-gnu-global
 bungcip.better-toml
 christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
@@ -28,10 +29,13 @@ mrmlnc.vscode-scss
 ms-azuretools.vscode-docker
 ms-vscode.cpptools
 ms-vscode.Go
+ms-vscode.vscode-typescript-tslint-plugin
 naumovs.color-highlight
 octref.vetur
 PKief.material-icon-theme
 rust-lang.rust
 streetsidesoftware.code-spell-checker
 teabyii.ayu
+VisualStudioExptTeam.vscodeintellicode
 yzhang.markdown-all-in-one
+Zignd.html-css-class-completion
