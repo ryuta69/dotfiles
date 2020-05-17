@@ -1,0 +1,25 @@
+// It doesn't work just at placing in home directory. Copy or reference it to project root directory.
+{
+	"compilerOptions": {
+		"target": "es6",
+		"module": "commonjs",
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"lib": ["DOM", "ES6", "DOM.Iterable", "scripthost"],
+		"strict": true,
+		"sourceMap": true,
+		"skipLibCheck": true,
+		"noEmitOnError": true,
+		"noUnusedLocals": true,
+		"removeComments": true,
+		"esModuleInterop": true,
+		"noImplicitReturns": true,
+		"noUnusedParameters": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"forceConsistentCasingInFileNames": true
+	},
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules", "**/*.dev.ts"]
+}
+
