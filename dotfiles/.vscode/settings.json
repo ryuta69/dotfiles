@@ -13,7 +13,6 @@
 	"editor.tabSize": 8,
 	"editor.fontSize": 14,
 	"editor.wordWrap": "on",
-	// "editor.glyphMargin": false,
 	"editor.formatOnSave": true,
 	"editor.insertSpaces": false,
 	"editor.tabCompletion": "on",
@@ -87,6 +86,17 @@
 		"**/node_modules": true
 	},
 	"javascript.format.semicolons": "insert",
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"type": "node",
+				"request": "launch",
+				"name": "Launch Program",
+				"program": "${file}"
+			}
+		]
+	},
 	"terminal.integrated.fontSize": 12,
 	"terminal.external.osxExec": "iTerm.app",
 	"terminal.integrated.cursorStyle": "line",
