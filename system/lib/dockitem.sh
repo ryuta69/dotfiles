@@ -16,7 +16,6 @@ dockitem=(
 	"Transmit"            "com.panic.Transmit"                        "file:///Applications/Transmit.app/"
 	"VirtualBox"          "org.virtualbox.app.VirtualBox"             "file:///Applications/VirtualBox.app/"
 	"QuickTime Player"    "com.apple.QuickTimePlayerX"                "file:///Applications/QuickTime%20Player.app/"
-	"Evernote"            "com.evernote.Evernote"                     "file:///Applications/Evernote.app/"
 	"MongoDB Compass"     "com.mongodb.compass"                       "file:///Applications/MongoDB%20Compass.app/"
 	"Android Studio"      "com.google.android.studio"                 "file:///Applications/Android%20Studio.app/"
 	"LINE"                "jp.naver.line.mac"                         "file:///Applications/LINE.app/"
@@ -40,6 +39,7 @@ dockitem=(
 	"GPG Keychain"        "org.gpgtools.gpgkeychain"                  "file:///Applications/GPG%20Keychain.app/"
 	"System Preferences"  "com.apple.systempreferences"               "file:///Applications/System%20Preferences.app/"
 	"Script Editor"       "com.apple.ScriptEditor2"                   "file:///Applications/Utilities/Script%20Editor.app/"
+	"Notion"              "notion.id"                                 "file:///Applications/Notion.app/"
 )
 
 PLIST="${HOME}/Library/Preferences/com.apple.dock.plist"
