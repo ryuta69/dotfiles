@@ -60,6 +60,7 @@
 	hooksPath = ~/.git_template
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
+	pager = delta --theme='Monokai Extended'
 
 [color]
 	ui = true
@@ -108,6 +109,9 @@
 [gpg]
 	program = gpg2
 
+[interactive]
+	diffFilter = delta --color-only
+
 [merge]
 	ff            = false
 	conflictstyle = diff3
@@ -118,11 +122,6 @@
 
 [mergetool "vimdiff"]
 	path   = nvim
-
-[pager]
-	log  = diff-highlight | less
-	show = diff-highlight | less
-	diff = diff-highlight | less
 
 [pull]
 	ff = only
