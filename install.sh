@@ -7,7 +7,7 @@ EXEPATH=$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)
 ##	Functions
 ## ----------------------------------------
 symlink_dotfiles() {
-	CWD=${EXEPATH}/dotfiles
+	CWD="${EXEPATH}"/dotfiles
 
 	CRPATH="${HOME}/.cargo"                                && mkdir -p ${CRPATH}
 	NVPATH="${HOME}/.config/nvim"                          && mkdir -p ${NVPATH}
