@@ -24,6 +24,7 @@
 	dft = difftool
 	g   = !ghq get
 	lg  = log
+	lgb = !git log --oneline --first-parent $1..$2
 	lgp = log -p
 	lgs = log --stat
 	lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cs) %C(bold blue)<%an>%Creset' --abbrev-commit
@@ -42,6 +43,8 @@
 	rs  = reset
 	rsh = reset --hard
 	rmg = !rm -rf `ghq list -p | fzf`
+	rv  = revert
+	rvr = !git revert $1^..$2
 	st  = status
 	ss  = stash save
 	sc  = stash clear
