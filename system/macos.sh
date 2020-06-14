@@ -172,9 +172,9 @@ defaults delete com.apple.dock magnification
 
 # Position on screen
 # 1: Left
-# defaults write com.apple.dock orientation -string "left"
+defaults write com.apple.dock orientation -string "left"
 # 2: Bottom
-defaults delete com.apple.dock orientation
+# defaults delete com.apple.dock orientation
 # 3: Right
 # defaults write com.apple.dock orientation -string "right"
 
