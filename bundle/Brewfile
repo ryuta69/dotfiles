@@ -93,3 +93,4 @@ cask "adobe-creative-cloud"
 mas  "LINE", id: 539883307
 mas  "Xcode", id: 497799835
 mas  "Gifski", id: 1351639930
+mas  "LimeChat", id: 414030210

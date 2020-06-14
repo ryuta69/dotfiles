@@ -17,6 +17,7 @@ dockitem=(
 	"VirtualBox"          "org.virtualbox.app.VirtualBox"             "file:///Applications/VirtualBox.app/"
 	"QuickTime Player"    "com.apple.QuickTimePlayerX"                "file:///Applications/QuickTime%20Player.app/"
 	"MongoDB Compass"     "com.mongodb.compass"                       "file:///Applications/MongoDB%20Compass.app/"
+	"LimeChat"            "net.limechat.LimeChat-AppStore"            "file:///Applications/LimeChat.app/"
 	"Android Studio"      "com.google.android.studio"                 "file:///Applications/Android%20Studio.app/"
 	"LINE"                "jp.naver.line.mac"                         "file:///Applications/LINE.app/"
 	"Local"               "com.getflywheel.lightning.local"           "file:///Applications/Local.app/"
