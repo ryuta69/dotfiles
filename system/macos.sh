@@ -1241,3 +1241,7 @@ defaults write -g NSWindowResizeTime -float 0.001
 
 ## ========== Disable Animation in Finder ==========
 defaults write com.apple.finder DisableAllAnimations -bool true
+
+## ========== Disable Dock ==========
+defaults write com.apple.dock autohide-delay -float 1000
+defaults write com.apple.dock no-bouncing -bool TRUE
