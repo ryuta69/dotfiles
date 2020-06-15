@@ -1,7 +1,6 @@
 #!/bin/bash
 
 shopt -s dotglob
-TESTMODE=false
 EXEPATH=$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)
 
 ## ----------------------------------------
@@ -152,6 +151,8 @@ install_bundle() {
 }
 
 initialize() {
+	echo ${TESTMODE}
+
 	if ! ${TESTMODE}; then
 		xcode-select --install
 		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
