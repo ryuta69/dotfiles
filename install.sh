@@ -152,8 +152,10 @@ install_bundle() {
 
 initialize() {
 	echo ${TESTMODE}
+	echo 1
 
 	if ! ${TESTMODE}; then
+		echo 2
 		xcode-select --install
 		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -163,6 +165,7 @@ initialize() {
 		# curl -u "ryuta69" --data "{\"title\":\"NewSSHKey\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
 	fi
 
+	echo 3
 	brew tap homebrew/bundle
 	brew install zsh
 	sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells'
