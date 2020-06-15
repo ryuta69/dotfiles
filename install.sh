@@ -52,7 +52,16 @@ configure_system() {
 	CWD=${EXEPATH}/system
 
 	osascript -e 'tell application "System Preferences" to quit' > /dev/null 2>&1
-	/bin/bash ${CWD}/mojave.sh
+	
+	macversion=$(/usr/libexec/PlistBuddy -c "Print:ProductVersion" /System/Library/CoreServices/SystemVersion.plist | awk -F. '{print $1"."$2}')
+	if [[ $macversion == "10.15" ]]; then
+		/bin/bash ${CWD}/catalina.sh
+	elif [[ $macversion == "10.14" ]]; then
+		/bin/bash ${CWD}/mojave.sh
+	else
+		echo "MacOS upper than Mojave is supported."
+		exit 1
+	fi
 
 	if ! ${TESTMODE}; then
 		for app in \
