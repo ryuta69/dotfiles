@@ -203,11 +203,12 @@ if [[ ${argv[@]} =~ "--force" ]]; then
 	argv=( ${argv[@]/"--force"} )
 else
 	read -p "Your file will be overwritten. OK? (Y/n): " Ans;
-        [[ $Ans != 'Y' ]] && echo 'Canceled' && exit 0;
+	[[ ${argv[@]} =~ "--init" ]] && Ans='Y';
+	[[ $Ans != 'Y' ]] && echo 'Canceled' && exit 0;
 fi
 
 if [[ ${argv[@]} =~ "--test" ]]; then
-        TESTMODE=true
+	TESTMODE=true
 	argv=( ${argv[@]/"--test"} )
 fi
 
@@ -215,7 +216,7 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 for opt in ${argv[@]}; do
-        case $opt in
+	case $opt in
 		--init)     initialize; ;;
 		--bundle)   install_bundle; ;;
 		--system)   configure_system; ;;
