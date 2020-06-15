@@ -348,6 +348,7 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 ## ========== Spotlight ==========
 # Search Results
+defaults delete com.apple.Spotlight orderedItems
 SCAT=(
 	# Applications
 	"APPLICATIONS"               true
@@ -392,7 +393,19 @@ SCAT=(
 	# System Preferences
 	"SYSTEM_PREFS"               true
 )
-/bin/bash ${EXEPATH}/lib/spotlightSearchResults.sh $(echo ${SCAT})
+SNUM=$(expr $# / 2)
+PLIST="${HOME}/Library/Preferences/com.apple.Spotlight"
+/usr/libexec/PlistBuddy -c "Add orderedItems array" ${PLIST}
+for idx in $(seq 0 $(expr ${HNUM} - 1)); do
+        CATN=${SCAT[$(( ${idx} * 2     ))]}
+        CATB=${SCAT[$(( ${idx} * 2 + 1 ))]}
+
+        /usr/libexec/PlistBuddy \
+                -c "Add persistent-apps:${idx} dict" \
+                -c "Add persistent-apps:${idx}:enabled bool ${CATB}" \
+                -c "Add persistent-apps:${idx}:name string ${CATN}" \
+                ${PLIST}
+done
 
 # Allow Spotlight Suggestions in Look up
 # 1: Checked
@@ -465,7 +478,24 @@ defaults write com.apple.airplay "NSStatusItem Visible com.apple.menuextra.airpl
 # 3: Middle
 # 4: Default
 # 5: More Space
-osascript ${EXEPATH}/lib/resolution.applescript
+osascript <<EOF
+tell application "System Preferences"
+        activate
+        reveal anchor "displaysDisplayTab" of pane id "com.apple.preference.displays"
+end tell
+tell application "System Events"
+        delay 0.5
+        tell application process "System Preferences" to tell window "Built-in Retina Display"
+                click radio button "Scaled" of radio group 1 of tab group 1
+                click radio button 4 of radio group 1 of group 2 of tab group 1
+                delay 0.5
+                try
+                        click button "OK" of sheet 1
+                end try
+        end tell
+end tell
+quit application "System Preferences"
+EOF
 
 # Brightness
 # params: 1.lightest 0.darkest
@@ -578,7 +608,30 @@ defaults write .GlobalPreferences KeyRepeat -int 1
 # Touch Bar shows
 # 1: App Control
 # 2: Expanded Control Strip
-osascript ${EXEPATH}/lib/touchbar.applescript
+osascript <<EOF
+tell application "System Preferences"
+        activate
+        reveal anchor "keyboardTab" of pane id "com.apple.preference.keyboard"
+end tell
+tell application "System Events"
+        tell application process "System Preferences"
+                repeat while not (window 1 exists)
+                end repeat
+                tell window 1
+                        tell tab group 1
+                                tell pop up button 2
+                                        delay 1
+                                        click
+                                        tell menu 1
+                                                click menu item "Expanded Control Strip"
+                                        end tell
+                                end tell
+                        end tell
+                end tell
+        end tell
+end tell
+quit application "System Preferences"
+EOF
 # 3: F1, F2, etc. Keys
 # 4: Quick Actions
 
@@ -718,7 +771,42 @@ defaults write .GlobalPreferences NSAutomaticQuoteSubstitutionEnabled -bool fals
 ## <Menu> Input Sources
 # Select the previous input source
 # Select next source in Input menu
-osascript ${EXEPATH}/lib/unchecknextsource.applescript
+osascript <<EOF
+tell application "System Preferences"
+        activate
+        reveal anchor "shortcutsTab" of pane id "com.apple.preference.keyboard"
+end tell
+tell application "System Events"
+        tell application process "System Preferences"
+                repeat while not (window 1 exists)
+                end repeat
+        tell window 1
+
+        repeat while not (rows of table 1 of scroll area 1 of splitter group 1 of tab group 1 exists)
+        end repeat
+
+        repeat with current_row in (rows of table 1 of scroll area 1 of splitter group 1 of tab group 1)
+                if value of static text 1 of current_row is equal to "Input Sources" then
+                        select current_row
+                        exit repeat
+                end if
+        end repeat
+
+        repeat while not (rows of outline 1 of scroll area 2 of splitter group 1 of tab group 1 exists)
+        end repeat
+
+        repeat with current_row in rows of outline 1 of scroll area 2 of splitter group 1 of tab group 1
+                if name of UI element 2 of current_row is equal to "Select next source in input menu" then
+                        select current_row
+                        click checkbox of UI element 1 of current_row
+                        exit repeat
+                end if
+        end repeat
+
+        end tell
+        end tell
+end tell
+EOF
 
 ## <Menu> Screenshots
 # Save picture of screen as a file
@@ -746,7 +834,42 @@ osascript ${EXEPATH}/lib/unchecknextsource.applescript
 
 ## <Menu> Spotlight
 # Show Spotlight search
-osascript ${EXEPATH}/lib/uncheckspotlight.applescript
+osascript <<EOF
+tell application "System Preferences"
+        activate
+        reveal anchor "shortcutsTab" of pane id "com.apple.preference.keyboard"
+end tell
+tell application "System Events"
+        tell application process "System Preferences"
+                repeat while not (window 1 exists)
+                end repeat
+        tell window 1
+
+        repeat while not (rows of table 1 of scroll area 1 of splitter group 1 of tab group 1 exists)
+        end repeat
+
+        repeat with current_row in (rows of table 1 of scroll area 1 of splitter group 1 of tab group 1)
+                if value of static text 1 of current_row is equal to "Spotlight" then
+                        select current_row
+                        exit repeat
+                end if
+        end repeat
+
+        repeat while not (rows of outline 1 of scroll area 2 of splitter group 1 of tab group 1 exists)
+        end repeat
+
+        repeat with current_row in rows of outline 1 of scroll area 2 of splitter group 1 of tab group 1
+                if name of UI element 2 of current_row is equal to "Show Spotlight search" then
+                        select current_row
+                        click checkbox of UI element 1 of current_row
+                        exit repeat
+                end if
+        end repeat
+
+        end tell
+        end tell
+end tell
+EOF
 
 # Show Finder search window
 # [ToDo]
@@ -762,7 +885,11 @@ osascript ${EXEPATH}/lib/uncheckspotlight.applescript
 ## <Tab> Input Sources
 Add Input Sources
 GJIME=$(defaults read com.apple.HIToolbox AppleEnabledInputSources | grep "InputSourceKind = \"Keyboard Input Method\"")
-[[ -z  ${GJIME} ]] && osascript ${EXEPATH}/lib/inputsource.applescript
+[[ -z  ${GJIME} ]] && osascript <<EOF
+set addcmd to "<dict><key>Bundle ID</key><string>com.google.inputmethod.Japanese</string><key>InputSourceKind</key><string>Keyboard Input Method</string></dict>"
+
+do shell script "defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add '" & addcmd & "'"
+EOF
 
 # Show Input menu in menu bar
 # [ToDo]
@@ -950,7 +1077,7 @@ defaults write -g com.apple.trackpad.scaling 3
 ## ========== Users & Groups ==========
 # Profile Picture
 UNM=$(whoami)
-sudo dscl . create /Users/${UNM} Picture "${EXEPATH}/lib/img/icon.jpeg"
+sudo dscl . create /Users/${UNM} Picture "${EXEPATH}/img/icon.jpeg"
 
 ## ========== Parental Controls ==========
 
@@ -1207,13 +1334,96 @@ defaults write com.apple.finder ShowStatusBar -bool true
 ##	Extra
 ## ----------------------------------------
 ## ========== Dock Applications ==========
-/bin/bash ${EXEPATH}/lib/dockitem.sh
+defaults delete com.apple.dock persistent-apps
+dockitem=(
+	"Mail"                "com.apple.mail"                            "file:///Applications/Mail.app/"
+	"Docker"              "com.docker.docker"                         "file:///Applications/Docker.app/"
+	"App Store"           "com.apple.AppStore"                        "file:///Applications/App%20Store.app/"
+	"Xcode"               "com.apple.dt.Xcode"                        "file:///Applications/Xcode.app/"
+	"Kindle"              "com.amazon.Kindle"                         "file:///Applications/Kindle.app/"
+	"Rectangle"           "com.knollsoft.Rectangle"                   "file:///Applications/Rectangle.app/"
+	"Visual Studio Code"  "com.microsoft.VSCode"                      "file:///Applications/Visual%20Studio%20Code.app/"
+	"zoom.us"             "us.zoom.xos"                               "file:///Applications/zoom.us.app/"
+	"Wireshark"           "org.wireshark.Wireshark"                   "file:///Applications/Wireshark.app/"
+	"Discord"             "com.hnc.Discord"                           "file:///Applications/Discord.app/"
+	"Transmit"            "com.panic.Transmit"                        "file:///Applications/Transmit.app/"
+	"VirtualBox"          "org.virtualbox.app.VirtualBox"             "file:///Applications/VirtualBox.app/"
+	"QuickTime Player"    "com.apple.QuickTimePlayerX"                "file:///Applications/QuickTime%20Player.app/"
+	"MongoDB Compass"     "com.mongodb.compass"                       "file:///Applications/MongoDB%20Compass.app/"
+	"LimeChat"            "net.limechat.LimeChat-AppStore"            "file:///Applications/LimeChat.app/"
+	"Android Studio"      "com.google.android.studio"                 "file:///Applications/Android%20Studio.app/"
+	"LINE"                "jp.naver.line.mac"                         "file:///Applications/LINE.app/"
+	"Local"               "com.getflywheel.lightning.local"           "file:///Applications/Local.app/"
+	"Sequel Pro"          "com.sequelpro.SequelPro"                   "file:///Applications/Sequel%20Pro.app/"
+	"Slack"               "com.tinyspeck.slackmacgap"                 "file:///Applications/Slack.app/"
+	"Calendar"            "com.apple.iCal"                            "file:///Applications/Calendar.app/"
+	"Burp Suite"          "com.install4j.9806-1938-4586-6531.70"      "file:///Applications/Burp%20Suite%20Community%20Edition.app/"
+	"Postman"             "com.postmanlabs.mac"                       "file:///Applications/Postman.app/"
+	"Google Chrome"       "com.google.Chrome"                         "file:///Applications/Google%20Chrome.app/"
+	"Adobe XD"            "com.adobe.xd"                              "file:///Applications/Adobe%20XD/Adobe%20XD.app/"
+	"Skitch"              "com.skitch.skitch"                         "file:///Applications/Skitch.app/"
+	"Voice Memos"         "com.apple.VoiceMemos"                      "file:///Applications/VoiceMemos.app/"
+	"Gifski"              "com.sindresorhus.Gifski"                   "file:///Applications/Gifski.app/"
+	"Alfred Preferences"  "com.runningwithcrayons.Alfred-Preferences" "file:///Applications/Alfred%204.app/Contents/Preferences/Alfred%20Preferences.app/"
+	"Tor Browser"         "org.torproject.torbrowser"                 "file:///Applications/Tor%20Browser.app/"
+	"iTerm"               "com.googlecode.iterm2"                     "file:///Applications/iTerm.app/"
+	"Karabiner-Elements"  "org.pqrs.Karabiner-Elements.Preferences"   "file:///Applications/Karabiner-Elements.app/"
+	"Automator"           "com.apple.Automator"                       "file:///Applications/Automator.app/"
+	"Digital Color Meter" "com.apple.DigitalColorMeter"               "file:///Applications/Utilities/Digital%20Color%20Meter.app/"
+	"GPG Keychain"        "org.gpgtools.gpgkeychain"                  "file:///Applications/GPG%20Keychain.app/"
+	"System Preferences"  "com.apple.systempreferences"               "file:///Applications/System%20Preferences.app/"
+	"Script Editor"       "com.apple.ScriptEditor2"                   "file:///Applications/Utilities/Script%20Editor.app/"
+	"Notion"              "notion.id"                                 "file:///Applications/Notion.app/"
+)
+PLIST="${HOME}/Library/Preferences/com.apple.dock.plist"
+/usr/libexec/PlistBuddy -c "Add persistent-apps array" ${PLIST}
+DNUM=$(expr ${dockitem[(I)$dockitem[-1]]} / 3)
+for idx in $(seq 0 $(expr ${HNUM} - 1)); do
+	NAMEIDX=${dockitem[$(( ${idx} * 3 + 1 ))]}
+	ITEMIDX=${dockitem[$(( ${idx} * 3 + 2 ))]}
+	PATHIDX=${dockitem[$(( ${idx} * 3 + 3 ))]}
+
+	/usr/libexec/PlistBuddy \
+		-c "Add persistent-apps:${idx} dict" \
+		-c "Add persistent-apps:${idx}:tile-data dict" \
+		-c "Add persistent-apps:${idx}:tile-data:file-label string ${NAMEIDX}" \
+		-c "Add persistent-apps:${idx}:tile-data:bundle-identifier string ${ITEMIDX}" \
+		-c "Add persistent-apps:${idx}:tile-data:file-data dict" \
+		-c "Add persistent-apps:${idx}:tile-data:file-data:_CFURLString string ${PATHIDX}" \
+		-c "Add persistent-apps:${idx}:tile-data:file-data:_CFURLStringType integer 15" \
+		${PLIST}
+done
+killall cfprefsd
+killall Dock
 
 ## ========== Default Application ==========
 # Browser - Chrome
-/bin/bash ${EXEPATH}/lib/defaultbrowser.sh
+LSSC=("http" "https" "mailto")
+LSCT=("public.xhtml" "public.html")
+PLIST="${HOME}/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure.plist"
+HNUM=$(/usr/libexec/PlistBuddy -c "Print LSHandlers:" ${PLIST} | grep -P '^[\s]*Dict' | wc -l | tr -d ' ')
+for idx in $(seq 0 $(expr ${HNUM} - 1)); do
+        THIS_LSSC=$(/usr/libexec/PlistBuddy -c "Print LSHandlers:${idx}:LSHandlerURLScheme" ${PLIST} 2>/dev/null)
+        if [[ ${LSSC[@]} =~ $THIS_LSSC ]]; then
+                /usr/libexec/PlistBuddy -c "Set LSHandlers:${idx}:LSHandlerRoleAll com.google.chrome" ${PLIST}
+        fi
+
+        THIS_LSCT=$(/usr/libexec/PlistBuddy -c "Print LSHandlers:${idx}:LSHandlerContentType" ${PLIST} 2>/dev/null)
+        if [[ ${LSCT[@]} =~ $THIS_LSCT ]]; then
+                /usr/libexec/PlistBuddy -c "Set LSHandlers:${idx}:LSHandlerRoleAll com.google.chrome" ${PLIST}
+        fi
+done
+
 # Editor - TextEdit
-/bin/bash ${EXEPATH}/lib/defaulteditor.sh
+LSCT=("public.json" "com.netscape.javascript-source")
+PLIST="${HOME}/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure.plist"
+HNUM=$(/usr/libexec/PlistBuddy -c "Print LSHandlers:" ${PLIST} | grep -P '^[\s]*Dict' | wc -l | tr -d ' ')
+for idx in $(seq 0 $(expr ${HNUM} - 1)); do
+	THIS_LSCT=$(/usr/libexec/PlistBuddy -c "Print LSHandlers:${idx}:LSHandlerContentType" ${PLIST} 2>/dev/null)
+	if [[ ${LSCT[@]} =~ $THIS_LSCT ]]; then
+		/usr/libexec/PlistBuddy -c "Set LSHandlers:${idx}:LSHandlerRoleAll com.apple.textedit" ${PLIST}
+	fi;
+done
 
 ## ========== Remove Notification ==========
 defaults write com.apple.LaunchServices LSQuarantine -bool false
