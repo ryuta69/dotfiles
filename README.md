@@ -29,6 +29,8 @@ curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin
 ./install.sh --system
 ```
 
+After finishing installation, you should apply Alfred License, GPG Keychain, and Github SSH Keychain( because register api is deprecated ).
+
 ### Options
 
 ```bash
