@@ -114,7 +114,7 @@ defaults -currentHost delete .GlobalPreferences AppleFontSmoothing
 ## ========== Desktop & Screen Saver ==========
 ## <Tab> Desktop
 # Desktop Picture
-osascript -e "tell application \"Finder\" to set desktop picture to \"${EXEPATH}/img/desktop.jpg\" as POSIX file"
+osascript -e "tell application \"Finder\" to set desktop picture to \"${EXEPATH}/img/desktop.png\" as POSIX file"
 
 # `DesktopPicture` pop up menu
 # 1: Fill Screen
