@@ -52,7 +52,7 @@ configure_system() {
 	CWD=${EXEPATH}/system
 
 	osascript -e 'tell application "System Preferences" to quit' > /dev/null 2>&1
-	
+
 	macversion=$(/usr/libexec/PlistBuddy -c "Print:ProductVersion" /System/Library/CoreServices/SystemVersion.plist | awk -F. '{print $1"."$2}')
 	if [[ $macversion == "10.15" ]]; then
 		/bin/bash ${CWD}/catalina.sh
@@ -168,7 +168,7 @@ initialize() {
 		mkdir -p ${HOME}/.ssh
 		ssh-keygen -t rsa -b 4096 -C "eyma22s.yu@gmail.com"
 		ssh-keyscan -t rsa github.com >> ${HOME}/.ssh/known_hosts
-		# curl -u "ryuta69" --data "{\"title\":\"NewSSHKey\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
+		curl -u "ryuta69" --data "{\"title\":\"NewSSHKey\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
 	fi
 
 	brew tap homebrew/bundle
