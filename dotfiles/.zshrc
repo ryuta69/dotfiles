@@ -89,7 +89,7 @@ vscd() {
 	code -r "$2";
 }
 lnsv() {
-	if [ -z $2 ]; then echo "Specify Target" && return 0; fi;
+	[ -z $2 ] && echo "Specify Target" && return 0;
 	abspath=$(echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"))
 	ln -sfnv ${abspath} $2
 }
@@ -117,7 +117,7 @@ compdef _git g
 alias cdgh='cd `ghq list -p | fzf`'
 alias cdg='cd `git rev-parse --show-toplevel`'
 gcre() {
-	if [ -z "$(ls -A ./)" ]; then echo "Fail: Empty" && return 0; fi;
+	[ -z "$(ls -A ./)" ] && echo "Fail: Empty" && return 0;
 	git init;
 	git add -A && git commit;
 	read name"?type repo name        : ";
@@ -187,9 +187,9 @@ alias rg="rg --hidden -g '!.git' -g '!node_modules' --max-columns 200 -i"
 rrg() {
 	keyword=$1;
 	[ -z $2 ] && matches=`rg -il ${keyword}` || matches=`rg --files | rg -i ${keyword}`;
-	if [ -z ${matches} ]; then echo "no matches\n" && return 0; fi;
+	[ -z ${matches} ] && echo "no matches\n" && return 0;
 	selected=`echo ${matches} | fzf --preview "rg -in ${keyword} {}"`;
-	if [ -z ${selected} ]; then echo "canceled\n" && return 0; fi;
+	[ -z ${selected} ] && echo "canceled\n" && return 0;
 	nvim ${selected};
 }
 
