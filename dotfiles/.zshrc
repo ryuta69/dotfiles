@@ -69,7 +69,6 @@ bindkey "^E" end-of-line
 alias sed='gsed'
 alias cdh='cd ~'
 alias op='open ./'
-alias vv='code -r'
 alias dus='du -sh'
 alias psa='ps aux'
 alias pbcp='pbcopy <'
@@ -85,6 +84,10 @@ alias tr2='exa -alhF --git-ignore --group-directories-first --time-style=long-is
 alias tr3='exa -alhF --git-ignore --group-directories-first --time-style=long-iso -T -L=3 --ignore-glob=".git|node_modules"'
 mkcd() { mkdir $@; cd $@; }
 absp() { echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"); }
+vscd() {
+	[ -z $1 ] && code -r ./ && return 0;
+	code -r "$2";
+}
 lnsv() {
 	if [ -z $2 ]; then echo "Specify Target" && return 0; fi;
 	abspath=$(echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"))
