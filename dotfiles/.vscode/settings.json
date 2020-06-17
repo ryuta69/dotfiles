@@ -24,7 +24,7 @@
 	"editor.detectIndentation": false,
 	"editor.suggestSelection": "first",
 	"editor.renderLineHighlight": "all",
-	"editor.fontFamily": "Hack Nerd Font",
+	"editor.fontFamily": "FiraCode-Retina",
 	"editor.acceptSuggestionOnEnter": "on",
 	"editor.scrollbar.verticalScrollbarSize": 0,
 	"editor.quickSuggestions": {
@@ -101,7 +101,7 @@
 	"terminal.integrated.fontSize": 12,
 	"terminal.external.osxExec": "iTerm.app",
 	"terminal.integrated.cursorStyle": "line",
-	"terminal.integrated.fontFamily": "Hack Nerd Font",
+	"terminal.integrated.fontFamily": "FiraCode-Retina",
 	"terminal.integrated.shell.osx": "/usr/local/bin/zsh",
 	"git.enabled": false,
 	"[go]": {
