@@ -1,16 +1,8 @@
 {
 	"breadcrumbs.enabled": false,
 	"color-highlight.markRuler": false,
-	"cSpell.userWords": [
-		"Vuex",
-		"firestore",
-		"nuxt",
-		"socketio",
-		"vuexfire",
-		"xargs"
-	],
 	"editor.colorDecorators": false,
-	"editor.tabSize": 8,
+	"editor.tabSize": 4,
 	"editor.fontSize": 14,
 	"editor.wordWrap": "on",
 	"editor.formatOnSave": true,
@@ -34,31 +26,6 @@
 	},
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": true
-	},
-	"editor.tokenColorCustomizations": {
-		"textMateRules": [
-			{
-				"scope": [
-					"meta",
-					"markup",
-					"source",
-					"string",
-					"entity",
-					"invalid",
-					"comment",
-					"support",
-					"storage",
-					"keyword",
-					"constant",
-					"variable",
-					"support.type.property-name.css",
-					"support.type.property-name.json"
-				],
-				"settings": {
-					"fontStyle": "italic"
-				}
-			}
-		]
 	},
 	"emmet.includeLanguages": {
 		"php": "html",
