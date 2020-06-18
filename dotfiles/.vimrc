@@ -43,6 +43,7 @@ set whichwrap=b,s,h,l,<,>,[,]
 set hidden nobackup noswapfile
 set smartcase ignorecase wildignorecase
 set rulerformat=%40(%=%l,%-(%c%V%)\ %=%t%)%*
+set noexpandtab tabstop=4 softtabstop=-1 shiftwidth=0
 set encoding=utf-8 fileencodings=cp932,sjis,euc-jp,utf-8,iso-2022-jp
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 if has('nvim')
