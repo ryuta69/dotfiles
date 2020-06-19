@@ -1,9 +1,10 @@
 ## ----------------------------------------
 ##	Package Manager
 ## ----------------------------------------
-alias brup='brew upgrade && brew update && brew cask upgrade'
-alias npup='npm update -g npm && npm update -g'
 alias zsup='zinit self-update && zinit update'
+alias npup='npm update -g npm && npm update -g'
+alias viup='vim +"PlugUpdate" +qa && nvim +"PlugUpdate" +qa'
+alias brup='brew upgrade && brew update && brew cask upgrade'
 
 ## ----------------------------------------
 ##	ssh
