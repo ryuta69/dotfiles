@@ -22,6 +22,7 @@
 	dfh = diff HEAD
 	dfr = !git diff origin `git rev-parse --abbrev-ref HEAD`
 	dft = difftool
+	fp  = fetch -p
 	fpr = !git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request' | head -n 1;
 	g   = !ghq get
 	lg  = log
@@ -39,6 +40,7 @@
  	pss = !git push origin `git rev-parse --abbrev-ref HEAD`
 	pl  = pull
 	pll = !git pull origin `git rev-parse --abbrev-ref HEAD`
+	prb = !git checkout -b $1 origin/$1
 	rb  = rebase
 	rf  = reflog --date=iso
 	rs  = reset
@@ -52,7 +54,7 @@
 	sl  = !git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'
 	sp  = !git stash pop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
 	sd  = !git stash drop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
-	spr = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
+	spr = !git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request' | head -n 1
 	sk  = update-index --skip-worktree
 	usk = update-index --no-skip-worktree
 	vi  = !nvim ~/.gitconfig
