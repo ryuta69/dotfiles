@@ -183,6 +183,10 @@ initialize() {
 	! ${TESTMODE} && exec -l ${SHELL}
 }
 
+list_vscode_plugins() {
+	code --list-extensions > ${EXEPATH}/bundle/Vsplug
+}
+
 usage() {
 	cat <<- EOS
 
@@ -231,6 +235,7 @@ for opt in ${argv[@]}; do
 		--bundle)   install_bundle; ;;
 		--system)   configure_system; ;;
 		--dotfiles) symlink_dotfiles; ;;
+		--vscode)   list_vscode_plugins; ;;
 		--all)      install_bundle; symlink_dotfiles; configure_system; ;;
 		*)          echo "invalid option $1"; ;;
 	esac
