@@ -1,4 +1,4 @@
-name: install dotfiles
+name: Run All Installations
 
 on: [push]
 
