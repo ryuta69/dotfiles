@@ -29,7 +29,11 @@ curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin
 ./install.sh --system
 ```
 
-After finishing installation, you should apply Alfred License, import GPG Keychain, install Adobe XD from Creative Cloud, and import Github SSH Keychain( because register api is deprecated ).
+After installation, do below manually.
+
+- Apply Alfred License
+- Import GPG Keychain Key
+- Install Adobe XD from Creative Cloud
 
 ### Options
 
