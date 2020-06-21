@@ -1,6 +1,7 @@
 {
 	"breadcrumbs.enabled": false,
 	"color-highlight.markRuler": false,
+	"debug.onTaskErrors": "debugAnyway",
 	"editor.colorDecorators": false,
 	"editor.tabSize": 4,
 	"editor.fontSize": 14,
