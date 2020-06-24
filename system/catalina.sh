@@ -194,20 +194,42 @@ DesktopScreenSaver() {
 		end tell
 	"
 
+	# ========== ScreenSaver Picture ==========
+	osascript -e "
+		tell application \"System Preferences\"
+			activate
+			reveal pane id \"com.apple.preference.desktopscreeneffect\"
+		end tell
+		tell application \"System Events\"
+			tell application process \"System Preferences\"
+				repeat while not (window 1 exists)
+				end repeat
+				tell window 1
+					tell tab group 1
+						repeat with current_group in list 1 of list 1 of scroll area 1
+							if name of image of current_group is equal to \"Message\" then
+								click image of current_group
+								every UI element
+							end if
+						end repeat
+					end tell
+				end tell
+			end tell
+		end tell
+	"
+
 	# ========== Start After ==========
 	# @int: seconds
 	defaults -currentHost write com.apple.screensaver idleTime -int 0
 
-	# Show with clock
+	# ========== Show with clock ==========
 	# - Checked
 	# defaults -currentHost write com.apple.screensaver showClock -bool true
 	# - Unchecked
 	defaults -currentHost delete com.apple.screensaver showClock
 
-	# Use random screen saver
+	# ========== Use random screen saver ==========
 	# - Checked
-	defaults -currentHost delete com.apple.screensaver moduleDict
-	# - Unchecked
 	# SPLIST=$(ls ~/Library/Preferences/ByHost/com.apple.screensaver*)
 	# /usr/libexec/PlistBuddy \
 	# 	-c "Add moduleDict dict" \
@@ -215,22 +237,26 @@ DesktopScreenSaver() {
 	# 	-c "Add moduleDict:path string /System/Library/Screen\ Savers/Random.saver" \
 	# 	-c "Add moduleDict:type integer 8" \
 	# 	${SPLIST}
+	# - Unchecked
+	defaults -currentHost delete com.apple.screensaver moduleDict
 }
 
 Dock() {
-	# Size
+	# ========== Size ==========
+	# @int: size
 	defaults write com.apple.dock tilesize -int 30
 
-	# Magnification
+	# ========== Magnification ==========
 	# - Checked
 	# defaults write com.apple.dock magnification -bool true
 	# - Unchecked
 	defaults delete com.apple.dock magnification
 
-	# `Magnification` Bar
+	# ========== `Magnification` Bar ==========
+	# @int: size
 	# defaults write com.apple.dock largesize -int 128
 
-	# Position on screen
+	# ========== Position on screen ==========
 	# - Left
 	defaults write com.apple.dock orientation -string "left"
 	# - Bottom
@@ -238,13 +264,13 @@ Dock() {
 	# - Right
 	# defaults write com.apple.dock orientation -string "right"
 
-	# Minimize windows using
+	# ========== Minimize windows using ==========
 	# - Genie effect
 	# defaults write com.apple.dock mineffect -string "genie"
 	# - Scale effect
 	defaults write com.apple.dock mineffect -string "scale"
 
-	# Prefer tabs when opening documents
+	# ========== Prefer tabs when opening documents ==========
 	# - Always
 	defaults write .GlobalPreferences AppleWindowTabbingMode -string "always"
 	# - In Full Screen Only
@@ -252,41 +278,41 @@ Dock() {
 	# - Manually
 	# defaults write .GlobalPreferences AppleWindowTabbingMode -string "manual"
 
-	# Double-click a window's title bar to
+	# ========== Double-click a window's title bar to ==========
 	# - Checked
 	# `Double-click a window's title bar to` pop up menu
-	# 1-- minimize
+	#	- minimize
 	defaults write .GlobalPreferences AppleActionOnDoubleClick -string "Minimize"
-	# 1-- zoom
+	#	- zoom
 	# defaults write .GlobalPreferences AppleActionOnDoubleClick -string "Maximize"
 	# - Unchecked
 	# defaults write .GlobalPreferences AppleActionOnDoubleClick -string "None"
 
-	# Minimize windows into application icon
+	# ========== Minimize windows into application icon ==========
 	# - Checked
 	defaults write com.apple.dock minimize-to-application -bool true
 	# - Unchecked
 	# defaults write com.apple.dock minimize-to-application -bool false
 
-	# Animate opening applications
+	# ========== Animate opening applications ==========
 	# - Checked
 	# defaults write com.apple.dock launchanim -bool true
 	# - Unchecked
 	defaults write com.apple.dock launchanim -bool false
 
-	# Automatically hide and show the Dock
+	# ========== Automatically hide and show the Dock ==========
 	# - Checked
 	defaults write com.apple.dock autohide -bool true
 	# - Unchecked
 	# defaults delete com.apple.dock autohide
 
-	# Show indicators for open applications
+	# ========== Show indicators for open applications ==========
 	# - Checked
 	defaults write com.apple.dock show-process-indicators -bool true
 	# - Unchecked
 	# defaults write com.apple.dock show-process-indicators -bool false
 
-	# Show recent applications in Dock
+	# ========== Show recent applications in Dock ==========
 	# - Checked
 	# defaults write com.apple.dock show-recents -bool true
 	# - Unchecked
@@ -294,40 +320,51 @@ Dock() {
 }
 
 MissionControl() {
-	# Automatically rearrange Spaces based on most recent use
+	# ========== Automatically rearrange Spaces based on most recent use ==========
 	# - Checked
 	# defaults write com.apple.dock mru-spaces -bool true
 	# - Unchecked
 	defaults write com.apple.dock mru-spaces -bool false
 
-	# When switching to an application, switch to a Space with open windows for the application
+	# ========== When switching to an application, switch to a Space with open windows for the application ==========
 	# - Checked
 	defaults write .GlobalPreferences AppleSpacesSwitchOnActivate -bool true
 	# - Unchecked
 	# defaults write .GlobalPreferences AppleSpacesSwitchOnActivate -bool false
 
-	# Group windows by application
+	# ========== Group windows by application ==========
 	# - Checked
 	defaults write com.apple.dock expose-group-apps -bool true
 	# - Unchecked
 	# defaults write com.apple.dock expose-group-apps -bool false
 
-	# Displays have separate Spaces
+	# ========== Displays have separate Spaces ==========
 	# - Checked
 	defaults write com.apple.spaces spans-displays -bool true
 	# - Unchecked
 	# defaults write com.apple.spaces spans-displays -bool false
 
-	# Dashboard
+	# ========== Dashboard ==========
 	# - Off
 	defaults write com.apple.dashboard db-enabled-state -int 1
 	# - As Space
 	# defaults write com.apple.dashboard db-enabled-state -int 2
 	# - As Overlay
 	# defaults write com.apple.dashboard db-enabled-state -int 3
+}
 
-	## <Section> Keyboard and Mouse Shortcuts
-	# => Write in Keyboard Shorcut Section.
+Siri() {
+	# Enable Adk Siri
+	# - Checked
+	# defaults write com.apple.assistant.support.plist Assistant Enabled -bool true
+	# - Unchecked
+	defaults write com.apple.assistant.support.plist Assistant Enabled -bool false
+
+	# Show Siri in menu bar
+	# - Checked
+	# defaults write com.apple.Siri StatusMenuVisible -bool true
+	# - Unchecked
+	defaults write com.apple.Siri StatusMenuVisible -bool false
 }
 
 LanguageRegion() {
@@ -1135,25 +1172,6 @@ UsersGroups() {
 	sudo dscl . create /Users/${UNM} Picture "${EXEPATH}/img/icon.jpeg"
 }
 
-## ========== Siri ==========
-# Listen for "Hey Siri"
-# [ToDo]
-
-# Keyboard Shortcut
-# [ToDo]
-
-# Language
-# [ToDo]
-
-# Siri Voice
-# [ToDo]
-
-# Voice Feedback
-# [ToDo]
-
-# Show Siri in menu bar
-# [ToDo]
-
 DateTime() {
 	## <Tab> Date & Time
 	# Set date and time automatically
@@ -1508,6 +1526,7 @@ General
 DesktopScreenSaver
 Dock
 MissionControl
+Siri
 LanguageRegion
 SecurityPrivacy
 Spotlight
