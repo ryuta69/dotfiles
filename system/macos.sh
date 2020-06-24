@@ -536,27 +536,59 @@ Notifications() {
 	defaults -currentHost delete com.apple.notificationcenterui dndFacetimeRepeatedCalls
 }
 
+UsersGroups() {
+	# ========== Profile Picture ==========
+	UNM=$(whoami)
+	sudo dscl . create /Users/${UNM} Picture "${EXEPATH}/img/icon.jpeg"
+}
+
 SecurityPrivacy() {
-	# ==========  ==========
-	# ==========  ==========
-	## <Tab> General
-	# Require password ~~~ after sleep or screen saver begins
+	# ========== Require password ~ after sleep or screen saver begins ==========
 	# - Checked
+	# @int: seconds
 	defaults write com.apple.screensaver askForPassword -bool true
+	defaults write com.apple.screensaver askForPasswordDelay -int 0
 	# - Unchecked
 	# defaults write com.apple.screensaver askForPassword -bool false
 
-	# `Require password ~~~ after sleep or screen saver begins` pop up menu
-	# params: seconds
-	defaults write com.apple.screensaver askForPasswordDelay -int 0
+	# !!!!! This should not be set !!!!!
+	# sudo spctl --master-disable
+}
 
-	# Allow apps downloaded from
-	#!!! This should not be automated.
+SoftwareUpdate() {
+	# ========== Automatically keep my Mac up to date ==========
+	# @int: how many times a week
+	defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 0
+}
 
-	## <Tab> FileVault
-	## <Tab> Firewall
-	## <Tab> Privacy
-	#!!! This should not be automated.
+Network() {
+	# ========== Show Wi-Fi status in menu bar ==========
+	# - Checked
+	IS_AIRPORT=$(defaults read com.apple.systemuiserver menuExtras | grep "AirPort")
+	[[ -z ${IS_AIRPORT} ]] && /usr/libexec/PlistBuddy -c "Add menuExtras \"/System/Library/CoreServices/Menu Extras/AirPort.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
+	# - Unchecked
+	# IS_AIRPORT=$(defaults read com.apple.systemuiserver menuExtras | grep "AirPort")
+	# [[ -n ${IS_AIRPORT} ]] && /usr/libexec/PlistBuddy -c "Delete menuExtras:\"/System/Library/CoreServices/Menu Extras/AirPort.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
+}
+
+Bluetooth() {
+	# ========== Show Bluetooth status in menu bar ==========
+	# - Checked
+	IS_BLUETOOTH=$(defaults read com.apple.systemuiserver menuExtras | grep "Bluetooth")
+	[[ -z ${IS_AIRPORT} ]] && /usr/libexec/PlistBuddy -c "Add menuExtras \"/System/Library/CoreServices/Menu Extras/Bluetooth.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
+	# - Unchecked
+	# IS_BLUETOOTH=$(defaults read com.apple.systemuiserver menuExtras | grep "Bluetooth")
+	# [[ -n ${IS_AIRPORT} ]] && /usr/libexec/PlistBuddy -c "Delete menuExtras:\"/System/Library/CoreServices/Menu Extras/Bluetooth.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
+}
+
+Sound() {
+	# ========== Show Volume status in menu bar ==========
+	# - Checked
+	IS_VOLUME=$(defaults read com.apple.systemuiserver menuExtras | grep "Volume")
+	[[ -z ${IS_AIRPORT} ]] && /usr/libexec/PlistBuddy -c "Add menuExtras \"/System/Library/CoreServices/Menu Extras/Volume.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
+	# - Unchecked
+	# IS_VOLUME=$(defaults read com.apple.systemuiserver menuExtras | grep "Volume")
+	# [[ -n ${IS_AIRPORT} ]] && /usr/libexec/PlistBuddy -c "Delete menuExtras:\"/System/Library/CoreServices/Menu Extras/Volume.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
 }
 
 Displays() {
@@ -1102,71 +1134,6 @@ Trackpad() {
 	# [ToDo]
 }
 
-Sound() {
-	# Show volume in menu bar
-	# [ToDo]
-
-	## <Tab> Sound Effects
-	# Select an alert sound
-	# [ToDo]
-
-	# Play user interface sound effects
-	# [ToDo]
-
-	# Play feedback when volume is changed
-	# [ToDo]
-
-	## <Tab> Output
-	# Balance
-	# [ToDo]
-
-	## <Tab> Input
-}
-
-SoftwareUpdate() {
-	# Automatically keep my Mac up to date
-	# [ToDo]
-
-	## <Button> Advanced
-	# Check for updates
-	# [ToDo]
-
-	# Download new updates when available
-	# [ToDo]
-
-	# Install macOS updates
-	# [ToDo]
-
-	# Install app updates from the App Store
-	# [ToDo]
-
-	# Install system data files and security updates
-	# [ToDo]
-}
-
-## ========== Network ==========
-# Show Wi-Fi status in menu bar
-# [ToDo]
-
-## ========== Bluetooth ==========
-# Show Bluetooth status in menu bar
-# [ToDo]
-
-## <Button> Advanced
-# Open Bluetooth Setup Assistant at startup if no keyboard is detected
-# [ToDo]
-
-# Open Bluetooth Setup Assistant at startup if no mouse or trackpad is detected
-# [ToDo]
-
-# Allow Bluetooth devices to wake this computer
-# [ToDo]
-
-UsersGroups() {
-	# Profile Picture
-	UNM=$(whoami)
-	sudo dscl . create /Users/${UNM} Picture "${EXEPATH}/img/icon.jpeg"
-}
 
 DateTime() {
 	## <Tab> Date & Time
@@ -1533,6 +1500,8 @@ Keyboard
 Trackpad
 Sound
 SoftwareUpdate
+Network
+Bluetooth
 UsersGroups
 DateTime
 Finder
