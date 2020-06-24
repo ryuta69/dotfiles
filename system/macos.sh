@@ -592,77 +592,65 @@ Sound() {
 }
 
 Displays() {
-	# Show mirroring options in the menu bar when available
-	# - Checked
-	defaults write com.apple.airplay showInMenuBarIfPresent -bool true
-	defaults write com.apple.airplay "NSStatusItem Visible com.apple.menuextra.airplay" -bool true
-	# - Unchecked
-	# defaults write com.apple.airplay showInMenuBarIfPresent -bool false
-	# defaults write com.apple.airplay "NSStatusItem Visible com.apple.menuextra.airplay" -bool false
-
-	## <Tab> Display
+	# ========== Resolution ==========
 	# Resolution
-	# Default for display
-	# `Scaled` ranged menu
-	# - Larger Text
-	# - Second Larger Text
-	# - Middle
-	# - Default
-	# - More Space
-	osascript <<EOF
-	tell application "System Preferences"
-	        activate
-	        reveal anchor "displaysDisplayTab" of pane id "com.apple.preference.displays"
-	end tell
-	tell application "System Events"
-	        delay 0.5
-	        tell application process "System Preferences" to tell window "Built-in Retina Display"
-	                click radio button "Scaled" of radio group 1 of tab group 1
-	                click radio button 4 of radio group 1 of group 2 of tab group 1
-	                delay 0.5
-	                try
-	                        click button "OK" of sheet 1
-	                end try
-	        end tell
-	end tell
-	quit application "System Preferences"
-EOF
+	# - Default for display
+	# - Scaled
+	#	- Larger Text
+	# 	- Second Larger Text
+	# 	- Middle
+	# 	- Default
+	# 	- More Space
+	osascript -e "
+		tell application \"System Preferences\"
+		        activate
+		        reveal anchor \"displaysDisplayTab\" of pane id \"com.apple.preference.displays\"
+		end tell
+		tell application \"System Events\"
+		        delay 0.5
+		        tell application process \"System Preferences\" to tell window \"Built-in Retina Display\"
+		                click radio button \"Scaled\" of radio group 1 of tab group 1
+		                click radio button 4 of radio group 1 of group 2 of tab group 1
+		                delay 0.5
+		                try
+		                        click button \"OK\" of sheet 1
+		                end try
+		        end tell
+		end tell
+	"
 
-	# Brightness
-	# params: 1.lightest 0.darkest
+	# ========== Show mirroring options in the menu bar when available ==========
+	# - Checked
+	# defaults write com.apple.airplay showInMenuBarIfPresent -bool true
+	# defaults write com.apple.airplay "NSStatusItem Visible com.apple.menuextra.airplay" -bool true
+	# - Unchecked
+	defaults write com.apple.airplay showInMenuBarIfPresent -bool false
+	defaults write com.apple.airplay "NSStatusItem Visible com.apple.menuextra.airplay" -bool false
+
+	# ========== Brightness ==========
+	# @int: 1.Lightest 0.Darkest
 	brightness 1
 
-	# Automatically adjust brightness
-	# [ToDo]
-
-	## <Tab> Color
-	# Display profile
-	# [ToDo]
-
-	## <Tab> Night Shift
-	# Schedule
+	# ========== Nightshift Schedule ==========
+	NPLIST="/private/var/root/Library/Preferences/com.apple.CoreBrightness.plist"
+	currentUUID=$(dscl . -read /Users/$(whoami)/ GeneratedUID | cut -d' ' -f2)
+	currentUUID="CBUser-${currentUserUID}"
 	# - Off
+	# /usr/libexec/PlistBuddy -c "Set :${currentUserUID}:CBBlueReductionStatus:AutoBlueReductionEnabled 0" ${NPLIST}
 	# - Custom
+	/usr/libexec/PlistBuddy \
+		-c "Set :${currentUserUID}:CBBlueReductionStatus:BlueReductionEnabled 1" \ 
+		-c "Set :${currentUserUID}:CBBlueReductionStatus:BlueLightReductionSchedule:DayStartHour 23" \ 
+		-c "Set :${currentUserUID}:CBBlueReductionStatus:BlueLightReductionSchedule:DayStartMinute 59" \ 
+		-c "Set :${currentUserUID}:CBBlueReductionStatus:BlueLightReductionSchedule:NightStartHour 0" \ 
+		-c "Set :${currentUserUID}:CBBlueReductionStatus:BlueLightReductionSchedule:NightStartMinute 0" \ 
+		${NPLIST}
 	# - Sunset to Sunrise
-	# [ToDo]
-
-	# `Off` Turn On Until Tomorrow
-	# [ToDo]
-
-	# `Custom` From
-	# [ToDo]
-
-	# `Custom` to
-	# [ToDo]
-
-	# `Custom` Turn On Until Later Today
-	# [ToDo]
-
-	# `Sunset to Sunrise` Turn On Until Sunrise
-	# [ToDo]
+	# /usr/libexec/PlistBuddy -c "Set :${currentUserUID}:CBBlueReductionStatus:AutoBlueReductionEnabled 1" ${NPLIST}
 
 	# Color Temperature
-	# [ToDo]
+	# @int: warmest.2700 coldest.6000
+	/usr/libexec/PlistBuddy -c "Set :${currentUserUID}:CBBlueLightReductionCCTTargetRaw 2700" ${NPLIST}
 }
 
 EnergySaver() {
