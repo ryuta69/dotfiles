@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>StackOverflow Search</name>
-  <version>1.2.1</version>
-  <bundle>net.deanishe.alfred-stackoverflow</bundle>
-  <updated>1497552018</updated>
-  <file>stackoverflow-1.2.1.alfredworkflow</file>
-</workflow>

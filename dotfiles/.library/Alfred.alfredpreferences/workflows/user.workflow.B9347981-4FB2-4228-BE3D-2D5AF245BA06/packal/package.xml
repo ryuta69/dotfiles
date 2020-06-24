@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>AlfredTweet</name>
-  <version>2.0</version>
-  <bundle>jdfwarrior.alfredtweet</bundle>
-  <updated>1438136059</updated>
-  <file>alfredtweet.alfredworkflow</file>
-</workflow>

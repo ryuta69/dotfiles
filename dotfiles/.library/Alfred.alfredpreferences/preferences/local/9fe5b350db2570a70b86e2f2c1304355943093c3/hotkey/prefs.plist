@@ -5,11 +5,11 @@
 	<key>default</key>
 	<dict>
 		<key>key</key>
-		<integer>49</integer>
+		<integer>0</integer>
 		<key>mod</key>
-		<integer>3222274048</integer>
+		<integer>262144</integer>
 		<key>string</key>
-		<string> </string>
+		<string>A</string>
 	</dict>
 </dict>
 </plist>
