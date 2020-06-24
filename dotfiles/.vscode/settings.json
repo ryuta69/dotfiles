@@ -17,7 +17,7 @@
 	"editor.detectIndentation": false,
 	"editor.suggestSelection": "first",
 	"editor.renderLineHighlight": "all",
-	"editor.fontFamily": "FiraCode-Retina",
+	"editor.fontFamily": "HackNerdFontComplete-Italic",
 	"editor.acceptSuggestionOnEnter": "on",
 	"editor.scrollbar.verticalScrollbarSize": 0,
 	"editor.quickSuggestions": {
@@ -69,7 +69,7 @@
 	"terminal.integrated.fontSize": 12,
 	"terminal.external.osxExec": "iTerm.app",
 	"terminal.integrated.cursorStyle": "line",
-	"terminal.integrated.fontFamily": "FiraCode-Retina",
+	"terminal.integrated.fontFamily": "HackNerdFontComplete-Italic",
 	"terminal.integrated.shell.osx": "/usr/local/bin/zsh",
 	"git.enabled": false,
 	"[go]": {
@@ -82,7 +82,9 @@
 	},
 	"go.buildOnSave": "package",
 	"go.formatTool": "goimports",
-	"go.formatFlags": ["-w"],
+	"go.formatFlags": [
+		"-w"
+	],
 	"go.gocodeAutoBuild": true,
 	"go.installDependenciesWhenBuilding": true,
 	"go.languageServerExperimentalFeatures": {

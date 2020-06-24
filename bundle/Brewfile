@@ -61,6 +61,7 @@ brew "mongodb-community"
 tap  "homebrew/cask-fonts"
 cask "font-fira-code"
 cask "font-fontawesome"
+cask "font-hack-nerd-font"
 
 ## ========== Applications ==========
 cask "local"
