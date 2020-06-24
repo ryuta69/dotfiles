@@ -89,15 +89,15 @@ General() {
 	PLIST="${HOME}/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure.plist"
 	HNUM=$(/usr/libexec/PlistBuddy -c "Print LSHandlers:" ${PLIST} | grep -P '^[\s]*Dict' | wc -l | tr -d ' ')
 	for idx in $(seq 0 $(expr ${HNUM} - 1)); do
-	        THIS_LSSC=$(/usr/libexec/PlistBuddy -c "Print LSHandlers:${idx}:LSHandlerURLScheme" ${PLIST} 2>/dev/null)
-	        if [[ ${LSSC[@]} =~ $THIS_LSSC ]]; then
-	                /usr/libexec/PlistBuddy -c "Set LSHandlers:${idx}:LSHandlerRoleAll com.google.chrome" ${PLIST}
-	        fi
+		THIS_LSSC=$(/usr/libexec/PlistBuddy -c "Print LSHandlers:${idx}:LSHandlerURLScheme" ${PLIST} 2>/dev/null)
+		if [[ ${LSSC[@]} =~ $THIS_LSSC ]]; then
+			/usr/libexec/PlistBuddy -c "Set LSHandlers:${idx}:LSHandlerRoleAll com.google.chrome" ${PLIST}
+		fi
 
-	        THIS_LSCT=$(/usr/libexec/PlistBuddy -c "Print LSHandlers:${idx}:LSHandlerContentType" ${PLIST} 2>/dev/null)
-	        if [[ ${LSCT[@]} =~ $THIS_LSCT ]]; then
-	                /usr/libexec/PlistBuddy -c "Set LSHandlers:${idx}:LSHandlerRoleAll com.google.chrome" ${PLIST}
-	        fi
+		THIS_LSCT=$(/usr/libexec/PlistBuddy -c "Print LSHandlers:${idx}:LSHandlerContentType" ${PLIST} 2>/dev/null)
+		if [[ ${LSCT[@]} =~ $THIS_LSCT ]]; then
+			/usr/libexec/PlistBuddy -c "Set LSHandlers:${idx}:LSHandlerRoleAll com.google.chrome" ${PLIST}
+		fi
 	done
 
 	# ========== Ask to keep changes when closing documents ==========
@@ -372,47 +372,47 @@ Spotlight() {
 	defaults delete com.apple.Spotlight orderedItems
 	SCAT=(
 		# Applications
-		"APPLICATIONS"               true
+		"APPLICATIONS"	       true
 		# Bookmarks & History
-		"BOOKMARKS"                  true
+		"BOOKMARKS"		  true
 		# Calculator
-		"MENU_EXPRESSION"            true
+		"MENU_EXPRESSION"	    true
 		# Contacts
-		"CONTACT"                    true
+		"CONTACT"		    true
 		# Conversion
-		"MENU_CONVERSION"            true
+		"MENU_CONVERSION"	    true
 		# Conversion
-		"MENU_DEFINITION"            true
+		"MENU_DEFINITION"	    true
 		# Developer
-		"SOURCE"                     true
+		"SOURCE"		     true
 		# Documents
-		"DOCUMENTS"                  true
+		"DOCUMENTS"		  true
 		# Events & Reminders
-		"EVENT_TODO"                 true
+		"EVENT_TODO"		 true
 		# Folders
-		"DIRECTORIES"                true
+		"DIRECTORIES"		true
 		# Fonts
-		"FONTS"                      true
+		"FONTS"		      true
 		# Images
-		"IMAGES"                     true
+		"IMAGES"		     true
 		# Mail & Messages
-		"MESSAGES"                   true
+		"MESSAGES"		   true
 		# Movies
-		"MOVIES"                     true
+		"MOVIES"		     true
 		# Music
-		"MUSIC"                      true
+		"MUSIC"		      true
 		# Other
-		"MENU_OTHER"                 true
+		"MENU_OTHER"		 true
 		# PDF Documents
-		"PDF"                        true
+		"PDF"			true
 		# Presentations
-		"PRESENTATIONS"              true
+		"PRESENTATIONS"	      true
 		# Spreadsheets
-		"SPREADSHEETS"               true
+		"SPREADSHEETS"	       true
 		# Spotlight Suggestions
 		"MENU_SPOTLIGHT_SUGGESTIONS" true
 		# System Preferences
-		"SYSTEM_PREFS"               true
+		"SYSTEM_PREFS"	       true
 	)
 	SNUM=$(expr $# / 2)
 	PLIST="${HOME}/Library/Preferences/com.apple.Spotlight"
@@ -603,19 +603,19 @@ Displays() {
 	# 	- More Space
 	osascript -e "
 		tell application \"System Preferences\"
-		        activate
-		        reveal anchor \"displaysDisplayTab\" of pane id \"com.apple.preference.displays\"
+			activate
+			reveal anchor \"displaysDisplayTab\" of pane id \"com.apple.preference.displays\"
 		end tell
 		tell application \"System Events\"
-		        delay 0.5
-		        tell application process \"System Preferences\" to tell window \"Built-in Retina Display\"
-		                click radio button \"Scaled\" of radio group 1 of tab group 1
-		                click radio button 4 of radio group 1 of group 2 of tab group 1
-		                delay 0.5
-		                try
-		                        click button \"OK\" of sheet 1
-		                end try
-		        end tell
+			delay 0.5
+			tell application process \"System Preferences\" to tell window \"Built-in Retina Display\"
+				click radio button \"Scaled\" of radio group 1 of tab group 1
+				click radio button 4 of radio group 1 of group 2 of tab group 1
+				delay 0.5
+				try
+					click button \"OK\" of sheet 1
+				end try
+			end tell
 		end tell
 	"
 
@@ -638,7 +638,7 @@ Displays() {
 	# - Off
 	# /usr/libexec/PlistBuddy -c "Set :${currentUserUID}:CBBlueReductionStatus:AutoBlueReductionEnabled 0" ${NPLIST}
 	# - Custom
-	/usr/libexec/PlistBuddy \
+	sudo /usr/libexec/PlistBuddy \
 		-c "Set :${currentUserUID}:CBBlueReductionStatus:BlueReductionEnabled 1" \ 
 		-c "Set :${currentUserUID}:CBBlueReductionStatus:BlueLightReductionSchedule:DayStartHour 23" \ 
 		-c "Set :${currentUserUID}:CBBlueReductionStatus:BlueLightReductionSchedule:DayStartMinute 59" \ 
@@ -799,8 +799,17 @@ Keyboard() {
 	defaults write .GlobalPreferences KeyRepeat -int 1
 
 	# ========== Adjust keyboard brightness in low light ==========
+	NPLIST="/private/var/root/Library/Preferences/com.apple.CoreBrightness.plist"
+	currentUUID=$(dscl . -read /Users/$(whoami)/ GeneratedUID | cut -d' ' -f2)
+	currentUUID="CBUser-${currentUserUID}"
+	# - Checked
+	# sudo /usr/libexec/PlistBuddy -c "Set :KeyboardBacklight:KeyboardBacklightABEnabled 1" ${NPLIST}
+	# - Unchecked
+	sudo /usr/libexec/PlistBuddy -c "Set :KeyboardBacklight:KeyboardBacklightABEnabled 0" ${NPLIST}
 
 	# ========== Turn keyboard backlight off after ~~~ of inactivity ==========
+	# @int:second
+	sudo /usr/libexec/PlistBuddy -c "Set :KeyboardBacklight:KeyboardBacklightIdleDimTime 0" ${NPLIST}
 
 	# ========== Touch Bar shows ==========
 	# - App Control
@@ -827,46 +836,49 @@ Keyboard() {
 	# - F1, F2, etc. Keys
 	# - Quick Actions
 
-	# ==========  ==========
-	# Show keyboard and emoji viewers in menu bar
-	# [ToDo]
+	# ========== Show keyboard and emoji viewers in menu bar ==========
+	PLIST="${HOME}/Library/Preferences/com.apple.HIToolbox.plist"
+	IS_EMOJI=$(/usr/libexec/PlistBuddy -c "Print AppleEnabledInputSources" ${PLIST} | grep 'com.apple.CharacterPaletteIM')
+	HNUM=$(/usr/libexec/PlistBuddy -c "Print AppleEnabledInputSources" ${PLIST} | grep -P '^[\s]*Dict' | wc -l | tr -d ' ')
+	# - Checked
+	if [[ -z  ${IS_EMOJI} ]]; then
+		/usr/libexec/PlistBuddy \
+	 		-c "Add AppleEnabledInputSources:${HNUM} dict" \
+	 		-c "Add AppleEnabledInputSources:${HNUM}:InputSourceKind string \"Non Keyboard Input Method\"" \
+	 		-c "Add AppleEnabledInputSources:${HNUM}:\"Bundle ID\" string \"com.apple.CharacterPaletteIM\"" \
+			${PLIST}
+	fi
+	# - Unchecked
+	if [[ -n  ${IS_EMOJI} ]]; then
+		for idx in $(seq 0 $(expr ${HNUM} - 1)); do
+			BUNDLE_ID=$(/usr/libexec/PlistBuddy -c "Print AppleEnabledInputSources:${idx}:\"Bundle ID\"" ${PLIST} 2>/dev/null)
+			if [[ $BUNDLE_ID == "com.apple.CharacterPaletteIM" ]]; then
+				/usr/libexec/PlistBuddy -c "Delete AppleEnabledInputSources:${idx}" ${PLIST}
+			fi
+		done
+	fi
 
-	# Use F1, F2, etx. keys as standard function keys on external keyboards
-	# [ToDo]
+	# ========== Correct spelling automatically ==========
+	# - Checked
+	# defaults write .GlobalPreferences WebAutomaticSpellingCorrectionEnabled -bool true
+	# defaults write .GlobalPreferences NSAutomaticSpellingCorrectionEnabled -bool true
+	# - Unchecked
+	defaults write .GlobalPreferences WebAutomaticSpellingCorrectionEnabled -bool false
+	defaults write .GlobalPreferences NSAutomaticSpellingCorrectionEnabled -bool false
 
-	# <Button> Modifier Keys
-	# Select keyboard
-	# [ToDo]
+	# ========== Capitalize words automatically ==========
+	# - Checked
+	# defaults write .GlobalPreferences NSAutomaticCapitalizationEnabled -bool true
+	# - Unchecked
+	defaults write .GlobalPreferences NSAutomaticCapitalizationEnabled -bool false
 
-	# Caps Lock Key
-	# [ToDo]
+	# ========== Add period with double-space ==========
+	# - Checked
+	# defaults write .GlobalPreferences NSAutomaticPeriodSubstitutionEnabled -bool true
+	# - Unchecked
+	defaults write .GlobalPreferences NSAutomaticPeriodSubstitutionEnabled -bool false
 
-	# Control Key
-	# [ToDo]
-
-	# Option Key
-	# [ToDo]
-
-	# Command Key
-	# [ToDo]
-
-	# Function Key
-	# [ToDo]
-
-	## <Tab> Text
-	# Correct spelling automatically
-	# [ToDo]
-
-	# Capitalize words automatically
-	# [ToDo]
-
-	# Add period with double-space
-	# [ToDo]
-
-	# Touch Bar typing suggestions
-	# [ToDo]
-
-	# Use smart quotes and dashes
+	# ========== Use smart quotes and dashes ==========
 	# - Checked
 	# defaults write .GlobalPreferences NSAutomaticDashSubstitutionEnabled -bool true
 	# defaults write .GlobalPreferences NSAutomaticQuoteSubstitutionEnabled -bool true
@@ -874,315 +886,248 @@ Keyboard() {
 	defaults write .GlobalPreferences NSAutomaticDashSubstitutionEnabled -bool false
 	defaults write .GlobalPreferences NSAutomaticQuoteSubstitutionEnabled -bool false
 
-	## <Tab> Shortcuts
-	# Full Keyboard Access
-	# - Text boxes and lists only
-	# - All controls
-	# [ToDo]
+	# ========== Input Sources Shortcut ==========
+	osascript -e "
+		tell application \"System Preferences\"
+			activate
+			reveal anchor \"shortcutsTab\" of pane id \"com.apple.preference.keyboard\"
+		end tell
+		tell application \"System Events\"
+			tell application process \"System Preferences\"
+				repeat while not (window 1 exists)
+				end repeat
+			tell window 1
 
-	## <Menu> Launchpad & Dock
-	# Turn Dock Hiding On/Off
-	# [ToDo]
+			repeat while not (rows of table 1 of scroll area 1 of splitter group 1 of tab group 1 exists)
+			end repeat
 
-	# Show Launchpad
-	# [ToDo]
+			repeat with current_row in (rows of table 1 of scroll area 1 of splitter group 1 of tab group 1)
+				if value of static text 1 of current_row is equal to \"Input Sources\" then
+					select current_row
+					exit repeat
+				end if
+			end repeat
 
-	## <Menu> Display
-	# Decrease display brightness
-	# [ToDo]
+			repeat while not (rows of outline 1 of scroll area 2 of splitter group 1 of tab group 1 exists)
+			end repeat
 
-	# Increase display brightness
-	# [ToDo]
+			repeat with current_row in rows of outline 1 of scroll area 2 of splitter group 1 of tab group 1
+				if name of UI element 2 of current_row is equal to \"Select next source in input menu\" then
+					select current_row
+					click checkbox of UI element 1 of current_row
+					exit repeat
+				end if
+			end repeat
 
-	## <Menu> Mission Control
-	# Mission Control
-	# [ToDo]
+			end tell
+			end tell
+		end tell
+	"
 
-	# Show Notification Center
-	# [ToDo]
+	# ========== Spotlight Shortcut ==========
+	osascript -e "
+		tell application \"System Preferences\"
+			activate
+			reveal anchor \"shortcutsTab\" of pane id \"com.apple.preference.keyboard\"
+		end tell
+		tell application \"System Events\"
+			tell application process \"System Preferences\"
+				repeat while not (window 1 exists)
+				end repeat
+			tell window 1
 
-	# Turn Do Not Disturb On/Off
-	# [ToDo]
+			repeat while not (rows of table 1 of scroll area 1 of splitter group 1 of tab group 1 exists)
+			end repeat
 
-	# Application windows
-	# [ToDo]
+			repeat with current_row in (rows of table 1 of scroll area 1 of splitter group 1 of tab group 1)
+				if value of static text 1 of current_row is equal to \"Spotlight\" then
+					select current_row
+					exit repeat
+				end if
+			end repeat
 
-	# Show Desktop
-	# [ToDo]
+			repeat while not (rows of outline 1 of scroll area 2 of splitter group 1 of tab group 1 exists)
+			end repeat
 
-	# Show Dashboard
-	# [ToDo]
+			repeat with current_row in rows of outline 1 of scroll area 2 of splitter group 1 of tab group 1
+				if name of UI element 2 of current_row is equal to \"Show Spotlight search\" then
+					select current_row
+					click checkbox of UI element 1 of current_row
+					exit repeat
+				end if
+			end repeat
 
-	# Move left a space
-	# [ToDo]
+			end tell
+			end tell
+		end tell
+	"
 
-	# Move right a space
-	# [ToDo]
-
-	# Switch to Desktop 1
-	# [ToDo]
-
-	## <Menu> Keyboard
-	# Change the way Tab moves focus
-	# [ToDo]
-
-	# Turn keyboard access on or off
-	# [ToDo]
-
-	# Move focus to the menu bar
-	# [ToDo]
-
-	# Move focus to the Dock
-	# [ToDo]
-
-	# Move focus to active or next window
-	# [ToDo]
-
-	# Move focus to the window toolbar
-	# [ToDo]
-
-	# Move focus to the floating window
-	# [ToDo]
-
-	# Move focus to next window
-	# [ToDo]
-
-	# Move focus to the window drawer
-	# [ToDo]
-
-	# Move focus to status menus
-	# [ToDo]
-
-	## <Menu> Input Sources
-	# Select the previous input source
-	# Select next source in Input menu
-	osascript <<EOF
-	tell application "System Preferences"
-	        activate
-	        reveal anchor "shortcutsTab" of pane id "com.apple.preference.keyboard"
-	end tell
-	tell application "System Events"
-	        tell application process "System Preferences"
-	                repeat while not (window 1 exists)
-	                end repeat
-	        tell window 1
-
-	        repeat while not (rows of table 1 of scroll area 1 of splitter group 1 of tab group 1 exists)
-	        end repeat
-
-	        repeat with current_row in (rows of table 1 of scroll area 1 of splitter group 1 of tab group 1)
-	                if value of static text 1 of current_row is equal to "Input Sources" then
-	                        select current_row
-	                        exit repeat
-	                end if
-	        end repeat
-
-	        repeat while not (rows of outline 1 of scroll area 2 of splitter group 1 of tab group 1 exists)
-	        end repeat
-
-	        repeat with current_row in rows of outline 1 of scroll area 2 of splitter group 1 of tab group 1
-	                if name of UI element 2 of current_row is equal to "Select next source in input menu" then
-	                        select current_row
-	                        click checkbox of UI element 1 of current_row
-	                        exit repeat
-	                end if
-	        end repeat
-
-	        end tell
-	        end tell
-	end tell
-EOF
-
-	## <Menu> Screenshots
-	# Save picture of screen as a file
-	# [ToDo]
-
-	# Copy picture of screen to the clipboard
-	# [ToDo]
-
-	# Save picture of selected area as a file
-	# [ToDo]
-
-	# Copy picture of sel...area to the clipboard
-	# [ToDo]
-
-	# Screenshot and recording options
-	# [ToDo]
-
-	# Save picture of the Touch Bar as a file
-	# [ToDo]
-
-	# Copy picture of the...Bar to the clipboard
-	# [ToDo]
-
-	## <Menu> Services
-
-	## <Menu> Spotlight
-	# Show Spotlight search
-	osascript <<EOF
-	tell application "System Preferences"
-	        activate
-	        reveal anchor "shortcutsTab" of pane id "com.apple.preference.keyboard"
-	end tell
-	tell application "System Events"
-	        tell application process "System Preferences"
-	                repeat while not (window 1 exists)
-	                end repeat
-	        tell window 1
-
-	        repeat while not (rows of table 1 of scroll area 1 of splitter group 1 of tab group 1 exists)
-	        end repeat
-
-	        repeat with current_row in (rows of table 1 of scroll area 1 of splitter group 1 of tab group 1)
-	                if value of static text 1 of current_row is equal to "Spotlight" then
-	                        select current_row
-	                        exit repeat
-	                end if
-	        end repeat
-
-	        repeat while not (rows of outline 1 of scroll area 2 of splitter group 1 of tab group 1 exists)
-	        end repeat
-
-	        repeat with current_row in rows of outline 1 of scroll area 2 of splitter group 1 of tab group 1
-	                if name of UI element 2 of current_row is equal to "Show Spotlight search" then
-	                        select current_row
-	                        click checkbox of UI element 1 of current_row
-	                        exit repeat
-	                end if
-	        end repeat
-
-	        end tell
-	        end tell
-	end tell
-EOF
-
-	# Show Finder search window
-	# [ToDo]
-
-	## <Menu> Accessibility
-
-	## <Menu> App Shortcuts
-	# Show Help menu
-	# [ToDo]
-
-	## <Menu> Function Keys
-
-	## <Tab> Input Sources
-	Add Input Sources
+	# ========== Input Sources ==========
 	GJIME=$(defaults read com.apple.HIToolbox AppleEnabledInputSources | grep "InputSourceKind = \"Keyboard Input Method\"")
-	[[ -z  ${GJIME} ]] && osascript <<EOF
-	set addcmd to "<dict><key>Bundle ID</key><string>com.google.inputmethod.Japanese</string><key>InputSourceKind</key><string>Keyboard Input Method</string></dict>"
+	HNUM=$(/usr/libexec/PlistBuddy -c "Print AppleEnabledInputSources" ${PLIST} | grep -P '^[\s]*Dict' | wc -l | tr -d ' ')
+	if [[ -z  ${GJIME} ]]; then
+		/usr/libexec/PlistBuddy \
+	 		-c "Add AppleEnabledInputSources:${HNUM} dict" \
+	 		-c "Add AppleEnabledInputSources:${HNUM}:InputSourceKind string \"Keyboard Input Method\"" \
+	 		-c "Add AppleEnabledInputSources:${HNUM}:\"Bundle ID\" string \"com.google.inputmethod.Japanese\"" \
+			${HOME}/Library/Preferences/com.apple.HIToolbox.plist
+	fi
 
-	do shell script "defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add '" & addcmd & "'"
-EOF
-
-	# Show Input menu in menu bar
-	# [ToDo]
-
-	# Automatically switch to a document's input source
-	# [ToDo]
-
-	## <Tab> Dictation
-	# Dictation
-	# [ToDo]
-
-	# Use Enhanced Dictation
-	# [ToDo]
-
-	# Language
-	# [ToDo]
-
-	# Shortcut
-	# [ToDo]
+	# ========== Show Input menu in menu bar ==========
+	# - Checked
+	defaults write com.apple.TextInputMenu -bool true
+	# - Unchecked
+	# defaults write com.apple.TextInputMenu -bool true
 }
 
 Trackpad() {
-	## <Tab> Point & Click
-	# Look up & data detectors
-	# [ToDo]
+	# ========== Look up & data detectors ==========
+	# - Checked
+	#	- Force Click with one finger
+	# defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 1
+	#	- Tap with Three fingers
+	# defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 2
+	# - Unchecked
+	defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 0
 
-	# `Look up & data detectors` pop up menu
-	# - Force Click with one finger
-	# - Tap with Three fingers
-	# [ToDo]
+	# ========== Secondary click ==========
+	# - Checked
+	#	- Click or tap with two fingers
+	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad  TrackpadCornerSecondaryClick -int 0
+	#	- Click in bottom right corner
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad  TrackpadCornerSecondaryClick -int 1
+	#	- Click in bottom left corner
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad  TrackpadCornerSecondaryClick -int 2
+	# - Unchecked
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool false
 
-	# Secondary click
+	# ========== Tap to click ==========
+	# - Checked
 	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+	# - Unchecked
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool false
 
-	# `Secondary click` pop up menu
-	# - Click or tap with two fingers
-	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick 1
-	# - Click in bottom right corner
-	# - Click in bottom left corner
-
-	# Tap to click
-	defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-	defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-
-	# Click
+	# ========== Click ==========
+	# @int:Light.0 Medium.1 Firm.2
 	defaults write -g com.apple.trackpad.forceClick 2
 
-	# Tracking speed
+	# ========== Tracking speed ==========
+	# @int:Slow.0 Fast.3
 	defaults write -g com.apple.trackpad.scaling 3
 
-	# Force Click and haptic feedback
-	# [ToDo]
+	# ========== Silent Click ==========
+	# - Checked
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad ActuationStrength -int 0
+	# - Unchecked
+	defaults delete com.apple.driver.AppleBluetoothMultitouch.trackpad ActuationStrength
 
-	## <Tab> Scroll & Zoom
-	# Scroll direction: Natural
-	# [ToDo]
+	# ========== Force Click and haptic feedback ==========
+	# - Checked
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad ActuateDetents -bool true
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad ForceSuppressed -bool false
+	# - Unchecked
+	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad ActuateDetents -bool false
+	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad ForceSuppressed -bool true
 
-	# Zoom in or out
-	# [ToDo]
+	# ========== Scroll direction: Natural ==========
+	# - Checked
+	defaults write .GlobalPreferences com.apple.swipescrolldirection -bool true
+	# - Unchecked
+	# defaults write .GlobalPreferences com.apple.swipescrolldirection -bool false
 
-	# Smart zoom
-	# [ToDo]
+	# ========== Zoom in or out ==========
+	# - Checked
+	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadPinch -bool true
+	# - Unchecked
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadPinch -bool false
 
-	# Rotate
-	# [ToDo]
+	# ========== Smart zoom ==========
+	# - Checked
+	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerDoubleTapGesture -bool true
+	# - Unchecked
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerDoubleTapGesture -bool false
 
-	## <Tab> More Gestures
-	# Swipe between pages
-	# [ToDo]
+	# ========== Rotate ==========
+	# - Checked
+	defaults write com.apple.AppleMultitouchTrackpad TrackpadRotate -bool true
+	# - Unchecked
+	# defaults write com.apple.AppleMultitouchTrackpad TrackpadRotate -bool false
 
-	# `Swipe between pages` pop up menu
-	# - Scroll left or right with two fingers
-	# - Swipe with three fingers
-	# - Swipe with two or three fingers
-	# [ToDo]
+	# ========== Swipe between pages ==========
+	# - Checked
+	#	- Scroll left or right with two fingers
+	defaults write .GlobalPreferences AppleEnableSwipeNavigateWithScrolls -bool true
+	defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 0
+	# 	- Swipe with three fingers
+	# defaults write .GlobalPreferences AppleEnableSwipeNavigateWithScrolls -bool true
+	# defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 0
+	# 	- Swipe with two or three fingers
+	# defaults write .GlobalPreferences AppleEnableSwipeNavigateWithScrolls -bool true
+	# defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 0
+	# - Unchecked
+	# defaults write .GlobalPreferences AppleEnableSwipeNavigateWithScrolls -bool false
 
-	# Swipe between full-screen apps
-	# [ToDo]
+	# ========== Swipe between full-screen apps ==========
+	# - Checked
+	#	- Scroll left or right with three fingers
+	defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 2
+	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 2
+	# 	- Scroll left or right with four fingers
+	# defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerHorizSwipeGesture -int 2
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerHorizSwipeGesture -int 2
+	# - Unchecked
+	# defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 0
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 0
+	# defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerHorizSwipeGesture -int 0
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerHorizSwipeGesture -int 0
 
-	# `Swipe between full-screen apps` pop up menu
-	# - Scroll left or right with three fingers
-	# - Scroll left or right with four fingers
-	# [ToDo]
+	# ========== Notification Center ==========
+	# - Checked
+	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad -int 3
+	# - Unchecked
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad -int 0
 
-	# Notification Center
-	# [ToDo]
+	# ========== Mission Control ==========
+	# - Checked
+	#	- Swipe up with three fingers
+	defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 2
+	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 2
+	# 	- Swipe up with four fingers
+	# defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture -int 2
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture -int 2
+	# - Unchecked
+	# defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 0
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 0
+	# defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture -int 0
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture -int 0
 
-	# Mission Control
-	# [ToDo]
+	# ========== App Expose ==========
+	# - Checked
+	#	- Swipe down with three fingers
+	# defaults write com.apple.dock showAppExposeGestureEnabled -bool true
+	# defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 2
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 2
+	# 	- Swipe down with four fingers
+	# defaults write com.apple.dock showAppExposeGestureEnabled -bool true
+	# defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture -int 2
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture -int 2
+	# - Unchecked
+	defaults write com.apple.dock showAppExposeGestureEnabled -bool false
 
-	# `Mission Control` pop up menu
-	# - Swipe up with three fingers
-	# - Swipe up with four fingers
-	# [ToDo]
+	# ========== Launchpad ==========
+	# - Checked
+	defaults write com.apple.dock showLaunchpadGestureEnabled -bool true
+	# - Unchecked
+	# defaults write com.apple.dock showLaunchpadGestureEnabled -bool false
 
-	# App Expose
-	# [ToDo]
-
-	# `App Expose` pop up menu
-	# - Swipe down with three fingers
-	# - Swipe down with four fingers
-	# [ToDo]
-
-	# Launchpad
-	# [ToDo]
-
-	# Show Desktop
-	# [ToDo]
+	# ========== Show Desktop ==========
+	# - Checked
+	defaults write com.apple.dock showDesktopGestureEnabled -bool true
+	# - Unchecked
+	# defaults write com.apple.dock showDesktopGestureEnabled -bool false
 }
 ## ----------------------------------------
 ##	Finder
@@ -1375,44 +1320,44 @@ ExtraSettings() {
 	## ========== Dock Applications ==========
 	defaults delete com.apple.dock persistent-apps
 	# dockitem=(
-	# 	"Mail"                "com.apple.mail"                            "file:///Applications/Mail.app/"
-	# 	"Docker"              "com.docker.docker"                         "file:///Applications/Docker.app/"
-	# 	"App Store"           "com.apple.AppStore"                        "file:///Applications/App%20Store.app/"
-	# 	"Xcode"               "com.apple.dt.Xcode"                        "file:///Applications/Xcode.app/"
-	# 	"Kindle"              "com.amazon.Kindle"                         "file:///Applications/Kindle.app/"
-	# 	"Rectangle"           "com.knollsoft.Rectangle"                   "file:///Applications/Rectangle.app/"
-	# 	"Visual Studio Code"  "com.microsoft.VSCode"                      "file:///Applications/Visual%20Studio%20Code.app/"
-	# 	"zoom.us"             "us.zoom.xos"                               "file:///Applications/zoom.us.app/"
-	# 	"Wireshark"           "org.wireshark.Wireshark"                   "file:///Applications/Wireshark.app/"
-	# 	"Discord"             "com.hnc.Discord"                           "file:///Applications/Discord.app/"
-	# 	"Transmit"            "com.panic.Transmit"                        "file:///Applications/Transmit.app/"
-	# 	"VirtualBox"          "org.virtualbox.app.VirtualBox"             "file:///Applications/VirtualBox.app/"
-	# 	"QuickTime Player"    "com.apple.QuickTimePlayerX"                "file:///Applications/QuickTime%20Player.app/"
-	# 	"MongoDB Compass"     "com.mongodb.compass"                       "file:///Applications/MongoDB%20Compass.app/"
-	# 	"LimeChat"            "net.limechat.LimeChat-AppStore"            "file:///Applications/LimeChat.app/"
-	# 	"Android Studio"      "com.google.android.studio"                 "file:///Applications/Android%20Studio.app/"
-	# 	"LINE"                "jp.naver.line.mac"                         "file:///Applications/LINE.app/"
-	# 	"Local"               "com.getflywheel.lightning.local"           "file:///Applications/Local.app/"
-	# 	"Sequel Pro"          "com.sequelpro.SequelPro"                   "file:///Applications/Sequel%20Pro.app/"
-	# 	"Slack"               "com.tinyspeck.slackmacgap"                 "file:///Applications/Slack.app/"
-	# 	"Calendar"            "com.apple.iCal"                            "file:///Applications/Calendar.app/"
-	# 	"Burp Suite"          "com.install4j.9806-1938-4586-6531.70"      "file:///Applications/Burp%20Suite%20Community%20Edition.app/"
-	# 	"Postman"             "com.postmanlabs.mac"                       "file:///Applications/Postman.app/"
-	# 	"Google Chrome"       "com.google.Chrome"                         "file:///Applications/Google%20Chrome.app/"
-	# 	"Adobe XD"            "com.adobe.xd"                              "file:///Applications/Adobe%20XD/Adobe%20XD.app/"
-	# 	"Skitch"              "com.skitch.skitch"                         "file:///Applications/Skitch.app/"
-	# 	"Voice Memos"         "com.apple.VoiceMemos"                      "file:///Applications/VoiceMemos.app/"
-	# 	"Gifski"              "com.sindresorhus.Gifski"                   "file:///Applications/Gifski.app/"
+	# 	"Mail"		"com.apple.mail"			    "file:///Applications/Mail.app/"
+	# 	"Docker"	      "com.docker.docker"			 "file:///Applications/Docker.app/"
+	# 	"App Store"	   "com.apple.AppStore"			"file:///Applications/App%20Store.app/"
+	# 	"Xcode"	       "com.apple.dt.Xcode"			"file:///Applications/Xcode.app/"
+	# 	"Kindle"	      "com.amazon.Kindle"			 "file:///Applications/Kindle.app/"
+	# 	"Rectangle"	   "com.knollsoft.Rectangle"		   "file:///Applications/Rectangle.app/"
+	# 	"Visual Studio Code"  "com.microsoft.VSCode"		      "file:///Applications/Visual%20Studio%20Code.app/"
+	# 	"zoom.us"	     "us.zoom.xos"			       "file:///Applications/zoom.us.app/"
+	# 	"Wireshark"	   "org.wireshark.Wireshark"		   "file:///Applications/Wireshark.app/"
+	# 	"Discord"	     "com.hnc.Discord"			   "file:///Applications/Discord.app/"
+	# 	"Transmit"	    "com.panic.Transmit"			"file:///Applications/Transmit.app/"
+	# 	"VirtualBox"	  "org.virtualbox.app.VirtualBox"	     "file:///Applications/VirtualBox.app/"
+	# 	"QuickTime Player"    "com.apple.QuickTimePlayerX"		"file:///Applications/QuickTime%20Player.app/"
+	# 	"MongoDB Compass"     "com.mongodb.compass"		       "file:///Applications/MongoDB%20Compass.app/"
+	# 	"LimeChat"	    "net.limechat.LimeChat-AppStore"	    "file:///Applications/LimeChat.app/"
+	# 	"Android Studio"      "com.google.android.studio"		 "file:///Applications/Android%20Studio.app/"
+	# 	"LINE"		"jp.naver.line.mac"			 "file:///Applications/LINE.app/"
+	# 	"Local"	       "com.getflywheel.lightning.local"	   "file:///Applications/Local.app/"
+	# 	"Sequel Pro"	  "com.sequelpro.SequelPro"		   "file:///Applications/Sequel%20Pro.app/"
+	# 	"Slack"	       "com.tinyspeck.slackmacgap"		 "file:///Applications/Slack.app/"
+	# 	"Calendar"	    "com.apple.iCal"			    "file:///Applications/Calendar.app/"
+	# 	"Burp Suite"	  "com.install4j.9806-1938-4586-6531.70"      "file:///Applications/Burp%20Suite%20Community%20Edition.app/"
+	# 	"Postman"	     "com.postmanlabs.mac"		       "file:///Applications/Postman.app/"
+	# 	"Google Chrome"       "com.google.Chrome"			 "file:///Applications/Google%20Chrome.app/"
+	# 	"Adobe XD"	    "com.adobe.xd"			      "file:///Applications/Adobe%20XD/Adobe%20XD.app/"
+	# 	"Skitch"	      "com.skitch.skitch"			 "file:///Applications/Skitch.app/"
+	# 	"Voice Memos"	 "com.apple.VoiceMemos"		      "file:///Applications/VoiceMemos.app/"
+	# 	"Gifski"	      "com.sindresorhus.Gifski"		   "file:///Applications/Gifski.app/"
 	# 	"Alfred Preferences"  "com.runningwithcrayons.Alfred-Preferences" "file:///Applications/Alfred%204.app/Contents/Preferences/Alfred%20Preferences.app/"
-	# 	"Tor Browser"         "org.torproject.torbrowser"                 "file:///Applications/Tor%20Browser.app/"
-	# 	"iTerm"               "com.googlecode.iterm2"                     "file:///Applications/iTerm.app/"
+	# 	"Tor Browser"	 "org.torproject.torbrowser"		 "file:///Applications/Tor%20Browser.app/"
+	# 	"iTerm"	       "com.googlecode.iterm2"		     "file:///Applications/iTerm.app/"
 	# 	"Karabiner-Elements"  "org.pqrs.Karabiner-Elements.Preferences"   "file:///Applications/Karabiner-Elements.app/"
-	# 	"Automator"           "com.apple.Automator"                       "file:///Applications/Automator.app/"
-	# 	"Digital Color Meter" "com.apple.DigitalColorMeter"               "file:///Applications/Utilities/Digital%20Color%20Meter.app/"
-	# 	"GPG Keychain"        "org.gpgtools.gpgkeychain"                  "file:///Applications/GPG%20Keychain.app/"
-	# 	"System Preferences"  "com.apple.systempreferences"               "file:///Applications/System%20Preferences.app/"
-	# 	"Script Editor"       "com.apple.ScriptEditor2"                   "file:///Applications/Utilities/Script%20Editor.app/"
-	# 	"Notion"              "notion.id"                                 "file:///Applications/Notion.app/"
+	# 	"Automator"	   "com.apple.Automator"		       "file:///Applications/Automator.app/"
+	# 	"Digital Color Meter" "com.apple.DigitalColorMeter"	       "file:///Applications/Utilities/Digital%20Color%20Meter.app/"
+	# 	"GPG Keychain"	"org.gpgtools.gpgkeychain"		  "file:///Applications/GPG%20Keychain.app/"
+	# 	"System Preferences"  "com.apple.systempreferences"	       "file:///Applications/System%20Preferences.app/"
+	# 	"Script Editor"       "com.apple.ScriptEditor2"		   "file:///Applications/Utilities/Script%20Editor.app/"
+	# 	"Notion"	      "notion.id"				 "file:///Applications/Notion.app/"
 	# )
 	# PLIST="${HOME}/Library/Preferences/com.apple.dock.plist"
 	# /usr/libexec/PlistBuddy -c "Add persistent-apps array" ${PLIST}
