@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<workflow>
+  <name>Bluetooth Connector</name>
+  <version>0.1.0</version>
+  <bundle>nl.robintrietsch.bluetooth</bundle>
+  <updated>1530801255</updated>
+  <file>bluetooth_device_connector.alfredworkflow</file>
+</workflow>
