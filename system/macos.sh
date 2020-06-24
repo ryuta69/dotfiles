@@ -367,90 +367,8 @@ Siri() {
 	defaults write com.apple.Siri StatusMenuVisible -bool false
 }
 
-LanguageRegion() {
-	# ========== Preferred languages ==========
-	# @string: languages abbreviation
-	defaults write .GlobalPreferences AppleLanguages -array en ja
-
-	# ========== Region ==========
-	# - Japan
-	defaults write .GlobalPreferences AppleMetricUnits -int 1
-	defaults write .GlobalPreferences AppleLocale -string "en-JP"
-	defaults write .GlobalPreferences AppleMeasurementUnits -string "Centimeters"
-	# - United States
-	# defaults write .GlobalPreferences AppleMetricUnits -int 0
-	# defaults write .GlobalPreferences AppleLocale -string "en-US"
-	# defaults write .GlobalPreferences AppleMeasurementUnits -string "Inches"
-
-	# ========== First day of week ==========
-	# - Sunday
-	# defaults write .GlobalPreferences AppleFirstWeekday -dict gregorian 1
-	# - Monday
-	defaults write .GlobalPreferences AppleFirstWeekday -dict gregorian 2
-	# - Tuesday
-	# defaults write .GlobalPreferences AppleFirstWeekday -dict gregorian 3
-	# - Wednesday
-	# defaults write .GlobalPreferences AppleFirstWeekday -dict gregorian 4
-	# - Thursday
-	# defaults write .GlobalPreferences AppleFirstWeekday -dict gregorian 5
-	# - Friday
-	# defaults write .GlobalPreferences AppleFirstWeekday -dict gregorian 6
-	# - Saturday
-	# defaults write .GlobalPreferences AppleFirstWeekday -dict gregorian 7
-
-	# ========== Calendar ==========
-	ALOCAL=$(defaults read .GlobalPreferences AppleLocale | awk -F '@' '{print $1}')
-	# - Gregorian
-	# defaults write .GlobalPreferences AppleLocale -string ${ALOCAL}
-	# - Japanese
-	defaults write .GlobalPreferences AppleLocale -string ${ALOCAL}"@calendar=japanese"
-
-	# ========== Time format: 24-Hour Time ==========
-	# - Checked
-	defaults delete .GlobalPreferences AppleICUForce12HourTime
-	# - Unchecked
-	# defaults write .GlobalPreferences AppleICUForce12HourTime -bool true
-
-	# ========== Temperature ==========
-	# - Celsius
-	defaults write .GlobalPreferences AppleTemperatureUnit -string "Celsius"
-	# - Fahrenheit
-	# defaults write .GlobalPreferences AppleTemperatureUnit -string "Fahrenheit"
-
-	# ========== List sort order ==========
-	# - Universal
-	defaults delete .GlobalPreferences AppleCollationOrder
-	# - Japanese
-	# defaults write .GlobalPreferences AppleCollationOrder -string "ja"
-	# - Japanese (Radical-Stroke Sort Order)
-	# defaults write .GlobalPreferences AppleCollationOrder -string "ja@collation=unihan"
-}
-
-SecurityPrivacy() {
-	# ==========  ==========
-	# ==========  ==========
-	## <Tab> General
-	# Require password ~~~ after sleep or screen saver begins
-	# - Checked
-	defaults write com.apple.screensaver askForPassword -bool true
-	# - Unchecked
-	# defaults write com.apple.screensaver askForPassword -bool false
-
-	# `Require password ~~~ after sleep or screen saver begins` pop up menu
-	# params: seconds
-	defaults write com.apple.screensaver askForPasswordDelay -int 0
-
-	# Allow apps downloaded from
-	#!!! This should not be automated.
-
-	## <Tab> FileVault
-	## <Tab> Firewall
-	## <Tab> Privacy
-	#!!! This should not be automated.
-}
-
 Spotlight() {
-	# Search Results
+	# ========== Search Results ==========
 	defaults delete com.apple.Spotlight orderedItems
 	SCAT=(
 		# Applications
@@ -510,59 +428,135 @@ Spotlight() {
 			${PLIST}
 	done
 
-	# Allow Spotlight Suggestions in Look up
+	# ========== Allow Spotlight Suggestions in Look up ==========
 	# - Checked
-	defaluts write com.apple.lookup.shared LookupSuggestionsDisabled -bool true
+	defaults write com.apple.lookup.shared LookupSuggestionsDisabled -bool true
 	# - Unchecked
-	# defaluts write com.apple.lookup.shared LookupSuggestionsDisabled -bool false
+	# defaults write com.apple.lookup.shared LookupSuggestionsDisabled -bool false
+}
+
+LanguageRegion() {
+	# ========== Preferred languages ==========
+	# @string: languages abbreviation
+	defaults write .GlobalPreferences AppleLanguages -array en ja
+
+	# ========== Region ==========
+	# - Japan
+	defaults write .GlobalPreferences AppleMetricUnits -int 1
+	defaults write .GlobalPreferences AppleLocale -string "en-JP"
+	defaults write .GlobalPreferences AppleMeasurementUnits -string "Centimeters"
+	# - United States
+	# defaults write .GlobalPreferences AppleMetricUnits -int 0
+	# defaults write .GlobalPreferences AppleLocale -string "en-US"
+	# defaults write .GlobalPreferences AppleMeasurementUnits -string "Inches"
+
+	# ========== First day of week ==========
+	# - Sunday
+	# defaults write .GlobalPreferences AppleFirstWeekday -dict gregorian 1
+	# - Monday
+	defaults write .GlobalPreferences AppleFirstWeekday -dict gregorian 2
+	# - Tuesday
+	# defaults write .GlobalPreferences AppleFirstWeekday -dict gregorian 3
+	# - Wednesday
+	# defaults write .GlobalPreferences AppleFirstWeekday -dict gregorian 4
+	# - Thursday
+	# defaults write .GlobalPreferences AppleFirstWeekday -dict gregorian 5
+	# - Friday
+	# defaults write .GlobalPreferences AppleFirstWeekday -dict gregorian 6
+	# - Saturday
+	# defaults write .GlobalPreferences AppleFirstWeekday -dict gregorian 7
+
+	# ========== Calendar ==========
+	ALOCAL=$(defaults read .GlobalPreferences AppleLocale | awk -F '@' '{print $1}')
+	# - Gregorian
+	# defaults write .GlobalPreferences AppleLocale -string ${ALOCAL}
+	# - Japanese
+	defaults write .GlobalPreferences AppleLocale -string ${ALOCAL}"@calendar=japanese"
+
+	# ========== Time format: 24-Hour Time ==========
+	# - Checked
+	defaults delete .GlobalPreferences AppleICUForce12HourTime
+	# - Unchecked
+	# defaults write .GlobalPreferences AppleICUForce12HourTime -bool true
+
+	# ========== Temperature ==========
+	# - Celsius
+	defaults write .GlobalPreferences AppleTemperatureUnit -string "Celsius"
+	# - Fahrenheit
+	# defaults write .GlobalPreferences AppleTemperatureUnit -string "Fahrenheit"
+
+	# ========== List sort order ==========
+	# - Universal
+	defaults delete .GlobalPreferences AppleCollationOrder
+	# - Japanese
+	# defaults write .GlobalPreferences AppleCollationOrder -string "ja"
+	# - Japanese (Radical-Stroke Sort Order)
+	# defaults write .GlobalPreferences AppleCollationOrder -string "ja@collation=unihan"
 }
 
 Notifications() {
-	## ========== <Section> Turn on Do Not Disturb ==========
-	# From to
+	# ========== From: ==========
 	# - Checked
-	# From
-	# params: Hours devided by 60 from 0:00. 1320 is 2-00.
-	# defaults -currentHost write com.apple.notificationcenterui dndStart -int 1320
-	# to
-	# params: Hours devided by 60 from 0:00. 420 is -00.
-	# defaults -currentHost write com.apple.notificationcenterui dndEnd -int 420
+	#	- params: Hours devided by 60 from 0:00. 1319 is 23-59.
+	defaults -currentHost write com.apple.notificationcenterui dndStart -int 0
 	# - Unchecked
-	defaults -currentHost delete com.apple.notificationcenterui dndStart
-	defaults -currentHost delete com.apple.notificationcenterui dndEnd
+	# defaults -currentHost delete com.apple.notificationcenterui dndStart
 
-	# When the display is sleeping
+	# ========== to: ==========
+	# - Checked
+	#	- params: Hours devided by 60 from 0:00. 1319 is 23-59.
+	defaults -currentHost write com.apple.notificationcenterui dndEnd -int 1319
+	# - Unchecked
+	# defaults -currentHost delete com.apple.notificationcenterui dndEnd
+
+	# ========== When the display is sleeping ==========
 	# - Checked
 	defaults -currentHost write com.apple.notificationcenterui dndEnabledDisplaySleep -bool true
 	# - Unchecked
 	# defaults -currentHost delete com.apple.notificationcenterui dndEnabledDisplaySleep
 
-	# When mirroring to TVs and projectors
+	# ========== When mirroring to TVs and projectors ==========
 	# - Checked
 	defaults -currentHost delete com.apple.notificationcenterui dndMirroring
 	# - Unchecked
 	# defaults -currentHost write com.apple.notificationcenterui dndMirroring -bool false
 
-	## ========== <Section> When Do Not Distrub is ==========
-	# Allow calls from everyone
+	# ========== Allow calls from everyone ==========
 	# - Checked
 	# defaults -currentHost write com.apple.notificationcenterui dndFacetime -bool true
 	# - Unchecked
 	defaults -currentHost delete com.apple.notificationcenterui dndFacetime
 
-	# Allow repeated calls
+	# ========== Allow repeated calls ==========
 	# - Checked
 	# defaults -currentHost write com.apple.notificationcenterui dndFacetime -bool true
 	# defaults -currentHost write com.apple.notificationcenterui dndFacetimeRepeatedCalls -bool true
 	# - Unchecked
 	defaults -currentHost delete com.apple.notificationcenterui dndFacetime
 	defaults -currentHost delete com.apple.notificationcenterui dndFacetimeRepeatedCalls
+}
 
-	# Notification Center sort order
-	# - Recents
-	# - Recents by App
-	# - Manually by App
-	# [ToDo] sfl2
+SecurityPrivacy() {
+	# ==========  ==========
+	# ==========  ==========
+	## <Tab> General
+	# Require password ~~~ after sleep or screen saver begins
+	# - Checked
+	defaults write com.apple.screensaver askForPassword -bool true
+	# - Unchecked
+	# defaults write com.apple.screensaver askForPassword -bool false
+
+	# `Require password ~~~ after sleep or screen saver begins` pop up menu
+	# params: seconds
+	defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+	# Allow apps downloaded from
+	#!!! This should not be automated.
+
+	## <Tab> FileVault
+	## <Tab> Firewall
+	## <Tab> Privacy
+	#!!! This should not be automated.
 }
 
 Displays() {
