@@ -1246,48 +1246,18 @@ Finder() {
 ##	Desktop
 ## ----------------------------------------
 Desktop() {
-	## ==========  Right Click ==========
-	# Stack By
-	# - Kind
-	# - Date Last Opened
-	# - Date Added
-	# - Date Modified
-	# - Date Created
-	# - Tags
-	# [ToDo]
-
-	# SortBy
-	# - Name
-	# - Kind
-	# - Date Last Opened
-	# - Date Added
-	# - Date Modified
-	# - Date Created
-	# - Size
-	# - Tags
-	# [ToDo]
-
-	# Icon Size
+	# ========== Icon Size ==========
 	/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 36" ${HOME}/Library/Preferences/com.apple.finder.plist
 
-	# Text Size
+	# ========== Text Size ==========
 	/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:textSize 12" ${HOME}/Library/Preferences/com.apple.finder.plist
-
-	# Grid Spacing
-	# [ToDo]
-
-	# Show Item Info
-	# [ToDo]
-
-	# Show Icon Preview
-	# [ToDo]
 }
 
 ## ----------------------------------------
 ##	Extra
 ## ----------------------------------------
 ExtraSettings() {
-	## ========== Dock Applications ==========
+	# ========== Dock Applications ==========
 	defaults delete com.apple.dock persistent-apps
 	# dockitem=(
 	# 	"Mail"		"com.apple.mail"			    "file:///Applications/Mail.app/"
@@ -1350,9 +1320,8 @@ ExtraSettings() {
 	killall cfprefsd
 	killall Dock
 
-	## ========== Default Application ==========
-
-	# Editor - TextEdit
+	# ========== Default Application ==========
+	# - Editor - TextEdit
 	LSCT=("public.json" "com.netscape.javascript-source")
 	PLIST="${HOME}/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure.plist"
 	HNUM=$(/usr/libexec/PlistBuddy -c "Print LSHandlers:" ${PLIST} | grep -P '^[\s]*Dict' | wc -l | tr -d ' ')
@@ -1363,34 +1332,44 @@ ExtraSettings() {
 		fi;
 	done
 
-	## ========== Remove Notification ==========
+	# - MP3 - QuickTimePlayer
+	PLIST="${HOME}/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure.plist"
+	HNUM=$(/usr/libexec/PlistBuddy -c "Print LSHandlers:" ${PLIST} | grep -P '^[\s]*Dict' | wc -l | tr -d ' ')
+	for idx in $(seq 0 $(expr ${HNUM} - 1)); do
+		THIS_LSCT=$(/usr/libexec/PlistBuddy -c "Print LSHandlers:${idx}:LSHandlerContentType" ${PLIST} 2>/dev/null)
+		if [[ $THIS_LSCT == "public.mp3" ]]; then
+			/usr/libexec/PlistBuddy -c "Set LSHandlers:${idx}:LSHandlerRoleAll com.apple.quicktimeplayerx" ${PLIST}
+		fi;
+	done
+
+	# ========== Remove Notification ==========
 	defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-	## ========== Disable DS_STORE in Network and USB ==========
+	# ========== Disable DS_STORE in Network and USB ==========
 	defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 	defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
-	## ========== Show Hidden Files ==========
+	# ========== Show Hidden Files ==========
 	defaults write com.apple.finder AppleShowAllFiles true
 
-	## ========== Show Directory Details ==========
+	# ========== Show Directory Details ==========
 	defaults write com.apple.finder ShowPathbar -bool true
 	defaults write com.apple.finder ShowStatusBar -bool true
 	defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
-	## ========== Disable System Preferences Red Bubble Notification ==========
+	# ========== Disable System Preferences Red Bubble Notification ==========
 	defaults write com.apple.systempreferences AttentionPrefBundleIDs 0
 
-	## ========== Crash Reporter to be in Notification but Popup Window ==========
+	# ========== Crash Reporter to be in Notification but Popup Window ==========
 	defaults write com.apple.CrashReporter UseUNC 1
 
-	## ========== Speed up Window Resize Animation ==========
+	# ========== Speed up Window Resize Animation ==========
 	defaults write -g NSWindowResizeTime -float 0.001
 
-	## ========== Disable Animation in Finder ==========
+	# ========== Disable Animation in Finder ==========
 	defaults write com.apple.finder DisableAllAnimations -bool true
 
-	## ========== Disable Dock ==========
+	# ========== Disable Dock ==========
 	defaults write com.apple.dock autohide-delay -float 1000
 	defaults write com.apple.dock no-bouncing -bool TRUE
 }
