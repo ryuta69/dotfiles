@@ -57,7 +57,7 @@ configure_system() {
 	if [[ $macversion == "10.15" ]]; then
 		/bin/bash ${CWD}/catalina.sh
 	elif [[ $macversion == "10.14" ]]; then
-		/bin/bash ${CWD}/ ./mojave.not_maintained_anymore.sh
+		/bin/bash ${CWD}/ ./mojave.sh
 	else
 		echo "MacOS upper than Mojave is supported."
 		exit 1
