@@ -354,13 +354,13 @@ MissionControl() {
 }
 
 Siri() {
-	# Enable Adk Siri
+	# ========== Enable Adk Siri ==========
 	# - Checked
 	# defaults write com.apple.assistant.support.plist Assistant Enabled -bool true
 	# - Unchecked
-	defaults write com.apple.assistant.support.plist Assistant Enabled -bool false
+	defaults write com.apple.assistant.support.plist "Assistant Enabled" -bool false
 
-	# Show Siri in menu bar
+	# ========== Show Siri in menu bar ==========
 	# - Checked
 	# defaults write com.apple.Siri StatusMenuVisible -bool true
 	# - Unchecked
@@ -368,11 +368,11 @@ Siri() {
 }
 
 LanguageRegion() {
-	# Preferred languages
-	# params: languages abbreviation
+	# ========== Preferred languages ==========
+	# @string: languages abbreviation
 	defaults write .GlobalPreferences AppleLanguages -array en ja
 
-	# Region
+	# ========== Region ==========
 	# - Japan
 	defaults write .GlobalPreferences AppleMetricUnits -int 1
 	defaults write .GlobalPreferences AppleLocale -string "en-JP"
@@ -382,7 +382,7 @@ LanguageRegion() {
 	# defaults write .GlobalPreferences AppleLocale -string "en-US"
 	# defaults write .GlobalPreferences AppleMeasurementUnits -string "Inches"
 
-	# First day of week
+	# ========== First day of week ==========
 	# - Sunday
 	# defaults write .GlobalPreferences AppleFirstWeekday -dict gregorian 1
 	# - Monday
@@ -398,26 +398,26 @@ LanguageRegion() {
 	# - Saturday
 	# defaults write .GlobalPreferences AppleFirstWeekday -dict gregorian 7
 
-	# Calendar
+	# ========== Calendar ==========
 	ALOCAL=$(defaults read .GlobalPreferences AppleLocale | awk -F '@' '{print $1}')
 	# - Gregorian
 	# defaults write .GlobalPreferences AppleLocale -string ${ALOCAL}
 	# - Japanese
 	defaults write .GlobalPreferences AppleLocale -string ${ALOCAL}"@calendar=japanese"
 
-	# Time format: 24-Hour Time
+	# ========== Time format: 24-Hour Time ==========
 	# - Checked
 	defaults delete .GlobalPreferences AppleICUForce12HourTime
 	# - Unchecked
 	# defaults write .GlobalPreferences AppleICUForce12HourTime -bool true
 
-	# Temperature
+	# ========== Temperature ==========
 	# - Celsius
 	defaults write .GlobalPreferences AppleTemperatureUnit -string "Celsius"
 	# - Fahrenheit
 	# defaults write .GlobalPreferences AppleTemperatureUnit -string "Fahrenheit"
 
-	# List sort order
+	# ========== List sort order ==========
 	# - Universal
 	defaults delete .GlobalPreferences AppleCollationOrder
 	# - Japanese
@@ -427,6 +427,8 @@ LanguageRegion() {
 }
 
 SecurityPrivacy() {
+	# ==========  ==========
+	# ==========  ==========
 	## <Tab> General
 	# Require password ~~~ after sleep or screen saver begins
 	# - Checked
