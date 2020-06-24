@@ -575,20 +575,20 @@ Bluetooth() {
 	# ========== Show Bluetooth status in menu bar ==========
 	# - Checked
 	IS_BLUETOOTH=$(defaults read com.apple.systemuiserver menuExtras | grep "Bluetooth")
-	[[ -z ${IS_AIRPORT} ]] && /usr/libexec/PlistBuddy -c "Add menuExtras \"/System/Library/CoreServices/Menu Extras/Bluetooth.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
+	[[ -z ${IS_BLUETOOTH} ]] && /usr/libexec/PlistBuddy -c "Add menuExtras \"/System/Library/CoreServices/Menu Extras/Bluetooth.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
 	# - Unchecked
 	# IS_BLUETOOTH=$(defaults read com.apple.systemuiserver menuExtras | grep "Bluetooth")
-	# [[ -n ${IS_AIRPORT} ]] && /usr/libexec/PlistBuddy -c "Delete menuExtras:\"/System/Library/CoreServices/Menu Extras/Bluetooth.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
+	# [[ -n ${IS_BLUETOOTH} ]] && /usr/libexec/PlistBuddy -c "Delete menuExtras:\"/System/Library/CoreServices/Menu Extras/Bluetooth.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
 }
 
 Sound() {
 	# ========== Show Volume status in menu bar ==========
 	# - Checked
 	IS_VOLUME=$(defaults read com.apple.systemuiserver menuExtras | grep "Volume")
-	[[ -z ${IS_AIRPORT} ]] && /usr/libexec/PlistBuddy -c "Add menuExtras \"/System/Library/CoreServices/Menu Extras/Volume.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
+	[[ -z ${IS_VOLUME} ]] && /usr/libexec/PlistBuddy -c "Add menuExtras \"/System/Library/CoreServices/Menu Extras/Volume.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
 	# - Unchecked
 	# IS_VOLUME=$(defaults read com.apple.systemuiserver menuExtras | grep "Volume")
-	# [[ -n ${IS_AIRPORT} ]] && /usr/libexec/PlistBuddy -c "Delete menuExtras:\"/System/Library/CoreServices/Menu Extras/Volume.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
+	# [[ -n ${IS_VOLUME} ]] && /usr/libexec/PlistBuddy -c "Delete menuExtras:\"/System/Library/CoreServices/Menu Extras/Volume.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
 }
 
 Displays() {
@@ -654,57 +654,139 @@ Displays() {
 }
 
 EnergySaver() {
-	# Show battery status in menu bar
-	# [ToDo]
+	# ========== Show Battery status in menu bar ==========
+	# - Checked
+	IS_BATTERY=$(defaults read com.apple.systemuiserver menuExtras | grep "Battery")
+	[[ -z ${IS_BATTERY} ]] && /usr/libexec/PlistBuddy -c "Add menuExtras \"/System/Library/CoreServices/Menu Extras/Battery.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
+	# - Unchecked
+	# IS_BATTERY=$(defaults read com.apple.systemuiserver menuExtras | grep "Battery")
+	# [[ -n ${IS_BATTERY} ]] && /usr/libexec/PlistBuddy -c "Delete menuExtras:\"/System/Library/CoreServices/Menu Extras/Battery.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
 
-	## <Tab> Battery
-	# Turn display off after
-	# params: minutes
+	# ========== Turn display off after ==========
+	# @int: minutes
 	sudo pmset -b displaysleep 3
 
-	# Put hard disks to sleep when possible
+	# ========== Put hard disks to sleep when possible ==========
 	# - Checked
 	sudo pmset -b disksleep 1
 	# - Unchecked
 	# sudo pmset -b disksleep 0
 
-	# Slightly dim the display while on battery power
+	# ========== Slightly dim the display while on battery power ==========
 	# - Checked
 	# sudo pmset -b lessbright 0
 	# - Unchecked
 	sudo pmset -b lessbright 0
 
-	# Enable Power Nap while on battery power
+	# ========== Enable Power Nap while on battery power ==========
 	# - Checked
 	# sudo pmset -b powernap 1
 	# - Unchecked
 	sudo pmset -b powernap 0
 
-	## <Tab> Power Adapter
-	# Turn display off after
-	# params: minutes
+	# ========== Turn display off after ==========
+	# @int: minutes
 	sudo pmset -c displaysleep 3
 
-	# Prevent computer from sleeping automatically when the display is off
+	# ========== Prevent computer from sleeping automatically when the display is off ==========
 	sudo pmset -c sleep 0
 
-	# Put hard disks to sleep when possible
+	# ========== Put hard disks to sleep when possible ==========
 	# - Checked
 	# sudo pmset -c disksleep 1
 	# - Unchecked
 	sudo pmset -c disksleep 0
 
-	# Wake for Wi-Fi network access
+	# ========== Wake for Wi-Fi network access ==========
 	# - Checked
 	sudo pmset -c womp 1
 	# - Unchecked
 	# sudo pmset -c womp 0
 
-	# Enable Power Nap while plugged into a power adapter
+	# ========== Enable Power Nap while plugged into a power adapter ==========
 	# - Checked
 	# sudo pmset -c powernap 1
 	# - Unchecked
 	sudo pmset -c powernap 0
+}
+
+DateTime() {
+	# ========== Set date and time automatically ==========
+	# - Checked
+	sudo systemsetup -setusingnetworktime on > /dev/null
+	# - Unchecked
+	# sudo systemsetup -setusingnetworktime off > /dev/null
+
+	# ========== Show date and time in menu bar ==========
+	# - Checked
+	IS_CLOCK=$(defaults read com.apple.systemuiserver menuExtras | grep "Clock")
+	[[ -z ${IS_CLOCK} ]] && /usr/libexec/PlistBuddy -c "Add menuExtras \"/System/Library/CoreServices/Menu Extras/Clock.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
+	# - Unchecked
+	# IS_CLOCK=$(defaults read com.apple.systemuiserver menuExtras | grep "Clock")
+	# [[ -n ${IS_CLOCK} ]] && /usr/libexec/PlistBuddy -c "Delete menuExtras:\"/System/Library/CoreServices/Menu Extras/Clock.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
+
+	# ========== Time options ==========
+	# - Digital
+	defaults write com.apple.menuextra.clock IsAnalog -bool false
+	# - Analog
+	# defaults write com.apple.menuextra.clock IsAnalog -bool true
+
+	# ========== Display the time with seconds ==========
+	# - Checked
+	# defaults write com.apple.menuextra.clock DateFormat -string "HH:mm:ss"
+	# - Unchecked
+	defaults write com.apple.menuextra.clock DateFormat -string "HH:mm"
+
+	# ========== Flash the time separators ==========
+	# - Checked
+	# defaults write com.apple.menuextra.clock FlashDateSeparators -bool true
+	# - Unchecked
+	defaults write com.apple.menuextra.clock FlashDateSeparators -bool false
+
+	# ========== Use a 24-hour clock ==========
+	# - Checked
+	defaults write com.apple.menuextra.clock DateFormat -string "HH:mm"
+	# - Unchecked
+	# defaults write com.apple.menuextra.clock DateFormat -string "H:mm"
+
+	# ========== Show AM/PM ==========
+	# - Checked
+	# defaults write com.apple.menuextra.clock DateFormat -string "H:mm"
+	# - Unchecked
+	defaults write com.apple.menuextra.clock DateFormat -string "HH:mm"
+
+	# ========== Show the day of the week ==========
+	# - Checked
+	# defaults write com.apple.menuextra.clock DateFormat -string "EEE HH:mm"
+	# - Unchecked
+	defaults write com.apple.menuextra.clock DateFormat -string "HH:mm"
+
+	# ========== Show date ==========
+	# - Checked
+	# defaults write com.apple.menuextra.clock DateFormat -string "MMM d EEE HH:mm"
+	# - Unchecked
+	defaults write com.apple.menuextra.clock DateFormat -string "HH:mm"
+}
+
+iCloud() {
+	# Disable All settings
+	defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool FALSE
+}
+
+TimeMachine() {
+	# ========== Back Up Automatically ==========
+	# - Checked
+	# sudo tmutil enable
+	# - Unchecked
+	sudo tmutil disable
+
+	# ========== Show Time Machine in menu bar ==========
+	# - Checked
+	# IS_TIMEMACHINE=$(defaults read com.apple.systemuiserver menuExtras | grep "TimeMachine")
+	# [[ -z ${IS_TIMEMACHINE} ]] && /usr/libexec/PlistBuddy -c "Add menuExtras \"/System/Library/CoreServices/Menu Extras/TimeMachine.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
+	# - Unchecked
+	IS_TIMEMACHINE=$(defaults read com.apple.systemuiserver menuExtras | grep "TimeMachine")
+	[[ -n ${IS_TIMEMACHINE} ]] && /usr/libexec/PlistBuddy -c "Delete menuExtras:\"/System/Library/CoreServices/Menu Extras/TimeMachine.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
 }
 
 Keyboard() {
@@ -1121,59 +1203,6 @@ Trackpad() {
 	# Show Desktop
 	# [ToDo]
 }
-
-
-DateTime() {
-	## <Tab> Date & Time
-	# Set date and time automatically
-	sudo systemsetup -setusingnetworktime on > /dev/null
-
-	## <Tab> Time Zone
-
-	## <Tab> Clock
-	# Show date and time in menu bar
-	# [ToDo]
-
-	# Time options
-	# - Digital
-	defaults write com.apple.menuextra.clock IsAnalog -bool false
-	# - Analog
-	# defaults write com.apple.menuextra.clock IsAnalog -bool true
-
-	# Display the time with seconds
-	# [ToDo]
-
-	# Flash the time separators
-	defaults write com.apple.menuextra.clock FlashDateSeparators -bool false
-
-	# Use a 24-hour clock
-	defaults write com.apple.menuextra.clock DateFormat -string "HH:mm"
-
-	# Show AM/PM
-	# [ToDo]
-
-	# Show the day of the week
-	# [ToDo]
-
-	# Show date
-	# [ToDo]
-
-	# Announce the time
-	# [ToDo]
-}
-
-## ========== Time Machine ==========
-# Back Up Automatically
-# [ToDo]
-
-# Show Time Machine in menu bar
-# [ToDo]
-
-iCloud() {
-	# Disable All settings
-	defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool FALSE
-}
-
 ## ----------------------------------------
 ##	Finder
 ## ----------------------------------------
@@ -1492,6 +1521,8 @@ Network
 Bluetooth
 UsersGroups
 DateTime
+iCloud
+TimeMachine
 Finder
 Desktop
 ExtraSettings
