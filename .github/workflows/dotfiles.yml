@@ -15,6 +15,9 @@ jobs:
     - name: Run initial setup.
       run: |
         curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --init
-    - name: Run all test.
+    - name: Run dotfiles setup.
       run: |
-        /bin/bash install.sh --force --test --init --all
+        /bin/bash install.sh --force --test --dotfiles
+    - name: Run system setup.
+      run: |
+        /bin/bash install.sh --force --test --system
