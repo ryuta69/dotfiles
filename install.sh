@@ -55,9 +55,10 @@ configure_system() {
 
 	macversion=$(/usr/libexec/PlistBuddy -c "Print:ProductVersion" /System/Library/CoreServices/SystemVersion.plist | awk -F. '{print $1"."$2}')
 	if [[ $macversion == "10.15" ]]; then
-		/bin/bash ${CWD}/catalina.sh
+		/bin/bash ${CWD}/macos.sh
 	elif [[ $macversion == "10.14" ]]; then
-		/bin/bash ${CWD}/ ./mojave.sh
+		echo "You are using Mojave OS. It may cause errors since this shell is maintained with Catalina OS."
+		/bin/bash ${CWD}/macos.sh
 	else
 		echo "MacOS upper than Mojave is supported."
 		exit 1
