@@ -1129,147 +1129,117 @@ Trackpad() {
 	# - Unchecked
 	# defaults write com.apple.dock showDesktopGestureEnabled -bool false
 }
+
 ## ----------------------------------------
 ##	Finder
 ## ----------------------------------------
 Finder() {
-	## ========== General ==========
-	# Show these items on the desktop
-	# Hard disks
-	# - Checked
+	# ========== Show these items on the desktop ==========
+	# - Hard disks
+	#	- Checked
 	# defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
-	# - Unchecked
+	#	- Unchecked
 	defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
-	# External disks
-	# - Checked
+	# - External disks
+	#	- Checked
 	# defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
-	# - Unchecked
+	#	- Unchecked
 	defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
-	# CDs, DVDs, and iPods
-	# - Checked
+	# - CDs, DVDs, and iPods
+	#	- Checked
 	# defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
-	# - Unchecked
+	#	- Unchecked
 	defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
-	# Connected servers
-	# - Checked
+	# - Connected servers
+	#	- Checked
 	# defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
-	# - Unchecked
+	#	- Unchecked
 	defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 
-	# New Finder windows show
+	# ========== New Finder windows show ==========
 	defaults write com.apple.finder NewWindowTarget -string "${HOME}/work"
 
-	# Open folders in tabs instead of new windows
+	# ========== Open folders in tabs instead of new windows ==========
 	# - Checked
 	defaults write com.apple.finder FinderSpawnTab -bool true
 	# - Unchecked
 	# defaults write com.apple.finder FinderSpawnTab -bool false
 
-	## ========== Tags ==========
-	# Show these tags in the sidebar
-	# [ToDo]
-
-	## ========== Sidebar ==========
-	# Favorite
-	# [ToDo]
-
-	# Locations
-	# [ToDo]
-
-	# Tags
-	# Recent Tags
+	# ========== Recent Tags ==========
 	# - Checked
 	# defaults write com.apple.finder ShowRecentTags -bool true
 	# - Unchecked
 	defaults write com.apple.finder ShowRecentTags -bool false
 
-	## ========== Advanced ==========
-	# Show all filename extensions
+	# ========== Show all filename extensions ==========
+	# - Checked
 	defaults write -g AppleShowAllExtensions -bool true
+	# - Unchecked
+	# defaults write -g AppleShowAllExtensions -bool false
 
-	# Show warning before changing an extension
+	# ========== Show warning before changing an extension ==========
+	# - Checked
+	# defaults write com.apple.finder FXEnableExtensionChangeWarning -bool true
+	# - Unchecked
 	defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-	# Show warning before removing from iCloud Drive
+	# ========== Show warning before removing from iCloud Drive ==========
+	# - Checked
+	# defaults write com.apple.finder FXEnableRemoveFromICloudDriveWarning -bool true
+	# - Unchecked
 	defaults write com.apple.finder FXEnableRemoveFromICloudDriveWarning -bool false
 
-	# Show warning before emptying the Trash
+	# ========== Show warning before emptying the Trash ==========
+	# - Checked
+	# defaults write com.apple.finder WarnOnEmptyTrash -bool true
+	# - Unchecked
 	defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
-	# Remove items from the Trash after 30 days
+	# ========== Remove items from the Trash after 30 days ==========
+	# - Checked
 	defaults write com.apple.finder FXRemoveOldTrashItems -bool true
+	# - Unchecked
+	# defaults write com.apple.finder FXRemoveOldTrashItems -bool false
 
-	# Keep folders on top
-	# - In windows when sorting by name
-	defaults write com.apple.finder _FXSortFoldersFirst -bool false
-	# - On Desktop
-
-	# When Performing a search
-	# - Search This Mac
-	defaults write com.apple.finder FXDefaultSearchScope -string "SCev"
-	# - Search the Current Folder
-	# - Use the Previous Search Scope
-
-	## ========== Right Click ==========
-	# View
+	# ========== View ==========
 	# - as Icons
-	# - as List
+	# defaults write com.apple.Finder FXPreferredViewStyle -string icnv
 	# - as Columns
-	defaults write com.apple.Finder FXPreferredViewStyle Nlsv
+	defaults write com.apple.Finder FXPreferredViewStyle -string Nlsv
 	# - as Gallary View
+	# defaults write com.apple.Finder FXPreferredViewStyle -string clmv
 
-	# Use Groups
-	# [ToDo]
-
-	# SortBy
-	# - Name
-	# - Kind
-	# - Date Last Opened
-	# - Date Added
-	# - Date Modified
-	# - Date Created
-	# - Size
-	# - Tags
-	# [ToDo]
-
-	# <Button> View Options
-	# Icon Size
+	# ========== Icon Size ==========
 	/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 36" ${HOME}/Library/Preferences/com.apple.finder.plist
 
-	# Grid Spacing
-	# [ToDo]
-
-	# Text Size
+	# ========== Text Size ==========
 	/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:textSize 12" ${HOME}/Library/Preferences/com.apple.finder.plist
 
-	# Label Position
-	# - Bottom
-	# - Right
-	# [ToDo]
-
-	# Show Item Info
-	# [ToDo]
-
-	# Show Icons
-	# [ToDo]
-
-	# Show Icon Preview
-	# [ToDo]
-
-	# Show Column Preview
-	# [ToDo]
-
-	## ========== View ==========
-	# [ToDo] false version
-	# Show Toolbar
+	# ========== Show Toolbar ==========
+	# - Checked
 	defaults write com.apple.finder ShowSidebar -bool true
 	defaults write com.apple.finder ShowPreviewPane -bool true
-	# Show Path Bar
+	# - Unchecked
+	# defaults write com.apple.finder ShowSidebar -bool false
+	# defaults write com.apple.finder ShowPreviewPane -bool false
+
+	# ========== Show Path Bar ==========
+	# - Checked
 	defaults write com.apple.finder ShowPathbar -bool true
-	# Show Tab Bar
+	# - Unchecked
+	# defaults write com.apple.finder ShowPathbar -bool false
+
+	# ========== Show Tab Bar ==========
+	# - Checked
 	defaults write com.apple.finder ShowTabView -bool true
-	# Show Status Bar
+	# - Unchecked
+	# defaults write com.apple.finder ShowTabView -bool false
+
+	# ========== Show Status Bar ==========
+	# - Checked
 	defaults write com.apple.finder ShowStatusBar -bool true
+	# - Unchecked
+	# defaults write com.apple.finder ShowStatusBar -bool false
 }
 
 ## ----------------------------------------
