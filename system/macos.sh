@@ -790,63 +790,44 @@ TimeMachine() {
 }
 
 Keyboard() {
-	## <Tab> Keyboard
-	# Key Repeat
-	# params: 15 is the fastest
+	# ========== Key Repeat ==========
+	# @int: 15 is the fastest in GUI, but real is 10
 	defaults write .GlobalPreferences InitialKeyRepeat -int 10
 
-	# Delay Until Repeat
-	# params: 2 is the fastest
+	# ========== Delay Until Repeat ==========
+	# @int: 2 is the fastest in GUI, but real is 1
 	defaults write .GlobalPreferences KeyRepeat -int 1
 
-	# Adjust keyboard brightness in low light
-	# [ToDo]
+	# ========== Adjust keyboard brightness in low light ==========
 
-	# Turn keyboard backlight off after ~~~ of inactivity
-	# [ToDo]
+	# ========== Turn keyboard backlight off after ~~~ of inactivity ==========
 
-	# `Turn keyboard backlight off after ~~~ of inactivity` seconds
-	# [ToDo]
-
-	# Touch Bar shows
-	# [ToDo] Check if there is command to touchbar exists
+	# ========== Touch Bar shows ==========
 	# - App Control
 	# - Expanded Control Strip
-	osascript <<EOF
-	tell application "System Preferences"
-	        activate
-	        reveal anchor "keyboardTab" of pane id "com.apple.preference.keyboard"
-	end tell
-	tell application "System Events"
-	        tell application process "System Preferences"
-	                repeat while not (window 1 exists)
-	                end repeat
-	                tell window 1
-	                        tell tab group 1
-	                                tell pop up button 2
-	                                        delay 1
-	                                        click
-	                                        tell menu 1
-	                                                click menu item "Expanded Control Strip"
-	                                        end tell
-	                                end tell
-	                        end tell
-	                end tell
-	        end tell
-	end tell
-	quit application "System Preferences"
-EOF
+	# osascript -e "
+	# 	tell application \"System Preferences\"
+	# 		activate
+	# 		reveal anchor \"keyboardTab\" of pane id \"com.apple.preference.keyboard\"
+	# 	end tell
+	# 	tell application \"System Events\"
+	# 		tell application process \"System Preferences\"
+	# 			repeat while not (window 1 exists)
+	# 			end repeat
+	# 			tell pop up button 2 of tab group 1 of window 1
+	# 				delay 1
+	# 				click
+	# 				tell menu 1
+	# 					click menu item \"Expanded Control Strip\"
+	# 				end tell
+	# 			end tell
+	# 		end tell
+	# 	end tell
+	# "
 	# - F1, F2, etc. Keys
 	# - Quick Actions
 
-
-	# Press Fn key to
-	# - App Control
-	# - Expanded Control Strip
-	# - F1, F2, etc. Keys
-	# - Quick Actions
-	# [ToDo]
-
+	# ==========  ==========
 	# Show keyboard and emoji viewers in menu bar
 	# [ToDo]
 
