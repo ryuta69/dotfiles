@@ -1420,8 +1420,11 @@ MACOS=$(/usr/libexec/PlistBuddy -c "Print:ProductVersion" /System/Library/CoreSe
 if [[ $MACOS == "10.15" ]]; then
 	# This is Catalina Version.
 	# If the latest version is updated, add warning message here.
+	:
 elif [[ $MACOS == "10.14" ]]; then
 	echo "You are using Mojave OS. It may cause errors since this shell is maintained with Catalina OS."
+	read -p "Will you continue? (Y/n): " Ans;
+	[[ $Ans != 'Y' ]] && echo 'Canceled' && exit 0;
 else
 	echo "MacOS upper than Mojave is supported."
 	exit 1
