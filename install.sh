@@ -53,27 +53,7 @@ configure_system() {
 
 	osascript -e 'tell application "System Preferences" to quit' > /dev/null 2>&1
 
-	macversion=$(/usr/libexec/PlistBuddy -c "Print:ProductVersion" /System/Library/CoreServices/SystemVersion.plist | awk -F. '{print $1"."$2}')
-	if [[ $macversion == "10.15" ]]; then
-		/bin/bash ${CWD}/macos.sh
-	elif [[ $macversion == "10.14" ]]; then
-		echo "You are using Mojave OS. It may cause errors since this shell is maintained with Catalina OS."
-		/bin/bash ${CWD}/macos.sh
-	else
-		echo "MacOS upper than Mojave is supported."
-		exit 1
-	fi
-
-	if ! ${TESTMODE}; then
-		for app in \
-			"cfprefsd" \
-			"Activity Monitor" "Address Book" "Calendar" \
-			"Contacts" "Dock" "Finder" "Mail" "Messages" \
-			"SystemUIServer" "Terminal" "Transmission" "iCal"
-		do
-			killall ${app}
-		done
-	fi
+	/bin/bash ${CWD}/macos.sh
 }
 
 install_bundle() {
