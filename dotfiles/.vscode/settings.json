@@ -17,9 +17,9 @@
 	"editor.detectIndentation": false,
 	"editor.suggestSelection": "first",
 	"editor.renderLineHighlight": "all",
-	"editor.fontFamily": "HackNerdFontComplete-Italic",
 	"editor.acceptSuggestionOnEnter": "on",
 	"editor.scrollbar.verticalScrollbarSize": 0,
+	"editor.fontFamily": "HackNerdFontComplete-Italic",
 	"editor.quickSuggestions": {
 		"other": true,
 		"strings": true,
@@ -69,8 +69,8 @@
 	"terminal.integrated.fontSize": 12,
 	"terminal.external.osxExec": "iTerm.app",
 	"terminal.integrated.cursorStyle": "line",
-	"terminal.integrated.fontFamily": "HackNerdFontComplete-Italic",
 	"terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+	"terminal.integrated.fontFamily": "HackNerdFontComplete-Italic",
 	"git.enabled": false,
 	"[go]": {
 		"editor.codeActionsOnSave": {
