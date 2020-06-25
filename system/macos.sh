@@ -372,47 +372,47 @@ Spotlight() {
 	defaults delete com.apple.Spotlight orderedItems
 	SCAT=(
 		# Applications
-		"APPLICATIONS"	       true
+		"APPLICATIONS"               true
 		# Bookmarks & History
-		"BOOKMARKS"		  true
+		"BOOKMARKS"                  true
 		# Calculator
-		"MENU_EXPRESSION"	    true
+		"MENU_EXPRESSION"            true
 		# Contacts
-		"CONTACT"		    true
+		"CONTACT"                    true
 		# Conversion
-		"MENU_CONVERSION"	    true
+		"MENU_CONVERSION"            true
 		# Conversion
-		"MENU_DEFINITION"	    true
+		"MENU_DEFINITION"            true
 		# Developer
-		"SOURCE"		     true
+		"SOURCE"                     true
 		# Documents
-		"DOCUMENTS"		  true
+		"DOCUMENTS"                  true
 		# Events & Reminders
-		"EVENT_TODO"		 true
+		"EVENT_TODO"                 true
 		# Folders
-		"DIRECTORIES"		true
+		"DIRECTORIES"                true
 		# Fonts
-		"FONTS"		      true
+		"FONTS"                      true
 		# Images
-		"IMAGES"		     true
+		"IMAGES"                     true
 		# Mail & Messages
-		"MESSAGES"		   true
+		"MESSAGES"                   true
 		# Movies
-		"MOVIES"		     true
+		"MOVIES"                     true
 		# Music
-		"MUSIC"		      true
+		"MUSIC"                      true
 		# Other
-		"MENU_OTHER"		 true
+		"MENU_OTHER"                 true
 		# PDF Documents
-		"PDF"			true
+		"PDF"                        true
 		# Presentations
-		"PRESENTATIONS"	      true
+		"PRESENTATIONS"              true
 		# Spreadsheets
-		"SPREADSHEETS"	       true
+		"SPREADSHEETS"               true
 		# Spotlight Suggestions
 		"MENU_SPOTLIGHT_SUGGESTIONS" true
 		# System Preferences
-		"SYSTEM_PREFS"	       true
+		"SYSTEM_PREFS"               true
 	)
 	SNUM=$(expr $# / 2)
 	PLIST="${HOME}/Library/Preferences/com.apple.Spotlight"
@@ -551,6 +551,7 @@ SecurityPrivacy() {
 	# - Unchecked
 	# defaults write com.apple.screensaver askForPassword -bool false
 
+	# ========== Never require password when download from unknown site ==========
 	# !!!!! This should not be set !!!!!
 	# sudo spctl --master-disable
 }
@@ -661,6 +662,12 @@ EnergySaver() {
 	# - Unchecked
 	# IS_BATTERY=$(defaults read com.apple.systemuiserver menuExtras | grep "Battery")
 	# [[ -n ${IS_BATTERY} ]] && /usr/libexec/PlistBuddy -c "Delete menuExtras:\"/System/Library/CoreServices/Menu Extras/Battery.menu\"" ${HOME}/Library/Preferences/com.apple.systemuiserver.plist
+
+	# ========== Show Battery percentage in menu bar ==========
+	# - Show
+	# defaults write com.apple.menuextra.battery ShowPercent -string "Yes"
+	# - Hide
+	defaults write com.apple.menuextra.battery ShowPercent -string "NO"
 
 	# ========== Turn display off after ==========
 	# @int: minutes
@@ -1140,16 +1147,19 @@ Finder() {
 	# defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
 	#	- Unchecked
 	defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+
 	# - External disks
 	#	- Checked
 	# defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 	#	- Unchecked
 	defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+
 	# - CDs, DVDs, and iPods
 	#	- Checked
 	# defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 	#	- Unchecked
 	defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
+
 	# - Connected servers
 	#	- Checked
 	# defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
@@ -1208,6 +1218,8 @@ Finder() {
 	defaults write com.apple.Finder FXPreferredViewStyle -string Nlsv
 	# - as Gallary View
 	# defaults write com.apple.Finder FXPreferredViewStyle -string clmv
+	# - as List
+	# defaults write com.apple.Finder FXPreferredViewStyle -string Flwv
 
 	# ========== Icon Size ==========
 	/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 36" ${HOME}/Library/Preferences/com.apple.finder.plist
@@ -1357,6 +1369,12 @@ ExtraSettings() {
 	defaults write com.apple.finder ShowStatusBar -bool true
 	defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
+	# ========== Search current directory when exec search in Finder ==========
+	defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+	# ========== Disable the warning when changing the extension ==========
+	defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
 	# ========== Disable System Preferences Red Bubble Notification ==========
 	defaults write com.apple.systempreferences AttentionPrefBundleIDs 0
 
@@ -1372,6 +1390,27 @@ ExtraSettings() {
 	# ========== Disable Dock ==========
 	defaults write com.apple.dock autohide-delay -float 1000
 	defaults write com.apple.dock no-bouncing -bool TRUE
+
+	# ========== Never allow password hints at login ==========
+	sudo defaults write /Library/Preferences/com.apple.loginwindow RetriesUntilHint -int 0
+
+	# ========== Set Screenshots saved directory ==========
+	defaults write com.apple.screencapture location -string "$HOME/Downloads/"
+
+	# ========== Set Screenshots format ==========
+	# - png
+	defaults write com.apple.screencapture type -string "png"
+	# - jpg
+	# defaults write com.apple.screencapture type -string "jpg"
+	# - bmp
+	# defaults write com.apple.screencapture type -string "bmp"
+
+	# ========== Set Computer Name ==========
+	# !!!!! This should not be set !!!!!
+	# sudo scutil --set HostName "ryuta69"
+	# sudo scutil --set ComputerName "ryuta69"
+	# sudo scutil --set LocalHostName "ryuta69"
+	# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "ryuta69"
 }
 
 ## ----------------------------------------
