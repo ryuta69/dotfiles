@@ -159,7 +159,7 @@ DesktopScreenSaver() {
 	# ========== Desktop Picture ==========
 	osascript -e "
 		tell application \"Finder\"
-			set desktop picture to \"${EXEPATH}/img/desktop.png\" as POSIX file
+			set desktop picture to \"${EXEPATH}/desktop.png\" as POSIX file
 		end tell
 	"
 
@@ -539,7 +539,7 @@ Notifications() {
 UsersGroups() {
 	# ========== Profile Picture ==========
 	UNM=$(whoami)
-	sudo dscl . create /Users/${UNM} Picture "${EXEPATH}/img/icon.jpeg"
+	sudo dscl . create /Users/${UNM} Picture "${EXEPATH}/icon.jpeg"
 }
 
 SecurityPrivacy() {
