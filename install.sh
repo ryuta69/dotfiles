@@ -53,7 +53,7 @@ configure_system() {
 
 	osascript -e 'tell application "System Preferences" to quit' > /dev/null 2>&1
 
-	/bin/bash ${CWD}/macos.sh
+	/bin/bash ${CWD}/macos.sh ${TESTMODE}
 }
 
 install_bundle() {
