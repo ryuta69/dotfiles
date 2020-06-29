@@ -189,7 +189,7 @@ usage() {
 ## ----------------------------------------
 argv=$@
 
-if [[ ${argv[@]} =~ "--help" ]]; then
+if [[ ${argv[@]} =~ "--help" || $# -eq 0 ]]; then
 	usage
 	exit 0
 fi
