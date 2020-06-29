@@ -48,6 +48,7 @@
 	rmg = !rm -rf `ghq list -p | fzf`
 	rv  = revert
 	rvr = !git revert $1^..$2
+	sca = secrets --scan-history
 	st  = status
 	ss  = stash save
 	sc  = stash clear
