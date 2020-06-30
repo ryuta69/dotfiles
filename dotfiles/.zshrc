@@ -26,6 +26,8 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 ## ----------------------------------------
 autoload -Uz colors && colors
 autoload -Uz compinit && compinit -i && compinit
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
 
 ## ----------------------------------------
 ##	Language
@@ -61,6 +63,10 @@ bindkey '^F' forward-word
 bindkey '^B' backward-word
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
 
 ## ----------------------------------------
 ##	Alias
