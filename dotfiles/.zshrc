@@ -40,6 +40,10 @@ export LC_CTYPE="${LANGUAGE}"
 ## ----------------------------------------
 ##	Completion
 ## ----------------------------------------
+setopt share_history
+export HISTSIZE=100
+export SAVEHIST=10000
+export HISTFILE=${HOME}/.zsh_history
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
