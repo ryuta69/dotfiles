@@ -33,8 +33,6 @@ brew "brightness"
 brew "shellcheck"
 brew "git-secrets"
 brew "chromedriver"
-tap  "cjbassi/ytop"
-brew "ytop"
 
 ## ========== Shell ==========
 brew "zsh"

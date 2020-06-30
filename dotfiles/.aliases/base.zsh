@@ -1,6 +1,7 @@
 ## ----------------------------------------
 ##	Package Manager
 ## ----------------------------------------
+alias rsup='cargo install-update --all'
 alias zsup='zinit self-update && zinit update'
 alias npup='npm update -g npm && npm update -g'
 alias viup='vim +"PlugUpdate" +qa && nvim +"PlugUpdate" +qa'
