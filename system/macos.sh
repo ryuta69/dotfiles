@@ -1266,6 +1266,23 @@ Desktop() {
 }
 
 ## ----------------------------------------
+##	AppStore
+## ----------------------------------------
+AppStore() {
+	# ========== Auto Update Check ==========
+	# - Enable
+	defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
+	# - Disable
+	# defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool false
+
+	# ========== Auto Update ==========
+	# - Enable
+	# defaults write com.apple.commerce AutoUpdate -bool true
+	# - Disable
+	defaults write com.apple.commerce AutoUpdate -bool false
+}
+
+## ----------------------------------------
 ##	Extra
 ## ----------------------------------------
 ExtraSettings() {
@@ -1405,12 +1422,21 @@ ExtraSettings() {
 	# - bmp
 	# defaults write com.apple.screencapture type -string "bmp"
 
+	# ========== Disable Notification Center on menu ==========
+	# launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
+
 	# ========== Set Computer Name ==========
 	# !!!!! This should not be set !!!!!
 	# sudo scutil --set HostName "ryuta69"
 	# sudo scutil --set ComputerName "ryuta69"
 	# sudo scutil --set LocalHostName "ryuta69"
 	# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "ryuta69"
+
+	# ========== Disable Sound on Boot ==========
+	sudo nvram SystemAudioVolume=" "
+
+	# ========== Never start sleep mode ==========
+	# sudo systemsetup -setcomputersleep Off > /dev/null
 }
 
 ## ----------------------------------------
@@ -1430,30 +1456,31 @@ else
 	exit 1
 fi
 
-General
-DesktopScreenSaver
-Dock
-MissionControl
-Siri
-LanguageRegion
-SecurityPrivacy
-Spotlight
-Notifications
-Displays
-EnergySaver
-Keyboard
-Trackpad
-Sound
-SoftwareUpdate
-Network
+Appstore
 Bluetooth
-UsersGroups
 DateTime
-iCloud
-TimeMachine
-Finder
 Desktop
+DesktopScreenSaver
+Displays
+Dock
+EnergySaver
 ExtraSettings
+Finder
+General
+iCloud
+Keyboard
+LanguageRegion
+MissionControl
+Network
+Notifications
+SecurityPrivacy
+Siri
+SoftwareUpdate
+Sound
+Spotlight
+TimeMachine
+Trackpad
+UsersGroups
 
 ## ----------------------------------------
 ##	Cache Clear
