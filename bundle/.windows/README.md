@@ -97,6 +97,8 @@ curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/dotfiles/.p10k.zs
 curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/dotfiles/.gitconfig > ~/.gitconfig
 curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/dotfiles/.gitignore > ~/.gitignore
 curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/bundle/Vsplug > ~/.Vsplug
+mkdir ${HOME}/.config/nvim
+cp ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
 
 zinit self-update
 source ${HOME}/.zshrc
