@@ -75,10 +75,10 @@ brew upgrade
 brew install fd fx jq bat exa fzf git hub nkf vim grep tldr tmux neovim gnu-sed ripgrep neofetch git-delta hyperfine git-secrets zsh-completions go gcc perl node ruby cmake cpanm python rustup mysql
 
 npm update -g npm
-npm install -g npm yarn typescript lint-staged
+npm install -g npm yarn typescript
 
 pip3 install --upgrade pip
-pip install -g numpy imgcat pynvim requests
+pip3 install numpy imgcat pynvim requests
 
 rustup-init -y
 source ${HOME}/.cargo/env
