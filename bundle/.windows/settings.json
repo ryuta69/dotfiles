@@ -1,0 +1,90 @@
+{
+	"$schema": "https://aka.ms/terminal-profiles-schema",
+	"defaultProfile": "{46ca431a-3a87-5fb3-83cd-11ececc031d2}",
+	"copyOnSelect": false,
+	"copyFormatting": false,
+	"profiles":
+	{
+		"defaults":
+		{
+			"fontFace": "Cascadia Code PL",
+			"background" : "#0a0e14",
+			"black" : "#01060e",
+			"blue" : "#53bdfa",
+			"brightBlack" : "#686868",
+			"brightBlue" : "#59c2ff",
+			"brightCyan" : "#95e6cb",
+			"brightGreen" : "#c2d94c",
+			"brightPurple" : "#ffee99",
+			"brightRed" : "#f07178",
+			"brightWhite" : "#ffffff",
+			"brightYellow" : "#ffb454",
+			"cyan" : "#90e1c6",
+			"foreground" : "#b3b1ad",
+			"green" : "#91b362",
+			"name" : "Ayu Dark",
+			"purple" : "#fae994",
+			"red" : "#ea6c73",
+			"white" : "#c7c7c7",
+			"yellow" : "#f9af4f"
+		},
+		"list":
+		[
+			{
+				"guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+				"name": "Windows PowerShell",
+				"commandline": "powershell.exe",
+				"hidden": false
+			},
+			{
+				"guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+				"name": "CMD",
+				"commandline": "cmd.exe",
+				"hidden": false
+			},
+			{
+				"guid": "{46ca431a-3a87-5fb3-83cd-11ececc031d2}",
+				"hidden": false,
+				"name": "kali-linux",
+				"source": "Windows.Terminal.Wsl"
+			},
+			{
+				"guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+				"hidden": false,
+				"name": "Azure Cloud Shell",
+				"source": "http://Windows.Terminal.Azure"
+			}
+		]
+	},
+	"schemes":
+	[
+		{
+			"background" : "#0a0e14",
+			"black" : "#01060e",
+			"blue" : "#53bdfa",
+			"brightBlack" : "#686868",
+			"brightBlue" : "#59c2ff",
+			"brightCyan" : "#95e6cb",
+			"brightGreen" : "#c2d94c",
+			"brightPurple" : "#ffee99",
+			"brightRed" : "#f07178",
+			"brightWhite" : "#ffffff",
+			"brightYellow" : "#ffb454",
+			"cyan" : "#90e1c6",
+			"foreground" : "#b3b1ad",
+			"green" : "#91b362",
+			"name" : "Ayu Dark",
+			"purple" : "#fae994",
+			"red" : "#ea6c73",
+			"white" : "#c7c7c7",
+			"yellow" : "#f9af4f"
+		}
+	],
+	"keybindings":
+	[
+		{ "command": {"action": "copy", "singleLine": false }, "keys": "ctrl+c" },
+		{ "command": "paste", "keys": "ctrl+v" },
+		{ "command": "find", "keys": "ctrl+shift+f" },
+		{ "command": { "action": "splitPane", "split": "auto", "splitMode": "duplicate" }, "keys": "alt+shift+d" }
+	]
+}

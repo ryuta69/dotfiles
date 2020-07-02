@@ -20,9 +20,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 # Reboot
 shutdown -r -t 0
-```
 
-```powershell
 # Install Chocolatey
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
@@ -38,7 +36,10 @@ wsl --set-default-version 2
 choco install microsoft-windows-terminal -y
 
 # Install Hack Font
-choco install hackfont -y
+choco install cascadiacode -y
+
+# Copy settings json to C:\Users\kohei.murakami\AppData\Local\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState
+
 ```
 
 ### Kali Linux
@@ -46,8 +47,13 @@ choco install hackfont -y
 ```bash
 sudo apt update
 sudo apt upgrade
+
+sudo apt install git
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+
 test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
 test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
 echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+sudo apt install build-essential
 ```
