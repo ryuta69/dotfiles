@@ -1,8 +1,6 @@
 <h3 align="center">My Dotfiles</h3>
 <p align="center">ᓚᘏᗢ Just personal MacOS settings.</p>
 
-This is for MacOS, but there are scripts for Windows and Linux [here](https://github.com/ryuta69/dotfiles/tree/master/.windows_and_linux).
-
 <img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/80442463-e8d24880-8947-11ea-8b5d-bcacb68e98f6.png">
 
 Not only symlinking dotfiles, this repository also installs applications and configures MacOS system.
@@ -10,6 +8,8 @@ Not only symlinking dotfiles, this repository also installs applications and con
 The gif below shows this repository's feature that automates setting dock applications.
 
 ![dockitem](https://user-images.githubusercontent.com/41639488/79629823-76af7600-8187-11ea-8a5c-39f49caf4159.gif)
+
+This is for MacOS, and there are also scripts for Windows and Linux [here](https://github.com/ryuta69/dotfiles/tree/master/.windows_and_linux).
 
 <br />
 
