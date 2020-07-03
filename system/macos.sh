@@ -1283,6 +1283,40 @@ AppStore() {
 }
 
 ## ----------------------------------------
+##	LaunchPad
+## ----------------------------------------
+LaunchPad() {
+	# ========== Change LaunchPad fade speed ==========
+	# - Default
+	defaults delete com.apple.dock springboard-show-duration
+	defaults delete com.apple.dock springboard-hide-duration
+	# - Custom
+	# @int: seconds
+	# defaults write com.apple.dock springboard-show-duration -int 0
+	# defaults write com.apple.dock springboard-hide-duration -int 0
+
+	# ========== Change LaunchPad Background blur ==========
+	# - Default
+	defaults delete com.apple.dock springboard-blur-radius
+	# - Custom
+	# @int: 0 is the weakest, 255 is the strongest
+	# defaults write com.apple.dock springboard-blur-radius -int XYZ
+
+	# ========== Change Row and Column num ==========
+	# - Default
+	defaults delete com.apple.dock springboard-rows
+	defaults delete com.apple.dock springboard-columns
+	# - Custom
+	# @int: num
+	# defaults write com.apple.dock springboard-rows -int 6
+	# defaults write com.apple.dock springboard-columns -int 10
+
+	# ========== Reset Application Order ==========
+	# - Note: This doesn't set row and column num, but just bring default application order back.
+	# defaults write com.apple.dock ResetLaunchPad -bool TRUE
+}
+
+## ----------------------------------------
 ##	Extra
 ## ----------------------------------------
 ExtraSettings() {
@@ -1476,6 +1510,7 @@ General
 iCloud
 Keyboard
 LanguageRegion
+LaunchPad
 MissionControl
 Network
 Notifications
