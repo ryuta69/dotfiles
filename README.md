@@ -1,6 +1,8 @@
 <h3 align="center">My Dotfiles</h3>
 <p align="center">ᓚᘏᗢ Just personal MacOS settings.</p>
 
+This is for MacOS, but there are scripts for Windows and Linux [here](https://github.com/ryuta69/dotfiles/tree/master/.windows_and_linux).
+
 <img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/80442463-e8d24880-8947-11ea-8b5d-bcacb68e98f6.png">
 
 Not only symlinking dotfiles, this repository also installs applications and configures MacOS system.

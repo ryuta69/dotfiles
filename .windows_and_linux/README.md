@@ -2,6 +2,10 @@
 You need version 2004, build 19041 or upper. You can check with winver in command prompt.
 If not satisfied, install here.
 
+https://www.microsoft.com/software-download/windows10
+
+Launch Power Shell
+
 ```powershell
 curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/.windows_and_linux/windows_set_virtualhost.ps1 -o .\set_virtualhost.ps1 -UseBasicParsing
 .\set_virtualhost.ps1
