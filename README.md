@@ -1,5 +1,5 @@
 <h3 align="center">My Dotfiles</h3>
-<p align="center">ᓚᘏᗢ Just personal settings.</p>
+<p align="center">ᓚᘏᗢ Just personal MacOS settings.</p>
 
 <img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/80442463-e8d24880-8947-11ea-8b5d-bcacb68e98f6.png">
 

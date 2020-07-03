@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ "$OSTYPE" != "darwin"* ]]; then
+	echo "MacOS only available."
+	exit 1
+fi
+
 shopt -s dotglob
 TESTMODE=false
 EXEPATH=$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)
