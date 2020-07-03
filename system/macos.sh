@@ -1317,6 +1317,43 @@ LaunchPad() {
 }
 
 ## ----------------------------------------
+##	ScreenShot
+## ----------------------------------------
+ScreenShot() {
+	# ========== Set Screenshot saved directory ==========
+	# - Default
+	# defaults write com.apple.screencapture location -string "$HOME/Desktop"
+	# - Custom
+	defaults write com.apple.screencapture location -string "$HOME/Downloads"
+
+	# ========== Set Screenshots format ==========
+	# - png
+	defaults write com.apple.screencapture type -string "png"
+	# - jpg
+	# defaults write com.apple.screencapture type -string "jpg"
+	# - bmp
+	# defaults write com.apple.screencapture type -string "bmp"
+
+	# ========== Disable shadow of screenshot ==========
+	# - Disable
+	defaults write com.apple.screencapture disable-shadow -bool true
+	# - Default
+	# defaults write com.apple.screencapture disable-shadow -bool false
+
+	# ========== Rename screenshot default name ==========
+	# - Default
+	# defaults delete com.apple.screencapture name
+	# - Custom
+	defaults write com.apple.screencapture name -string "ss"
+
+	# ========== Remove timestamp ==========
+	# - Remove
+	defaults write com.apple.screencapture include-date -bool false
+	# - Default
+	# defaults write com.apple.screencapture include-date -bool true
+}
+
+## ----------------------------------------
 ##	Extra
 ## ----------------------------------------
 ExtraSettings() {
@@ -1445,23 +1482,6 @@ ExtraSettings() {
 	# ========== Never allow password hints at login ==========
 	sudo defaults write /Library/Preferences/com.apple.loginwindow RetriesUntilHint -int 0
 
-	# ========== Set Screenshots saved directory ==========
-	defaults write com.apple.screencapture location -string "$HOME/Downloads/"
-
-	# ========== Set Screenshots format ==========
-	# - png
-	defaults write com.apple.screencapture type -string "png"
-	# - jpg
-	# defaults write com.apple.screencapture type -string "jpg"
-	# - bmp
-	# defaults write com.apple.screencapture type -string "bmp"
-
-	# ========== Disable shadow of screenshot ==========
-	defaults write com.apple.screencapture disable-shadow -boolean true
-
-	# ========== Rename screenshot default name ==========
-	defaults write com.apple.screencapture name "ss"
-
 	# ========== Disable Notification Center on menu ==========
 	# launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
@@ -1514,6 +1534,7 @@ LaunchPad
 MissionControl
 Network
 Notifications
+ScreenShot
 SecurityPrivacy
 Siri
 SoftwareUpdate
