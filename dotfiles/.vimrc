@@ -7,11 +7,11 @@ call plug#begin(plugdir)
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
+	Plug 'machakann/vim-sandwich'
 	Plug 'junegunn/vim-easy-align'
 	Plug 'Lokaltog/vim-easymotion'
 	Plug 'yuttie/comfortable-motion.vim'
 	Plug 'bronson/vim-trailing-whitespace'
-	Plug 'tpope/vim-surround' | Plug 'tpope/vim-repeat'
 	Plug 'sheerun/vim-polyglot' | Plug 'ap/vim-css-color'
 	Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
 	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'mattn/emmet-vim'
@@ -175,6 +175,12 @@ endfun
 imap <expr> <S-Tab> DeoShiftTab()
 smap <expr> <S-Tab> DeoShiftTab()
 let g:UltiSnipsJumpBackwardTrigger='<S-Tab>'
+
+"" ========== Polyglot ==========
+let g:polyglot_excludes = ['csv']
+
+"" ========== Sandwich ==========
+let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
 
 "" ========== EasyAlign ==========
 xm ga <Plug>(LiveEasyAlign)
