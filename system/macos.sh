@@ -1422,6 +1422,12 @@ ExtraSettings() {
 	# - bmp
 	# defaults write com.apple.screencapture type -string "bmp"
 
+	# ========== Disable shadow of screenshot ==========
+	defaults write com.apple.screencapture disable-shadow -boolean true
+
+	# ========== Rename screenshot default name ==========
+	defaults write com.apple.screencapture name "ss"
+
 	# ========== Disable Notification Center on menu ==========
 	# launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
