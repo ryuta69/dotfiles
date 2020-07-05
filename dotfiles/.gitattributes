@@ -1,3 +1,4 @@
+*.plist diff=plist
 # *.jpg filter=lfs diff=lfs merge=lfs
 # *.jpeg filter=lfs diff=lfs merge=lfs
 # *.png filter=lfs diff=lfs merge=lfs
