@@ -136,6 +136,12 @@ install_bundle() {
 	# 	"
 	# fi
 
+	## ========== Yabai ==========
+	brew services start skhd
+	brew services start yabai
+	cd ${HOME}/Library/Application\ Support/Übersicht/widgets/status_bar
+	yarn install
+
 	## ========== Docker ==========
 	mkdir -p ${HOME}/.zsh/completion
 	curl -L https://raw.githubusercontent.com/docker/compose/1.25.4/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
