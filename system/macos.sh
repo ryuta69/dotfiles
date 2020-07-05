@@ -159,7 +159,7 @@ DesktopScreenSaver() {
 	# ========== Desktop Picture ==========
 	osascript -e "
 		tell application \"Finder\"
-			set desktop picture to \"${EXEPATH}/desktop.png\" as POSIX file
+			set desktop picture to \"${EXEPATH}/desktop.jpg\" as POSIX file
 		end tell
 	"
 
