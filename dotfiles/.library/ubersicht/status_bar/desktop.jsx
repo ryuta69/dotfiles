@@ -13,13 +13,11 @@ export const className = `
   width: 100%;
   background-color: #0A0E14;
   opacity: 0.8;
-  font-family: HackNerdFontComplete-Italic;
 
   .desktop {
     align-items: center;
     color: #a8a8a8;
     display: flex;
-    font-family: Helvetica Neue;
     font-size: 14px;
     height: 23px;
     margin-left: 20px;
