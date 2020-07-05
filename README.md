@@ -3,13 +3,9 @@
 
 <img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/86541875-89964300-bf4b-11ea-9ac9-dc520702cb47.png">
 
-Not only symlinking dotfiles, this repository also installs applications and configures MacOS system.
+Not only symlinking [dotfiles](https://github.com/ryuta69/dotfiles/tree/master/dotfiles), this repository also installs [applications](https://github.com/ryuta69/dotfiles/tree/master/bundle) and configures [MacOS system](https://github.com/ryuta69/dotfiles/tree/master/system).
 
-The gif below shows this repository's feature that automates setting dock applications.
-
-![dockitem](https://user-images.githubusercontent.com/41639488/79629823-76af7600-8187-11ea-8a5c-39f49caf4159.gif)
-
-This is for MacOS, and there are also scripts for Windows and Linux [here](https://github.com/ryuta69/dotfiles/tree/master/.windows_and_linux).
+This repository is mainly for MacOS, but there are scripts for Windows and Linux [here](https://github.com/ryuta69/dotfiles/tree/master/.windows_and_linux).
 
 <br />
 
