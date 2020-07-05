@@ -45,7 +45,7 @@ set smartcase ignorecase wildignorecase
 set rulerformat=%40(%=%l,%-(%c%V%)\ %=%t%)%*
 set noexpandtab tabstop=4 softtabstop=-1 shiftwidth=0
 set encoding=utf-8 fileencodings=cp932,sjis,euc-jp,utf-8,iso-2022-jp
-au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 if has('nvim')
 	set inccommand=split
 else
@@ -63,52 +63,52 @@ endif
 "" ----------------------------------------
 ""	Mapping
 "" ----------------------------------------
-nn Y y$
-nn + <C-a>
-nn - <C-x>
-nn <Up> gk
-nn <Down> gj
-nn <Leader>t :tabnew<CR>
-nn <Leader>1 :diffget LOCAL<CR>
-nn <Leader>2 :diffget BASE<CR>
-nn <Leader>3 :diffget REMOTE<CR>
-nn <Leader>code :!code %:p<CR>
-nn <Leader>dir  :!code -r %:p:h<CR>
-nn <Leader>term :split \| terminal<CR>
-map <Leader>\   :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nnoremap Y y$
+nnoremap + <C-a>
+nnoremap - <C-x>
+nnoremap <Up> gk
+nnoremap <Down> gj
+nnoremap <Leader>t :tabnew<CR>
+nnoremap <Leader>1 :diffget LOCAL<CR>
+nnoremap <Leader>2 :diffget BASE<CR>
+nnoremap <Leader>3 :diffget REMOTE<CR>
+nnoremap <Leader>code :!code %:p<CR>
+nnoremap <Leader>dir  :!code -r %:p:h<CR>
+nnoremap <Leader>term :split \| terminal<CR>
+map <Leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 "" ----------------------------------------
 ""	PluginSetting
 "" ----------------------------------------
 "" ========== AyuVim ==========
 let ayucolor='dark'
-colo ayu
-hi Normal      guibg=#0A0E14
-hi EndOfBuffer ctermfg=0 guifg=bg
-hi DiffAdd     gui=NONE  guifg=NONE    guibg=#003366
-hi DiffDelete  gui=bold  guifg=#660000 guibg=#660000
-hi DiffChange  gui=NONE  guifg=NONE    guibg=#006666
-hi DiffText    gui=NONE  guifg=NONE    guibg=#013220
+colorscheme ayu
+highlight Normal      guibg=#0A0E14
+highlight EndOfBuffer ctermfg=0 guifg=bg
+highlight DiffAdd     gui=NONE  guifg=NONE    guibg=#003366
+highlight DiffDelete  gui=bold  guifg=#660000 guibg=#660000
+highlight DiffChange  gui=NONE  guifg=NONE    guibg=#006666
+highlight DiffText    gui=NONE  guifg=NONE    guibg=#013220
 
 "" ========== FzfVim ==========
-nn <Leader>file :Files<CR>
-nn <Leader>hist :History<CR>
-nn <Leader>rg   :call Rg()<CR>
-let g:fzf_layout={ 'right': '~45%' }
-com! -bang -nargs=* History call fzf#vim#history(fzf#vim#with_preview('down:50%'))
-com! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview('down:50%'), <bang>0)
-fun! Rg()
+nnoremap <Leader>file :Files<CR>
+nnoremap <Leader>hist :History<CR>
+nnoremap <Leader>rg   :call Rg()<CR>
+let g:fzf_layout={'right': '~45%'}
+command! -bang -nargs=* History call fzf#vim#history(fzf#vim#with_preview('down:50%'))
+command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview('down:50%'), <bang>0)
+function! Rg()
 	let string=input('Search String: ')
 	call fzf#run(fzf#wrap({
 		\ 'source': 'rg -lin ' . string,
 		\ 'options': '--preview-window bottom:60% --preview "rg -in --color=always ' . string . ' {}"'
 	\ }))
-endfun
+endfunction
 
 "" ========== VimPlug ==========
-nn <Leader>clean   :PlugClean<CR>
-nn <Leader>update  :PlugUpdate<CR>
-nn <Leader>install :PlugInstall<CR>
+nnoremap <Leader>clean   :PlugClean<CR>
+nnoremap <Leader>update  :PlugUpdate<CR>
+nnoremap <Leader>install :PlugInstall<CR>
 
 "" ========== EmmetVim ==========
 let g:user_emmet_settings = {
@@ -117,7 +117,7 @@ let g:user_emmet_settings = {
 \ }
 
 "" ========== VsnipVim ==========
-nn <Leader>vop :VsnipOpen<CR>
+nnoremap <Leader>vop :VsnipOpen<CR>
 
 "" ========== Ultisnips ==========
 let g:ulti_expand_or_jump_res = 0
@@ -125,9 +125,9 @@ let g:UltiSnipsExpandTrigger='<NUL>'
 
 "" ========== Deoplete ==========
 let g:deoplete#enable_at_startup = 1
-ino <expr> <UP>   pumvisible() ? '<C-e><UP>'   : '<UP>'
-ino <expr> <DOWN> pumvisible() ? '<C-e><DOWN>' : '<DOWN>'
-fun! DeoEnter()
+inoremap <expr> <UP>   pumvisible() ? '<C-e><UP>'   : '<UP>'
+inoremap <expr> <DOWN> pumvisible() ? '<C-e><DOWN>' : '<DOWN>'
+function! DeoEnter()
 	if !pumvisible()
 		return "\n"
 	endif
@@ -143,10 +143,10 @@ fun! DeoEnter()
 	endif
 
 	return "\<C-y>"
-endfun
-ino <CR> <C-R>=DeoEnter()<CR>
+endfunction
+inoremap <CR> <C-R>=DeoEnter()<CR>
 
-fun! DeoTab()
+function! DeoTab()
 	if vsnip#available(1)
 		return "\<Plug>(vsnip-jump-next)"
 	endif
@@ -156,12 +156,12 @@ fun! DeoTab()
 	endif
 
 	return "\<Tab>"
-endfun
+endfunction
 imap <expr> <Tab> DeoTab()
 smap <expr> <Tab> DeoTab()
 let g:UltiSnipsJumpForwardTrigger='<Tab>'
 
-fun! DeoShiftTab()
+function! DeoShiftTab()
 	if vsnip#available(-1)
 		return "\<Plug>(vsnip-jump-prev)"
 	endif
@@ -171,7 +171,7 @@ fun! DeoShiftTab()
 	endif
 
 	return "\<S-Tab>"
-endfun
+endfunction
 imap <expr> <S-Tab> DeoShiftTab()
 smap <expr> <S-Tab> DeoShiftTab()
 let g:UltiSnipsJumpBackwardTrigger='<S-Tab>'
@@ -183,8 +183,8 @@ let g:polyglot_excludes = ['csv']
 let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
 
 "" ========== EasyAlign ==========
-xm ga <Plug>(LiveEasyAlign)
-nm ga <Plug>(LiveEasyAlign)
+xmap ga <Plug>(LiveEasyAlign)
+nmap ga <Plug>(LiveEasyAlign)
 
 "" ========== EasyMotion ==========
 let g:EasyMotion_do_mapping=0
@@ -192,14 +192,14 @@ let g:EasyMotion_enter_jump_first=1
 map <Leader>s <Plug>(easymotion-sn)
 
 "" ========== VimFugitive ==========
-nn <Leader>gd  :Gdiff<CR>
-nn <Leader>ga  :Gwrite<CR>
-nn <Leader>gb  :Gblame<CR>
-nn <Leader>gs  :Gstatus<CR>
-nn <Leader>dp  :diffput<CR>
-nn <Leader>du  :diffupdate<CR>
-nn <Leader>dgl :diffget //2 \| diffupdate<CR>
-nn <Leader>dgr :diffget //3 \| diffupdate<CR>
+nnoremap <Leader>gd  :Gdiff<CR>
+nnoremap <Leader>ga  :Gwrite<CR>
+nnoremap <Leader>gb  :Gblame<CR>
+nnoremap <Leader>gs  :Gstatus<CR>
+nnoremap <Leader>dp  :diffput<CR>
+nnoremap <Leader>du  :diffupdate<CR>
+nnoremap <Leader>dgl :diffget //2 \| diffupdate<CR>
+nnoremap <Leader>dgr :diffget //3 \| diffupdate<CR>
 set diffopt+=vertical
 
 "" ========== NvimMiniyank ==========
@@ -209,4 +209,4 @@ if has("nvim")
 endif
 
 "" ========== VimTrailingSpace ==========
-nn <Leader>trim :FixWhitespace<CR>
+nnoremap <Leader>trim :FixWhitespace<CR>
