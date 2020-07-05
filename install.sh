@@ -21,6 +21,7 @@ symlink_dotfiles() {
 	PLPATH="${HOME}/Library/Preferences"                   && mkdir -p ${PLPATH}
 	ALPATH="${HOME}/Library/Application Support/Alfred"    && mkdir -p ${ALPATH}
 	VSPATH="${HOME}/Library/Application Support/Code/User" && mkdir -p ${VSPATH}
+	UBPATH="${HOME}/Library/Application Support/Übersicht" && mkdir -p ${UBPATH}
 	SKIPLIST=(".library" ".vscode")
 
 	for abspath in ${CWD}/*; do
@@ -39,6 +40,7 @@ symlink_dotfiles() {
 	for abspath in ${CWD}/.library/*; do
 		filename=$(basename -- "$abspath");
 		if [[ $filename = 'karabiner.json' ]]; then ln -sfnv $abspath ${KRPATH}; continue; fi;
+		if [[ $filename = 'ubersicht' ]]; then ln -sfnv $abspath ${UBPATH}/widgets; continue; fi;
 		if [[ $filename = 'Alfred.alfredpreferences' ]]; then ln -sfnv $abspath ${ALPATH}; continue; fi;
 		if [[ $filename = 'com.googlecode.iterm2.plist' ]]; then ln -sfnv $abspath ${PLPATH}; continue; fi;
 		if [[ $filename = 'com.knollsoft.Rectangle.plist' ]]; then ln -sfnv $abspath ${PLPATH}; continue; fi;
@@ -133,6 +135,12 @@ install_bundle() {
 	# 		expect eof
 	# 	"
 	# fi
+
+	## ========== Yabai ==========
+	brew services start skhd
+	brew services start yabai
+	cd ${HOME}/Library/Application\ Support/Übersicht/widgets/status_bar
+	yarn install
 
 	## ========== Docker ==========
 	mkdir -p ${HOME}/.zsh/completion

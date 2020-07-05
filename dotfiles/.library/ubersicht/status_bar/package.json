@@ -1,0 +1,17 @@
+{
+  "name": "yabai-status-bar",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "eslint-plugin-prettier": "^3.1.0",
+    "lodash": "^4.17.13",
+    "lodash.get": "^4.4.2",
+    "prettier": "^1.18.2"
+  },
+  "eslintConfig": {
+    "plugins": [
+      "prettier",
+      "import"
+    ]
+  }
+}

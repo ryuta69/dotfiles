@@ -1,0 +1,8 @@
+cmd - j : yabai -m window --focus prev
+cmd - k : yabai -m window --focus next
+ctrl + cmd - b : yabai -m window --swap west
+ctrl + cmd - n : yabai -m window --swap south
+ctrl + cmd - p : yabai -m window --swap north
+ctrl + cmd - f : yabai -m window --swap east
+shift + cmd - 0 : yabai -m space --balance
+alt - r : yabai -m space --rotate 90

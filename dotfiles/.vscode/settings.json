@@ -4,7 +4,7 @@
 	"debug.onTaskErrors": "debugAnyway",
 	"editor.colorDecorators": false,
 	"editor.tabSize": 4,
-	"editor.fontSize": 14,
+	"editor.fontSize": 13,
 	"editor.wordWrap": "on",
 	"editor.formatOnSave": true,
 	"editor.insertSpaces": false,
@@ -82,9 +82,7 @@
 	},
 	"go.buildOnSave": "package",
 	"go.formatTool": "goimports",
-	"go.formatFlags": [
-		"-w"
-	],
+	"go.formatFlags": ["-w"],
 	"go.gocodeAutoBuild": true,
 	"go.installDependenciesWhenBuilding": true,
 	"go.languageServerExperimentalFeatures": {

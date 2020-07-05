@@ -1,0 +1,2845 @@
+/*============================================================================*
+  Custom file icons
+  See https://github.com/file-icons/source/charmap.md
+/*============================================================================*/
+.fi {
+	font-family: file-icons; font-size: 15px;
+	font-weight: normal;
+	font-style: normal;
+	text-align: center;
+	width: 16px;
+	line-height: 1;
+	position: relative;
+	display: inline-block;
+	text-shadow: 0 0 0;
+	-webkit-font-smoothing: antialiased;
+}
+
+._1c-icon:before {
+	content: "\a5ea";
+	top: 3px;
+	font-size: 16px;
+}
+._1c-alt-icon:before {
+	content: "\ea28";
+	top: 3px;
+	font-size: 16px;
+}
+.abap-icon:before {
+	content: "\e92b";
+	top: 2px;
+}
+.abif-icon:before {
+	content: "\ea4e";
+	top: 3px;
+	font-size: 16px;
+}
+.access-icon:before {
+	content: "\e9ea";
+	top: 2px;
+}
+.acre-icon:before {
+	content: "\237a";
+	top: 3px;
+	font-size: 16px;
+}
+.ada-icon:before {
+	content: "\e90b";
+	top: 3px;
+	font-size: 17px;
+}
+.ae-icon:before {
+	content: "\e9f3";
+	top: 2px;
+}
+.affinity-icon:before {
+	content: "\eabb";
+	top: 2px;
+}
+.ahk-icon:before {
+	content: "\e932";
+	top: 2px;
+}
+.ai-icon:before {
+	content: "\e6b4";
+	top: 2px;
+}
+.alex-icon:before {
+	content: "\29cb";
+	top: 4px;
+	font-size: 16px;
+}
+.alloy-icon:before {
+	content: "\e935";
+	top: 2px;
+}
+.alpine-icon:before {
+	content: "\e9ff";
+	top: 2px;
+	font-size: 16px;
+}
+.ampl-icon:before {
+	content: "\e94e";
+	top: 3px;
+	font-size: 16px;
+	left: 1px;
+}
+.amx-icon:before {
+	content: "\e99b";
+	top: 3px;
+	font-size: 16px;
+}
+.angelscript-icon:before {
+	content: "\ea5b";
+	top: 4px;
+	font-size: 18px;
+	left: -2px;
+	transform: scale(1.3);
+}
+.animestudio-icon:before {
+	content: "\eaed";
+	top: 2px;
+}
+.ansible-icon:before {
+	content: "\24b6";
+	top: 2px;
+}
+.ant-icon:before {
+	content: "\e93e";
+	top: 4px;
+	font-size: 18px;
+	transform: scale(1.1);
+}
+.antlr-icon:before {
+	content: "\e92c";
+	top: 3px;
+}
+.antwar-icon:before {
+	content: "\2591";
+	top: 3px;
+	font-size: 16px;
+}
+.anyscript-icon:before {
+	content: "\eacf";
+	top: 4px;
+	font-size: 17px;
+}
+.api-icon:before {
+	content: "\e92d";
+	top: 2px;
+}
+.apl-icon:before {
+	content: "\234b";
+	top: 2px;
+}
+.apple-icon:before {
+	content: "\e925";
+	top: 1px;
+}
+.appveyor-icon:before {
+	content: "\e923";
+	top: 2px;
+}
+.arc-icon:before {
+	content: "\e92f";
+	top: 2px;
+}
+.arduino-icon:before {
+	content: "\e930";
+	top: 3px;
+	font-size: 16px;
+}
+.arttext-icon:before {
+	content: "\24d0";
+	top: 2px;
+}
+.as-icon:before {
+	content: "\e92e";
+	top: 1px;
+	font-size: 14px;
+}
+.asciidoc-icon:before {
+	content: "\e918";
+	top: 1px;
+	font-size: 14px;
+}
+.asciidoctor-icon:before {
+	content: "\eac7";
+	top: 2px;
+	font-size: 16px;
+}
+.asymptote-icon:before {
+	content: "\eae5";
+	top: 3px;
+	font-size: 16px;
+}
+.atoum-icon:before {
+	content: "\2649";
+	top: 2px;
+	font-size: 16px;
+}
+.ats-icon:before {
+	content: "\e934";
+	top: 2px;
+}
+.audacity-icon:before {
+	content: "\e9f9";
+	top: 2px;
+}
+.augeas-icon:before {
+	content: "\e931";
+	top: 2px;
+}
+.aurelia-icon:before {
+	content: "\ea48";
+	top: 2px;
+}
+.autoit-icon:before {
+	content: "\e933";
+	top: 2px;
+	font-size: 16px;
+}
+.azurepipelines-icon:before {
+	content: "\1f680";
+	top: 2px;
+}
+.avro-icon:before {
+	content: "\eaa3";
+	top: 4px;
+	font-size: 16px;
+	left: 1px;
+	transform: scale(1.2);
+}
+.babel-icon:before {
+	content: "\e91f";
+	top: 2px;
+	left: 1px;
+}
+.bazaar-icon:before {
+	content: "\eacd";
+	top: 2px;
+	font-size: 16px;
+}
+.bazel-icon:before {
+	content: "\ead2";
+	top: 2px;
+	font-size: 16px;
+}
+.behat-icon:before {
+	content: "\ea89";
+	top: 2px;
+}
+.bem-icon:before {
+	content: "\ea59";
+	top: 2px;
+}
+.bibtex-icon:before {
+	content: "\e601";
+	top: 2px;
+	font-size: 16px;
+}
+.bintray-icon:before {
+	content: "\ea6e";
+	top: 2px;
+}
+.bithound-icon:before {
+	content: "\ea2a";
+	top: 2px;
+}
+.blender-icon:before {
+	content: "\e9fa";
+	top: 2px;
+}
+.bluespec-icon:before {
+	content: "\e93c";
+	top: 1px;
+	font-size: 13px;
+	left: 1px;
+}
+.boo-icon:before {
+	content: "\e939";
+	top: 2px;
+}
+.boot-icon:before {
+	content: "\f103";
+	top: 2px;
+	font-size: 16px;
+}
+.brain-icon:before {
+	content: "\e93a";
+	top: 2px;
+}
+.brakeman-icon:before {
+	content: "\e9d6";
+	top: 2px;
+}
+.bro-icon:before {
+	content: "\e93b";
+	top: 3px;
+	font-size: 16px;
+}
+.broccoli-icon:before {
+	content: "\e922";
+	top: 1px;
+	font-size: 14px;
+}
+.brotli-icon:before {
+	content: "\eaa2";
+	top: 2px;
+}
+.browserslist-icon:before {
+	content: "\ea80";
+	top: 2px;
+}
+.browsersync-icon:before {
+	content: "b";
+	top: 2px;
+}
+.brunch-icon:before {
+	content: "\ea47";
+	top: 3px;
+	font-size: 17px;
+	left: -1px;
+}
+.buck-icon:before {
+	content: "\ea46";
+	top: 2px;
+}
+.bundler-icon:before {
+	content: "\ea45";
+	top: 2px;
+	font-size: 16px;
+}
+.byond-icon:before {
+	content: "\e962";
+	top: 2px;
+}
+.cabal-icon:before {
+	content: "\e9c2";
+	top: 2px;
+}
+.caddy-icon:before {
+	content: "\1f512";
+	top: 2px;
+}
+.caffe-icon:before {
+	content: "\ea9a";
+	top: 3px;
+	font-size: 17px;
+}
+.caffe2-icon:before {
+	content: "\eab6";
+	top: 2px;
+}
+.cake-icon:before {
+	content: "\e9e3";
+	top: 2px;
+}
+.cakefile-icon:before {
+	content: "\e924";
+	top: 2px;
+}
+.cakephp-icon:before {
+	content: "\ea43";
+	top: 2px;
+}
+.carthage-icon:before {
+	content: "\ea98";
+	top: 2px;
+}
+.cc-icon:before {
+	content: "\e9d5";
+	top: 2px;
+	font-size: 16px;
+}
+.ceylon-icon:before {
+	content: "\e94f";
+	top: 2px;
+}
+.cf-icon:before {
+	content: "\e929";
+	top: 2px;
+}
+.chai-icon:before {
+	content: "c";
+	top: 3px;
+	font-size: 16px;
+}
+.chapel-icon:before {
+	content: "\e950";
+	top: 2px;
+}
+.chartjs-icon:before {
+	content: "\ea0b";
+	top: 2px;
+}
+.chef-icon:before {
+	content: "\ea42";
+	top: 2px;
+}
+.chocolatey-icon:before {
+	content: "\1f36b";
+	top: 3px;
+	font-size: 17px;
+}
+.chuck-icon:before {
+	content: "\e943";
+	top: 2px;
+}
+.circleci-icon:before {
+	content: "\ea12";
+	top: 2px;
+	font-size: 14px;
+}
+.cirru-icon:before {
+	content: "\e951";
+	top: 2px;
+}
+.cl-icon:before {
+	content: "\e972";
+	top: 2px;
+}
+.clarion-icon:before {
+	content: "\e952";
+	top: 1px;
+	font-size: 14px;
+	left: 1px;
+}
+.clean-icon:before {
+	content: "\e95b";
+	top: 2px;
+	font-size: 16px;
+}
+.click-icon:before {
+	content: "\e95c";
+	top: 2px;
+}
+.clips-icon:before {
+	content: "\e940";
+	top: 3px;
+	font-size: 18px;
+}
+.cljs-icon:before {
+	content: "\f104";
+	top: 2px;
+}
+.closure-tpl-icon:before {
+	content: "\ea82";
+	top: 2px;
+}
+.cloudfoundry-icon:before {
+	content: "\ead0";
+	top: 2px;
+}
+.cmake-icon:before {
+	content: "\e93f";
+	top: 1px;
+	font-size: 14px;
+}
+.cobol-icon:before {
+	content: "\ea44";
+	top: 2px;
+	font-size: 16px;
+}
+.cocoapods-icon:before {
+	content: "\ea97";
+	top: 2px;
+}
+.codacy-icon:before {
+	content: "\ea8b";
+	top: 2px;
+}
+.codecov-icon:before {
+	content: "\2602";
+	top: 2px;
+}
+.codekit-icon:before {
+	content: "\ea41";
+	top: 2px;
+}
+.codeship-icon:before {
+	content: "\ea6a";
+	top: 2px;
+}
+.composer-icon:before {
+	content: "\e683";
+	top: 3px;
+	font-size: 17px;
+}
+.conan-icon:before {
+	content: "\ead1";
+	top: 2px;
+}
+.config-icon:before {
+	content: "\f07c";
+	top: 2px;
+	font-size: 14px;
+}
+.config-coffee-icon:before {
+	content: "\eb18";
+	top: 3px;
+	font-size: 17px;
+}
+.config-go-icon:before {
+	content: "\eb12";
+	top: 3px;
+	font-size: 18px;
+}
+.config-hs-icon:before {
+	content: "\eb14";
+	top: 3px;
+	font-size: 17px;
+}
+.config-js-icon:before {
+	content: "\eb1a";
+	top: 3px;
+	font-size: 17px;
+}
+.config-perl-icon:before {
+	content: "\eb19";
+	top: 3px;
+	font-size: 17px;
+}
+.config-python-icon:before {
+	content: "\eb15";
+	top: 3px;
+	font-size: 17px;
+}
+.config-react-icon:before {
+	content: "\eb16";
+	top: 3px;
+	font-size: 17px;
+}
+.config-ruby-icon:before {
+	content: "\eb17";
+	top: 3px;
+	font-size: 17px;
+}
+.config-rust-icon:before {
+	content: "\eb13";
+	top: 3px;
+	font-size: 17px;
+}
+.config-ts-icon:before {
+	content: "\eb1b";
+	top: 3px;
+	font-size: 17px;
+}
+.conll-icon:before {
+	content: "\eaa6";
+	top: 2px;
+}
+.coq-icon:before {
+	content: "\e95f";
+	top: 2px;
+	font-size: 16px;
+	left: 1px;
+}
+.cordova-icon:before {
+	content: "\ea11";
+	top: 2px;
+}
+.corel-icon:before {
+	content: "\ea91";
+	top: 3px;
+	font-size: 16px;
+}
+.coreldraw-icon:before {
+	content: "\ea90";
+	top: 2px;
+}
+.coveralls-icon:before {
+	content: "\272a";
+	top: 2px;
+}
+.cp-icon:before {
+	content: "\e942";
+	top: 3px;
+	font-size: 17px;
+}
+.cpan-icon:before {
+	content: "\ea87";
+	top: 2px;
+}
+.creole-icon:before {
+	content: "\e95e";
+	top: 2px;
+}
+.crowdin-icon:before {
+	content: "\ead3";
+	top: 2px;
+	font-size: 16px;
+}
+.crystal-icon:before {
+	content: "\e902";
+	top: 2px;
+	left: 1px;
+}
+.csound-icon:before {
+	content: "\e9f0";
+	top: 2px;
+}
+.csscript-icon:before {
+	content: "\e9e2";
+	top: 2px;
+}
+.cucumber-icon:before {
+	content: "\f02b";
+	top: 3px;
+}
+.curl-icon:before {
+	content: "/";
+	top: 3px;
+	font-size: 16px;
+}
+.cvs-icon:before {
+	content: "\1f41f";
+	top: 1px;
+	font-size: 16px;
+}
+.cwl-icon:before {
+	content: "\29d9";
+	top: 2px;
+	font-size: 16px;
+}
+.cython-icon:before {
+	content: "\e963";
+	top: 2px;
+}
+.d3-icon:before {
+	content: "\ea10";
+	top: 2px;
+}
+.darcs-icon:before {
+	content: "\e964";
+	top: 2px;
+}
+.dashboard-icon:before {
+	content: "\f07d";
+	top: 2px;
+	font-size: 13px;
+}
+.dataweave-icon:before {
+	content: "\ea99";
+	top: 2px;
+}
+.dbase-icon:before {
+	content: "\e9f1";
+	top: 2px;
+}
+.dna-icon:before {
+	content: "\2624";
+	top: 2px;
+	font-size: 16px;
+}
+.default-icon:before {
+	content: "\1f5cc";
+	top: 2px;
+	font-size: 14px;
+}
+.delphi-icon:before {
+	content: "\ea40";
+	top: 2px;
+	font-size: 16px;
+}
+.deno-icon:before {
+	content: "\eaef";
+	top: 2px;
+	font-size: 16px;
+}
+.devicetree-icon:before {
+	content: "\ea57";
+	top: 2px;
+	font-size: 17px;
+}
+.dia-icon:before {
+	content: "\eab5";
+	top: 2px;
+}
+.digdag-icon:before {
+	content: "\eb03";
+	top: 2px;
+}
+.diff-icon:before {
+	content: "\e960";
+	top: 2px;
+}
+.docker-icon:before {
+	content: "\f106";
+	top: 3px;
+	font-size: 18px;
+}
+.doclets-icon:before {
+	content: "\ea3f";
+	top: 2px;
+}
+.docpad-icon:before {
+	content: "\21b9";
+	top: 4px;
+	font-size: 17px;
+}
+.doge-icon:before {
+	content: "\e946";
+	top: 2px;
+}
+.dosbox-icon:before {
+	content: "\eaf2";
+	top: 2px;
+	font-size: 16px;
+}
+.dotjs-icon:before {
+	content: "\eb0b";
+	top: 2px;
+	font-size: 16px;
+}
+.doxygen-icon:before {
+	content: "\e928";
+	top: 1px;
+	font-size: 13px;
+}
+.dragula-icon:before {
+	content: "\1f44c";
+	top: 3px;
+	font-size: 17px;
+}
+.drone-icon:before {
+	content: "\ea3d";
+	top: 2px;
+}
+.dyalog-icon:before {
+	content: "\e90c";
+	top: 1px;
+	font-size: 14px;
+	left: 1px;
+}
+.dylib-icon:before {
+	content: "\ea15";
+	top: 2px;
+}
+.e-icon:before {
+	content: "E";
+	top: 1px;
+	font-size: 14px;
+}
+.eagle-icon:before {
+	content: "\e965";
+	top: 2px;
+}
+.easybuild-icon:before {
+	content: "\ea85";
+	top: 2px;
+}
+.ec-icon:before {
+	content: "\e9c9";
+	top: 2px;
+}
+.ecere-icon:before {
+	content: "\e966";
+	top: 3px;
+	font-size: 16px;
+}
+.editorconfig-icon:before {
+	content: "\ea1b";
+	top: 3px;
+}
+.edge-icon:before {
+	content: "\ea78";
+	top: 2px;
+}
+.eiffel-icon:before {
+	content: "\e967";
+	top: 2px;
+	font-size: 16px;
+}
+.ejs-icon:before {
+	content: "\ea4b";
+	top: 3px;
+	font-size: 16px;
+}
+.electron-icon:before {
+	content: "\ea27";
+	top: 3px;
+	font-size: 16px;
+}
+.elm-icon:before {
+	content: "\f102";
+	top: 2px;
+}
+.em-icon:before {
+	content: "\e968";
+	top: 3px;
+	font-size: 16px;
+}
+.emacs-icon:before {
+	content: "\e926";
+	top: 2px;
+}
+.ember-icon:before {
+	content: "\e61b";
+	top: 2px;
+	font-size: 14px;
+}
+.ensime-icon:before {
+	content: "\ead4";
+	top: 2px;
+}
+.eq-icon:before {
+	content: "\ea0a";
+	top: 5px;
+}
+.esdoc-icon:before {
+	content: "\ea5c";
+	top: 2px;
+}
+.eslint-icon:before {
+	content: "\ea0f";
+	top: 3px;
+	font-size: 16px;
+}
+.excel-icon:before {
+	content: "\e9ee";
+	top: 2px;
+}
+.fabfile-icon:before {
+	content: "\e94b";
+	top: 2px;
+	font-size: 16px;
+}
+.factor-icon:before {
+	content: "\e96a";
+	top: 3px;
+	font-size: 18px;
+	left: -2px;
+	transform: scale(1.2);
+}
+.falcon-icon:before {
+	content: "\eae4";
+	top: 2px;
+}
+.fancy-icon:before {
+	content: "\e96b";
+	top: 2px;
+	font-size: 16px;
+}
+.fantom-icon:before {
+	content: "\e96f";
+	top: 2px;
+	left: 1px;
+}
+.fbx-icon:before {
+	content: "\e9fc";
+	top: 2px;
+}
+.fexl-icon:before {
+	content: "\eb20";
+	top: 4px;
+	font-size: 17px;
+}
+.ff-icon:before {
+	content: "\fb00";
+	top: 3px;
+}
+.finder-icon:before {
+	content: "\e9e9";
+	top: 3px;
+	font-size: 16px;
+}
+.firebase-icon:before {
+	content: "\ea7f";
+	top: 2px;
+}
+.firebase-bolt-icon:before {
+	content: "\26A1";
+	top: 3px;
+}
+.flask-icon:before {
+	content: "\1f704";
+	top: 2px;
+}
+.floobits-icon:before {
+	content: "\ead5";
+	top: 3px;
+	font-size: 16px;
+}
+.flow-icon:before {
+	content: "\e921";
+	top: 1px;
+}
+.flutter-icon:before {
+	content: "\eaeb";
+	top: 2px;
+	left: -1px;
+}
+.flux-icon:before {
+	content: "\e969";
+	top: 2px;
+}
+.font-icon:before {
+	content: "\eaaa";
+	top: 2px;
+	font-size: 16px;
+}
+.font-bitmap-icon:before {
+	content: "\eaab";
+	top: 2px;
+}
+.fortran-icon:before {
+	content: "\e90a";
+	top: 1px;
+	font-size: 14px;
+	left: 1px;
+}
+.fossa-icon:before {
+	content: "\eac3";
+	top: 3px;
+	font-size: 17px;
+}
+.fossil-icon:before {
+	content: "\ead6";
+	top: 2px;
+	font-size: 17px;
+}
+.fountain-icon:before {
+	content: "\1f135";
+	top: 2px;
+	font-size: 16px;
+}
+.franca-icon:before {
+	content: "\ea56";
+	top: 2px;
+}
+.freemarker-icon:before {
+	content: "\e970";
+	top: 2px;
+	font-size: 16px;
+	left: 1px;
+}
+.frege-icon:before {
+	content: "\e96e";
+	top: 2px;
+	font-size: 16px;
+	left: 1px;
+}
+.fuelux-icon:before {
+	content: "\ea09";
+	top: 3px;
+	font-size: 16px;
+	left: 2px;
+	transform: scale(1.15);
+}
+.fusebox-icon:before {
+	content: "\ead7";
+	top: 2px;
+}
+.gams-icon:before {
+	content: "\e973";
+	top: 2px;
+	left: 1px;
+}
+.galen-icon:before {
+	content: "\ead8";
+	top: 2px;
+}
+.gap-icon:before {
+	content: "\e971";
+	top: 3px;
+	font-size: 16px;
+	left: 1px;
+}
+.gatsby-icon:before {
+	content: "\24bc";
+	top: 2px;
+}
+.gdb-icon:before {
+	content: "\ea08";
+	top: 3px;
+	font-size: 16px;
+	transform: scale(1.15);
+}
+.genshi-icon:before {
+	content: "\e976";
+	top: 3px;
+}
+.gentoo-icon:before {
+	content: "\e96d";
+	top: 1px;
+	font-size: 14px;
+	left: 1px;
+}
+.gf-icon:before {
+	content: "\e978";
+	top: 2px;
+}
+.gimp-icon:before {
+	content: "\ea88";
+	top: 2px;
+	font-size: 17px;
+	transform: scale(1.15);
+}
+.gitlab-icon:before {
+	content: "\ea3c";
+	top: 3px;
+	font-size: 16px;
+}
+.glade-icon:before {
+	content: "\e938";
+	top: 2px;
+}
+.glide-icon:before {
+	content: "\eacb";
+	top: 3px;
+	font-size: 17px;
+	transform: scale(1.15);
+}
+.gltf-icon:before {
+	content: "\eaa7";
+	top: 3px;
+	font-size: 17px;
+}
+.glyphs-icon:before {
+	content: "G";
+	top: 3px;
+}
+.gml-icon:before {
+	content: "\e975";
+	top: 3px;
+	font-size: 16px;
+}
+.gn-icon:before {
+	content: "\ea25";
+	top: 2px;
+}
+.gnu-icon:before {
+	content: "\e679";
+	top: 2px;
+	font-size: 16px;
+}
+.go-icon:before {
+	content: "\eaae";
+	top: 4px;
+	font-size: 18px;
+	left: -1px;
+}
+.godot-icon:before {
+	content: "\e974";
+	top: 2px;
+}
+.golo-icon:before {
+	content: "\e979";
+	top: 2px;
+}
+.gosu-icon:before {
+	content: "\e97a";
+	top: 2px;
+}
+.gradle-icon:before {
+	content: "\e903";
+	top: 3px;
+	font-size: 16px;
+	left: 1px;
+}
+.graphite-icon:before {
+	content: "\ea8a";
+	top: 2px;
+	font-size: 17px;
+}
+.graphql-icon:before {
+	content: "\e97c";
+	top: 2px;
+}
+.graphviz-icon:before {
+	content: "\e97d";
+	top: 4px;
+	font-size: 17px;
+	left: 1px;
+}
+.greenkeeper-icon:before {
+	content: "\eb0c";
+	top: 3px;
+	font-size: 16px;
+}
+.gvdesign-icon:before {
+	content: "\eb02";
+	top: 2px;
+}
+.gridsome-icon:before {
+	content: "\eae7";
+	top: 2px;
+}
+.groovy-icon:before {
+	content: "\e904";
+	top: 4px;
+	font-size: 17px;
+	left: -1px;
+}
+.grunt-icon:before {
+	content: "\e611";
+	top: 1px;
+	font-size: 14px;
+}
+.gulp-icon:before {
+	content: "\e610";
+	top: 2px;
+	font-size: 16px;
+}
+.hack-icon:before {
+	content: "\e9ce";
+	top: 2px;
+}
+.haml-icon:before {
+	content: "\f15b";
+	top: 2px;
+}
+.hoplon-icon:before {
+	content: "\ea4d";
+	top: 2px;
+}
+.harbour-icon:before {
+	content: "\e97b";
+	top: 2px;
+	font-size: 16px;
+}
+.hashicorp-icon:before {
+	content: "\e97e";
+	top: 2px;
+}
+.haxe-icon:before {
+	content: "\e907";
+	top: 2px;
+}
+.haxedevelop-icon:before {
+	content: "\ea3b";
+	top: 2px;
+	font-size: 16px;
+}
+.helix-icon:before {
+	content: "\2695";
+	top: 2px;
+	font-size: 16px;
+}
+.hg-icon:before {
+	content: "\263f";
+	top: 2px;
+}
+.hjson-icon:before {
+	content: "\eac2";
+	top: 2px;
+	font-size: 16px;
+}
+.houndci-icon:before {
+	content: "\eaaf";
+	top: 2px;
+}
+.hp-icon:before {
+	content: "\33cb";
+	top: 2px;
+}
+.hy-icon:before {
+	content: "\e97f";
+	top: 2px;
+}
+.kx-icon:before {
+	content: "\ea9b";
+	top: 2px;
+}
+.husky-icon:before {
+	content: "\1f436";
+	top: 2px;
+	font-size: 17px;
+}
+.icomoon-icon:before {
+	content: "\eaea";
+	top: 2px;
+}
+.idl-icon:before {
+	content: "\e947";
+	top: 3px;
+	font-size: 18px;
+}
+.idris-icon:before {
+	content: "\e983";
+	top: 2px;
+	font-size: 16px;
+}
+.igorpro-icon:before {
+	content: "\e980";
+	top: 2px;
+	font-size: 16px;
+}
+.indesign-icon:before {
+	content: "\e9f4";
+	top: 2px;
+}
+.infopath-icon:before {
+	content: "\ea35";
+	top: 2px;
+	font-size: 16px;
+}
+.inform7-icon:before {
+	content: "\e984";
+	top: 2px;
+	font-size: 16px;
+}
+.inkscape-icon:before {
+	content: "\ea8e";
+	top: 3px;
+	font-size: 16px;
+}
+.inno-icon:before {
+	content: "\e985";
+	top: 2px;
+}
+.imba-icon:before {
+	content: "\26ff";
+	top: 2px;
+	font-size: 16px;
+}
+.ink-icon:before {
+	content: "\eace";
+	top: 2px;
+	font-size: 16px;
+}
+.io-icon:before {
+	content: "\e981";
+	top: 1px;
+	font-size: 13px;
+}
+.ioke-icon:before {
+	content: "\e982";
+	top: 2px;
+}
+.ionic-icon:before {
+	content: "\f14b";
+	top: 2px;
+}
+.isabelle-icon:before {
+	content: "\e945";
+	top: 2px;
+	font-size: 16px;
+}
+.istanbul-icon:before {
+	content: "\1f54c";
+	top: 2px;
+	font-size: 17px;
+}
+.j-icon:before {
+	content: "\e937";
+	top: 1px;
+	font-size: 13px;
+}
+.jade-icon:before {
+	content: "\e90d";
+	top: 1px;
+	font-size: 14px;
+}
+.jake-icon:before {
+	content: "\e948";
+	top: 3px;
+	font-size: 16px;
+}
+.jasmine-icon:before {
+	content: "\ea3a";
+	top: 3px;
+	font-size: 16px;
+}
+.jenkins-icon:before {
+	content: "\e667";
+	top: 3px;
+	font-size: 18px;
+}
+.jest-icon:before {
+	content: "\ea39";
+	top: 2px;
+}
+.jolie-icon:before {
+	content: "\ea75";
+	top: 2px;
+}
+.jinja-icon:before {
+	content: "\e944";
+	top: 2px;
+}
+.jison-icon:before {
+	content: "\ea55";
+	top: 2px;
+}
+.json-icon:before {
+	content: "\eabe";
+	top: 2px;
+}
+.json5-icon:before {
+	content: "\2478";
+	top: 2px;
+}
+.jsonld-icon:before {
+	content: "\e958";
+	top: 3px;
+	font-size: 17px;
+}
+.jsonnet-icon:before {
+	content: "\eb1e";
+	top: 3px;
+	font-size: 16px;
+}
+.jsx-icon:before {
+	content: "\e9e6";
+	top: 1px;
+	font-size: 14px;
+}
+.julia-icon:before {
+	content: "\26ec";
+	top: 1px;
+	font-size: 14px;
+}
+.junos-icon:before {
+	content: "\ea81";
+	top: 2px;
+}
+.jupyter-icon:before {
+	content: "\e987";
+	top: 3px;
+	font-size: 16px;
+}
+.karma-icon:before {
+	content: "\e9cd";
+	top: 2px;
+}
+.keybase-icon:before {
+	content: "\eaf8";
+	top: 2px;
+	font-size: 17px;
+}
+.keynote-icon:before {
+	content: "\e9e5";
+	top: 2px;
+}
+.khronos-icon:before {
+	content: "\e9f8";
+	top: 2px;
+}
+.kicad-icon:before {
+	content: "\ea4c";
+	top: 2px;
+}
+.kitchenci-icon:before {
+	content: "\ea38";
+	top: 2px;
+}
+.kivy-icon:before {
+	content: "\e901";
+	top: 2px;
+}
+.knockout-icon:before {
+	content: "\4B";
+	top: 2px;
+}
+.kos-icon:before {
+	content: "k";
+	top: 4px;
+	font-size: 17px;
+}
+.kotlin-icon:before {
+	content: "\e989";
+	top: 1px;
+	font-size: 14px;
+}
+.krl-icon:before {
+	content: "\e988";
+	top: 1px;
+	font-size: 14px;
+}
+.kubernetes-icon:before {
+	content: "\2388";
+	top: 2px;
+	font-size: 16px;
+}
+.labview-icon:before {
+	content: "\e98a";
+	top: 2px;
+	font-size: 16px;
+}
+.lasso-icon:before {
+	content: "\e98c";
+	top: 2px;
+	left: 1px;
+}
+.leaflet-icon:before {
+	content: "\ea07";
+	top: 2px;
+}
+.lean-icon:before {
+	content: "L";
+	top: 1px;
+	font-size: 13px;
+}
+.lein-icon:before {
+	content: "\f105";
+	top: 3px;
+	font-size: 16px;
+	transform: scale(1.15);
+}
+.lektor-icon:before {
+	content: "\eab9";
+	top: 2px;
+	font-size: 16px;
+}
+.lerna-icon:before {
+	content: "\ea37";
+	top: 2px;
+	font-size: 16px;
+	transform: scale(1.15);
+}
+.lfe-icon:before {
+	content: "\e94c";
+	top: 2px;
+	font-size: 16px;
+}
+.lightwave-icon:before {
+	content: "\e9fb";
+	top: 2px;
+}
+.lime-icon:before {
+	content: "\ea36";
+	top: 2px;
+	font-size: 16px;
+}
+.lisp-icon:before {
+	content: "\e908";
+	top: 3px;
+	font-size: 17px;
+}
+.llvm-icon:before {
+	content: "\e91d";
+	top: 3px;
+	font-size: 17px;
+}
+.logtalk-icon:before {
+	content: "\e98d";
+	top: 2px;
+}
+.lolcode-icon:before {
+	content: "\1f63a";
+	top: 2px;
+	font-size: 16px;
+}
+.lookml-icon:before {
+	content: "\e98e";
+	top: 2px;
+	font-size: 16px;
+}
+.ls-icon:before {
+	content: "\e914";
+	top: 2px;
+	font-size: 14px;
+}
+.lsl-icon:before {
+	content: "\e98b";
+	top: 1px;
+}
+.lua-icon:before {
+	content: "\e91b";
+	top: 2px;
+	font-size: 14px;
+}
+.lync-icon:before {
+	content: "\ead9";
+	top: 2px;
+	font-size: 16px;
+}
+.mako-icon:before {
+	content: "\e98f";
+	top: 4px;
+	font-size: 16px;
+}
+.manpage-icon:before {
+	content: "\e936";
+	top: 3px;
+}
+.mapbox-icon:before {
+	content: "\e941";
+	top: 1px;
+	font-size: 13px;
+}
+.marko-icon:before {
+	content: "\e920";
+	top: 4px;
+	font-size: 18px;
+	left: -1px;
+	transform: scale(1.05);
+}
+.markdownlint-icon:before {
+	content: "\f0c9";
+	top: 3px;
+	font-size: 17px;
+	transform: scale(1.25);
+	transform-origin: 0 60%;
+}
+.mathematica-icon:before {
+	content: "\e990";
+	top: 2px;
+	font-size: 16px;
+}
+.mathjax-icon:before {
+	content: "\ea06";
+	top: 2px;
+}
+.matlab-icon:before {
+	content: "\e991";
+	top: 2px;
+}
+.matroska-icon:before {
+	content: "\2668";
+	top: 2px;
+}
+.max-icon:before {
+	content: "\e993";
+	top: 2px;
+}
+.maxscript-icon:before {
+	content: "\e900";
+	top: 2px;
+}
+.maya-icon:before {
+	content: "\e9f6";
+	top: 2px;
+	font-size: 16px;
+}
+.mdx-icon:before {
+	content: "\eab7";
+	top: 3px;
+	font-size: 16px;
+}
+.mediawiki-icon:before {
+	content: "\e954";
+	top: 2px;
+	font-size: 16px;
+}
+.mercury-icon:before {
+	content: "\e994";
+	top: 3px;
+	font-size: 16px;
+	transform: scale(1.2);
+}
+.meson-icon:before {
+	content: "\ea54";
+	top: 2px;
+}
+.metal-icon:before {
+	content: "M";
+	top: 1px;
+	left: 1px;
+}
+.meteor-icon:before {
+	content: "\e6a5";
+	top: 1px;
+}
+.minecraft-icon:before {
+	content: "\e9dc";
+	top: 2px;
+}
+.minizinc-icon:before {
+	content: "\ea53";
+	top: 2px;
+}
+.mirah-icon:before {
+	content: "\e995";
+	top: 2px;
+}
+.miranda-icon:before {
+	content: "\ea52";
+	top: 3px;
+	font-size: 16px;
+}
+.mjml-icon:before {
+	content: "\ea6f";
+	top: 2px;
+}
+.mocha-icon:before {
+	content: "\26fe";
+	top: 2px;
+	font-size: 17px;
+}
+.model-icon:before {
+	content: "\e9e8";
+	top: 2px;
+	font-size: 16px;
+}
+.modula2-icon:before {
+	content: "\e996";
+	top: 2px;
+}
+.modula3-icon:before {
+	content: "\2778";
+	top: 3px;
+	font-size: 17px;
+}
+.modelica-icon:before {
+	content: "\eaff";
+	top: 4px;
+	font-size: 17px;
+	transform: scale(1.2);
+}
+.moho-icon:before {
+	content: "\eaee";
+	top: 3px;
+	font-size: 16px;
+}
+.moleculer-icon:before {
+	content: "\eb0e";
+	top: 3px;
+	font-size: 16px;
+}
+.moment-icon:before {
+	content: "\1f558";
+	top: 2px;
+}
+.moment-tz-icon:before {
+	content: "\1f30d";
+	top: 2px;
+}
+.monotone-icon:before {
+	content: "\1f400";
+	top: 2px;
+	font-size: 18px;
+}
+.monkey-icon:before {
+	content: "\e997";
+	top: 3px;
+	font-size: 18px;
+	left: -1px;
+}
+.mruby-icon:before {
+	content: "\ea18";
+	top: 2px;
+}
+.msproject-icon:before {
+	content: "\eae8";
+	top: 2px;
+}
+.mupad-icon:before {
+	content: "\e9ca";
+	top: 3px;
+	font-size: 16px;
+}
+.mustache-icon:before {
+	content: "\e60f";
+	top: 2px;
+	font-size: 16px;
+}
+.n64-icon:before {
+	content: "n";
+	top: 2px;
+	font-size: 16px;
+}
+.nailpolish-icon:before {
+	content: "\1f485";
+	top: 3px;
+	font-size: 16px;
+	left: 1px;
+}
+.nano-icon:before {
+	content: "\ea76";
+	top: 2px;
+}
+.nanoc-icon:before {
+	content: "\ea51";
+	top: 2px;
+}
+.nant-icon:before {
+	content: "\e9e1";
+	top: 3px;
+	transform: scale(1.2);
+}
+.nasm-icon:before {
+	content: "\ea72";
+	top: 2px;
+}
+.ndepend-icon:before {
+	content: "\eab4";
+	top: 2px;
+}
+.neko-icon:before {
+	content: "\ea05";
+	top: 2px;
+}
+.neo4j-icon:before {
+	content: "\eab3";
+	top: 2px;
+}
+.netlify-icon:before {
+	content: "\eabf";
+	top: 3px;
+	font-size: 16px;
+}
+.netlogo-icon:before {
+	content: "\e99c";
+	top: 2px;
+	left: 1px;
+}
+.newrelic-icon:before {
+	content: "\e9d7";
+	top: 2px;
+}
+.nextflow-icon:before {
+	content: "\eaa5";
+	top: 2px;
+	font-size: 16px;
+}
+.nestjs-icon:before {
+	content: "\eac9";
+	top: 2px;
+}
+.nginx-icon:before {
+	content: "\f146b";
+	top: 2px;
+}
+.nib-icon:before {
+	content: "\2712";
+	top: 2px;
+}
+.nightwatch-icon:before {
+	content: "\eb08";
+	top: 3px;
+	font-size: 16px;
+}
+.nimrod-icon:before {
+	content: "\e998";
+	top: 2px;
+}
+.nit-icon:before {
+	content: "\e999";
+	top: 2px;
+}
+.nix-icon:before {
+	content: "\e99a";
+	top: 3px;
+	font-size: 16px;
+}
+.nmap-icon:before {
+	content: "\e94d";
+	top: 3px;
+	font-size: 16px;
+	transform: scale(1.1);
+}
+.nodemon-icon:before {
+	content: "\ea26";
+	top: 2px;
+}
+.nomad-icon:before {
+	content: "\ea96";
+	top: 2px;
+}
+.normalize-icon:before {
+	content: "\ea04";
+	top: 3px;
+	font-size: 16px;
+}
+.npm-icon:before {
+	content: "\e91c";
+	top: 3px;
+	font-size: 17px;
+}
+.nsis-icon:before {
+	content: "\ea1e";
+	top: 3px;
+	font-size: 16px;
+}
+.nuclide-icon:before {
+	content: "\ea34";
+	top: 2px;
+}
+.nuget-icon:before {
+	content: "\e9d9";
+	top: 2px;
+}
+.numpy-icon:before {
+	content: "\e99d";
+	top: 2px;
+	font-size: 14px;
+}
+.nunjucks-icon:before {
+	content: "\e953";
+	top: 2px;
+	font-size: 16px;
+}
+.nuxt-icon:before {
+	content: "\eaca";
+	top: 2px;
+	font-size: 16px;
+}
+.nxc-icon:before {
+	content: "\ea6b";
+	top: 2px;
+	font-size: 16px;
+}
+.nvidia-icon:before {
+	content: "\e95d";
+	top: 2px;
+}
+.objj-icon:before {
+	content: "\e99e";
+	top: 2px;
+}
+.ocaml-icon:before {
+	content: "\e91a";
+	top: 1px;
+	font-size: 14px;
+}
+.octave-icon:before {
+	content: "\ea33";
+	top: 2px;
+}
+.onenote-icon:before {
+	content: "\e9eb";
+	top: 2px;
+}
+.ooc-icon:before {
+	content: "\e9cb";
+	top: 2px;
+}
+.opa-icon:before {
+	content: "\2601";
+	top: 2px;
+}
+.opencl-icon:before {
+	content: "\e99f";
+	top: 2px;
+	font-size: 16px;
+}
+.opengl-icon:before {
+	content: "\ea7a";
+	top: 3px;
+	font-size: 18px;
+	transform: scale(1.1);
+}
+.openoffice-icon:before {
+	content: "\e9e4";
+	top: 2px;
+}
+.openvms-icon:before {
+	content: "\eac6";
+	top: 1px;
+	font-size: 16px;
+	transform: scale(1.1);
+}
+.openvpn-icon:before {
+	content: "\eaf3";
+	top: 2px;
+}
+.org-icon:before {
+	content: "\e917";
+	top: 1px;
+	font-size: 14px;
+	left: 1px;
+}
+.outlook-icon:before {
+	content: "\eada";
+	top: 2px;
+	font-size: 16px;
+}
+.owl-icon:before {
+	content: "\e957";
+	top: 2px;
+}
+.ox-icon:before {
+	content: "\e9a1";
+	top: 3px;
+	font-size: 16px;
+}
+.oxygene-icon:before {
+	content: "\e9bf";
+	top: 2px;
+}
+.oz-icon:before {
+	content: "\e9be";
+	top: 2px;
+}
+.p4-icon:before {
+	content: "\ea50";
+	top: 2px;
+}
+.pan-icon:before {
+	content: "\e9bd";
+	top: 2px;
+}
+.papyrus-icon:before {
+	content: "\e9bc";
+	top: 2px;
+}
+.parrot-icon:before {
+	content: "\e9bb";
+	top: 3px;
+	font-size: 16px;
+}
+.pascal-icon:before {
+	content: "\e92a";
+	top: 2px;
+}
+.patch-icon:before {
+	content: "\e961";
+	top: 2px;
+}
+.pawn-icon:before {
+	content: "\265f";
+	top: 1px;
+	font-size: 14px;
+}
+.pcd-icon:before {
+	content: "\26c5";
+	top: 2px;
+	font-size: 16px;
+}
+.peg-icon:before {
+	content: "\ea74";
+	top: 3px;
+	font-size: 16px;
+}
+.perl6-icon:before {
+	content: "\e96c";
+	top: 2px;
+}
+.phalcon-icon:before {
+	content: "\e94a";
+	top: 2px;
+}
+.phoenix-icon:before {
+	content: "\ea5f";
+	top: 3px;
+	font-size: 17px;
+	transform: scale(1.1);
+}
+.php-icon:before {
+	content: "\f147";
+	top: 1px;
+	font-size: 14px;
+	left: 1px;
+}
+.phpunit-icon:before {
+	content: "\ea32";
+	top: 2px;
+}
+.phraseapp-icon:before {
+	content: "\eadb";
+	top: 2px;
+}
+.pickle-icon:before {
+	content: "\e9c4";
+	top: 2px;
+}
+.pico8-icon:before {
+	content: "\eabc";
+	top: 2px;
+}
+.picolisp-icon:before {
+	content: "\eb25";
+	top: 3px;
+	font-size: 17px;
+}
+.pike-icon:before {
+	content: "\e9b9";
+	top: 4px;
+	font-size: 16px;
+	transform: scale(1.15);
+}
+.pipenv-icon:before {
+	content: "\1f381";
+	top: 2px;
+}
+.platformio-icon:before {
+	content: "\ea2c";
+	top: 2px;
+	font-size: 16px;
+}
+.pm2-icon:before {
+	content: "\2630";
+	top: 3px;
+}
+.pod-icon:before {
+	content: "\ea84";
+	top: 2px;
+	left: 1px;
+}
+.pogo-icon:before {
+	content: "\e9b8";
+	top: 3px;
+	font-size: 14px;
+}
+.pointwise-icon:before {
+	content: "\e977";
+	top: 2px;
+}
+.polymer-icon:before {
+	content: "\ea2b";
+	top: 3px;
+}
+.pony-icon:before {
+	content: "\e9b7";
+	top: 3px;
+	font-size: 16px;
+}
+.postcss-icon:before {
+	content: "\e910";
+	top: 2px;
+	font-size: 14px;
+}
+.postscript-icon:before {
+	content: "\e955";
+	top: 2px;
+	left: 1px;
+}
+.povray-icon:before {
+	content: "P";
+	top: 2px;
+	left: 1px;
+}
+.powerbuilder-icon:before {
+	content: "\ea14";
+}
+.powerpoint-icon:before {
+	content: "\e9ec";
+	top: 2px;
+}
+.powershell-icon:before {
+	content: "\e9da";
+	top: 2px;
+	font-size: 16px;
+}
+.precommit-icon:before {
+	content: "\eac1";
+	top: 2px;
+}
+.premiere-icon:before {
+	content: "\e9f5";
+	top: 2px;
+}
+.prettier-icon:before {
+	content: "\eaa1";
+	top: 2px;
+}
+.prisma-icon:before {
+	content: "\eac5";
+	top: 2px;
+}
+.processing-icon:before {
+	content: "\e9a0";
+	top: 2px;
+}
+.progress-icon:before {
+	content: "\eadc";
+	top: 2px;
+}
+.proselint-icon:before {
+	content: "\ea6d";
+	top: 2px;
+	font-size: 16px;
+}
+.pros-icon:before {
+	content: "\eaad";
+	top: 3px;
+	font-size: 16px;
+}
+.propeller-icon:before {
+	content: "\e9b5";
+	top: 3px;
+	font-size: 16px;
+}
+.protractor-icon:before {
+	content: "\e9de";
+	top: 3px;
+}
+.psd-icon:before {
+	content: "\e6b8";
+	top: 2px;
+}
+.publisher-icon:before {
+	content: "\eadd";
+	top: 2px;
+	font-size: 16px;
+}
+.pug-alt-icon:before {
+	content: "\e9d0";
+	top: 3px;
+	font-size: 16px;
+}
+.pug-icon:before {
+	content: "\ea13";
+	top: 3px;
+	font-size: 16px;
+}
+.puppet-icon:before {
+	content: "\f0c3";
+	top: 2px;
+	left: 1px;
+}
+.purebasic-icon:before {
+	content: "\01b5";
+	top: 2px;
+}
+.purescript-icon:before {
+	content: "\e9b2";
+	top: 3px;
+}
+.pullapprove-icon:before {
+	content: "\293e";
+	top: 2px;
+}
+.pypi-icon:before {
+	content: "\ea94";
+	top: 2px;
+}
+.pyret-icon:before {
+	content: "\2620";
+	top: 2px;
+	font-size: 16px;
+}
+.qlik-icon:before {
+	content: "\1f50d";
+	top: 2px;
+}
+.qt-icon:before {
+	content: "\eb00";
+	top: 2px;
+	font-size: 16px;
+}
+.quasar-icon:before {
+	content: "\eacc";
+	top: 2px;
+}
+.r-icon:before {
+	content: "\e905";
+	top: 3px;
+	font-size: 17px;
+}
+.racket-icon:before {
+	content: "\e9b1";
+	top: 2px;
+	left: 1px;
+}
+.raml-icon:before {
+	content: "\e913";
+	top: 1px;
+	font-size: 14px;
+}
+.rascal-icon:before {
+	content: "\ea24";
+	top: 2px;
+}
+.rdoc-icon:before {
+	content: "\e9b0";
+	top: 2px;
+	left: 1px;
+}
+.react-icon:before {
+	content: "\f100";
+	top: 2px;
+}
+.reason-icon:before {
+	content: "\ea1d";
+	top: 3px;
+}
+.rebol-icon:before {
+	content: "\e9ae";
+	top: 1px;
+	font-size: 13px;
+}
+.red-icon:before {
+	content: "\eaec";
+	top: 3px;
+	font-size: 16px;
+}
+.redux-icon:before {
+	content: "\ea30";
+	top: 2px;
+}
+.reek-icon:before {
+	content: "\eaa0";
+	top: 3px;
+	font-size: 17px;
+}
+.regex-icon:before {
+	content: "*";
+	top: 1px;
+	font-size: 12px;
+	left: 1px;
+}
+.remark-icon:before {
+	content: "\eb1d";
+	top: 2px;
+}
+.rexx-icon:before {
+	content: "\ea16";
+	top: 2px;
+	font-size: 14px;
+	left: 1px;
+}
+.rhino-icon:before {
+	content: "\ea4a";
+	top: 4px;
+	font-size: 16px;
+	left: 1px;
+	transform: scale(1.1);
+}
+.ring-icon:before {
+	content: "\1f48d";
+	top: 2px;
+}
+.riot-icon:before {
+	content: "\e919";
+	top: 4px;
+	font-size: 18px;
+}
+.robot-icon:before {
+	content: "\eb0d";
+	top: 2px;
+}
+.robots-icon:before {
+	content: "\1f916";
+	top: 2px;
+}
+.rollup-icon:before {
+	content: "\ea20";
+	top: 2px;
+}
+.rspec-icon:before {
+	content: "\ea31";
+	top: 3px;
+	font-size: 16px;
+}
+.rst-icon:before {
+	content: "\e9cc";
+	top: 3px;
+	font-size: 16px;
+}
+.rstudio-icon:before {
+	content: "\24c7";
+	top: 2px;
+}
+.rubocop-icon:before {
+	content: "\eade";
+	top: 2px;
+}
+.sage-icon:before {
+	content: "\e9ab";
+	top: 3px;
+	font-size: 16px;
+}
+.saltstack-icon:before {
+	content: "\e915";
+	top: 2px;
+	font-size: 14px;
+}
+.sas-icon:before {
+	content: "\e95a";
+	top: 2px;
+}
+.san-icon:before {
+	content: "\eae6";
+	top: 2px;
+}
+.sbt-icon:before {
+	content: "\e9d2";
+	top: 2px;
+	font-size: 14px;
+}
+.scad-icon:before {
+	content: "\e911";
+	top: 2px;
+	font-size: 14px;
+}
+.scd-icon:before {
+	content: "\e9a2";
+	top: 2px;
+}
+.scheme-icon:before {
+	content: "\03bb";
+	top: 2px;
+}
+.scilab-icon:before {
+	content: "\e9a9";
+	top: 3px;
+	font-size: 18px;
+	left: -1px;
+}
+.scilla-icon:before {
+	content: "\eae2";
+	top: 3px;
+	font-size: 16px;
+}
+.scratch-icon:before {
+	content: "\a7";
+	top: 2px;
+}
+.scrutinizer-icon:before {
+	content: "\e9d4";
+	top: 2px;
+	font-size: 14px;
+}
+.self-icon:before {
+	content: "\e9a8";
+	top: 3px;
+	font-size: 16px;
+	transform: scale(1.2);
+}
+.sentry-icon:before {
+	content: "\eb1c";
+	top: 3px;
+	font-size: 16px;
+}
+.serverless-icon:before {
+	content: "\eab8";
+	top: 2px;
+}
+.sequelize-icon:before {
+	content: "\ea2f";
+	top: 3px;
+	font-size: 16px;
+}
+.sf-icon:before {
+	content: "\e9db";
+	top: 2px;
+}
+.sgi-icon:before {
+	content: "\2318";
+	top: 2px;
+}
+.shen-icon:before {
+	content: "\e9a7";
+	top: 2px;
+	font-size: 16px;
+}
+.shipit-icon:before {
+	content: "\26f5";
+	top: 2px;
+	font-size: 16px;
+	transform: scale(1.1);
+}
+.shippable-icon:before {
+	content: "\ea2d";
+	top: 2px;
+}
+.shopify-icon:before {
+	content: "\e9cf";
+	top: 2px;
+}
+.shuriken-icon:before {
+	content: "\272b";
+	top: 2px;
+	font-size: 14px;
+}
+.sigils-icon:before {
+	content: "\1f764";
+	top: 3px;
+	font-size: 16px;
+}
+.silverstripe-icon:before {
+	content: "\e800";
+	top: 2px;
+}
+.sketch-icon:before {
+	content: "\e927";
+	top: 2px;
+}
+.sketchup-lo-icon:before {
+	content: "\ea7c";
+	top: 2px;
+}
+.sketchup-mk-icon:before {
+	content: "\ea7e";
+	top: 2px;
+}
+.sketchup-sb-icon:before {
+	content: "\ea7d";
+	top: 2px;
+}
+.slash-icon:before {
+	content: "\e9a6";
+	top: 2px;
+}
+.snapcraft-icon:before {
+	content: "\eb09";
+	top: 3px;
+	font-size: 16px;
+}
+.snort-icon:before {
+	content: "\1f43d";
+	top: 3px;
+	font-size: 17px;
+}
+.snyk-icon:before {
+	content: "\ea1c";
+	top: 2px;
+	font-size: 16px;
+}
+.solidarity-icon:before {
+	content: "\1d5e6";
+	top: 2px;
+}
+.solidity-icon:before {
+	content: "\ea86";
+	top: 2px;
+}
+.spacemacs-icon:before {
+	content: "\eaa4";
+	top: 2px;
+}
+.sparql-icon:before {
+	content: "\e959";
+	top: 2px;
+}
+.sqf-icon:before {
+	content: "\e9a5";
+	top: 1px;
+}
+.sqlite-icon:before {
+	content: "\e9dd";
+	top: 3px;
+}
+.squarespace-icon:before {
+	content: "\ea5e";
+	top: 2px;
+}
+.stan-icon:before {
+	content: "\e9a4";
+	top: 2px;
+}
+.stata-icon:before {
+	content: "\e9a3";
+	top: 2px;
+}
+.stencil-icon:before {
+	content: "\ea95";
+	top: 2px;
+}
+.storyist-icon:before {
+	content: "\e9ef";
+	top: 2px;
+	font-size: 16px;
+}
+.strings-icon:before {
+	content: "\e9e0";
+	top: 2px;
+}
+.stylable-icon:before {
+	content: "\eae0";
+	top: 2px;
+}
+.storybook-icon:before {
+	content: "\eadf";
+	top: 2px;
+	font-size: 16px;
+}
+.stylelint-icon:before {
+	content: "\e93d";
+	top: 2px;
+}
+.stylus-icon:before {
+	content: "s";
+	top: 2px;
+	left: 1px;
+}
+.sublime-icon:before {
+	content: "\e986";
+	top: 2px;
+}
+.svelte-icon:before {
+	content: "\33dc";
+	top: 3px;
+	font-size: 16px;
+}
+.svn-icon:before {
+	content: "\ea17";
+	top: 2px;
+}
+.swagger-icon:before {
+	content: "\ea29";
+	top: 2px;
+}
+.sysverilog-icon:before {
+	content: "\e9c3";
+	top: 2px;
+}
+.tag-icon:before {
+	content: "\f015";
+	top: 2px;
+	font-size: 14px;
+}
+.tailwind-icon:before {
+	content: "\301c";
+	top: 3px;
+	font-size: 17px;
+}
+.tcl-icon:before {
+	content: "\e956";
+	top: 2px;
+	font-size: 16px;
+}
+.telegram-icon:before {
+	content: "\2708";
+	top: 2px;
+}
+.templeos-icon:before {
+	content: "\2696";
+	top: 4px;
+	font-size: 18px;
+}
+.terminal-icon:before {
+	content: "\f0c8";
+	top: 2px;
+	font-size: 14px;
+}
+.tern-icon:before {
+	content: "\1f54a";
+	top: 4px;
+	font-size: 16px;
+}
+.terraform-icon:before {
+	content: "\e916";
+	top: 1px;
+	font-size: 14px;
+}
+.test-coffee-icon:before {
+	content: "\ea62";
+}
+.test-dir-icon:before {
+	content: "\ea60";
+	top: 2px;
+}
+.test-generic-icon:before {
+	content: "\ea63";
+}
+.test-go-icon:before {
+	content: "\eb0f";
+}
+.test-hs-icon:before {
+	content: "\eb10";
+}
+.test-js-icon:before {
+	content: "\ea64";
+}
+.test-perl-icon:before {
+	content: "\ea65";
+}
+.test-python-icon:before {
+	content: "\ea66";
+}
+.test-react-icon:before {
+	content: "\ea67";
+}
+.test-ruby-icon:before {
+	content: "\ea68";
+}
+.test-rust-icon:before {
+	content: "\eb11";
+}
+.test-ts-icon:before {
+	content: "\ea69";
+}
+.tex-icon:before {
+	content: "\e600";
+	top: 4px;
+	font-size: 16px;
+}
+.textile-icon:before {
+	content: "t";
+	top: 2px;
+}
+.textmate-icon:before {
+	content: "\2122";
+	top: 2px;
+	font-size: 16px;
+}
+.tfs-icon:before {
+	content: "\eae1";
+	top: 3px;
+}
+.thor-icon:before {
+	content: "\e9d8";
+	top: 2px;
+}
+.tipe-icon:before {
+	content: "\eaa9";
+	top: 3px;
+	font-size: 16px;
+}
+.tla-icon:before {
+	content: "\eab2";
+	top: 2px;
+}
+.tmux-icon:before {
+	content: "\ea8c";
+	top: 2px;
+}
+.toml-icon:before {
+	content: "\1f143";
+	top: 2px;
+}
+.tortoise-icon:before {
+	content: "\ea93";
+	top: 3px;
+	font-size: 17px;
+	transform: scale(1.15);
+}
+.ts-icon:before {
+	content: "\2a6";
+	top: 1px;
+	font-size: 14px;
+}
+.tsx-icon:before {
+	content: "\e9e7";
+	top: 1px;
+	font-size: 14px;
+}
+.tt-icon:before {
+	content: "T";
+	top: 2px;
+}
+.ttcn3-icon:before {
+	content: "\2476";
+	top: 2px;
+}
+.turing-icon:before {
+	content: "\e9b6";
+	top: 2px;
+}
+.twine-icon:before {
+	content: "\ea5d";
+	top: 2px;
+}
+.twig-icon:before {
+	content: "\2e19";
+	top: 2px;
+	font-size: 16px;
+}
+.txl-icon:before {
+	content: "\e9c1";
+	top: 2px;
+}
+.typedoc-icon:before {
+	content: "\e9fe";
+	top: 2px;
+}
+.typings-icon:before {
+	content: "\e9df";
+	top: 2px;
+}
+.unbeautify-icon:before {
+	content: "\eac4";
+	top: 2px;
+	font-size: 16px;
+}
+.uno-icon:before {
+	content: "\e9b3";
+	top: 2px;
+}
+.unreal-icon:before {
+	content: "u";
+	top: 2px;
+}
+.urweb-icon:before {
+	content: "\e9ba";
+	top: 4px;
+	font-size: 18px;
+	left: -1px;
+}
+.v8-icon:before {
+	content: "\ea1f";
+	top: 3px;
+	font-size: 16px;
+}
+.v8-turbofan-icon:before {
+	content: "\eaac";
+	top: 3px;
+	font-size: 17px;
+}
+.vagrant-icon:before {
+	content: "V";
+	top: 2px;
+	font-size: 14px;
+}
+.varnish-icon:before {
+	content: "\e9b4";
+	top: 1px;
+	font-size: 14px;
+}
+.velocity-icon:before {
+	content: "\2b94";
+	top: 3px;
+	font-size: 17px;
+	transform: scale(1.1);
+}
+.verilog-icon:before {
+	content: "\e949";
+	top: 2px;
+}
+.vertex-icon:before {
+	content: "\ea79";
+	top: 2px;
+	font-size: 16px;
+}
+.vhdl-icon:before {
+	content: "\e9aa";
+	top: 2px;
+}
+.video-icon:before {
+	content: "\f057";
+	top: 1px;
+	font-size: 14px;
+}
+.virtualbox-icon:before {
+	content: "\ea3e";
+	top: 2px;
+	font-size: 16px;
+}
+.visio-icon:before {
+	content: "\ea83";
+	top: 2px;
+}
+.vmware-icon:before {
+	content: "\ea49";
+	top: 3px;
+	font-size: 16px;
+}
+.vue-icon:before {
+	content: "\e906";
+	top: 3px;
+}
+.vsts-icon:before {
+	content: "\eac0";
+	top: 3px;
+	font-size: 16px;
+	left: -1px;
+}
+.wallaby-icon:before {
+	content: "\231f";
+	top: 2px;
+}
+.walt-icon:before {
+	content: "\eaba";
+	top: 3px;
+	font-size: 16px;
+}
+.wasm-icon:before {
+	content: "\ea70";
+	top: 2px;
+}
+.watchman-icon:before {
+	content: "\ea4f";
+	top: 2px;
+}
+.wdl-icon:before {
+	content: "\eab1";
+	top: 2px;
+}
+.webgl-icon:before {
+	content: "\ea7b";
+	top: 3px;
+	font-size: 18px;
+	transform: scale(1.1);
+}
+.webpack-icon:before {
+	content: "\ea61";
+	top: 3px;
+	font-size: 16px;
+}
+.webvtt-icon:before {
+	content: "\eb24";
+	top: 4px;
+	font-size: 16px;
+	transform: scale(1.1);
+}
+.wercker-icon:before {
+	content: "\ea19";
+	top: 2px;
+}
+.wix-icon:before {
+	content: "\eab0";
+	top: 3px;
+	font-size: 16px;
+}
+.word-icon:before {
+	content: "\e9ed";
+	top: 2px;
+}
+.workbox-icon:before {
+	content: "\eaa8";
+	top: 2px;
+}
+.wurst-icon:before {
+	content: "\1f32d";
+	top: 2px;
+	font-size: 16px;
+}
+.xamarin-icon:before {
+	content: "\ea77";
+	top: 2px;
+}
+.x10-icon:before {
+	content: "\2169";
+	top: 2px;
+}
+.xmos-icon:before {
+	content: "X";
+	top: 1px;
+	font-size: 14px;
+}
+.xojo-icon:before {
+	content: "\e9af";
+	top: 2px;
+}
+.xpages-icon:before {
+	content: "\e9c5";
+	top: 2px;
+}
+.xtend-icon:before {
+	content: "\e9c6";
+	top: 2px;
+}
+.yaml-icon:before {
+	content: "y";
+	top: 2px;
+}
+.yandex-icon:before {
+	content: "\42f";
+	top: 2px;
+}
+.yang-icon:before {
+	content: "\262f";
+	top: 2px;
+}
+.yara-icon:before {
+	content: "\ea9f";
+	top: 2px;
+}
+.yarn-icon:before {
+	content: "\ea1a";
+	top: 2px;
+	font-size: 16px;
+}
+.yui-icon:before {
+	content: "\ea00";
+	top: 2px;
+}
+.zbrush-icon:before {
+	content: "\e9f2";
+	top: 2px;
+	font-size: 16px;
+}
+.zephir-icon:before {
+	content: "\e9c7";
+	top: 2px;
+}
+.zig-icon:before {
+	content: "z";
+	top: 3px;
+	font-size: 16px;
+}
+.zimpl-icon:before {
+	content: "\e9c8";
+	top: 2px;
+	font-size: 16px;
+	left: 1px;
+}
+.zork-icon:before {
+	content: "\1b6";
+	top: 2px;
+}
