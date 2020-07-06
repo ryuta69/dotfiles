@@ -164,6 +164,9 @@ DesktopScreenSaver() {
 	"
 
 	# ========== desktop ==========
+	# !!! You can forcely command below to set, but you SHOULD NOT.
+	# !!! sqlite3 ${HOME}/Application Support/Dock/desktoppicture.db -c "~~~"
+	# !!! Because defaults can be safe if the value is not validate, but sqlite3 will break MacOS.
 	# - Fill Screen
 	# - Fit to Screen
 	# - Streach to Fill Screen
