@@ -27,13 +27,7 @@ curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin
 ./install.sh --system
 ```
 
-After installation, do below manually.
-
-- Apply Alfred License
-- Import GPG Keychain Key
-- Install Adobe XD from Creative Cloud
-
-### Options
+#### Options
 
 ```bash
 ❯ ./install.sh --help
@@ -48,6 +42,13 @@ system:   MacOS system setting
 dotfiles: Dotfiles installation
 all:      All installations (except init)
 ```
+
+## Features
+Full Catalina System Configurations are scripted. Using iTerm, Tmux, Zsh, and Neovim mainly with minimal yet powerful plugins. FZF, MyCli, VSCode, and many other brew/npm/pip/vscode packages and their configurations are listed and can be installed in one command. Also, I heavily use Yabai, Skhd, Ubersicht, and Alfled in daily like below.
+
+[full video link](https://youtu.be/Gv_rnu-dDOs)
+
+![yabai](https://user-images.githubusercontent.com/41639488/86599039-09b6ba00-bfd9-11ea-9c31-6a78648deb3b.gif)
 
 ## Thanks
 These links gave me great ideas and motivations.
