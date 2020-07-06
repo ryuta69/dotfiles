@@ -94,6 +94,7 @@ alias ll='exa -alhF --git-ignore --group-directories-first --time-style=long-iso
 alias tr2='exa -alhF --git-ignore --group-directories-first --time-style=long-iso -T -L=2 --ignore-glob=".git|node_modules"'
 alias tr3='exa -alhF --git-ignore --group-directories-first --time-style=long-iso -T -L=3 --ignore-glob=".git|node_modules"'
 mkcd() { mkdir $@; cd $@; }
+cmpr() { ffmpeg -i $@ -vcodec h264 -acodec mp2 output.mp4; }
 absp() { echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"); }
 vscd() {
 	[ -z $1 ] && code -r ./ && return 0;
