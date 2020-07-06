@@ -1,7 +1,7 @@
 <h3 align="center">My Dotfiles</h3>
 <p align="center">ᓚᘏᗢ Just personal MacOS settings.</p>
 
-<img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/86541875-89964300-bf4b-11ea-9ac9-dc520702cb47.png">
+<img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/86551928-71411b00-bf81-11ea-834f-297635de42dc.png">
 
 Not only symlinking [dotfiles](https://github.com/ryuta69/dotfiles/tree/master/dotfiles), this repository also installs [applications](https://github.com/ryuta69/dotfiles/tree/master/bundle) and configures [MacOS system](https://github.com/ryuta69/dotfiles/tree/master/system).
 
