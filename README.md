@@ -3,11 +3,11 @@
 <h3 align="center">My Dotfiles</h3>
 <p align="center">ᓚᘏᗢ Just personal MacOS settings.</p>
 
-<img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/86551928-71411b00-bf81-11ea-834f-297635de42dc.png">
+<img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/86676863-03a2f680-c036-11ea-9b62-b0f94d506e4b.png">
 
-Not only symlinking [dotfiles](https://github.com/ryuta69/dotfiles/tree/master/dotfiles), this repository also installs [applications](https://github.com/ryuta69/dotfiles/tree/master/bundle) and configures [MacOS system](https://github.com/ryuta69/dotfiles/tree/master/system).
+<br />
 
-This repository is mainly for MacOS, but there are scripts for Windows and Linux [here](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux).
+In one command, it symlinks [dotfiles](https://github.com/ryuta69/dotfiles/tree/master/dotfiles), installs [apps](https://github.com/ryuta69/dotfiles/tree/master/bundle), and configures [system settings](https://github.com/ryuta69/dotfiles/tree/master/system). There are also setup scripts for [Windows and Linux](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux).
 
 <br />
 
@@ -48,7 +48,11 @@ all:      All installations (except init)
 <br />
 
 ## Features
-Full Catalina System Configurations are scripted. Using iTerm, Tmux, Zsh, and Neovim mainly with minimal yet powerful plugins. FZF, MyCli, VSCode, and many other brew/npm/pip/vscode packages and their configurations are listed and can be installed in one command. Also, I heavily use Yabai, Skhd, Ubersicht, and Alfled in daily like below.
+
+- Scripts for MacOS full system configuration automation.
+- CUI tools using iTerm, Tmux, Zsh, Neovim, and more with plugins and configurations.
+- GUI tools using VSCode, Karabiner, and more with configurations by package managers.
+- Yabai, Skhd, Ubersicht, and Alfled for Window Manager and Launcher like below.
 
 [full video link](https://youtu.be/Gv_rnu-dDOs)
 
@@ -64,4 +68,3 @@ https://qiita.com/b4b4r07/items/b70178e021bef12cd4a2
 https://github.com/kevinSuttle/macOS-Defaults/blob/master/REFERENCE.md
 
 https://github.com/tech-otaku/macos-config-mojave/blob/master/macos-config.sh
-
