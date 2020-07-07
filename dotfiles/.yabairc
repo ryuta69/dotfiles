@@ -28,4 +28,8 @@ yabai -m config window_gap     12
 ## ----------------------------------------
 ##	Ignore Settings
 ## ----------------------------------------
+yabai -m rule --add app="^Finder$" manage=off border=off
+yabai -m rule --add app="^Gifski$" manage=off border=off
+yabai -m rule --add app="^Preview$" manage=off border=off
+yabai -m rule --add app="^QuickTime Player$" manage=off border=off
 yabai -m rule --add app="^System Preferences$" manage=off border=off
