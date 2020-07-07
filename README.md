@@ -1,5 +1,3 @@
-<br />
-
 <h3 align="center">My Dotfiles</h3>
 <p align="center">ᓚᘏᗢ Just personal MacOS settings.</p>
 
@@ -7,7 +5,7 @@
 
 <br />
 
-In one command, it symlinks [dotfiles](https://github.com/ryuta69/dotfiles/tree/master/dotfiles), installs [apps](https://github.com/ryuta69/dotfiles/tree/master/bundle), and configures [system settings](https://github.com/ryuta69/dotfiles/tree/master/system). There are also setup scripts for [Windows and Linux](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux).
+In one command of factory reset OS, it symlinks [dotfiles](https://github.com/ryuta69/dotfiles/tree/master/dotfiles), installs [apps](https://github.com/ryuta69/dotfiles/tree/master/bundle), and configures [system settings](https://github.com/ryuta69/dotfiles/tree/master/system). There are also setup scripts for [Windows and Linux](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux).
 
 <br />
 
@@ -19,13 +17,13 @@ In one command, it symlinks [dotfiles](https://github.com/ryuta69/dotfiles/tree/
 # This uses only by curl and bash, and it will be completed automatically.
 curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --init
 
-# Install Bundle such as brew, applications, appstore, npm, pip, and cargo.
+# Install cui and gui apps and plugins.
 ./install.sh --bundle
 
 # Symlink dotfiles to appropriate directories.
 ./install.sh --dotfiles
 
-# Configure MacOS Core systems.
+# Configure MacOS system settings.
 ./install.sh --system
 ```
 
@@ -49,10 +47,10 @@ all:      All installations (except init)
 
 ## Features
 
-- Scripts for MacOS full system configuration automation.
-- CUI tools using iTerm, Tmux, Zsh, Neovim, and more with plugins and configurations.
-- GUI tools using VSCode, Karabiner, and more with configurations by package managers.
-- Yabai, Skhd, Ubersicht, and Alfled for Window Manager and Launcher like below.
+- System configuration automation.
+- CUI apps using Tmux, Zsh, Neovim, FZF, and more.
+- GUI apps using VSCode, iTerm, Karabiner, and more.
+- WM and Launcher using Yabai, Skhd, and Alfred like below.
 
 [full video link](https://youtu.be/Gv_rnu-dDOs)
 
