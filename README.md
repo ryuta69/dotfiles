@@ -5,10 +5,6 @@
 
 <br />
 
-In one command, you can restore all environment and installation.
-
-<br />
-
 ## Installation
 
 ```bash
@@ -17,14 +13,10 @@ In one command, you can restore all environment and installation.
 # This uses only by curl and bash, and it will be completed automatically.
 curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --init
 
-# Install cui and gui apps and plugins.
-./install.sh --bundle
-
-# Symlink dotfiles to appropriate directories.
-./install.sh --dotfiles
-
-# Configure MacOS system settings.
-./install.sh --system
+# Install cui and gui apps and plugins. `--bundle`
+# Symlink dotfiles to appropriate directories. `--dotfiles`
+# Configure MacOS system settings. `--system`
+./install.sh --all
 ```
 
 #### Options
