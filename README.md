@@ -1,3 +1,5 @@
+<br />
+
 <h3 align="center">My Dotfiles</h3>
 <p align="center">ᓚᘏᗢ Just personal MacOS settings.</p>
 
@@ -13,8 +15,8 @@
 # This uses only by curl and bash, and it will be completed automatically.
 curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --init
 
-# Install cui and gui apps and plugins. `--bundle`
-# Symlink dotfiles to appropriate directories. `--dotfiles`
+# Install CUI and GUI apps and plugins. `--bundle`
+# Symlink dotfiles to its directories. `--dotfiles`
 # Configure MacOS system settings. `--system`
 ./install.sh --all
 ```
@@ -39,10 +41,10 @@ all:      All installations (except init)
 
 ## Features
 
-- Install CUI and GUI apps with plugins and configurations.
-- Configure full MacOS system settings.
-	- There are also scripts for [Windows and Linux](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux).
-- WM and Launcher using Yabai, Skhd, and Alfred like below.
+- CUI envs with iTerm, Tmux, Zsh, Neovim, FZF, and more.
+- GUI envs with VSCode, Ubersicht, Karabiner, and more.
+- MacOS system settings (Windows and Linux are [here](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux)).
+- WM and Launcher with Yabai, Skhd, and Alfred like below.
 
 [full video link](https://youtu.be/Gv_rnu-dDOs)
 
