@@ -5,7 +5,7 @@
 
 <br />
 
-In one command of factory reset OS, it symlinks [dotfiles](https://github.com/ryuta69/dotfiles/tree/master/dotfiles), installs [apps](https://github.com/ryuta69/dotfiles/tree/master/bundle), and configures [system settings](https://github.com/ryuta69/dotfiles/tree/master/system). There are also setup scripts for [Windows and Linux](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux).
+In one command, you can restore all environment and installation.
 
 <br />
 
@@ -47,9 +47,9 @@ all:      All installations (except init)
 
 ## Features
 
-- System configuration automation.
-- CUI apps using Tmux, Zsh, Neovim, FZF, and more.
-- GUI apps using VSCode, iTerm, Karabiner, and more.
+- Install CUI and GUI apps with plugins and configurations.
+- Configure full MacOS system settings.
+	- There are also scripts for [Windows and Linux](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux).
 - WM and Launcher using Yabai, Skhd, and Alfred like below.
 
 [full video link](https://youtu.be/Gv_rnu-dDOs)
