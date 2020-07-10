@@ -11,9 +11,7 @@ fkill-cli
 typescript
 gatsby-cli
 lint-staged
-terminalizer
 @angular/cli
-carbon-now-cli
 firebase-tools
 create-nuxt-app
 create-react-app
