@@ -19,17 +19,17 @@ yabai -m config window_placement    second_child
 ##	Tiling Padding Settings
 ## ----------------------------------------
 yabai -m config layout         bsp
-yabai -m config top_padding    20
-yabai -m config bottom_padding 30
-yabai -m config left_padding   4
-yabai -m config right_padding  4
-yabai -m config window_gap     4
+yabai -m config top_padding    27
+yabai -m config bottom_padding 50
+yabai -m config left_padding   40
+yabai -m config right_padding  40
+yabai -m config window_gap     40
 
 ## ----------------------------------------
 ##	Ignore Settings
 ## ----------------------------------------
-yabai -m rule --add app="^Finder$" manage=off border=off
-yabai -m rule --add app="^Gifski$" manage=off border=off
-yabai -m rule --add app="^Preview$" manage=off border=off
-yabai -m rule --add app="^QuickTime Player$" manage=off border=off
-yabai -m rule --add app="^System Preferences$" manage=off border=off
+yabai -m rule --add app="^Finder" manage=off
+yabai -m rule --add app="^Gifski" manage=off
+yabai -m rule --add app="^Preview" manage=off
+yabai -m rule --add app="^QuickTime Player" manage=off
+yabai -m rule --add app="^System Preferences" manage=off
