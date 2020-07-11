@@ -31,5 +31,6 @@ yabai -m config window_gap     40
 yabai -m rule --add app="^Finder" manage=off
 yabai -m rule --add app="^Gifski" manage=off
 yabai -m rule --add app="^Preview" manage=off
+yabai -m rule --add app="^FaceTime" manage=off
 yabai -m rule --add app="^QuickTime Player" manage=off
 yabai -m rule --add app="^System Preferences" manage=off
