@@ -3,7 +3,7 @@
 <h3 align="center">My Dotfiles</h3>
 <p align="center">ᓚᘏᗢ Just personal MacOS settings.</p>
 
-<img alt="neovim tmux fzf zsh iterm" src="https://user-images.githubusercontent.com/41639488/87268147-a363f700-c504-11ea-8164-b6c5a56d038c.png">
+<img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/87299629-5fdeac80-c547-11ea-975c-b3019fed3efe.png">
 
 <br />
 
@@ -45,11 +45,13 @@ all:      All installations (except init)
 
 <img alt="neovim tmux fzf zsh iterm" src="https://user-images.githubusercontent.com/41639488/87268147-a363f700-c504-11ea-8164-b6c5a56d038c.png">
 
-#### VSCode.
+#### VSCode, fd, ripgrep, mycli, and tig.
 
-<img alt="VSCode" src="https://user-images.githubusercontent.com/41639488/87296227-6a964300-c541-11ea-930e-4248685e00c3.png">
+<img alt="VSCode" src="https://user-images.githubusercontent.com/41639488/87298970-20fc2700-c546-11ea-8786-dbfbf6988cea.png">
 
-#### MacOS full system settings (Windows and Linux are [here](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux)). Below is an one of its features that sets dock applications automatically.
+#### MacOS system settings automation (Windows and Linux are [here](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux)).
+
+Below is an one of its features setting dock applications automatically.
 
 ![dockitem](https://user-images.githubusercontent.com/41639488/79629823-76af7600-8187-11ea-8a5c-39f49caf4159.gif)
 
