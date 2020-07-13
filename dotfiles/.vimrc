@@ -68,6 +68,7 @@ nnoremap + <C-a>
 nnoremap - <C-x>
 nnoremap <Up> gk
 nnoremap <Down> gj
+tnoremap <ESC> <C-\><C-n>
 nnoremap <Leader>t :tabnew<CR>
 nnoremap <Leader>1 :diffget LOCAL<CR>
 nnoremap <Leader>2 :diffget BASE<CR>

@@ -3,7 +3,7 @@
 <h3 align="center">My Dotfiles</h3>
 <p align="center">ᓚᘏᗢ Just personal MacOS settings.</p>
 
-<img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/86676863-03a2f680-c036-11ea-9b62-b0f94d506e4b.png">
+<img alt="neovim tmux fzf zsh iterm" src="https://user-images.githubusercontent.com/41639488/87268147-a363f700-c504-11ea-8164-b6c5a56d038c.png">
 
 <br />
 
@@ -39,12 +39,19 @@ all:      All installations (except init)
 
 <br />
 
-## Features
+## Screenshots
 
-- CUI envs with iTerm, Tmux, Zsh, Neovim, FZF, and more.
-- GUI envs with VSCode, Ubersicht, Karabiner, and more.
-- MacOS system settings (Windows and Linux are [here](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux)).
-- WM and Launcher with Yabai, Skhd, and Alfred like below.
+### Neovim, FZF, Zsh, Tmux, and iTerm2.
+
+<img alt="neovim tmux fzf zsh iterm" src="https://user-images.githubusercontent.com/41639488/87268147-a363f700-c504-11ea-8164-b6c5a56d038c.png">
+
+### VSCode.
+
+### MacOS full system settings (Windows and Linux are [here](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux)). Below is an one of its feature that sets dock applications automatically.
+
+![dockitem](https://user-images.githubusercontent.com/41639488/79629823-76af7600-8187-11ea-8a5c-39f49caf4159.gif)
+
+### Yabai, Skhd, Rectangle, Ubersicht, and Alfred.
 
 [full video link](https://youtu.be/Gv_rnu-dDOs)
 
