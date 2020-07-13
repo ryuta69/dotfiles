@@ -41,17 +41,19 @@ all:      All installations (except init)
 
 ## Screenshots
 
-### Neovim, FZF, Zsh, Tmux, and iTerm2.
+#### Neovim, FZF, Zsh, Tmux, and iTerm2.
 
 <img alt="neovim tmux fzf zsh iterm" src="https://user-images.githubusercontent.com/41639488/87268147-a363f700-c504-11ea-8164-b6c5a56d038c.png">
 
-### VSCode.
+#### VSCode.
 
-### MacOS full system settings (Windows and Linux are [here](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux)). Below is an one of its feature that sets dock applications automatically.
+<img alt="VSCode" src="https://user-images.githubusercontent.com/41639488/87296227-6a964300-c541-11ea-930e-4248685e00c3.png">
+
+#### MacOS full system settings (Windows and Linux are [here](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux)). Below is an one of its features that sets dock applications automatically.
 
 ![dockitem](https://user-images.githubusercontent.com/41639488/79629823-76af7600-8187-11ea-8a5c-39f49caf4159.gif)
 
-### Yabai, Skhd, Rectangle, Ubersicht, and Alfred.
+#### Yabai, Skhd, Rectangle, Ubersicht, and Alfred.
 
 [full video link](https://youtu.be/Gv_rnu-dDOs)
 
