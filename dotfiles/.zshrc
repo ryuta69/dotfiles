@@ -84,26 +84,27 @@ alias pbcp='pbcopy <'
 alias cdwk='cd ~/work'
 alias virc='nvim ~/.zshrc'
 alias sorc='source ~/.zshrc'
-alias hf='hyperfine --min-runs 3'
 alias rmds='fd .DS_Store -X rm'
+alias hf='hyperfine --min-runs 3'
 alias dus='dust -pr -d 2 -X ".git" -X "node_modules"'
-alias fd='fd -iH --no-ignore-vcs -E ".git|node_modules"'
+alias ff='fd -iH --no-ignore-vcs -E ".git|node_modules"'
 alias pskl='ps aux | fzf | awk "{ print \$2 }" | xargs kill -9'
-alias lv='nvim `ls | fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"`'
 alias ll='exa -alhF --git-ignore --group-directories-first --time-style=long-iso'
 alias tr2='exa -alhF --git-ignore --group-directories-first --time-style=long-iso -T -L=2 --ignore-glob=".git|node_modules"'
 alias tr3='exa -alhF --git-ignore --group-directories-first --time-style=long-iso -T -L=3 --ignore-glob=".git|node_modules"'
-mkcd() { mkdir $@; cd $@; }
-cmpr() { ffmpeg -i $@ -vcodec h264 -acodec mp2 output.mp4; }
+mkcd() { mkdir "$1"; cd "$1"; }
+cmpr() { ffmpeg -i "$1" -vcodec h264 -acodec mp2 output.mp4; }
 absp() { echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"); }
-vscd() {
+fdr() { fd -iH --no-ignore-vcs -E ".git|node_modules" "$1" | xargs sd "$2" "$3"; }
+rgr() { rg --hidden -g "!.git" -g "!node_modules" --files-with-matches "$1" | xargs sd "$1" "$2"; }
+vv() {
 	[ -z $1 ] && code -r ./ && return 0;
-	code -r "$2";
+	code -r "$1";
 }
 lnsv() {
 	[ -z $2 ] && echo "Specify Target" && return 0;
 	abspath=$(echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"))
-	ln -sfnv ${abspath} $2
+	ln -sfnv ${abspath} "$2"
 }
 
 ## ========== Global Alias ==========
@@ -196,7 +197,7 @@ vigo() {
 }
 
 ## ========== Ripgrep ==========
-alias rg="rg --hidden -g '!.git' -g '!node_modules' --max-columns 200 -i"
+alias rr="rg --hidden -g '!.git' -g '!node_modules' --max-columns 200 -i"
 rrg() {
 	keyword=$1;
 	[ -z $2 ] && matches=`rg -il ${keyword}` || matches=`rg --files | rg -i ${keyword}`;
