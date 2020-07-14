@@ -3,7 +3,7 @@ import Wifi from './components/wifi.jsx';
 import Battery from './components/battery.jsx';
 import { parse } from './helpers.jsx';
 
-export const command = 'sh yabai-status-bar/scripts/desktop.sh';
+export const command = 'sh status_bar/scripts/desktop.sh';
 
 export const refreshFrequency = 5000;
 

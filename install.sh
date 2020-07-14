@@ -43,6 +43,7 @@ symlink_dotfiles() {
 		if [[ $filename = 'ubersicht' ]]; then ln -sfnv $abspath ${UBPATH}/widgets; continue; fi;
 		if [[ $filename = 'Alfred.alfredpreferences' ]]; then ln -sfnv $abspath ${ALPATH}; continue; fi;
 		if [[ $filename = 'com.googlecode.iterm2.plist' ]]; then ln -sfnv $abspath ${PLPATH}; continue; fi;
+		if [[ $filename = 'com.knollsoft.Rectangle.plist' ]]; then ln -sfnv $abspath ${PLPATH}; continue; fi;
 	done
 
 	if ! ${TESTMODE}; then
