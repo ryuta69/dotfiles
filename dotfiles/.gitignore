@@ -1,16 +1,15 @@
-.DS_Store
+*.DS_Store
 *.exe
 *.log
 *.out
 *.pem
-.env
-tags
+*.env
+*tags
 
-/node_modules/
-/src/node_modules/@sapper/
-yarn-error.log
-/cypress/screenshots/
-/__sapper__/
+*node_modules/
+*src/node_modules/@sapper/
+*yarn-error.log
+*cypress/screenshots/
+*__sapper__/
 
-/target/
-
+*target/
