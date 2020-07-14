@@ -76,7 +76,6 @@ bindkey "^[[B" down-line-or-beginning-search
 ##	Alias
 ## ----------------------------------------
 ## ========== General ==========
-alias sed='gsed'
 alias cdh='cd ~'
 alias op='open ./'
 alias psa='ps aux'
@@ -84,8 +83,10 @@ alias pbcp='pbcopy <'
 alias cdwk='cd ~/work'
 alias virc='nvim ~/.zshrc'
 alias sorc='source ~/.zshrc'
-alias rmds='fd .DS_Store -X rm'
 alias hf='hyperfine --min-runs 3'
+alias pip='/usr/local/bin/pip3'
+alias python='/usr/local/bin/python3.8'
+alias rmds='fd -iH --no-ignore-vcs .DS_Store -X rm'
 alias dus='dust -pr -d 2 -X ".git" -X "node_modules"'
 alias ff='fd -iH --no-ignore-vcs -E ".git|node_modules"'
 alias pskl='ps aux | fzf | awk "{ print \$2 }" | xargs kill -9'

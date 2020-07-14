@@ -47,8 +47,8 @@ brew "node"
 brew "ruby"
 brew "cmake"
 brew "cpanm"
-brew "python"
 brew "rustup"
+brew "python@3.8"
 
 ## ========== Database ==========
 brew "mysql"
