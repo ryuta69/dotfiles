@@ -4,34 +4,28 @@
 	signingkey = 7EB4C638CC86724B
 
 [alias]
-	ad  = add
+	ad  = !git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 git add
 	ada = add -A
-	adf = !git status -s | fzf -m | awk '{print $NF}' | xargs git add
-	br  = branch
-	bra = branch -a
-	brd = !git branch | fzf | xargs git branch -D
-	brr = !git fetch && git checkout -b $1 origin/$1
+	br  = branch -a
+	brd = !git branch | fzf -m --print0 | xargs -0 git branch -D
 	cm  = commit --verbose
 	cl  = clean -fd
-	co  = checkout
+	co  = !git branch | fzf | xargs git checkout
 	cob = checkout -b
-	cof = !git branch | fzf | xargs git checkout
-	cop = !hub pr checkout `hub pr list | fzf`
+	; cor = !hub pr checkout `hub pr list | fzf`
+	cor = !git fetch -p && git checkout -b $1 origin/$1
 	cp  = cherry-pick
+	del = !git branch -r --merged | grep -v 'master\\|develop' | sed 's/origin\\///' | xargs -n 1 git push --delete origin && git fetch origin --prune
 	df  = diff
 	dfh = diff HEAD
 	dfr = !git diff origin `git rev-parse --abbrev-ref HEAD`
 	dft = difftool
 	fp  = fetch -p
-	fpr = !git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request' | head -n 1;
 	g   = !ghq get
-	lg  = log
-	lgo = log --decorate --oneline --color --pretty="format:%C(bold yellow)%h %C(bold blue)%cd %C(reset)%s %C(red)%d %C(red)[%an]" --date=format:"%y-%m-%d %T"
-	lgp = log -p
+	lg  = log -p
+	lgg = !git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit | fzf
 	lgs = log --stat
-	lgo = log --graph --decorate --color --pretty="format:%C(bold yellow)%h %C(bold blue)%cd %C(reset)%s %C(red)%d %C(red)[%an]" --date=format:"%y-%m-%d %T"
 	mt  = mergetool
-	md  = !git branch -r --merged | grep -v 'master\\|develop' | sed 's/origin\\///' | xargs -n 1 git push --delete origin && git fetch origin --prune
 	op  = !hub browse
 	opg = !hub browse `ghq list | fzf | cut -d "/" -f 2,3`
 	opi = !hub issue show `hub issue | fzf`
@@ -40,14 +34,13 @@
  	pss = !git push origin `git rev-parse --abbrev-ref HEAD`
 	pl  = pull
 	pll = !git pull origin `git rev-parse --abbrev-ref HEAD`
-	prb = !git checkout -b $1 origin/$1
+	pr  = !git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request' | head -n 1;
 	rb  = rebase
 	rf  = reflog --date=iso
 	rs  = reset
 	rsh = reset --hard
 	rmg = !rm -rf `ghq list -p | fzf`
-	rv  = revert
-	rvr = !git revert $1^..$2
+	rv  = !git revert $1^..$2
 	sca = secrets --scan-history
 	st  = status
 	ss  = stash save
@@ -55,7 +48,6 @@
 	sl  = !git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'
 	sp  = !git stash pop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
 	sd  = !git stash drop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
-	spr = !git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request' | head -n 1
 	sk  = update-index --skip-worktree
 	usk = update-index --no-skip-worktree
 	vi  = !nvim ~/.gitconfig
