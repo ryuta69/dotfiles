@@ -94,6 +94,12 @@
 [credential]
 	helper = osxkeychain
 
+[delta]
+	line-numbers = true
+	side-by-side = true
+	line-numbers-left-format = ""
+	line-numbers-right-format = "Да "
+
 [diff]
 	prompt    = false
 	tool      = vimdiff
