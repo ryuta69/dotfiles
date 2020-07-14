@@ -6,12 +6,14 @@
 [alias]
 	ad  = !git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 git add
 	ada = add -A
+	adu = !git diff --name-only --cached | fzf -m --print0 | xargs -0 git restore --staged
 	br  = branch -a
 	brd = !git branch | fzf -m --print0 | xargs -0 git branch -D
 	cm  = commit --verbose
 	cl  = clean -fd
 	co  = !git branch | fzf | xargs git checkout
 	cob = checkout -b
+	cof = !git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 git checkout
 	; cor = !hub pr checkout `hub pr list | fzf`
 	cor = !git fetch -p && git checkout -b $1 origin/$1
 	cp  = cherry-pick
@@ -48,6 +50,7 @@
 	sl  = !git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'
 	sp  = !git stash pop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
 	sd  = !git stash drop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
+	sh  = !git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit | fzf --print0 | cut -f1 -d' ' | xargs git show
 	sk  = update-index --skip-worktree
 	usk = update-index --no-skip-worktree
 	vi  = !nvim ~/.gitconfig

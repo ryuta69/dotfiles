@@ -12,7 +12,6 @@ export const className = `
   color: #a8a8a8;
   width: 100%;
   background-color: #0A0E14;
-  opacity: 0.8;
 
   .desktop {
     align-items: center;
