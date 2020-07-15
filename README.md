@@ -1,9 +1,11 @@
 <br />
 
 <h3 align="center">My Dotfiles</h3>
-<p align="center">ᓚᘏᗢ Just personal MacOS settings.</p>
+<p align="center">ᓚᘏᗢ Just personal settings.</p>
 
-<img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/87299629-5fdeac80-c547-11ea-975c-b3019fed3efe.png">
+<img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/87268147-a363f700-c504-11ea-8164-b6c5a56d038c.png">
+
+Not only dotfiles, with one command, it sets [All of MacOS System Preferences](https://github.com/ryuta69/dotfiles/blob/master/system/macos.sh), installs [applications and its plugins](https://github.com/ryuta69/dotfiles/tree/master/bundle), and enables [Launcher and Window Manager](https://github.com/ryuta69/dotfiles/tree/master/dotfiles/.library) to recovery from Factory-Reset-OS. More screenshots are [here](https://github.com/ryuta69/dotfiles/issues/1). There are also [Windows and Linux setup scripts](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux).
 
 <br />
 
@@ -36,30 +38,6 @@ system:   MacOS system setting
 dotfiles: Dotfiles installation
 all:      All installations (except init)
 ```
-
-<br />
-
-## Screenshots
-
-#### Neovim, FZF, Zsh, Tmux, and iTerm2.
-
-<img alt="neovim tmux fzf zsh iterm" src="https://user-images.githubusercontent.com/41639488/87268147-a363f700-c504-11ea-8164-b6c5a56d038c.png">
-
-#### VSCode, fd, ripgrep, mycli, and tig.
-
-<img alt="VSCode" src="https://user-images.githubusercontent.com/41639488/87298970-20fc2700-c546-11ea-8786-dbfbf6988cea.png">
-
-#### MacOS system settings automation (Windows and Linux are [here](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux)).
-
-Below is an one of its features setting dock applications automatically.
-
-![dockitem](https://user-images.githubusercontent.com/41639488/79629823-76af7600-8187-11ea-8a5c-39f49caf4159.gif)
-
-#### Yabai, Skhd, Rectangle, Ubersicht, and Alfred.
-
-[full video link](https://youtu.be/Gv_rnu-dDOs)
-
-![yabai](https://user-images.githubusercontent.com/41639488/86599039-09b6ba00-bfd9-11ea-9c31-6a78648deb3b.gif)
 
 <br />
 
