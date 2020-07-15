@@ -7,7 +7,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 ## ----------------------------------------
-##	ENV
+##	Env
 ## ----------------------------------------
 export ENHANCD_FILTER=fzf
 export TERM=xterm-256color
@@ -170,14 +170,14 @@ vii() {
 }
 vigo() {
 	vi -c "call append(0, v:oldfiles)" -c "write! ~/.config/nvim/viminfo.log" -c exit;
-	vi `bat ~/.config/nvim/viminfo.log | fzf --preview 'bat {}'`;
+	vi `cat ~/.config/nvim/viminfo.log | fzf --preview 'bat --color=always {}'`;
 }
 
 ## ========== Aliases && Snippets ==========
 [ -f ~/.secret_alias ] && source ~/.secret_alias
-alias visn='vi `ls -d ~/.vsnip/*       | fzf --preview "bat {}"`'
-alias vial='vi `ls -d ~/.aliases/*     | fzf --preview "bat {}"`'
-alias soal='source `ls -d ~/.aliases/* | fzf --preview "bat {}"`'
+alias visn='vi `ls -d ~/.vsnip/*       | fzf --preview "bat --color=always {}"`'
+alias vial='vi `ls -d ~/.aliases/*     | fzf --preview "bat --color=always {}"`'
+alias soal='source `ls -d ~/.aliases/* | fzf --preview "bat --color=always {}"`'
 
 ## ----------------------------------------
 ##	FZF
