@@ -98,6 +98,7 @@
 	line-numbers = true
 	side-by-side = true
 	features = decorations
+	hunk-header-style = omit
 	syntax-theme = Monokai Extended
     whitespace-error-style = 22 reverse
 
