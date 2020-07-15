@@ -4,7 +4,7 @@
 	"debug.onTaskErrors": "debugAnyway",
 	"editor.colorDecorators": false,
 	"editor.tabSize": 4,
-	"editor.fontSize": 13,
+	"editor.fontSize": 15,
 	"editor.wordWrap": "on",
 	"editor.formatOnSave": true,
 	"editor.insertSpaces": false,
@@ -66,7 +66,7 @@
 			}
 		]
 	},
-	"terminal.integrated.fontSize": 12,
+	"terminal.integrated.fontSize": 13,
 	"terminal.external.osxExec": "iTerm.app",
 	"terminal.integrated.cursorStyle": "line",
 	"terminal.integrated.shell.osx": "/usr/local/bin/zsh",
@@ -170,6 +170,6 @@
 		"panelTitle.activeForeground": "#F0F0F0",
 		"panelTitle.inactiveForeground": "#626A73"
 	},
-	"window.zoomLevel": -1,
+	"window.zoomLevel": -2,
 	"workbench.activityBar.visible": false
 }
