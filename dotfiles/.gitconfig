@@ -8,7 +8,7 @@
 	ada = add -A
 	adu = !git diff --name-only --cached | fzf -m --print0 | xargs -0 git restore --staged
 	br  = branch -a
-	brd = !git branch | fzf -m --print0 | xargs -0 git branch -D
+	brd = !git branch | fzf -m --print0 | tr -d ' ' | xargs -0 git branch -D
 	cm  = commit --verbose
 	cl  = clean -fd
 	co  = !git branch | fzf | xargs git checkout
@@ -24,9 +24,9 @@
 	dft = difftool
 	fp  = fetch -p
 	g   = !ghq get
-	lg  = log -p
+	lg  = log --stat
 	lgg = !git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit | fzf
-	lgs = log --stat
+	lgp = log -p
 	mt  = mergetool
 	op  = !hub browse
 	opg = !hub browse `ghq list | fzf | cut -d "/" -f 2,3`
@@ -58,11 +58,11 @@
 	ulf = !git lfs uninstall && touch **/* && git commit -a
 
 [core]
+	pager = delta
 	editor = nvim
 	hooksPath = ~/.git_template
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
-	pager = delta --theme='Monokai Extended'
 
 [color]
 	ui = true
@@ -97,6 +97,9 @@
 [delta]
 	line-numbers = true
 	side-by-side = true
+	features = decorations
+	syntax-theme = Monokai Extended
+    whitespace-error-style = 22 reverse
 
 [diff]
 	prompt    = false
