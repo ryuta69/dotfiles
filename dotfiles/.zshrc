@@ -91,7 +91,7 @@ alias psa='ps aux' pskl='psa | fzf | awk "{ print \$2 }" | xargs kill -9'
 alias fd='fd -iH --no-ignore-vcs -E ".git|node_modules"' rmds='fd .DS_Store -X rm'
 alias rg='rg --hidden -g "!.git" -g "!node_modules" --max-columns 200' rgi='rg -i'
 alias ll='exa -alhF --git-ignore --group-directories-first --time-style=long-iso --ignore-glob=".git|node_modules"' tr2='ll -T -L=2' tr3='ll -T -L=3'
-mkcd() { mkdir "$1"; cd "$1"; }
+mkcd() { mkdir "$1" && cd "$1"; }
 fdr()  { fd "$1" | xargs sd "$2" "$3"; }
 rgr()  { rg --files-with-matches "$1" | xargs sd "$1" "$2"; }
 cmpr() { ffmpeg -i "$1" -vcodec h264 -acodec mp2 output.mp4; }
@@ -109,7 +109,7 @@ rgf()  {
 	[ -z "$2" ] && matches=`rgi "$1"` || matches=`rg --files | rgi "$1"`;
 	[ -z "${matches}" ] && echo "no matches\n" && return 0;
 	selected=`echo "${matches}" | fzf --preview 'rgi -n "$1" {}'`;
-	[ -z "${selected}" ] && echo "canceled\n" && return 0;
+	[ -z "${selected}" ] && echo "fzf Canceled." && return 0;
 	vi ${selected};
 }
 
@@ -137,10 +137,9 @@ alias g='git' && compdef _git g
 alias cdgh='cd `ghq list -p | fzf`'
 alias cdg='cd `git rev-parse --show-toplevel`'
 gcre() {
-	[ -z "$(ls -A ./)" ] && echo "Fail: Empty" && return 0;
-	git init;
-	git add -A && git commit;
-	read name"?type repo name        : ";
+	[ -z "$(ls -A ./)" ] && echo "Fail: Directory is empty." && return 0;
+	git init && git add -A && git commit;
+	read        name"?type repo name        : ";
 	read description"?type repo description : ";
 	hub create ${name} -d ${description} -p;
 	git push --set-upstream origin master;
@@ -155,7 +154,7 @@ alias tmrn='tmux rename-session'
 alias tmkl='tmux kill-session -t'
 tmsw() {
 	selected=`tmux list-sessions | fzf | cut -d : -f 1`
-	[ -z "${selected}" ] && echo "canceled" && exit 0;
+	[ -z "${selected}" ] && echo "fzf Canceled." && exit 0;
 	if [ -z "${TMUX}" ]; then
 		tmux a -t "${selected}"
 	else
