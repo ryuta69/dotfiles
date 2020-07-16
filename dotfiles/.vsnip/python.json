@@ -2,28 +2,28 @@
 	"InputAll": {
 		"prefix": ["inputall"],
 		"body": [
-			"I = input()",
-			"if ' ' not in I:",
-			"    if input().isdigit():",
-			"        I = int(I)",
+			"${1:I} = input()",
+			"if ' ' not in ${1:I}:",
+			"    if ${1:I}.isdigit():",
+			"        ${1:I} = int(I)",
 			"    elif float(I):",
-			"        I = float(I)",
+			"        ${1:I} = float(I)",
 			"else:",
 			"    # ===== int =====",
-			"    # A, B = map(int, input().split())",
-			"    # L = list(map(int, input().split()))",
+			"    # A, B = map(int, ${1:I}.split())",
+			"    # L = list(map(int, ${1:I}.split()))",
 			"    # ===== str =====",
-			"    # A, B = input().split()",
-			"    # L = input().split()",
+			"    # A, B = ${1:I}.split()",
+			"    # L = ${1:I}.split()",
 			"    # ===== float =====",
-			"    # A, B = map(float, input().split())",
-			"    # L = list(map(float, input().split()))$0"
+			"    # A, B = map(float, ${1:I}.split())",
+			"    # L = list(map(float, ${1:I}.split()))$0"
 		]
 	},
 	"InputInt": {
 		"prefix": ["inputint"],
 		"body": [
-			"${1: I} = int(input())$0"
+			"${1:I} = int(input())$0"
 		]
 	},
 	"InputIntMap": {
@@ -35,13 +35,13 @@
 	"InputIntList": {
 		"prefix": ["inputintlist"],
 		"body": [
-			"${1: L} = list(map(int, input().split()))$0"
+			"${1:L} = list(map(int, input().split()))$0"
 		]
 	},
 	"InputStr": {
 		"prefix": ["inputstr"],
 		"body": [
-			"${1: I} = input()$0"
+			"${1:I} = input()$0"
 		]
 	},
 	"InputStrMap": {
@@ -53,25 +53,25 @@
 	"InputStrList": {
 		"prefix": ["inputstrlist"],
 		"body": [
-			"${1: L} = input().split()$0"
+			"${1:L} = input().split()$0"
 		]
 	},
 	"InputFloat": {
 		"prefix": ["inputfloat"],
 		"body": [
-			"${1: I} = float(input())$0"
+			"${1:I} = float(input())$0"
 		]
 	},
 	"InputFloatMap": {
 		"prefix": ["inputfloatmap"],
 		"body": [
-			"${1:A, B} = map(float, input().split())$0"
+			"${1:A, B} = map(float, input().split()) $2"
 		]
 	},
 	"InputFloatList": {
 		"prefix": ["inputfloatlist"],
 		"body": [
-			"${1: L} = list(map(float, input().split()))$0"
+			"${1:L} = list(map(float, input().split()))$0"
 		]
 	}
 }
