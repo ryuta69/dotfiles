@@ -1,0 +1,86 @@
+{
+	"Template": {
+		"prefix": ["temp"],
+		"body": [
+			"use strict;",
+			"use warnings;",
+			"",
+			"$1"
+		]
+	},
+	"InputAll": {
+		"prefix": ["inputall"],
+		"body": [
+			"I = input()",
+			"if ' ' not in I:",
+			"    if I.isdigit():",
+			"        I = int(I)",
+			"    elif float(I):",
+			"        I = float(I)",
+			"else:",
+			"    # ===== int =====",
+			"    # A, B = map(int, I.split())",
+			"    # L = list(map(int, I.split()))",
+			"    # ===== str =====",
+			"    # A, B = I.split()",
+			"    # L = I.split()",
+			"    # ===== float =====",
+			"    # A, B = map(float, I.split())",
+			"    # L = list(map(float, I.split())) "
+		]
+	},
+	"InputInt": {
+		"prefix": ["inputint"],
+		"body": [
+			"I = int(input())"
+		]
+	},
+	"InputIntMap": {
+		"prefix": ["inputintmap"],
+		"body": [
+			"A, B = map(int, I.split())"
+		]
+	},
+	"InputIntList": {
+		"prefix": ["inputintlist"],
+		"body": [
+			"L = list(map(int, I.split()))"
+		]
+	},
+	"InputStr": {
+		"prefix": ["inputstr"],
+		"body": [
+			"I = input()"
+		]
+	},
+	"InputStrMap": {
+		"prefix": ["inputstrmap"],
+		"body": [
+			"A, B = I.split()"
+		]
+	},
+	"InputStrList": {
+		"prefix": ["inputstrlist"],
+		"body": [
+			"L = I.split()"
+		]
+	},
+	"InputFloat": {
+		"prefix": ["inputfloat"],
+		"body": [
+			"I = float(input())"
+		]
+	},
+	"InputFloatMap": {
+		"prefix": ["inputfloatmap"],
+		"body": [
+			"A, B = map(float, I.split())"
+		]
+	},
+	"InputFloatList": {
+		"prefix": ["inputfloatlist"],
+		"body": [
+			"L = list(map(float, I.split()))"
+		]
+	}
+}
