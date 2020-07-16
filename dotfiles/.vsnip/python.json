@@ -1,86 +1,77 @@
 {
-	"Template": {
-		"prefix": ["temp"],
-		"body": [
-			"use strict;",
-			"use warnings;",
-			"",
-			"$1"
-		]
-	},
 	"InputAll": {
 		"prefix": ["inputall"],
 		"body": [
 			"I = input()",
 			"if ' ' not in I:",
-			"    if I.isdigit():",
+			"    if input().isdigit():",
 			"        I = int(I)",
 			"    elif float(I):",
 			"        I = float(I)",
 			"else:",
 			"    # ===== int =====",
-			"    # A, B = map(int, I.split())",
-			"    # L = list(map(int, I.split()))",
+			"    # A, B = map(int, input().split())",
+			"    # L = list(map(int, input().split()))",
 			"    # ===== str =====",
-			"    # A, B = I.split()",
-			"    # L = I.split()",
+			"    # A, B = input().split()",
+			"    # L = input().split()",
 			"    # ===== float =====",
-			"    # A, B = map(float, I.split())",
-			"    # L = list(map(float, I.split())) "
+			"    # A, B = map(float, input().split())",
+			"    # L = list(map(float, input().split()))$0"
 		]
 	},
 	"InputInt": {
 		"prefix": ["inputint"],
 		"body": [
-			"I = int(input())"
+			"${1: I} = int(input())$0"
 		]
 	},
 	"InputIntMap": {
 		"prefix": ["inputintmap"],
 		"body": [
-			"A, B = map(int, I.split())"
+			"${1:A, B} = map(int, input().split())$0"
 		]
 	},
 	"InputIntList": {
 		"prefix": ["inputintlist"],
 		"body": [
-			"L = list(map(int, I.split()))"
+			"${1: L} = list(map(int, input().split()))$0"
 		]
 	},
 	"InputStr": {
 		"prefix": ["inputstr"],
 		"body": [
-			"I = input()"
+			"${1: I} = input()$0"
 		]
 	},
 	"InputStrMap": {
 		"prefix": ["inputstrmap"],
 		"body": [
-			"A, B = I.split()"
+			"${1:A, B} = input().split()$0"
 		]
 	},
 	"InputStrList": {
 		"prefix": ["inputstrlist"],
 		"body": [
-			"L = I.split()"
+			"${1: L} = input().split()$0"
 		]
 	},
 	"InputFloat": {
 		"prefix": ["inputfloat"],
 		"body": [
-			"I = float(input())"
+			"${1: I} = float(input())$0"
 		]
 	},
 	"InputFloatMap": {
 		"prefix": ["inputfloatmap"],
 		"body": [
-			"A, B = map(float, I.split())"
+			"${1:A, B} = map(float, input().split())$0"
 		]
 	},
 	"InputFloatList": {
 		"prefix": ["inputfloatlist"],
 		"body": [
-			"L = list(map(float, I.split()))"
+			"${1: L} = list(map(float, input().split()))$0"
 		]
 	}
 }
