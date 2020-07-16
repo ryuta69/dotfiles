@@ -85,6 +85,7 @@ map <Leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 let ayucolor='dark'
 colorscheme ayu
 highlight Normal      guibg=#0A0E14
+highlight FoldColumn  guibg=#0A0E14
 highlight EndOfBuffer ctermfg=0 guifg=bg
 highlight DiffAdd     gui=NONE  guifg=NONE    guibg=#003366
 highlight DiffDelete  gui=bold  guifg=#660000 guibg=#660000
