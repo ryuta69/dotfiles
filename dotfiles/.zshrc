@@ -20,8 +20,8 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 ## ----------------------------------------
 export EDITOR=nvim
 export CVSEDITOR="${EDITOR}"
-export SVN_EDITOR="${EDITOR}"
 export GIT_EDITOR="${EDITOR}"
+export SVN_EDITOR="${EDITOR}"
 
 ## ----------------------------------------
 ##	Language
@@ -32,34 +32,33 @@ export LC_ALL="${LANGUAGE}"
 export LC_CTYPE="${LANGUAGE}"
 
 ## ----------------------------------------
-##	Autoload
+##	Option & Function
 ## ----------------------------------------
+setopt no_beep
+setopt globdots
+setopt mark_dirs
+setopt list_packed
+setopt no_flow_control
+setopt auto_param_keys
 autoload -Uz colors && colors
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 
 ## ----------------------------------------
-##	Setopt
-## ----------------------------------------
-setopt no_beep
-setopt globdots
-setopt auto_list
-setopt auto_menu
-setopt auto_pushd
-setopt list_packed
-setopt no_flow_control
-
-## ----------------------------------------
 ##	Completion
 ## ----------------------------------------
+setopt auto_list
+setopt auto_menu
 setopt share_history
+setopt auto_param_slash
+setopt magic_equal_subst
 export HISTSIZE=100
 export SAVEHIST=10000
 export HISTFILE=${HOME}/.zsh_history
-fpath=(~/.zsh/completion $fpath)
+export FPATH="${HOME}/.zsh/completion:${FPATH}"
 autoload -Uz compinit && compinit -i && compinit
 zstyle ':completion:*:default' menu select=1
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:default' list-colors ${LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 
 ## ----------------------------------------
@@ -75,7 +74,7 @@ bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
 ## ----------------------------------------
-##	Alias
+##	Alias & Function
 ##	- ~/.aliases/**.zsh has more aliases which not often used.
 ## ----------------------------------------
 alias vi='nvim'
@@ -91,11 +90,6 @@ alias psa='ps aux' pskl='psa | fzf | awk "{ print \$2 }" | xargs kill -9'
 alias fd='fd -iH --no-ignore-vcs -E ".git|node_modules"' rmds='fd .DS_Store -X rm'
 alias rg='rg --hidden -g "!.git" -g "!node_modules" --max-columns 200' rgi='rg -i'
 alias ll='exa -alhF --git-ignore --group-directories-first --time-style=long-iso --ignore-glob=".git|node_modules"' tr2='ll -T -L=2' tr3='ll -T -L=3'
-mkcd() { mkdir "$1" && cd "$1"; }
-fdr()  { fd "$1" | xargs sd "$2" "$3"; }
-rgr()  { rg --files-with-matches "$1" | xargs sd "$1" "$2"; }
-cmpr() { ffmpeg -i "$1" -vcodec h264 -acodec mp2 output.mp4; }
-absp() { echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"); }
 vv()   {
 	[ -z "$1" ] && code -r ./ && return 0;
 	code -r "$1";
@@ -103,15 +97,20 @@ vv()   {
 lnsv() {
 	[ -z "$2" ] && echo "Specify Target" && return 0;
 	abspath=$(absp $1);
-	ln -sfnv ${abspath} $2;
+	ln -sfnv "${abspath}" "$2";
 }
 rgf()  {
 	[ -z "$2" ] && matches=`rgi "$1"` || matches=`rg --files | rgi "$1"`;
 	[ -z "${matches}" ] && echo "no matches\n" && return 0;
 	selected=`echo "${matches}" | fzf --preview 'rgi -n "$1" {}'`;
 	[ -z "${selected}" ] && echo "fzf Canceled." && return 0;
-	vi ${selected};
+	vi "${selected}";
 }
+mkcd() { mkdir "$1" && cd "$1"; }
+fdr()  { fd "$1" | xargs sd "$2" "$3"; }
+rgr()  { rg --files-with-matches "$1" | xargs sd "$1" "$2"; }
+cmpr() { ffmpeg -i "$1" -vcodec h264 -acodec mp2 output.mp4; }
+absp() { echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"); }
 
 ## ========== Global Alias ==========
 alias -g G='| grep'
@@ -175,8 +174,8 @@ vigo() {
 
 ## ========== Aliases && Snippets ==========
 [ -f ~/.secret_alias ] && source ~/.secret_alias
-alias visn='vi `ls -d ~/.vsnip/*       | fzf --preview "bat --color=always {}"`'
-alias vial='vi `ls -d ~/.aliases/*     | fzf --preview "bat --color=always {}"`'
+alias visn='vi     `ls -d ~/.vsnip/*   | fzf --preview "bat --color=always {}"`'
+alias vial='vi     `ls -d ~/.aliases/* | fzf --preview "bat --color=always {}"`'
 alias soal='source `ls -d ~/.aliases/* | fzf --preview "bat --color=always {}"`'
 
 ## ----------------------------------------
