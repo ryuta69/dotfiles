@@ -3,6 +3,7 @@
 "" ----------------------------------------
 let plugdir=has('nvim') ? '~/.config/nvim/plugged/' : '~/.vim/plugged'
 call plug#begin(plugdir)
+	Plug 'mattn/emmet-vim'
 	Plug 'cohama/lexima.vim'
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'tpope/vim-fugitive'
@@ -14,7 +15,6 @@ call plug#begin(plugdir)
 	Plug 'bronson/vim-trailing-whitespace'
 	Plug 'sheerun/vim-polyglot' | Plug 'ap/vim-css-color'
 	Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
-	Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'mattn/emmet-vim'
 	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	if has('nvim')
 		Plug 'bfredl/nvim-miniyank'
@@ -112,71 +112,23 @@ nnoremap <Leader>clean   :PlugClean<CR>
 nnoremap <Leader>update  :PlugUpdate<CR>
 nnoremap <Leader>install :PlugInstall<CR>
 
-"" ========== EmmetVim ==========
+"" ========== Emmet ==========
 let g:user_emmet_settings = {
 	\ 'typescript'     : { 'extends' : 'jsx' },
 	\ 'javascript.jsx' : { 'extends' : 'jsx' }
 \ }
 
-"" ========== VsnipVim ==========
+"" ========== Vsnip ==========
 nnoremap <Leader>vop :VsnipOpen<CR>
-
-"" ========== Ultisnips ==========
-let g:ulti_expand_or_jump_res = 0
-let g:UltiSnipsExpandTrigger='<NUL>'
+imap <expr> <C-R> vsnip#available(1)  ? '<Plug>(vsnip-expand)'         : '<CR>'
+imap <expr> <C-R> vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<CR>'
+smap <expr> <C-R> vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<CR>'
 
 "" ========== Deoplete ==========
 let g:deoplete#enable_at_startup = 1
 inoremap <expr> <UP>   pumvisible() ? '<C-e><UP>'   : '<UP>'
 inoremap <expr> <DOWN> pumvisible() ? '<C-e><DOWN>' : '<DOWN>'
-function! DeoEnter()
-	if !pumvisible()
-		return "\n"
-	endif
-
-	if vsnip#available(1)
-		call vsnip#expand()
-		return "\<C-y>"
-	endif
-
-	call UltiSnips#ExpandSnippetOrJump()
-	if g:ulti_expand_or_jump_res > 0
-		return ""
-	endif
-
-	return "\<C-y>"
-endfunction
-inoremap <CR> <C-R>=DeoEnter()<CR>
-
-function! DeoTab()
-	if vsnip#available(1)
-		return "\<Plug>(vsnip-jump-next)"
-	endif
-
-	if pumvisible()
-		return "\<C-n>"
-	endif
-
-	return "\<Tab>"
-endfunction
-imap <expr> <Tab> DeoTab()
-smap <expr> <Tab> DeoTab()
-let g:UltiSnipsJumpForwardTrigger='<Tab>'
-
-function! DeoShiftTab()
-	if vsnip#available(-1)
-		return "\<Plug>(vsnip-jump-prev)"
-	endif
-
-	if pumvisible()
-		return "\<C-p>"
-	endif
-
-	return "\<S-Tab>"
-endfunction
-imap <expr> <S-Tab> DeoShiftTab()
-smap <expr> <S-Tab> DeoShiftTab()
-let g:UltiSnipsJumpBackwardTrigger='<S-Tab>'
+inoremap <silent><expr> <TAB> pumvisible() ? '<C-n>' : '<TAB>'
 
 "" ========== Polyglot ==========
 let g:polyglot_excludes = ['csv']
