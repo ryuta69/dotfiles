@@ -542,7 +542,7 @@ Notifications() {
 UsersGroups() {
 	# ========== Profile Picture ==========
 	UNM=$(whoami)
-	sudo dscl . create /Users/${UNM} Picture "${EXEPATH}/icon.jpeg"
+	sudo dscl . create /Users/${UNM} Picture "${EXEPATH}/icon.jpg"
 }
 
 SecurityPrivacy() {
