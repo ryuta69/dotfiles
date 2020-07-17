@@ -97,17 +97,17 @@
 		"prefix": ["quicksort"],
 		"body": [
 			"def quicksort(l):",
-			"	if len(l) <= 1:",
-			"		return l",
-			"	else:",
-   			"	    pivot = l.pop()",
-   			"	    greater, lesser = [], []",
-   			"	    for el in l:",
-   			"	        if el > pivot:",
-   			"	            greater.append(el)",
-   			"	        else:",
-   			"	            lesser.append(el)",
-   			"	    return quicksort(lesser) + [pivot] + quicksort(greater)"
+			"    if len(l) <= 1:",
+			"        return l",
+			"    else:",
+   			"        pivot = l.pop()",
+   			"        greater, lesser = [], []",
+   			"        for el in l:",
+   			"            if el > pivot:",
+   			"                greater.append(el)",
+   			"            else:",
+   			"                lesser.append(el)",
+   			"                return quicksort(lesser) + [pivot] + quicksort(greater)"
 		]
 	}
 }

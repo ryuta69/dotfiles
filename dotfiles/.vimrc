@@ -123,17 +123,33 @@ nnoremap <Leader>vop :VsnipOpen<CR>
 imap <expr> <C-R>   vsnip#available(1)  ? '<Plug>(vsnip-expand)'         : '<CR>'
 imap <expr> <C-R>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<CR>'
 smap <expr> <C-R>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<CR>'
-imap <expr> <TAB>   vsnip#available(1)  ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-smap <expr> <TAB>   vsnip#available(1)  ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-imap <expr> <S-TAB> vsnip#available(-1) ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-smap <expr> <S-TAB> vsnip#available(-1) ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 
 "" ========== Deoplete ==========
 let g:deoplete#enable_at_startup = 1
 inoremap <expr> <UP>   pumvisible() ? '<C-e><UP>'   : '<UP>'
 inoremap <expr> <DOWN> pumvisible() ? '<C-e><DOWN>' : '<DOWN>'
-inoremap <silent><expr> <TAB>   pumvisible() ? '<C-n>' : '<TAB>'
-inoremap <silent><expr> <S-TAB> pumvisible() ? '<C-p>' : '<S-TAB>'
+function! DeoTab()
+    if pumvisible()
+        return "\<C-n>"
+	elseif vsnip#available(1)
+        return "\<Plug>(vsnip-jump-next)"
+	else
+		return "\<Tab>"
+	endif
+endfunction
+imap <expr> <Tab> DeoTab()
+smap <expr> <Tab> DeoTab()
+function! DeoShiftTab()
+    if pumvisible()
+        return "\<C-p>"
+	elseif vsnip#available(-1)
+        return "\<Plug>(vsnip-jump-prev)"
+	else
+		return "\<S-Tab>"
+    endif
+endfunction
+imap <expr> <S-Tab> DeoShiftTab()
+smap <expr> <S-Tab> DeoShiftTab()
 
 "" ========== Polyglot ==========
 let g:polyglot_excludes = ['csv']
