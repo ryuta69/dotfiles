@@ -4,20 +4,20 @@
 		"body": [
 			"${1:I} = input()",
 			"if ' ' not in ${1:I}:",
-			"    if ${1:I}.isdigit():",
-			"        ${1:I} = int(I)",
-			"    elif float(I):",
-			"        ${1:I} = float(I)",
+			"\tif ${1:I}.isdigit():",
+			"\t\t${1:I} = int(I)",
+			"\telif float(I):",
+			"\t\t${1:I} = float(I)",
 			"else:",
-			"    # ===== int =====",
-			"    # A, B = map(int, ${1:I}.split())",
-			"    # L = list(map(int, ${1:I}.split()))",
-			"    # ===== str =====",
-			"    # A, B = ${1:I}.split()",
-			"    # L = ${1:I}.split()",
-			"    # ===== float =====",
-			"    # A, B = map(float, ${1:I}.split())",
-			"    # L = list(map(float, ${1:I}.split()))$0"
+			"\t# ===== int =====",
+			"\t# A, B = map(int, ${1:I}.split())",
+			"\t# L = list(map(int, ${1:I}.split()))",
+			"\t# ===== str =====",
+			"\t# A, B = ${1:I}.split()",
+			"\t# L = ${1:I}.split()",
+			"\t# ===== float =====",
+			"\t# A, B = map(float, ${1:I}.split())",
+			"\t# L = list(map(float, ${1:I}.split()))$0"
 		]
 	},
 	"InputInt": {
@@ -77,7 +77,7 @@
 	"Print": {
 		"prefix": ["print"],
 		"body": [
-			"print($1, ${2:flush=True})$0"
+			"print($1${2:, flush=True})$0"
 		]
 	},
 	"AlphabetNth": {
@@ -90,24 +90,130 @@
 		"prefix": ["def"],
 		"body": [
 			"def ${1:defname}($2):",
-			"    $0"
+			"\t$0"
+		]
+	},
+	"Len": {
+		"prefix": ["len"],
+		"body": [
+			"len($1)$0"
+		]
+	},
+	"While": {
+		"prefix": ["while"],
+		"body": [
+			"while $1:",
+			"\t$0"
+		]
+	},
+	"If": {
+		"prefix": ["if"],
+		"body": [
+			"if $1:",
+			"\t$0"
+		]
+	},
+	"Ifelse": {
+		"prefix": ["ifelse"],
+		"body": [
+			"if $1:",
+			"\t$0",
+			"elif $2:",
+			"\t",
+			"else:",
+			"\t"
 		]
 	},
 	"Quicksort": {
 		"prefix": ["quicksort"],
 		"body": [
 			"def quicksort(l):",
-			"    if len(l) <= 1:",
-			"        return l",
-			"    else:",
-   			"        pivot = l.pop()",
-   			"        greater, lesser = [], []",
-   			"        for el in l:",
-   			"            if el > pivot:",
-   			"                greater.append(el)",
-   			"            else:",
-   			"                lesser.append(el)",
-   			"                return quicksort(lesser) + [pivot] + quicksort(greater)"
+			"\tif len(l) <= 1:",
+			"\t\treturn l",
+   			"\tpivot = l.pop()",
+   			"\tgreater, lesser = [], []",
+   			"\tfor el in l:",
+   			"\t\tif el > pivot:",
+   			"\t\t\tgreater.append(el)",
+   			"\t\telse:",
+   			"\t\t\tlesser.append(el)",
+   			"\treturn quicksort(lesser) + [pivot] + quicksort(greater)"
+		]
+	},
+	"Mergesort": {
+		"prefix": ["mergesort"],
+		"body": [
+			"def mergesort(l):",
+			"\tdef merge(left, right):",
+			"\t\tresult = []",
+			"\t\twhile left and right:",
+			"\t\t\tif left[0] <= right[0]:",
+			"\t\t\t\tresult.append(left.pop(0))",
+			"\t\t\telse:",
+			"\t\t\t\tresult.append(right.pop(0))",
+			"\t\treturn result + left + right",
+			"",
+			"\tlength = len(l)",
+			"\tif length <= 1:",
+			"\t\treturn l",
+			"\tmiddle = length // 2",
+			"\treturn merge(mergesort(l[:middle]), mergesort(l[middle:]))"
+		]
+	},
+	"MergeInsertionSort": {
+		"prefix": ["mergeinsertionsort"],
+		"body": [
+			"def mergeinsertionsort(l):",
+			"\tdef binary_search_insertion(sorted_list, item):",
+			"\t\tleft = 0",
+			"\t\tright = len(sorted_list) - 1",
+			"\t\twhile left < right:",
+			"\t\t\tmiddle = (left + right) // 2",
+			"\t\t\tif sorted_list[middle] < item:",
+			"\t\t\t\tleft = middle + 1",
+			"\t\t\telse:",
+			"\t\t\t\tright = middle",
+			"\t\tsorted_list.insert(left, item)",
+			"\t\treturn sorted_list",
+			"",
+			"\tdef sortlist_2d(list_2d):",
+			"\t\tdef merge(left, right):",
+			"\t\t\tresult = []",
+			"\t\t\twhile left and right:",
+			"\t\t\t\tif left[0][0] < right[0][0]:",
+			"\t\t\t\t\tresult.append(left.pop(0))",
+			"\t\t\t\telse:",
+			"\t\t\t\t\tresult.append(right.pop(0))",
+			"\t\t\treturn result + left + right",
+			"",
+			"\t\tlength = len(list_2d)",
+			"\t\tif lngth <= 1:",
+			"\t\t\treturn list_2d",
+			"\t\tmiddle = length // 2",
+			"\t\treturn merge(sortlist_2d(list_2d[:middle]), sortlist_2d(list_2d[middle:]))",
+			"",
+			"\ttwo_paired_list = []",
+			"\tis_surplus      = False",
+			"\tfor i in range(0, len(l), 2):",
+			"\t\tif (i == len(l) - 1):",
+			"\t\t\tis_surplus = True",
+			"\t\telse:",
+			"\t\t\tif l[i] < l[i+1]:",
+			"\t\t\t\ttwo_paired_list.append([l[i], l[i+1]])",
+			"\t\t\telse:",
+			"\t\t\t\ttwo_paired_list.append([l[i+1], l[i]])",
+			"\tsorted_list_2d = sortlist_2d(two_paired_list)",
+			"\tresult = [i[0] for i in sorted_list_2d]",
+			"\tresult.append(sorted_list_2d[-1][1])",
+			"",
+			"\tfor i in range(len(sorted_list_2d) - 1):",
+			"\t\tpivot = sorted_list_2d[i][1]",
+			"\t\tresult = binary_search_insertion(result, pivot)",
+			"\tif is_surplus:",
+			"\t\tpivot = l[-1]",
+			"\t\tresult = binary_search_insertion(result, pivot)",
+			"",
+			"\treturn result"
 		]
 	}
 }
