@@ -73,5 +73,41 @@
 		"body": [
 			"${1:L} = list(map(float, input().split()))$0"
 		]
+	},
+	"Print": {
+		"prefix": ["print"],
+		"body": [
+			"print($1, ${2:flush=True})$0"
+		]
+	},
+	"AlphabetNth": {
+		"prefix": ["alphabetnth"],
+		"body": [
+			"${1:S} = [chr(ord('a') + i) for i in range(${2:10})]$0"
+		]
+	},
+	"Def": {
+		"prefix": ["def"],
+		"body": [
+			"def ${1:defname}($2):",
+			"    $0"
+		]
+	},
+	"Quicksort": {
+		"prefix": ["quicksort"],
+		"body": [
+			"def quicksort(l):",
+			"	if len(l) <= 1:",
+			"		return l",
+			"	else:",
+   			"	    pivot = l.pop()",
+   			"	    greater, lesser = [], []",
+   			"	    for el in l:",
+   			"	        if el > pivot:",
+   			"	            greater.append(el)",
+   			"	        else:",
+   			"	            lesser.append(el)",
+   			"	    return quicksort(lesser) + [pivot] + quicksort(greater)"
+		]
 	}
 }
