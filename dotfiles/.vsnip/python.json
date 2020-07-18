@@ -20,6 +20,83 @@
 			"\t# L = list(map(float, ${1:I}.split()))$0"
 		]
 	},
+	"Filter": {
+		"prefix": ["filter"],
+		"body": [
+			"${1:F} = list(filter(lambda el: $3, $2))$0"
+		]
+	},
+	"Map": {
+		"prefix": ["map"],
+		"body": [
+			"${1:M} = list(map(lambda el: $3, $2))$0"
+		]
+	},
+	"Reduce": {
+		"prefix": ["reduce"],
+		"body": [
+			"from functools import reduce",
+			"${1:R} = reduce(lambda hist,el: $3, $2)$0"
+		]
+	},
+	"All": {
+		"prefix": ["all"],
+		"body": [
+			"all($2 for i in $1)$0"
+		]
+	},
+	"Any": {
+		"prefix": ["any"],
+		"body": [
+			"any($2 for i in $1)$0"
+		]
+	},
+	"NotAny": {
+		"prefix": ["notany"],
+		"body": [
+			"not any($2 for i in $1)$0"
+		]
+	},
+	"Sum": {
+		"prefix": ["sum"],
+		"body": [
+			"sum($2 for i in $1)$0"
+		]
+	},
+	"ForRange": {
+		"prefix": ["forrange"],
+		"body": [
+			"for ${1:i} in range($2):",
+			"\t$0"
+		]
+	},
+	"For": {
+		"prefix": ["for"],
+		"body": [
+			"for ${1:i} in $2:",
+			"\t$0"
+		]
+	},
+	"Unique": {
+		"prefix": ["unique"],
+		"body": [
+			"def unique(collection):",
+			"\tresult = []",
+			"\treturn [x for x in collection if x not in result and not result.append(x)]"
+		]
+	},
+	"SumOfDigits": {
+		"prefix": ["sumofdigits"],
+		"body": [
+			"def sum_of_digits(n):",
+			"\tresult   = 0",
+			"\tquotient = n",
+			"\twhile quotient:",
+			"\t\tresult   +=  quotient % 10,",
+			"\t\tquotient //= 10",
+			"\treturn result"
+		]
+	},
 	"InputInt": {
 		"prefix": ["inputint"],
 		"body": [
