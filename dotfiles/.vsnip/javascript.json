@@ -7,22 +7,18 @@
 			"\t\t$0",
 			"\t}",
 			"}"
-		],
-		"description": "Class definition template."
+		]
 	},
 	"Query Selector": {
 		"prefix": ["queryselector"],
-		"body": ["document.querySelector($1)"],
-		"description": "Get element by query."
+		"body": ["document.querySelector($1)"]
 	},
 	"Console Log": {
 		"prefix": ["consolelog"],
-		"body": ["console.log($1)"],
-		"description": "Dump a log."
+		"body": ["console.log($1)"]
 	},
 	"Require": {
 		"prefix": ["require"],
-		"body": ["const $1 = require($1)"],
-		"description": "Require a package"
+		"body": ["const $1 = require($1)"]
 	}
 }

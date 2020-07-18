@@ -11,11 +11,8 @@ dbaeumer.vscode-eslint
 dunstontc.viml
 eg2.vscode-npm-script
 esbenp.prettier-vscode
-fivethree.vscode-svelte-snippets
 formulahendry.auto-rename-tag
 formulahendry.docker-explorer
-hars.CppSnippets
-hollowtree.vue-snippets
 idleberg.applescript
 JamesBirtles.svelte-vscode
 jcbuisson.vue
@@ -27,8 +24,8 @@ mikestead.dotenv
 mrmlnc.vscode-csscomb
 mrmlnc.vscode-scss
 ms-azuretools.vscode-docker
+ms-python.python
 ms-vscode.cpptools
-ms-vscode.Go
 ms-vscode.vscode-typescript-tslint-plugin
 msjsdiag.debugger-for-chrome
 naumovs.color-highlight

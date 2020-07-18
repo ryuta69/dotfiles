@@ -6,8 +6,7 @@
 			"use warnings;",
 			"",
 			"$1"
-		],
-		"description": "Get input values."
+		]
 	},
 	"For Else": {
 		"prefix": ["fore"],
@@ -17,13 +16,11 @@
 			"} else {",
 			"\t$3",
 			"}"
-		],
-		"description": "For statement."
+		]
 	},
 	"Input": {
 		"prefix": ["input"],
-		"body": ["my @input = glob<>;"],
-		"description": "Get input values."
+		"body": ["my @input = glob<>;"]
 	},
 	"MLog": {
 		"prefix": ["mlog"],
@@ -31,22 +28,18 @@
 			"use MLog;",
 			"use Date::Dumper;",
 			"MLog::write('$_::LOG_DIR/murakami', Dumper $1)"
-		],
-		"description": "Dump log."
+		]
 	},
 	"Sort": {
 		"prefix": ["sort"],
-		"body": ["my @sorted = sort{$$a <=> $$b} $1"],
-		"description": "Sort by a value of int."
+		"body": ["my @sorted = sort{$$a <=> $$b} $1"]
 	},
 	"SortHash": {
 		"prefix": ["sorthash"],
-		"body": ["my @sorted = sort{$$a->{$1} <=> $$b->{$1}} $2"],
-		"description": "Sort by a value of hash."
+		"body": ["my @sorted = sort{$$a->{$1} <=> $$b->{$1}} $2"]
 	},
 	"SortLength": {
 		"prefix": ["sortlength"],
-		"body": ["my @sorted = sort{length $$a cmp length $$b} $1"],
-		"description": "Sort by a length of string."
+		"body": ["my @sorted = sort{length $$a cmp length $$b} $1"]
 	}
 }

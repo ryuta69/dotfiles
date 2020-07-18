@@ -5,18 +5,15 @@
 			"for (i, &item) in arr.iter().enumerate() {",
 			"\tprintln!(\"the value is: {}\", &item);",
 			"}"
-		],
-		"description": "Print characters in array."
+		]
 	},
 	"StrToArray": {
 		"prefix": ["strtoarray"],
-		"body": ["let bytes = str.as_bytes();"],
-		"description": "Replace String to Char array."
+		"body": ["let bytes = str.as_bytes();"]
 	},
 	"ReverseArray": {
 		"prefix": ["reversearray"],
-		"body": ["$1.rev()"],
-		"description": "Reverse array."
+		"body": ["$1.rev()"]
 	},
 	"Int Case": {
 		"prefix": ["int case"],
@@ -33,13 +30,11 @@
 			"\t\t}",
 			"\t}",
 			"}"
-		],
-		"description": "Matching int case."
+		]
 	},
 	"Print": {
 		"prefix": ["print"],
-		"body": ["println!(\"{}\", $1)"],
-		"description": "Print."
+		"body": ["println!(\"{}\", $1)"]
 	},
 	"Random": {
 		"prefix": ["random"],
@@ -49,8 +44,7 @@
 			"fn main() {",
 			"\tlet secret_number = rand::thread_rng().gen_range(1, 101);",
 			"}"
-		],
-		"description": "Random."
+		]
 	},
 	"Read": {
 		"prefix": ["read"],
@@ -58,8 +52,7 @@
 			"io::stdin()",
 			"\t.read_line($1)",
 			"\t.expect(\"Failed to read line\");"
-		],
-		"description": "Read."
+		]
 	},
 	"Template": {
 		"prefix": ["template"],
@@ -75,7 +68,6 @@
 			"\tlet n = read();",
 			"\tprintln!(\"{}\", ans);",
 			"}"
-		],
-		"description": "Template."
+		]
 	}
 }

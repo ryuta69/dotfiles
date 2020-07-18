@@ -3,8 +3,7 @@
 		"prefix": ["average"],
 		"body": [
 			"int ave = accumulate(vec.begin(), vec.end(), 0) / vec.size();"
-		],
-		"description": "Get average from array."
+		]
 	},
 	"Binarysearch": {
 		"prefix": ["binarysearch"],
@@ -27,40 +26,33 @@
 			"}",
 			"",
 			"cout << \"No\" << endl;"
-		],
-		"description": "Get average from array."
+		]
 	},
 	"CastDouble": {
 		"prefix": ["castdouble"],
 		"body": [
 			"double d = (round((double)$1 / 60 * pow(10, 2 - 1))) / pow(10, 2 - 1);"
-		],
-		"description": "Get doubled number"
+		]
 	},
 	"CastStr": {
 		"prefix": ["caststr"],
-		"body": ["string a = to_string(${1});"],
-		"description": "Cast to string"
+		"body": ["string a = to_string(${1});"]
 	},
 	"CastInt": {
 		"prefix": ["castint"],
-		"body": ["int a = atoi({cursor}.c_str());"],
-		"description": "Cast to integer"
+		"body": ["int a = atoi({cursor}.c_str());"]
 	},
 	"CountChar": {
 		"prefix": ["countchar"],
-		"body": ["int charnum = count(str.begin(), str.end(), $1);"],
-		"description": "Count char in string"
+		"body": ["int charnum = count(str.begin(), str.end(), $1);"]
 	},
 	"Cin1": {
 		"prefix": ["cin1"],
-		"body": ["int a;", "cin >> a;"],
-		"description": "Cin for one element."
+		"body": ["int a;", "cin >> a;"]
 	},
 	"Cin2": {
 		"prefix": ["cin2"],
-		"body": ["int a, b;", "cin >> a >> b;"],
-		"description": "Cin for two elements."
+		"body": ["int a, b;", "cin >> a >> b;"]
 	},
 	"Cinv1": {
 		"prefix": ["cinv1"],
@@ -71,8 +63,7 @@
 			"for (int i = 0; i < a; i++) {",
 			"\tcin >> vec.at(i);",
 			"}"
-		],
-		"description": "Cin for array."
+		]
 	},
 	"Cinv2": {
 		"prefix": ["cinv2"],
@@ -84,18 +75,15 @@
 			"for (int i = 0; i < a; i++) {",
 			"\tcin >> vec.at(i) >> vec2.at(i);",
 			"}"
-		],
-		"description": "Cin for two arrays."
+		]
 	},
 	"Cout1": {
 		"prefix": ["cout1"],
-		"body": ["cout << $1 << endl;"],
-		"description": "Cout 1 element."
+		"body": ["cout << $1 << endl;"]
 	},
 	"Cout2": {
 		"prefix": ["cout2"],
-		"body": ["cout << $1 << \" \" << $2 << endl;"],
-		"description": "Cout 1 element."
+		"body": ["cout << $1 << \" \" << $2 << endl;"]
 	},
 	"Coutv": {
 		"prefix": ["coutv"],
@@ -103,15 +91,13 @@
 			"for (int i = 0; i < vec.size(); i++) {",
 			"\tcout << vec.at(i) << endl;",
 			"}"
-		],
-		"description": "Cout array."
+		]
 	},
 	"Coutzfill": {
 		"prefix": ["coutzfill"],
 		"body": [
 			"cout << setfill('0') << right << setw($1) << $2 << endl;"
-		],
-		"description": "Cout with zero fill."
+		]
 	},
 	"Dfs": {
 		"prefix": ["dfs"],
@@ -124,8 +110,7 @@
 			"\t\treturn false;",
 			"\t}",
 			"} dfs"
-		],
-		"description": "Depth first search."
+		]
 	},
 	"SumDigit": {
 		"prefix": ["sumdigit"],
@@ -135,13 +120,11 @@
 			"for (size_t i = 0; i < aa.length(); i++) {",
 			"\tsumdigit += aa[i] - '0';",
 			"}"
-		],
-		"description": "Sum each digit number."
+		]
 	},
 	"EraseIndex": {
 		"prefix": ["eraseindex"],
-		"body": ["vec.erase(vec.begin() + $1)"],
-		"description": "Erase element of specified index."
+		"body": ["vec.erase(vec.begin() + $1)"]
 	},
 	"EraseString": {
 		"prefix": ["erasestring"],
@@ -151,8 +134,7 @@
 			"while ((pos = $2.find(tmp)) != string::npos) {",
 			"\ta.erase(pos, tmp.length());",
 			"}"
-		],
-		"description": "Erase string from string."
+		]
 	},
 	"Erasuto": {
 		"prefix": ["erasuto"],
@@ -180,13 +162,11 @@
 			"\t\t\tcount_prime++;",
 			"\t}",
 			"}"
-		],
-		"description": "Erastotenes's coam."
+		]
 	},
 	"FindString": {
 		"prefix": ["findstring"],
-		"body": ["if (a.find(\"$1\") != string::npos) {", "\t", "}"],
-		"description": "Find string in string."
+		"body": ["if (a.find(\"$1\") != string::npos) {", "\t", "}"]
 	},
 	"FindArray": {
 		"prefix": ["findarray"],
@@ -196,8 +176,7 @@
 			"if (itr != vec.end()) {",
 			"\t",
 			"}"
-		],
-		"description": "Find item in array."
+		]
 	},
 	"FindMax": {
 		"prefix": ["findmax"],
@@ -205,8 +184,7 @@
 			"int max_num = *max_element(vec.begin(), vec.end());",
 			"vector<int>::iterator index = max_element(vec.begin(), vec.end());",
 			"int idx = index - vec.begin();"
-		],
-		"description": "Find max item in array."
+		]
 	},
 	"FindMin": {
 		"prefix": ["findmin"],
@@ -214,18 +192,15 @@
 			"int min_num = *min_element(vec.begin(), vec.end());",
 			"vector<int>::iterator index = min_element(vec.begin(), vec.end());",
 			"int idx = index - vec.begin();"
-		],
-		"description": "Find min item in array."
+		]
 	},
 	"Reverse": {
 		"prefix": ["reverse"],
-		"body": ["string rev = reverse(vec.begin(), vec.end());"],
-		"description": "Reverse string."
+		"body": ["string rev = reverse(vec.begin(), vec.end());"]
 	},
 	"FindRoot": {
 		"prefix": ["findroot"],
-		"body": ["int root = log10($1 / log10(2);"],
-		"description": "Find root value."
+		"body": ["int root = log10($1 / log10(2);"]
 	},
 	"PrimeFactory": {
 		"prefix": ["primefactory"],
@@ -248,13 +223,11 @@
 			"if (n > 2){",
 			"\tavec.push_back(n);",
 			"}"
-		],
-		"description": "Find root value."
+		]
 	},
 	"SortArray": {
 		"prefix": ["sortarray"],
-		"body": ["sort(vec.begin(), vec.end());"],
-		"description": "Sort array."
+		"body": ["sort(vec.begin(), vec.end());"]
 	},
 	"SplitString": {
 		"prefix": ["splitstring"],
@@ -265,21 +238,18 @@
 			"while (getline(ss, buffer, '$2')) {",
 			"\tv.push_back(buffer);",
 			"}"
-		],
-		"description": "Split String."
+		]
 	},
 	"SumArray": {
 		"prefix": ["sumarray"],
-		"body": ["int sum = accumulate(vec.begin(), vec.end(), 0);"],
-		"description": "Sum Array."
+		"body": ["int sum = accumulate(vec.begin(), vec.end(), 0);"]
 	},
 	"UniqueArray": {
 		"prefix": ["uniquearray"],
 		"body": [
 			"sort(vec.begin(), vec.end());",
 			"vec.erase(unique(vec.begin(), vec.end()), vec.end());"
-		],
-		"description": "Unique Array."
+		]
 	},
 	"Template": {
 		"prefix": ["template"],
@@ -295,7 +265,6 @@
 			"",
 			"\treturn 0;",
 			"}"
-		],
-		"description": "Unique Array."
+		]
 	}
 }
