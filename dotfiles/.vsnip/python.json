@@ -245,8 +245,29 @@
 		"body": [
 			"if $1:",
 			"\t$0",
-			"else:",
-			"\t"
+			"else:"
+		]
+	},
+	"ReplaceWithRegex": {
+		"prefix": ["replacewithregex"],
+		"body": [
+			"import re",
+			"str = re.sub(r'$1', '$2', $3)$0"
+		]
+	},
+	"Round": {
+		"prefix": ["round"],
+		"body": [
+			"def round(n, digit=0):",
+			"\tif digit < 0:",
+			"\t\timport sys",
+			"\t\tsys.stderr.write('Error: digit must be positive')",
+			"\t\texit()",
+			"\tp = 10**digit",
+			"\tans = (n*p*2+1) // 2 / p",
+			"\tif digit == 0:",
+			"\t\tans = int(ans)",
+			"\treturn ans"
 		]
 	},
 	"GcdLcm": {
