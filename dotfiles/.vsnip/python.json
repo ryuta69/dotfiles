@@ -45,6 +45,18 @@
 			"all($2 for i in $1)$0"
 		]
 	},
+	"CombineList": {
+		"prefix": ["combinelist"],
+		"body": [
+			"' '.join(map(str, $1))$0"
+		]
+	},
+	"Counter": {
+		"prefix": ["counter"],
+		"body": [
+			"from collections import Counter$0"
+		]
+	},
 	"Any": {
 		"prefix": ["any"],
 		"body": [
@@ -61,6 +73,12 @@
 		"prefix": ["sum"],
 		"body": [
 			"sum($2 for i in $1)$0"
+		]
+	},
+	"SameElementInList": {
+		"prefix": ["sameelementinlist"],
+		"body": [
+			"set($1).intersection(set($2))$0"
 		]
 	},
 	"ForRange": {
@@ -107,6 +125,12 @@
 		"prefix": ["inputintmap"],
 		"body": [
 			"${1:A, B} = map(int, input().split())$0"
+		]
+	},
+	"ReMatch": {
+		"prefix": ["rematch"],
+		"body": [
+			"re.match('$2', $1)$0"
 		]
 	},
 	"InputIntList": {
@@ -199,6 +223,56 @@
 			"\t",
 			"else:",
 			"\t"
+		]
+	},
+	"UnionFind": {
+		"prefix": ["unionfind"],
+		"body": [
+			"class UnionFind():",
+			"\tdef __init__(self, n):",
+			"\t\t# size of n.",
+			"\t\tself.n = n",
+			"\t\t# n's parent. default is -1.",
+			"\t\tself.parents = [-1] * n",
+			"",
+			"\tdef find_root(self, x):",
+			"\t\tif self.parents[x] < 0:",
+			"\t\t\treturn x",
+			"\t\telse:",
+			"\t\t\tself.parents[x] = self.find_root(self.parents[x])",
+			"\t\t\treturn self.parents[x]",
+			"",
+			"\tdef union_merge(self, x, y):",
+			"\t\tx = self.find_root(x)",
+			"\t\ty = self.find_root(y)",
+			"\t\tif x == y:",
+			"\t\t\treturn",
+			"\t\tif self.parents[x] > self.parents[y]:",
+			"\t\t\tx, y = y, x",
+			"\t\tself.parents[x] += self.parents[y]",
+			"\t\tself.parents[y] = x",
+			"",
+			"\t# You shouldn't use these below for optimization.",
+			"\t# Use only find_root to compare if you need.",
+			"\tdef union_size(self, x):",
+			"\t\t# Root value's index has its size with negative.",
+			"\t\treturn -self.parents[self.find_root(x)]",
+			"",
+			"\tdef is_same_union(self, x, y):",
+			"\t\treturn self.find_root(x) == self.find_root(y)",
+			"",
+			"\tdef same_union_members(self, x):",
+			"\t\troot = self.find_root(x)",
+			"\t\treturn [i for i in range(self.n) if self.find_root(i) == root]",
+			"",
+			"\tdef roots(self):",
+			"\t\treturn [i for i, x in enumerate(self.parents) if x < 0]",
+			"",
+			"\tdef union_count(self):",
+			"\t\treturn len(self.roots())",
+			"",
+			"\tdef all_unions(self):",
+			"\t\treturn [self.same_union_members(r) for r in self.roots()]"
 		]
 	},
 	"Quicksort": {
