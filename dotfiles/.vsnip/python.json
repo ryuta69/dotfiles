@@ -249,6 +249,17 @@
 			"\t"
 		]
 	},
+	"GcdLcm": {
+		"prefix": ["gcdlcm"],
+		"body": [
+			"def gcd(a, b):",
+			"\twhile b != 0:",
+			"\t\ta, b = b, a % b",
+			"\treturn a",
+			"def lcm(a, b):",
+			"\treturn a * b // gcd(a, b)"
+		]
+	},
 	"UnionFind": {
 		"prefix": ["unionfind"],
 		"body": [
