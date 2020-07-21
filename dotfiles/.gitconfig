@@ -38,6 +38,7 @@
  	pss = !git push origin `git rev-parse --abbrev-ref HEAD`
 	pl  = pull
 	pll = !git pull origin `git rev-parse --abbrev-ref HEAD`
+	plr = pull --rebase
 	pr  = !git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request' | head -n 1;
 	rb  = rebase
 	rf  = reflog --date=iso
