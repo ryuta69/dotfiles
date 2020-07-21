@@ -2,41 +2,53 @@
 	"InputAll": {
 		"prefix": ["inputall"],
 		"body": [
-			"${1:I} = input()",
-			"if ' ' not in ${1:I}:",
-			"\tif ${1:I}.isdigit():",
-			"\t\t${1:I} = int(I)",
-			"\telif float(I):",
-			"\t\t${1:I} = float(I)",
+			"${1:n} = input()",
+			"if ' ' not in ${1:n}:",
+			"\tif ${1:n}.isdigit():",
+			"\t\t${1:n} = int(n)",
+			"\telif float(n):",
+			"\t\t${1:n} = float(n)",
 			"else:",
 			"\t# ===== int =====",
-			"\t# A, B = map(int, ${1:I}.split())",
-			"\t# L = list(map(int, ${1:I}.split()))",
+			"\t# a, b = map(int, ${1:n}.split())",
+			"\t# l = list(map(int, ${1:n}.split()))",
 			"\t# ===== str =====",
-			"\t# A, B = ${1:I}.split()",
-			"\t# L = ${1:I}.split()",
+			"\t# a, b = ${1:n}.split()",
+			"\t# l = ${1:n}.split()",
 			"\t# ===== float =====",
-			"\t# A, B = map(float, ${1:I}.split())",
-			"\t# L = list(map(float, ${1:I}.split()))$0"
+			"\t# a, b = map(float, ${1:n}.split())",
+			"\t# l = list(map(float, ${1:n}.split()))$0"
+		]
+	},
+	"ListMulti": {
+		"prefix": ["listmulti"],
+		"body": [
+			"${1:ml} = [$2 for i in range($3)]"
+		]
+	},
+	"ListMulti2d": {
+		"prefix": ["listmulti2d"],
+		"body": [
+			"${1:ml} = [[$2 for i in range($3)] for j in range($4)]"
 		]
 	},
 	"Filter": {
 		"prefix": ["filter"],
 		"body": [
-			"${1:F} = list(filter(lambda el: $3, $2))$0"
+			"${1:f} = list(filter(lambda el: $3, $2))$0"
 		]
 	},
 	"Map": {
 		"prefix": ["map"],
 		"body": [
-			"${1:M} = list(map(lambda el: $3, $2))$0"
+			"${1:m} = list(map(lambda el: $3, $2))$0"
 		]
 	},
 	"Reduce": {
 		"prefix": ["reduce"],
 		"body": [
 			"from functools import reduce",
-			"${1:R} = reduce(lambda hist,el: $3, $2)$0"
+			"${1:r} = reduce(lambda hist,el: $3, $2)$0"
 		]
 	},
 	"All": {
@@ -55,14 +67,14 @@
 		"prefix": ["counter"],
 		"body": [
 			"from collections import Counter",
-			"${1:C} = Counter($2)$0"
+			"${1:c} = Counter($2)$0"
 		]
 	},
 	"CounterSort": {
 		"prefix": ["countersort"],
 		"body": [
 			"from collections import Counter",
-			"${1:C} = Counter($2).most_common()$0"
+			"${1:c} = Counter($2).most_common()$0"
 		]
 	},
 	"Any": {
@@ -133,13 +145,13 @@
 	"InputInt": {
 		"prefix": ["inputint"],
 		"body": [
-			"${1:I} = int(input())$0"
+			"${1:n} = int(input())$0"
 		]
 	},
 	"InputIntMap": {
 		"prefix": ["inputintmap"],
 		"body": [
-			"${1:A, B} = map(int, input().split())$0"
+			"${1:a, b} = map(int, input().split())$0"
 		]
 	},
 	"ReMatch": {
@@ -151,43 +163,43 @@
 	"InputIntList": {
 		"prefix": ["inputintlist"],
 		"body": [
-			"${1:L} = list(map(int, input().split()))$0"
+			"${1:l} = list(map(int, input().split()))$0"
 		]
 	},
 	"InputStr": {
 		"prefix": ["inputstr"],
 		"body": [
-			"${1:I} = input()$0"
+			"${1:n} = input()$0"
 		]
 	},
 	"InputStrMap": {
 		"prefix": ["inputstrmap"],
 		"body": [
-			"${1:A, B} = input().split()$0"
+			"${1:a, b} = input().split()$0"
 		]
 	},
 	"InputStrList": {
 		"prefix": ["inputstrlist"],
 		"body": [
-			"${1:L} = input().split()$0"
+			"${1:l} = input().split()$0"
 		]
 	},
 	"InputFloat": {
 		"prefix": ["inputfloat"],
 		"body": [
-			"${1:I} = float(input())$0"
+			"${1:n} = float(input())$0"
 		]
 	},
 	"InputFloatMap": {
 		"prefix": ["inputfloatmap"],
 		"body": [
-			"${1:A, B} = map(float, input().split()) $2"
+			"${1:a, b} = map(float, input().split()) $2"
 		]
 	},
 	"InputFloatList": {
 		"prefix": ["inputfloatlist"],
 		"body": [
-			"${1:L} = list(map(float, input().split()))$0"
+			"${1:l} = list(map(float, input().split()))$0"
 		]
 	},
 	"Print": {
@@ -199,7 +211,7 @@
 	"AlphabetNth": {
 		"prefix": ["alphabetnth"],
 		"body": [
-			"${1:S} = [chr(ord('a') + i) for i in range(${2:10})]$0"
+			"${1:s} = [chr(ord('a') + i) for i in range(${2:10})]$0"
 		]
 	},
 	"Def": {
@@ -279,6 +291,82 @@
 			"\treturn a",
 			"def lcm(a, b):",
 			"\treturn a * b // gcd(a, b)"
+		]
+	},
+	"CumulativeSum": {
+		"prefix": ["cumulativesum"],
+		"body": [
+			"def cumulative_sum(collection):",
+			"\tresult = [0]",
+			"\tfor item in collection:",
+			"\t\tresult.append(result[-1] + item)",
+			"\treturn result"
+		]
+	},
+	"CumulativeSum2d": {
+		"prefix": ["cumulativesum2d"],
+		"body": [
+			"def cumulative_sum_2d(collection_2d):",
+			"\tresult = []",
+			"\tfor height, column in enumerate(collection_2d):",
+			"\t\tresult.append([])",
+			"\t\tfor width, cell in enumerate(column):",
+			"\t\t\tresult[height].append([])",
+			"\t\t\ttop_sum\t   = result[height-1][width] if height!=0 else 0",
+			"\t\t\tleft_sum\t  = result[height][width-1] if width!=0 else 0",
+			"\t\t\tduplicate_sum = result[height-1][width-1] if height!=0 and width!=0 else 0",
+			"\t\t\ttotal_sum\t = top_sum + left_sum - duplicate_sum + cell",
+			"\t\t\tresult[height][width] = total_sum",
+			"\tfor i in result:",
+    		"\t\ti.insert(0, 0)",
+    		"\tresult.insert(0, [0 for i in result[0]])",
+			"\treturn result"
+		]
+	},
+	"Combination": {
+		"prefix": ["combination"],
+		"body": [
+			"def combination(items_num, pair_num):",
+			"\tif items_num < pair_num: return 0",
+			"\tif items_num - pair_num < pair_num: pair_num = items_num - pair_num",
+			"\tif pair_num == 0: return 1",
+			"\tif pair_num == 1: return items_num",
+			"\tnumerator   = [items_num - pair_num + k + 1 for k in range(pair_num)]",
+			"\tdenominator = [k + 1 for k in range(pair_num)]",
+			"\tfor p in range(2, pair_num+1):",
+			"\t\tpivot = denominator[p - 1]",
+			"\t\tif pivot > 1:",
+			"\t\t\toffset = (items_num - pair_num) % p",
+			"\t\t\tfor k in range(p-1, pair_num, p):",
+			"\t\t\t\tnumerator[k - offset] /= pivot",
+			"\t\t\t\tdenominator[k] /= pivot",
+			"\tresult = 1",
+			"\tfor k in range(pair_num):",
+			"\t\tif numerator[k] > 1:",
+			"\t\t\tresult *= int(numerator[k])",
+			"\treturn result"
+		]
+	},
+	"Comb": {
+		"prefix": ["comb"],
+		"body": [
+			"from scipy.special import comb",
+			"${1:c} = int(comb($2, $3))"
+		]
+	},
+	"SieveOfEratosthenes": {
+		"prefix": ["sieveoferatosthenes"],
+		"body": [
+			"def sieve_of_eratosthenes(n):",
+			"\tprime = [2]",
+			"\tlimit = int(n**0.5)",
+			"\tdata = [i + 1 for i in range(2, n, 2)]",
+			"\twhile True:",
+			"\t\tp = data[0]",
+			"\t\tif limit < p:",
+			"\t\t\treturn prime + data",
+			"\t\tprime.append(p)",
+			"\t\tdata = [e for e in data if e % p != 0]"
 		]
 	},
 	"UnionFind": {

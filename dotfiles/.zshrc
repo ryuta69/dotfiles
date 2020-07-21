@@ -85,7 +85,7 @@ alias hf='hyperfine --max-runs 3'
 alias virc='vi ~/.zshrc' sorc='source ~/.zshrc'
 alias bat='bat --color=always --style=header,grid'
 alias dus='dust -pr -d 2 -X ".git" -X "node_modules"'
-alias python='/usr/local/bin/python3.8' pip='/usr/local/bin/pip3'
+alias python='/usr/local/bin/python3.8' py='python' pip='/usr/local/bin/pip3'
 alias psa='ps aux' pskl='psa | fzf | awk "{ print \$2 }" | xargs kill -9'
 alias fd='fd -iH --no-ignore-vcs -E ".git|node_modules"' rmds='fd .DS_Store -X rm'
 alias rg='rg --hidden -g "!.git" -g "!node_modules" --max-columns 200' rgi='rg -i'
@@ -106,6 +106,7 @@ rgf()  {
 	[ -z "${selected}" ] && echo "fzf Canceled." && return 0;
 	vi "${selected}";
 }
+cap()  { cat "$1" | pbcopy }
 mkcd() { mkdir "$1" && cd "$1"; }
 fdr()  { fd "$1" | xargs sd "$2" "$3"; }
 rgr()  { rg --files-with-matches "$1" | xargs sd "$1" "$2"; }
