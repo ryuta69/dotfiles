@@ -4,15 +4,17 @@
 	signingkey = 7EB4C638CC86724B
 
 [alias]
-	ad  = !git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 git add
+	ad  = add
 	ada = add -A
+	adf = !git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 git add
 	adu = !git diff --name-only --cached | fzf -m --print0 | xargs -0 git restore --staged
 	br  = branch -a
 	brd = !git branch | fzf -m --print0 | tr -d ' ' | xargs -0 git branch -D
 	cm  = commit --verbose
 	cl  = clean -fd
-	co  = !git branch | fzf | xargs git checkout
+	co  = checkout
 	cob = checkout -b
+	coc = !git branch | fzf | xargs git checkout
 	cof = !git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 git checkout
 	; cor = !hub pr checkout `hub pr list | fzf`
 	cor = !git fetch -p && git checkout -b $1 origin/$1
