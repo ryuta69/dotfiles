@@ -306,21 +306,21 @@
 	"CumulativeSum2d": {
 		"prefix": ["cumulativesum2d"],
 		"body": [
-			"def cumulative_sum_2d(collection_2d):",
-			"\tresult = []",
-			"\tfor height, column in enumerate(collection_2d):",
-			"\t\tresult.append([])",
-			"\t\tfor width, cell in enumerate(column):",
-			"\t\t\tresult[height].append([])",
-			"\t\t\ttop_sum\t   = result[height-1][width] if height!=0 else 0",
-			"\t\t\tleft_sum\t  = result[height][width-1] if width!=0 else 0",
-			"\t\t\tduplicate_sum = result[height-1][width-1] if height!=0 and width!=0 else 0",
-			"\t\t\ttotal_sum\t = top_sum + left_sum - duplicate_sum + cell",
-			"\t\t\tresult[height][width] = total_sum",
-			"\tfor i in result:",
-    		"\t\ti.insert(0, 0)",
-    		"\tresult.insert(0, [0 for i in result[0]])",
-			"\treturn result"
+			"class CumulativeSum2d():",
+			"\tdef __init__(self, collection_2d):",
+			"\t\tyl = len(collection_2d)",
+			"\t\txl = len(collection_2d[0])",
+			"\t\tself.data = [[0] * (xl+1) for _ in range(yl+1)]",
+			"\t\tfor y in range(1, yl+1):",
+			"\t\t\tfor x in range(1, xl+1):",
+			"\t\t\t\ttop_sum         = self.data[y-1][x]",
+			"\t\t\t\tleft_sum        = self.data[y][x-1]",
+			"\t\t\t\tdup_sum         = self.data[y-1][x-1]",
+			"\t\t\t\tself.data[y][x] = top_sum + left_sum - dup_sum",
+			"\t\t\t\tself.data[y][x] += collection_2d[y-1][x-1]",
+			"",
+			"\tdef query(self, x, y, x1, y1):",
+			"\t\treturn self.data[y1][x1] - self.data[y-1][x1] - self.data[y1][x-1] + self.data[y-1][x-1]"
 		]
 	},
 	"Combination": {
