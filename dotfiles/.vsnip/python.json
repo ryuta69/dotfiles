@@ -323,7 +323,7 @@
 			"\t\treturn self.data[y1][x1] - self.data[y-1][x1] - self.data[y1][x-1] + self.data[y-1][x-1]"
 		]
 	},
-	"Combination": {
+	"CombinationNum": {
 		"prefix": ["combination"],
 		"body": [
 			"def combination(n, r):",
@@ -365,11 +365,42 @@
 			"\treturn result"
 		]
 	},
-	"Comb": {
-		"prefix": ["comb"],
+	"CombinationScipy": {
+		"prefix": ["combinationScipy"],
 		"body": [
 			"from scipy.special import comb",
 			"${1:c} = int(comb($2, $3))"
+		]
+	},
+	"CombinationList": {
+		"prefix": ["combinationlist"],
+		"body": [
+			"from itertools import combinations",
+			"${1:lc} = combinations(${2:l}, ${3:3})"
+		]
+	},
+	"PermutationNum": {
+		"prefix": ["PermutationNum"],
+		"body": [
+			"def permutation(l, n):",
+			"\tresult = 1",
+			"\tfor i in range(n):",
+			"\t\tresult *= (l-i)",
+			"\treturn result"
+		]
+	},
+	"PermutationScipy": {
+		"prefix": ["permutationscipy"],
+		"body": [
+			"from scipy.special import comb",
+			"${1:c} = int(perm($2, $3))"
+		]
+	},
+	"PermutationList": {
+		"prefix": ["permutationlist"],
+		"body": [
+			"from itertools import permutations",
+			"${1:lp} = permutations(${2:l}, ${3:3})"
 		]
 	},
 	"SieveOfEratosthenes": {
