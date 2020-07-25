@@ -18,6 +18,7 @@ symlink_dotfiles() {
 	CRPATH="${HOME}/.cargo"                                && mkdir -p ${CRPATH}
 	NVPATH="${HOME}/.config/nvim"                          && mkdir -p ${NVPATH}
 	KRPATH="${HOME}/.config/karabiner"                     && mkdir -p ${KRPATH}
+	AAPATH="${HOME}/.config/alacritty"                     && mkdir -p ${AAPATH}
 	PLPATH="${HOME}/Library/Preferences"                   && mkdir -p ${PLPATH}
 	ALPATH="${HOME}/Library/Application Support/Alfred"    && mkdir -p ${ALPATH}
 	VSPATH="${HOME}/Library/Application Support/Code/User" && mkdir -p ${VSPATH}
@@ -30,6 +31,7 @@ symlink_dotfiles() {
 		if [[ $filename = '.vsnip' ]]; then ln -sfnv $abspath ${VSPATH}/snippets; fi;
 		if [[ $filename = '.vimrc' ]]; then ln -sfnv $abspath ${NVPATH}/init.vim; fi;
 		if [[ $filename = '.rustcfg' ]]; then ln -sfnv $abspath ${CRPATH}/config; continue; fi;
+		if [[ $filename = '.alacritty.yml' ]]; then ln -sfnv $abspath ${AAPATH}/alacritty.yml; fi;
 		ln -sfnv $abspath ${HOME};
 	done
 
