@@ -20,16 +20,22 @@
 			"\t# l = list(map(float, ${1:n}.split()))$0"
 		]
 	},
+	"Zfill": {
+		"prefix": ["zfill"],
+		"body": [
+			"z = {0:0${1:1}d}'.format($2)$0"
+		]
+	},
 	"ListMulti": {
 		"prefix": ["listmulti"],
 		"body": [
-			"${1:ml} = [$2 for i in range($3)]"
+			"${1:ml} = [$2 for i in range($3)]$0"
 		]
 	},
 	"ListMulti2d": {
 		"prefix": ["listmulti2d"],
 		"body": [
-			"${1:ml} = [[$2 for i in range($3)] for j in range($4)]"
+			"${1:ml} = [[$2 for i in range($3)] for j in range($4)]$0"
 		]
 	},
 	"Filter": {
@@ -468,6 +474,35 @@
 			"\t\treturn [self.same_union_members(r) for r in self.roots()]"
 		]
 	},
+	"BinaryInsert": {
+		"prefix": ["binaryinsert"],
+		"body": [
+			"import bisect",
+			"b=bisect.bisect_left(${1:sorted_list}, ${2:pivot})$0"
+		]
+	},
+	"BinaryInsertMy": {
+		"prefix": ["binaryinsertmy"],
+		"body": [
+			"def binary_search_insertion(sorted_list, item):",
+			"\tleft = 0",
+			"\tright = len(sorted_list) - 1",
+			"\twhile left <= right:",
+			"\t\tmiddle = (left + right) // 2",
+			"\t\tif left == right:",
+			"\t\t\tif sorted_list[middle] < item:",
+			"\t\t\t\tleft = middle + 1",
+			"\t\t\t\tbreak;",
+			"\t\t\telse:",
+			"\t\t\t\tbreak;",
+			"\t\telif sorted_list[middle] < item:",
+			"\t\t\tleft = middle + 1",
+			"\t\telse:",
+			"\t\t\tright = middle - 1",
+			"\tsorted_list.insert(left, item)",
+			"\treturn sorted_list"
+		]
+	},
 	"Quicksort": {
 		"prefix": ["quicksort"],
 		"body": [
@@ -571,9 +606,17 @@
 			"\t\tif is_surplus_inserted_before_this_index:",
 			"\t\t\tresult = result[:i+2] + binary_search_insertion(result[i+2:], pivot)",
 			"\t\telse:",
-			"\t\t\tresult = result[:i+1] + binary_search_insertion(result[i+1:], pivot)",
+			"\t\t\tresult = result[:i+1] + binary_narysearch_insertion(result[i+1:], pivot)",
 			"",
 			"\treturn result"
+		]
+	},
+	"Queue": {
+		"prefix": ["queue"],
+		"body": [
+			"from collections import deque",
+			"# append, popleft",
+			"qu = deque([])"
 		]
 	},
 	"QueueMy": {
@@ -606,6 +649,14 @@
 			"\t\tif self.length == 0:",
 			"\t\t\tself.tail = None",
 			"\t\treturn item"
+		]
+	},
+	"Stack": {
+		"prefix": ["stack"],
+		"body": [
+			"from collections import deque",
+			"# append, pop",
+			"st = deque([])"
 		]
 	},
 	"StackMy": {
