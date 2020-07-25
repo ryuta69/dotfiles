@@ -176,7 +176,6 @@ initialize() {
 	sudo chsh -s /usr/local/bin/zsh
 	chmod 755 /usr/local/share/zsh
 	chmod 755 /usr/local/share/zsh/site-functions
-	touch ${HOME}/.hushlogin
 	mkdir -p ${HOME}/work
 
 	! ${TESTMODE} && exec -l ${SHELL}
