@@ -9,11 +9,13 @@ font:
     style: Italic
   bold:
     family: Hack Nerd Font
-    style: Bold
+    style: Italic
   italic:
     family: Hack Nerd Font
     style: Italic
   size: 11
+  use_thin_strokes: true
+draw_bold_text_with_bright_colors: false
 colors:
   primary:
     background: '0x0A0E14'
@@ -36,3 +38,5 @@ colors:
     magenta: '0xFFEE99'
     cyan:    '0x95E6CB'
     white:   '0xFFFFFF'
+visual_bell:
+  duration: 0
