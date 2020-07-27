@@ -149,15 +149,12 @@ gcre() {
 
 ## ========== Tmux ==========
 alias tm='tmux' && compdef _tmux tm
-alias tmls='tmux list-sessions'
-alias tmkla='tmux kill-session'
-alias tmrn='tmux rename-session'
-alias tmkl='tmux kill-session -t'
+alias tmn='tm attach -t main || tmux new -s main'
 tmsw() {
 	selected=`tmux list-sessions | fzf | cut -d : -f 1`
 	[ -z "${selected}" ] && echo "fzf Canceled." && exit 0;
 	if [ -z "${TMUX}" ]; then
-		tmux a -t "${selected}"
+		tmux attach -t "${selected}"
 	else
 		tmux switch -t "${selected}"
 	fi
