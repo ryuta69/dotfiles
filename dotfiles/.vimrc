@@ -42,7 +42,7 @@ set fileformats=unix,dos,mac
 set whichwrap=b,s,h,l,<,>,[,]
 set hidden nobackup noswapfile
 set smartcase ignorecase wildignorecase
-set rulerformat=%40(%=%l,%-(%c%V%)\ %=%t%)%*
+set rulerformat=%40(%1*%=%l,%-(%c%V%)\ %=%t%)%*
 set noexpandtab tabstop=4 softtabstop=-1 shiftwidth=0
 set encoding=utf-8 fileencodings=cp932,sjis,euc-jp,utf-8,iso-2022-jp
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -84,6 +84,7 @@ map <Leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 "" ========== AyuVim ==========
 let ayucolor='dark'
 colorscheme ayu
+highlight User1       guifg=#3D424D
 highlight Normal      guibg=#0A0E14
 highlight FoldColumn  guibg=#0A0E14
 highlight EndOfBuffer ctermfg=0 guifg=bg
