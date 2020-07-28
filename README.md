@@ -3,7 +3,7 @@
 <h3 align="center">My Dotfiles</h3>
 <p align="center">ᓚᘏᗢ Just personal settings.</p>
 
-<img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/87626169-ad853000-c766-11ea-93aa-beba6a411a97.png">
+<img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/88665239-4cbc0700-d119-11ea-845c-65d3efd404fd.png">
 
 Not only dotfiles, with one command, it sets [All of MacOS System Preferences](https://github.com/ryuta69/dotfiles/blob/master/system/macos.sh), installs [Applications and Plugins](https://github.com/ryuta69/dotfiles/tree/master/bundle), and enables [Launcher and Window Manager](https://github.com/ryuta69/dotfiles/tree/master/dotfiles/.library) to recovery from Factory-Reset-OS. More screenshots are [here](https://github.com/ryuta69/dotfiles/issues/1). There are also [Windows and Linux setup scripts](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux).
 
