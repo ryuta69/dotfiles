@@ -72,7 +72,7 @@
 	diff = auto
 	branch = auto
 	status = auto
-        showbranch = auto
+	showbranch = auto
 
 [color "branch"]
 	local = green
@@ -98,14 +98,15 @@
 	helper = osxkeychain
 
 [delta]
+	width = 160
 	line-numbers = true
 	side-by-side = true
 	features = decorations
 	hunk-header-style = omit
 	syntax-theme = Monokai Extended
-    whitespace-error-style = 22 reverse
-    line-numbers-left-style = "#3D424D"
-    line-numbers-right-style = "#3D424D"
+	whitespace-error-style = 22 reverse
+	line-numbers-left-style = "#3D424D"
+	line-numbers-right-style = "#3D424D"
 
 [delta "decorations"]
 	file-style = "#338ECF" ul
