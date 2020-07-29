@@ -50,10 +50,12 @@ https://github.com/kevinSuttle/macOS-Defaults/blob/master/REFERENCE.md
 
 https://github.com/tech-otaku/macos-config-mojave/blob/master/macos-config.sh
 
-These great designs impressed me.
-
-https://www.reddit.com/r/unixporn/
+These links are great designs impressed me.
 
 https://github.com/alnj/dotfiles
 
+https://www.reddit.com/r/unixporn/comments/hyuvk6/dwm_cats_meow/
+
 https://github.com/yoyostile/nerdbar.widget-1
+
+https://www.reddit.com/r/unixporn/
