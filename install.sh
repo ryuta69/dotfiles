@@ -141,10 +141,10 @@ install_bundle() {
 	# fi
 
 	## ========== Yabai ==========
-	brew services start skhd
-	brew services start yabai
-	cd ${HOME}/Library/Application\ Support/Übersicht/widgets/status_bar
-	yarn install
+	# brew services start skhd
+	# brew services start yabai
+	# cd ${HOME}/Library/Application\ Support/Übersicht/widgets/status_bar
+	# yarn install
 
 	## ========== Docker ==========
 	mkdir -p ${HOME}/.zsh/completion
@@ -181,10 +181,6 @@ initialize() {
 	mkdir -p ${HOME}/work
 
 	! ${TESTMODE} && exec -l ${SHELL}
-}
-
-list_vscode_plugins() {
-	code --list-extensions > ${EXEPATH}/bundle/Vsplug
 }
 
 usage() {
@@ -235,7 +231,6 @@ for opt in ${argv[@]}; do
 		--bundle)   install_bundle; ;;
 		--system)   configure_system; ;;
 		--dotfiles) symlink_dotfiles; ;;
-		--vscode)   list_vscode_plugins; ;;
 		--all)      install_bundle; symlink_dotfiles; configure_system; ;;
 		*)          echo "invalid option $1"; ;;
 	esac
