@@ -13,6 +13,7 @@ call plug#begin(plugdir)
 	Plug 'Lokaltog/vim-easymotion'
 	Plug 'yuttie/comfortable-motion.vim'
 	Plug 'bronson/vim-trailing-whitespace'
+	Plug 'ConradIrwin/vim-bracketed-paste'
 	Plug 'sheerun/vim-polyglot' | Plug 'ap/vim-css-color'
 	Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
 	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
