@@ -87,6 +87,7 @@ let ayucolor='dark'
 colorscheme ayu
 highlight User1       guifg=#3D424D
 highlight Normal      guibg=#0A0E14
+highlight ModeMsg     guifg=#3D424D
 highlight FoldColumn  guibg=#0A0E14
 highlight EndOfBuffer ctermfg=0 guifg=bg
 highlight DiffAdd     gui=NONE  guifg=NONE    guibg=#003366
