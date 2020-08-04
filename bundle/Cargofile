@@ -1,0 +1,11 @@
+sd
+bat
+exa
+ytop
+fd-find
+du-dust
+ripgrep
+hyperfine
+git-delta
+cargo-update
+"-f --git https://github.com/jez/as-tree"
