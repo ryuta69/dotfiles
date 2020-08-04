@@ -93,10 +93,10 @@ install_bundle() {
 	rustup component add rust-src --toolchain stable
 	rustup component add rls-preview --toolchain stable
 	rustup component add rust-analysis --toolchain stable
-	crates=($(cat ${CWD}/Cargofile))
-	for crate in ${crates}; do
-		cargo install ${crate}
-	done
+	cargo install ytop
+	cargo install du-dust
+	cargo install cargo-update
+	cargo install -f --git https://github.com/jez/as-tree
 
 	## ========== Perl ==========
 	cpanm $(cat ${CWD}/Cpanfile)
