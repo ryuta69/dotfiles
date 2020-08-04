@@ -1,12 +1,103 @@
 ## ----------------------------------------
-##	Package Manager
+##	Vim
 ## ----------------------------------------
-alias zsup='zinit self-update && zinit update'
-alias npup='npm update -g npm && npm update -g'
-alias rsup='rustup update && cargo install-update --all'
-alias viup='vim +"PlugUpdate" +qa && nvim +"PlugUpdate" +qa'
-alias brup='brew update && brew upgrade && brew cask upgrade'
-alias piup='pip install --upgrade pip && pip freeze | cut -d'=' -f1 | xargs -n1 pip install --upgrade'
+vim-plug-install() {
+	vim  +'PlugInstall --sync' +qa
+	nvim +'PlugInstall --sync' +qa
+}
+vim-plug-update() {
+	vim  +'PlugUpdate --sync' +qa
+	nvim +'PlugUpdate --sync' +qa
+}
+vim-plug-clean() {
+	vim  +'PlugClean --sync' +qa
+	nvim +'PlugClean --sync' +qa
+}
+
+## ----------------------------------------
+##	Brew
+## ----------------------------------------
+brew-install() {
+	brew bundle --file ./Brewfile
+}
+brew-update() {
+	brew update
+	brew upgrade
+	brew cask upgrade
+}
+brew-clean() {
+	brew bundle cleanup --file ./Brewfile
+}
+brew-list() {
+	brew bundle dump > ./Brewfile
+}
+
+## ----------------------------------------
+##	Tmux
+## ----------------------------------------
+tmux-plug-intall() {
+	/bin/bash ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+}
+tmux-plug-update() {
+	/bin/bash ~/.tmux/plugins/tpm/scripts/update_plugins.sh
+}
+tmux-plug-clean() {
+	/bin/bash ~/.tmux/plugins/tpm/scripts/clean_plugins.sh
+}
+
+## ----------------------------------------
+##	VSCode
+## ----------------------------------------
+vscode-plug-install() {
+	# This also updates.
+	plugins=($(cat ./Vsplug))
+	for plugin in ${plugins}; do
+		code --install-extension ${plugin}
+	done
+}
+vscode-plug-clean() {
+	plugin=$(cat ./Vsplug | fzf)
+	code --uninstall-extension ${plugin}
+}
+vscode-plug-list() {
+	code --list-extensions > ./bundle/Vsplug
+}
+
+## ----------------------------------------
+##	Zinit
+## ----------------------------------------
+zinit-plug-install() {
+	source ~/.zshrc
+}
+zinit-plug-update() {
+	zinit self-update
+	zinit update
+}
+zinit-plug-clean() {
+	zinit clean
+}
+
+## ----------------------------------------
+##	Npm
+## ----------------------------------------
+npm-install() {
+	npm install -g $(cat ./Npmfile)
+}
+npm-update() {
+	npm update -g npm
+	npm update -g
+}
+
+## ----------------------------------------
+##	Pip
+## ----------------------------------------
+pip-install() {
+	pip3 install -r ./Pipfile
+}
+pip-update() {
+	pip install --upgrade pip
+	pip freeze | cut -d'=' -f1 | xargs -n1 pip install --upgrades
+}
 
 ## ----------------------------------------
 ##	ssh
