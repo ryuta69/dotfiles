@@ -214,6 +214,12 @@
 			"print($1 ${2:, flush=True})$0"
 		]
 	},
+	"PrintArrayWithBreak": {
+		"prefix": ["printarraywithbreak"],
+		"body": [
+			"print(*$1, sep='\\n')$0"
+		]
+	},
 	"AlphabetNth": {
 		"prefix": ["alphabetnth"],
 		"body": [
@@ -264,6 +270,62 @@
 			"if $1:",
 			"\t$0",
 			"else:"
+		]
+	},
+	"breadthfirstsearch": {
+		"prefix": ["bfs"],
+		"body": [
+			"from collections import defaultdict",
+			"G = defaultdict(list)",
+			"# G[1].append(2)",
+			"",
+			"from collections import deque",
+			"def bfs(G, src, tgt):",
+			"\tif src not in G:",
+			"\t\treturn -1",
+			"\tparents = {src: None}",
+			"\tqueue = deque([src])",
+			"\twhile queue:",
+			"\t\tnode = queue.popleft()",
+			"\t\tfor neighbor in G[node]:",
+			"\t\t\tif neighbor not in parents:",
+			"\t\t\t\tparents[neighbor] = node",
+			"\t\t\t\tqueue.append(neighbor)",
+			"\t\t\t\tif node == tgt:",
+			"\t\t\t\t\tbreak",
+			"\tpath = [tgt]",
+			"\twhile parents[tgt] is not None:",
+			"\t\tpath.insert(0, parents[tgt])",
+			"\t\ttgt = parents[tgt]",
+			"\treturn path"
+		]
+	},
+	"depthfirstsearch": {
+		"prefix": ["dfs"],
+		"body": [
+			"from collections import defaultdict",
+			"G = defaultdict(list)",
+			"# G[1].append(2)",
+			"",
+			"from collections import deque",
+			"def dfs(G, src, tgt):",
+			"\tif src not in G:",
+			"\t\treturn -1",
+			"\tparents = {src: None}",
+			"\tqueue = deque([src])",
+			"\twhile queue:",
+			"\t\tnode = queue.pop()",
+			"\t\tfor neighbor in G[node]:",
+			"\t\t\tif neighbor not in parents:",
+			"\t\t\t\tparents[neighbor] = node",
+			"\t\t\t\tqueue.append(neighbor)",
+			"\t\t\t\tif node == tgt:",
+			"\t\t\t\t\tbreak",
+			"\tpath = [tgt]",
+			"\twhile parents[tgt] is not None:",
+			"\t\tpath.insert(0, parents[tgt])",
+			"\t\ttgt = parents[tgt]",
+			"\treturn path"
 		]
 	},
 	"ReplaceWithRegex": {
@@ -649,6 +711,48 @@
 			"\t\tif self.length == 0:",
 			"\t\t\tself.tail = None",
 			"\t\treturn item"
+		]
+	},
+	"MazeSearch": {
+		"prefix": ["mazesearch"],
+		"body": [
+			"a, b = map(int, input().split())",
+			"G = []",
+			"for i in range(a):",
+			"\tl = list(map(int, input().split()))",
+			"\tG.append(l)",
+			"from collections import deque",
+			"def mazesearch(G, initial_h, initial_w, target_h, target_w):",
+			"\t'''",
+			"\tG is for example:",
+			"\t\tG = [[1,0,1,1,1,1],",
+			"\t\t\t[1,0,1,0,1,0],",
+			"\t\t\t[1,0,1,0,1,1],",
+			"\t\t\t[1,1,1,0,1,1]]",
+			"\t'''",
+			"\tsteps = 0",
+			"\tBLOCKED, ALLOWED   = 0, 1",
+			"\tUNVISITED, VISITED = 0, 1",
+			"\tdirections = [(0, -1), (0, 1), (-1, 0), (1, 0)]",
+			"\tif G[initial_h][initial_w] == BLOCKED:",
+			"\t\treturn -1",
+			"\theight, width = len(G), len(G[0])",
+			"\tis_visited = [[UNVISITED for w in range(width)] for h in range(height)]",
+			"\tis_visited[initial_h][initial_w] = VISITED",
+			"\tqueue = deque([(initial_h, initial_w, steps)])",
+			"\twhile queue:",
+			"\t\th, w, steps = queue.popleft()",
+			"\t\tif h == target_h and w == target_w:",
+			"\t\t\treturn steps",
+			"\t\tfor dh, dw in directions:",
+			"\t\t\tnew_h = h + dh",
+			"\t\t\tnew_w = w + dw",
+			"\t\t\tif not (0 <= new_h < height and 0 <= new_w < width):",
+			"\t\t\t\tcontinue",
+			"\t\t\tif G[new_h][new_w] == ALLOWED and is_visited[new_h][new_w] == UNVISITED:",
+			"\t\t\t\tqueue.append((new_h, new_w, steps + 1))",
+			"\t\t\t\tis_visited[new_h][new_w] = VISITED",
+			"\treturn -1"
 		]
 	},
 	"Stack": {
