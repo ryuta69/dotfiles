@@ -278,6 +278,14 @@
 			"else:"
 		]
 	},
+	"Graph": {
+		"prefix": ["graph"],
+		"body": [
+			"from collections import defaultdict",
+			"G = defaultdict(list)",
+			"# G[1].append(2)"
+		]
+	},
 	"breadthfirstsearch": {
 		"prefix": ["bfs"],
 		"body": [

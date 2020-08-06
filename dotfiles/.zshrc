@@ -80,6 +80,7 @@ bindkey "^[[B" down-line-or-beginning-search
 alias vi='nvim'
 alias cdh='cd ~'
 alias op='open ./'
+alias pp='pbpaste >'
 alias cdwk='cd ~/work'
 alias hf='hyperfine --max-runs 3'
 alias weather='curl -Acurl wttr.in/Tokyo'
@@ -108,6 +109,7 @@ rgf()  {
 	vi "${selected}";
 }
 cap()  { cat "$1" | pbcopy }
+at()   { python3 "$1".py < "$1" }
 mkcd() { mkdir "$1" && cd "$1"; }
 fdr()  { fd "$1" | xargs sd "$2" "$3"; }
 rgr()  { rg --files-with-matches "$1" | xargs sd "$1" "$2"; }
