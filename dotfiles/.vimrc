@@ -8,6 +8,7 @@ call plug#begin(plugdir)
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
+	Plug 'pechorin/any-jump.vim'
 	Plug 'machakann/vim-sandwich'
 	Plug 'junegunn/vim-easy-align'
 	Plug 'Lokaltog/vim-easymotion'

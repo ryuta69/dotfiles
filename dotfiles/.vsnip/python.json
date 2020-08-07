@@ -344,6 +344,47 @@
 			"path = dfs(F, src, tgt)"
 		]
 	},
+	"BellmanFord": {
+		"prefix": ["bellmanford"],
+		"body": [
+			"from collections import defaultdict",
+			"G = defaultdict(dict)",
+			"for i in range(n):",
+			"\tG[i+1] = {}",
+			"# G['a']['b'] = -1",
+			"# start_vertex = 'a'",
+			"def bellmanford(G, start_vertex):",
+			"\tif start_vertex not in G:",
+			"\t\treturn -1,-1 # no key",
+			"\tdistances = {}",
+			"\tparents   = {}",
+			"\tfor node in G:",
+			"\t\tdistances[node] = float('inf')",
+			"\t\t# distances[node] = float('-inf')",
+			"\t\tparents[node]   = None",
+			"\tdistances[start_vertex] = 0",
+			"\tfor _ in range(len(G)-1):",
+			"\t\tfor node in G.keys():",
+			"\t\t\tfor neighbor in G[node]:",
+			"\t\t\t\t# if distances[neighbor] < distances[node] + G[node][neighbor]:",
+			"\t\t\t\tif distances[neighbor] > distances[node] + G[node][neighbor]:",
+			"\t\t\t\t\tdistances[neighbor] = distances[node] + G[node][neighbor]",
+			"\t\t\t\t\tparents[neighbor]   = node",
+			"\tfor node in G.keys():",
+			"\t\tfor neighbor in G[node]:",
+			"\t\t\t# if (distances[neighbor] < distances[node] + G[node][neighbor]):",
+			"\t\t\tif (distances[neighbor] > distances[node] + G[node][neighbor]):",
+			"\t\t\t\treturn -1,-1 # occurs recursion.",
+			"\treturn distances, parents",
+			"distances, parents = bellmanford(G, start_vertex)",
+			"## if you want to get path",
+			"# pathnode = 'e' # set goal at first",
+			"# path = [pathnode]",
+			"# while pathnode != start_vertex:",
+			"#\t pathnode = parents[pathnode]",
+			"#\t path.append(pathnode)"
+		]
+	},
 	"ReplaceWithRegex": {
 		"prefix": ["replacewithregex"],
 		"body": [
