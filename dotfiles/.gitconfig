@@ -10,6 +10,7 @@
 	adu = !git diff --name-only --cached | fzf -m --print0 | xargs -0 git restore --staged
 	br  = branch -a
 	brd = !git branch | fzf -m --print0 | tr -d ' ' | xargs -0 git branch -D
+	bl  = !"f() { git blame $1 | fzf --preview 'echo {} | cut -f1 -d\" \" | xargs git show --color'; }; f"
 	cm  = commit --verbose
 	cl  = clean -fd
 	co  = checkout
@@ -27,7 +28,8 @@
 	fp  = fetch -p
 	g   = !ghq get
 	lg  = log --stat
-	lgg = !git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit | fzf
+	lgg = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lgs = !git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit | fzf --preview 'echo {} | cut -f1 -d\" \" | xargs git show --color'
 	lgp = log -p
 	mt  = mergetool
 	op  = !hub browse
@@ -39,13 +41,13 @@
 	pl  = pull
 	pll = !git pull origin `git rev-parse --abbrev-ref HEAD`
 	plr = pull --rebase
-	pr  = !git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request' | head -n 1;
+	pr  = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request' | head -n 1; }; f"
 	rb  = rebase
 	rf  = reflog --date=iso
 	rs  = reset
 	rsh = reset --hard
 	rmg = !rm -rf `ghq list -p | fzf`
-	rv  = !git revert $1^..$2
+	rv  = !"f() { git revert $1^..$2; }; f"
 	sca = secrets --scan-history
 	st  = status
 	ss  = stash save
@@ -53,7 +55,6 @@
 	sl  = !git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'
 	sp  = !git stash pop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
 	sd  = !git stash drop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
-	sh  = !git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit | fzf --print0 | cut -f1 -d' ' | xargs git show
 	sk  = update-index --skip-worktree
 	usk = update-index --no-skip-worktree
 	vi  = !nvim ~/.gitconfig
