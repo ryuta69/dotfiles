@@ -8,7 +8,6 @@ call plug#begin(plugdir)
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
-	Plug 'pechorin/any-jump.vim'
 	Plug 'machakann/vim-sandwich'
 	Plug 'junegunn/vim-easy-align'
 	Plug 'Lokaltog/vim-easymotion'
@@ -91,10 +90,10 @@ highlight Normal      guibg=#0A0E14
 highlight ModeMsg     guifg=#3D424D
 highlight FoldColumn  guibg=#0A0E14
 highlight EndOfBuffer ctermfg=0 guifg=bg
-highlight DiffAdd     gui=NONE  guifg=NONE    guibg=#003366
-highlight DiffDelete  gui=bold  guifg=#660000 guibg=#660000
-highlight DiffChange  gui=NONE  guifg=NONE    guibg=#006666
-highlight DiffText    gui=NONE  guifg=NONE    guibg=#013220
+highlight DiffAdd     gui=NONE  guifg=NONE    guibg=#012800
+highlight DiffDelete  gui=bold  guifg=#340001 guibg=#340001
+highlight DiffChange  gui=NONE  guifg=NONE    guibg=#012800
+highlight DiffText    gui=NONE  guifg=NONE    guibg=#012800
 
 "" ========== FzfVim ==========
 nnoremap <Leader>file :Files<CR>
@@ -173,8 +172,9 @@ nnoremap <Leader>gd  :Gdiff<CR>
 nnoremap <Leader>ga  :Gwrite<CR>
 nnoremap <Leader>gb  :Gblame<CR>
 nnoremap <Leader>gs  :Gstatus<CR>
-nnoremap <Leader>dp  :diffput<CR>
 nnoremap <Leader>du  :diffupdate<CR>
+nnoremap <Leader>gm  :Gdiffsplit!<CR>
+nnoremap <Leader>dp  :diffput 1 \| diffupdate<CR>
 nnoremap <Leader>dgl :diffget //2 \| diffupdate<CR>
 nnoremap <Leader>dgr :diffget //3 \| diffupdate<CR>
 set diffopt+=vertical
