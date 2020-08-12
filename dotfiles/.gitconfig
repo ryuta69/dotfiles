@@ -36,10 +36,8 @@
 	opg = !hub browse `ghq list | fzf | cut -d "/" -f 2,3`
 	opi = !hub issue show `hub issue | fzf`
 	opp = !hub pr show `hub pr list | fzf`
- 	ps  = push
- 	pss = !git push origin `git rev-parse --abbrev-ref HEAD`
-	pl  = pull
-	pll = !git pull origin `git rev-parse --abbrev-ref HEAD`
+ 	ps  = !git push origin `git rev-parse --abbrev-ref HEAD`
+	pl  = !git pull origin `git rev-parse --abbrev-ref HEAD`
 	plr = pull --rebase
 	pr  = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request' | head -n 1; }; f"
 	rb  = rebase
