@@ -399,6 +399,16 @@
 			"str = re.sub(r'$1', '$2', $3)$0"
 		]
 	},
+	"Fibonacci": {
+		"prefix": ["fibonacci"],
+		"body": [
+			"def fibonacci(n):",
+			"\tif n==0 or n==1:",
+			"\t\treturn 1",
+			"\telse:",
+			"\t\treturn fibonacci(n-1) + fibonacci(n-2)"
+		]
+	},
 	"Round": {
 		"prefix": ["round"],
 		"body": [
