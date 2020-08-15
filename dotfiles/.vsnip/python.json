@@ -26,6 +26,12 @@
 			"z = {0:0${1:1}d}'.format($2)$0"
 		]
 	},
+	"Inf": {
+		"prefix": ["inf"],
+		"body": [
+			"i = float('inf')$0"
+		]
+	},
 	"ListMulti": {
 		"prefix": ["listmulti"],
 		"body": [
@@ -347,49 +353,41 @@
 	"BellmanFord": {
 		"prefix": ["bellmanford"],
 		"body": [
-			"from collections import defaultdict",
-			"G = defaultdict(dict)",
-			"for i in range(n):",
-			"\tG[i+1] = {}",
-			"# G['a']['b'] = -1",
-			"# start_vertex = 'a'",
-			"def bellmanford(G, start_vertex):",
-			"\tif start_vertex not in G:",
-			"\t\treturn -1,-1 # no key",
-			"\tdistances = {}",
+			"n,m = map(int, input().split())",
+			"start_vertex = 1",
+			"end_vertex   = n",
+			"G = []",
+			"for i in range(m):",
+			"\ta,b,cost = map(int, input().split())",
+			"\tG.append([a,b,cost])",
+			"def bellmanford(G, N, start_vertex, end_vertex):",
+			"\tdistances = [float('inf') for _ in range(N+1)]",
 			"\tparents   = {}",
-			"\tfor node in G:",
-			"\t\tdistances[node] = float('inf')",
-			"\t\t# distances[node] = float('-inf')",
-			"\t\tparents[node]   = None",
 			"\tdistances[start_vertex] = 0",
-			"\tfor _ in range(len(G)-1):",
-			"\t\tfor node in G.keys():",
-			"\t\t\tfor neighbor in G[node]:",
-			"\t\t\t\t# if distances[neighbor] < distances[node] + G[node][neighbor]:",
-			"\t\t\t\tif distances[neighbor] > distances[node] + G[node][neighbor]:",
-			"\t\t\t\t\tdistances[neighbor] = distances[node] + G[node][neighbor]",
-			"\t\t\t\t\tparents[neighbor]   = node",
-			"\tfor node in G.keys():",
-			"\t\tfor neighbor in G[node]:",
-			"\t\t\t# if (distances[neighbor] < distances[node] + G[node][neighbor]):",
-			"\t\t\tif (distances[neighbor] > distances[node] + G[node][neighbor]):",
-			"\t\t\t\treturn -1,-1 # occurs recursion.",
-			"## if you only need to check the recursion on right path",
-			"# node = target_index",
-    		"# while node != start_vertex:",
-    		"# \tfor neighbor in G[node]:",
-    		"# \t\tif distances[neighbor] < distances[node] + G[node][neighbor]:",
-    		"# \t\t\treturn -1,-1",
-    		"# \tnode = parents[node]",
+			"\tfor _ in range(N):",
+			"\t\tfor node,neighbor,cost in G:",
+			"\t\t\tif distances[neighbor] > distances[node] + cost:",
+			"\t\t\t\tdistances[neighbor] = distances[node] + cost",
+			"\t\t\t\tparents[neighbor]   = node",
+			"\tfor node,neighbor,cost in G:",
+			"\t\tif distances[neighbor] > distances[node] + cost:",
+			"\t\t\treturn -1,-1",
+			"\t# # If you need to check recursion only on the path to goal.",
+			"\t# prev_distance = distances[end_vertex]",
+			"\t# for _ in range(N):",
+			"\t#\t for node,neighbor,cost in G:",
+			"\t#\t\t if distances[neighbor] > distances[node] + cost:",
+			"\t#\t\t\t distances[neighbor] = -float('inf')",
+			"\t# if prev_distance != distances[end_vertex]:",
+			"\t#\t return -1,-1",
 			"\treturn distances, parents",
-			"distances, parents = bellmanford(G, start_vertex)",
-			"## if you want to get path",
-			"# pathnode = 'e' # set goal at first",
-			"# path = [pathnode]",
-			"# while pathnode != start_vertex:",
-			"#\t pathnode = parents[pathnode]",
-			"#\t path.append(pathnode)"
+			"distances, parents = bellmanford(G, n, start_vertex, end_vertex)",
+			"# # if you want to get path",
+			"# node = end_vertex",
+			"# path = [node]",
+			"# while node != start_vertex:",
+			"#\t node = parents[node]",
+			"#\t path.append(node)"
 		]
 	},
 	"ReplaceWithRegex": {
@@ -407,6 +405,17 @@
 			"\t\treturn 1",
 			"\telse:",
 			"\t\treturn fibonacci(n-1) + fibonacci(n-2)"
+		]
+	},
+	"ConvertBase": {
+		"prefix": ["convertbase"],
+		"body": [
+			"def convertBase(n, base):",
+			"\tresult = ''",
+			"\twhile n>0:",
+			"\t\tresult = str(n % 2) + result",
+			"\t\tn //= 2",
+			"\treturn int(result)"
 		]
 	},
 	"Round": {
@@ -545,8 +554,8 @@
 			"${1:lp} = permutations(${2:l}, ${3:3})"
 		]
 	},
-	"SieveOfEratosthenes": {
-		"prefix": ["sieveoferatosthenes"],
+	"EratosthenesSieve": {
+		"prefix": ["eratosthenes_sieve"],
 		"body": [
 			"def sieve_of_eratosthenes(n):",
 			"\tprime = [2]",
