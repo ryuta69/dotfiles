@@ -59,3 +59,5 @@ https://www.reddit.com/r/unixporn/comments/hyuvk6/dwm_cats_meow/
 https://github.com/yoyostile/nerdbar.widget-1
 
 https://www.reddit.com/r/unixporn/
+
+https://www.reddit.com/r/unixporn/comments/i60b10/awesome_streets_of_gruvbox
