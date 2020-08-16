@@ -245,6 +245,14 @@
 			"\t$0"
 		]
 	},
+	"Class": {
+		"prefix": ["class"],
+		"body": [
+			"class $1():",
+			"\tdef __init__(self):",
+			"\t$0"
+		]
+	},
 	"Len": {
 		"prefix": ["len"],
 		"body": [
@@ -282,6 +290,49 @@
 			"if $1:",
 			"\t$0",
 			"else:"
+		]
+	},
+	"Queens": {
+		"prefix": ["queens"],
+		"body": [
+			"N = 8",
+			"class NQueens():",
+			"\tdef __init__(self, N):",
+			"\t\tself.N = N",
+			"\t\tself.board = [[0 for i in range(N)] for j in range(N)]",
+			"\tdef is_safe(self, row, column):",
+			"\t\tfor i in range(self.N):",
+			"\t\t\tif self.board[row][i] == 1:",
+			"\t\t\t\treturn False",
+			"\t\tfor i in range(self.N):",
+			"\t\t\tif self.board[i][column] == 1:",
+			"\t\t\t\treturn False",
+			"\t\tfor i, j in zip(range(row, -1, -1), range(column, -1, -1)):",
+			"\t\t\tif self.board[i][j] == 1:",
+			"\t\t\t\treturn False",
+			"\t\tfor i, j in zip(range(row, -1, -1), range(column, self.N)):",
+			"\t\t\tif self.board[i][j] == 1:",
+			"\t\t\t\treturn False",
+			"\t\treturn True",
+			"\tdef solve(self, row = 0):",
+			"\t\tif row >= self.N:",
+			"\t\t\tself.print_solution()",
+			"\t\t\tprint()",
+			"\t\t\treturn",
+			"\t\tfor i in range(self.N):",
+			"\t\t\tif self.is_safe(row, i):",
+			"\t\t\t\tself.board[row][i] = 1",
+			"\t\t\t\tself.solve(row + 1)",
+			"\t\t\t\tself.board[row][i] = 0",
+			"\tdef print_solution(self):",
+			"\t\tfor i in range(self.N):",
+			"\t\t\tfor j in range(self.N):",
+			"\t\t\t\tif self.board[i][j] == 1:",
+			"\t\t\t\t\tprint('Q', end=' ')",
+			"\t\t\t\telse:",
+			"\t\t\t\t\tprint('.', end=' ')",
+			"\t\t\tprint()",
+			"NQueens(N).solve()"
 		]
 	},
 	"Graph": {
