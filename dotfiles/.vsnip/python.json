@@ -297,10 +297,33 @@
 		"body": [
 			"from collections import defaultdict",
 			"G = defaultdict(list)",
+			"for i in range(n):",
+			"\tG[i] = []",
+			"# G[0].append(2)",
+			"from collections import deque",
+			"def bfs(G, src):",
+			"\tcosts = [-1 for _ in range(len(G))]",
+			"\tcosts[src] = 0",
+			"\tqueue = deque([src])",
+			"\twhile queue:",
+			"\t\tnode = queue.popleft()",
+			"\t\tfor neighbor in G[node]:",
+			"\t\t\tif costs[neighbor] != -1:",
+			"\t\t\t\tcontinue",
+			"\t\t\tcosts[neighbor] = costs[node] + 1",
+			"\t\t\tqueue.append(neighbor)",
+			"\treturn costs"
+		]
+	},
+	"bfsShortestPath": {
+		"prefix": ["bfs_shortest_path"],
+		"body": [
+			"from collections import defaultdict",
+			"G = defaultdict(list)",
 			"# G[1].append(2)",
 			"",
 			"from collections import deque",
-			"def bfs(G, src, tgt):",
+			"def bfs_shortest_path(G, src, tgt):",
 			"\tif src not in G:",
 			"\t\treturn -1",
 			"\tparents = {src: None}",
@@ -318,7 +341,7 @@
 			"\t\tpath.insert(0, parents[tgt])",
 			"\t\ttgt = parents[tgt]",
 			"\treturn path",
-			"path = bfs(F, src, tgt)"
+			"path = bfs_shortest_path(G, src, tgt)"
 		]
 	},
 	"depthfirstsearch": {
@@ -326,28 +349,22 @@
 		"body": [
 			"from collections import defaultdict",
 			"G = defaultdict(list)",
-			"# G[1].append(2)",
-			"",
+			"for i in range(n):",
+			"\tG[i] = []",
+			"# G[0].append(2)",
 			"from collections import deque",
-			"def dfs(G, src, tgt):",
-			"\tif src not in G:",
-			"\t\treturn -1",
-			"\tparents = {src: None}",
+			"def dfs(G, src):",
+			"\tcosts = [-1 for _ in range(len(G))]",
+			"\tcosts[src] = 0",
 			"\tqueue = deque([src])",
 			"\twhile queue:",
 			"\t\tnode = queue.pop()",
 			"\t\tfor neighbor in G[node]:",
-			"\t\t\tif neighbor not in parents:",
-			"\t\t\t\tparents[neighbor] = node",
-			"\t\t\t\tqueue.append(neighbor)",
-			"\t\t\t\tif node == tgt:",
-			"\t\t\t\t\tbreak",
-			"\tpath = [tgt]",
-			"\twhile parents[tgt] is not None:",
-			"\t\tpath.insert(0, parents[tgt])",
-			"\t\ttgt = parents[tgt]",
-			"\treturn path",
-			"path = dfs(F, src, tgt)"
+			"\t\t\tif costs[neighbor] != -1:",
+			"\t\t\t\tcontinue",
+			"\t\t\tcosts[neighbor] = costs[node] + 1",
+			"\t\t\tqueue.append(neighbor)",
+			"\treturn costs"
 		]
 	},
 	"BellmanFord": {
@@ -388,6 +405,32 @@
 			"# while node != start_vertex:",
 			"#\t node = parents[node]",
 			"#\t path.append(node)"
+		]
+	},
+	"LinkedList": {
+		"prefix": ["linkedlist"],
+		"body": [
+			"class Node:",
+			"\tdef __init__(self, item, next):",
+			"\t\tself.item = item",
+			"\t\tself.next = next",
+			"class LinkedList:",
+			"\tdef __init__(self):",
+			"\t\tself.head = None",
+			"\t\tself.size = 0",
+			"\tdef add(self, item):",
+			"\t\tself.head = Node(item, self.head)",
+			"\t\tself.size += 1",
+			"\tdef remove(self):",
+			"\t\tif self.is_empty():",
+			"\t\t\treturn None",
+			"\t\telse:",
+			"\t\t\titem = self.head.item",
+			"\t\t\tself.head = self.head.next",
+			"\t\t\tself.size -= 1",
+			"\t\t\treturn item",
+			"\tdef is_empty(self):",
+			"\t\treturn self.head is None"
 		]
 	},
 	"ReplaceWithRegex": {
@@ -646,6 +689,27 @@
 			"\t\t\tright = middle - 1",
 			"\tsorted_list.insert(left, item)",
 			"\treturn sorted_list"
+		]
+	},
+	"BinarySearch": {
+		"prefix": ["binarysearch"],
+		"body": [
+			"def binary_search(sorted_list, item):",
+			"\tleft = 0",
+			"\tright = len(sorted_list) - 1",
+			"\twhile left <= right:",
+			"\t\tmiddle = (left + right) // 2",
+			"\t\tif left == right:",
+			"\t\t\tif sorted_list[middle] < item:",
+			"\t\t\t\tleft = middle + 1",
+			"\t\t\t\tbreak;",
+			"\t\t\telse:",
+			"\t\t\t\tbreak;",
+			"\t\telif sorted_list[middle] < item:",
+			"\t\t\tleft = middle + 1",
+			"\t\telse:",
+			"\t\t\tright = middle - 1",
+			"\treturn left"
 		]
 	},
 	"Quicksort": {
