@@ -20,6 +20,13 @@
 			"\t# l = list(map(float, ${1:n}.split()))$0"
 		]
 	},
+	"Memo": {
+		"prefix": ["memo"],
+		"body": [
+			"import functools",
+			"@functools.lru_cache(maxsize=None)"
+		]
+	},
 	"Zfill": {
 		"prefix": ["zfill"],
 		"body": [
@@ -333,6 +340,29 @@
 			"\t\t\t\t\tprint('.', end=' ')",
 			"\t\t\tprint()",
 			"NQueens(N).solve()"
+		]
+	},
+	"BitSearch": {
+		"prefix": ["bitsearch"],
+		"body": [
+			"for i in range(1<<N):",
+			"\tbit_matched = []",
+			"\tfor j in range(N):",
+			"\t\tif (i>>j) & 1:",
+			"\t\t\tbit_matched.append(l[j])",
+			"\tprint(bit_matched , flush=True)"
+		]
+	},
+	"Hanoi": {
+		"prefix": ["hanoi"],
+		"body": [
+			"def hanoi(n, src, tgt, tmp):",
+			"\tif n == 1:",
+			"\t\tprint(f'Move {n} {src} -> {tgt}')",
+			"\t\treturn",
+			"\thanoi(n-1, src, tmp, tgt)",
+			"\tprint(f'Move {n} {src} -> {tgt}')",
+			"\thanoi(n-1, tmp, tgt, src)"
 		]
 	},
 	"Graph": {
