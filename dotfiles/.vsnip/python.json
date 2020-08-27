@@ -448,8 +448,31 @@
 			"\treturn costs"
 		]
 	},
-	"depthfirstsearch": {
-		"prefix": ["dfs"],
+	"WarshallFloyd": {
+		"prefix": ["warshallfloyd"],
+		"body": [
+			"N,M = map(int, input().split())",
+			"dp = [[float('inf')] * N for _ in range(N)]",
+			"for i in range(N):",
+			"\tdp[i][i] = 0",
+			"for i in range(M):",
+			"\ta,b,t = map(int, input().split())",
+			"\tdp[a-1][b-1] = min(t, dp[a-1][b-1])",
+			"\tdp[b-1][a-1] = min(t, dp[b-1][a-1])",
+			"def warshall_floyd(dp, N):",
+			"\tfor k in range(N):",
+			"\t\tfor i in range(N):",
+			"\t\t\tfor j in range(N):",
+			"\t\t\t\tdp[i][j] = min(dp[i][j], dp[i][k] + dp[k][j])",
+			"\tans = float('inf')",
+			"\tfor d in dp:",
+			"\t\tans = min(ans, max(d))",
+			"\treturn ans",
+			"print(warshall_floyd(dp, N))"
+		]
+	},
+	"Dijkstra": {
+		"prefix": ["dijkstra"],
 		"body": [
 			"# from collections import defaultdict",
 			"# G = defaultdict(list)",
