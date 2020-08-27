@@ -255,7 +255,7 @@
 	"Class": {
 		"prefix": ["class"],
 		"body": [
-			"class $1():",
+			"class $1:",
 			"\tdef __init__(self):",
 			"\t$0"
 		]
@@ -340,6 +340,40 @@
 			"\t\t\t\t\tprint('.', end=' ')",
 			"\t\t\tprint()",
 			"NQueens(N).solve()"
+		]
+	},
+	"BoyerMooreSearch": {
+		"prefix": ["boyermooresearch"],
+		"body": [
+			"from collections import defaultdict",
+			"class boyer_moore_search:",
+			"\tdef __init__(self, text, pattern):",
+			"\t\tself.text = text",
+			"\t\tself.pattern = pattern",
+			"\t\tself.len_text = len(text)",
+			"\t\tself.len_pattern = len(pattern)",
+			"\tdef search(self):",
+			"\t\tans = []",
+			"\t\tshift_table = defaultdict(str)",
+			"\t\tfor i in range(26):",
+			"\t\t\tshift_table[chr(ord('A') + i)] = self.len_pattern",
+			"\t\tfor i in range(self.len_pattern):",
+			"\t\t\tshift_table[self.pattern[i]] = self.len_pattern - i - 1",
+			"\t\tsearching_pattern_index = 0",
+			"\t\twhile(searching_pattern_index <= self.len_text - self.len_pattern):",
+			"\t\t\tsearching_char_index = self.len_pattern - 1",
+			"\t\t\twhile searching_char_index >= 0 and self.pattern[searching_char_index] == self.text[searching_pattern_index + searching_char_index]:",
+			"\t\t\t\tsearching_char_index -= 1",
+			"\t\t\tif searching_char_index < 0:",
+			"\t\t\t\tans.append(searching_pattern_index)",
+			"\t\t\t\tif searching_pattern_index + self.len_pattern < self.len_text:",
+			"\t\t\t\t\tsearching_pattern_index += (self.len_pattern - shift_table[self.text[searching_pattern_index + searching_char_index]])",
+			"\t\t\t\telse:",
+			"\t\t\t\t\tsearching_pattern_index += 1",
+			"\t\t\telse:",
+			"\t\t\t\tsearching_pattern_index += max(1, searching_char_index - shift_table[self.text[searching_pattern_index + searching_char_index]])",
+			"\t\treturn ans",
+			"ans = boyer_moore_search(txt, pat).search()"
 		]
 	},
 	"BitSearch": {
