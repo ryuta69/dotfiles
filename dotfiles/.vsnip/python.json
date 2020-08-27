@@ -448,6 +448,32 @@
 			"\treturn costs"
 		]
 	},
+	"depthfirstsearch": {
+		"prefix": ["dfs"],
+		"body": [
+			"# from collections import defaultdict",
+			"# G = defaultdict(list)",
+			"# for i in range(n):",
+			"#\t G['A'].append(['B', 2])",
+			"import heapq",
+			"def dijkstra(G, start, end):",
+			"\theap = [(0, start)]",
+			"\tvisited = set()",
+			"\twhile heap:",
+			"\t\t(cost, src) = heapq.heappop(heap)",
+			"\t\tif src in visited:",
+			"\t\t\tcontinue",
+			"\t\tvisited.add(src)",
+			"\t\tif src == end:",
+			"\t\t\treturn cost",
+			"\t\tfor dest, cost_to_dest in G[src]:",
+			"\t\t\tif dest in visited:",
+			"\t\t\t\tcontinue",
+			"\t\t\theapq.heappush(heap, (cost + cost_to_dest, dest))",
+			"\treturn -1",
+			"# ans = dijkstra(G, 'E', 'C')"
+		]
+	},
 	"BellmanFord": {
 		"prefix": ["bellmanford"],
 		"body": [
