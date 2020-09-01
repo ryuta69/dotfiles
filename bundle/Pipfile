@@ -4,4 +4,5 @@ pillow
 pynvim
 requests
 selenium
+matplotlib
 youtube-dl

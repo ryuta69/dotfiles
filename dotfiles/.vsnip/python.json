@@ -387,6 +387,30 @@
 			"\tprint(bit_matched , flush=True)"
 		]
 	},
+	"Bubunwa": {
+		"prefix": ["bubunwa"],
+		"body": [
+			"# L = [",
+			"#\t ['a', 100],",
+			"#\t ['b', 200],",
+			"#\t ['c', 300],",
+			"# ]",
+			"N= len(L)",
+			"ans = []",
+			"point = float('inf')",
+			"for i in range(1<<N):",
+			"\tbit_matched = []",
+			"\tcur_comb = []",
+			"\tfor j in range(N):",
+			"\t\tif (i>>j) & 1:",
+			"\t\t\tbit_matched.append(L[j][1])",
+			"\t\t\tcur_comb.append(L[j][0])",
+			"\tcurrent_point = abs(sum(bit_matched) - 1000)",
+			"\tif current_point < point:",
+			"\t\tpoint = current_point",
+			"\t\tans = cur_comb"
+		]
+	},
 	"Hanoi": {
 		"prefix": ["hanoi"],
 		"body": [
