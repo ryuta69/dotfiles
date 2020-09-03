@@ -33,6 +33,7 @@ call plug#end()
 set nobomb
 set lazyredraw
 set laststatus=0
+set termguicolors
 let $LANG='en_US.UTF-8'
 let mapleader="\<Space>"
 set title titlestring=%F
@@ -82,10 +83,9 @@ map <Leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 ""	PluginSetting
 "" ----------------------------------------
 " ========== Theme ==========
-" let ayucolor='dark' | colorscheme ayu | set termguicolors
-" highlight Normal      guibg=#0A0E14
-" highlight FoldColumn  guibg=#0A0E14
-colorscheme wal
+let ayucolor='dark' | colorscheme ayu
+highlight Normal      guibg=#0A0E14
+highlight FoldColumn  guibg=#0A0E14
 highlight User1       guifg=#3D424D
 highlight ModeMsg     guifg=#3D424D
 highlight EndOfBuffer ctermfg=0 guifg=bg
@@ -93,6 +93,11 @@ highlight DiffAdd     gui=NONE  guifg=NONE    guibg=#012800
 highlight DiffDelete  gui=bold  guifg=#340001 guibg=#340001
 highlight DiffChange  gui=NONE  guifg=NONE    guibg=#012800
 highlight DiffText    gui=NONE  guifg=NONE    guibg=#012800
+nnoremap  <Leader>wal :call Wal()<CR>
+function! Wal()
+	set notermguicolors
+	colorscheme wal
+endfunction
 
 "" ========== FzfVim ==========
 nnoremap <Leader>file :Files<CR>
