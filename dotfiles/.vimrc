@@ -5,7 +5,6 @@ let plugdir=has('nvim') ? '~/.config/nvim/plugged/' : '~/.vim/plugged'
 call plug#begin(plugdir)
 	Plug 'mattn/emmet-vim'
 	Plug 'cohama/lexima.vim'
-	Plug 'ayu-theme/ayu-vim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
 	Plug 'machakann/vim-sandwich'
@@ -14,6 +13,7 @@ call plug#begin(plugdir)
 	Plug 'yuttie/comfortable-motion.vim'
 	Plug 'bronson/vim-trailing-whitespace'
 	Plug 'ConradIrwin/vim-bracketed-paste'
+	Plug 'ayu-theme/ayu-vim' | Plug 'dylanaraps/wal.vim'
 	Plug 'sheerun/vim-polyglot' | Plug 'ap/vim-css-color'
 	Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
 	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -33,7 +33,6 @@ call plug#end()
 set nobomb
 set lazyredraw
 set laststatus=0
-set termguicolors
 let $LANG='en_US.UTF-8'
 let mapleader="\<Space>"
 set title titlestring=%F
@@ -82,13 +81,13 @@ map <Leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 "" ----------------------------------------
 ""	PluginSetting
 "" ----------------------------------------
-"" ========== AyuVim ==========
-let ayucolor='dark'
-colorscheme ayu
+" ========== Theme ==========
+" let ayucolor='dark' | colorscheme ayu | set termguicolors
+" highlight Normal      guibg=#0A0E14
+" highlight FoldColumn  guibg=#0A0E14
+colorscheme wal
 highlight User1       guifg=#3D424D
-highlight Normal      guibg=#0A0E14
 highlight ModeMsg     guifg=#3D424D
-highlight FoldColumn  guibg=#0A0E14
 highlight EndOfBuffer ctermfg=0 guifg=bg
 highlight DiffAdd     gui=NONE  guifg=NONE    guibg=#012800
 highlight DiffDelete  gui=bold  guifg=#340001 guibg=#340001
