@@ -5,7 +5,23 @@
 
 <img alt="dotfiles" src="https://user-images.githubusercontent.com/41639488/91911058-435f2500-eceb-11ea-98c3-45ee1aab066a.png">
 
-Not only dotfiles, with one command, it sets [All of MacOS System Preferences](https://github.com/ryuta69/dotfiles/blob/master/system/macos.sh), installs [Applications and Plugins](https://github.com/ryuta69/dotfiles/tree/master/bundle), and enables [Launcher and Window Manager](https://github.com/ryuta69/dotfiles/tree/master/dotfiles/.library) to recovery from Factory-Reset-OS. More screenshots are [here](https://github.com/ryuta69/dotfiles/issues/1). There are also [Windows and Linux setup scripts](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux).
+Not only dotfiles, with one command from Factory-Reset-OS, it sets [All of MacOS System Preferences](https://github.com/ryuta69/dotfiles/blob/master/system/macos.sh), installs [Applications and Plugins](https://github.com/ryuta69/dotfiles/tree/master/bundle), and enables [Launcher and Window Manager](https://github.com/ryuta69/dotfiles/tree/master/dotfiles/.library). There are also [Windows and Linux setup scripts](https://github.com/ryuta69/dotfiles/tree/master/system/.windows_and_linux).
+
+You can change themes with one command anytime. These are my original theme.
+
+### Calm BlueGreen
+<img alt="calm bluegreen" src="https://user-images.githubusercontent.com/41639488/92177299-31ac8780-ee7b-11ea-8706-10af1f4a6611.png">
+
+### ViVid Green
+<img alt="vivid green" src="https://user-images.githubusercontent.com/41639488/92177442-79331380-ee7b-11ea-9b0b-a421671c3400.png">
+
+### Cowboy Brown
+<img alt="cowboy brown" src="https://user-images.githubusercontent.com/41639488/92177661-e34bb880-ee7b-11ea-83bc-63149f6051bb.png">
+
+### Mist BlueGreen
+<img alt="mist bluegreen" src="https://user-images.githubusercontent.com/41639488/92177901-5a814c80-ee7c-11ea-86a6-8c2f72136c60.png">
+
+More themes are [here](https://github.com/ryuta69/dotfiles/blob/master/dotfiles/.pywal).
 
 <br />
 
