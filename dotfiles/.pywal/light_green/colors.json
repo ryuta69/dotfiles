@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/Users/ryuta69/Downloads/image_3.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#10100c",
+        "foreground": "#c5c1a3",
+        "cursor": "#c5c1a3"
+    },
+    "colors": {
+        "color0": "#10100c",
+        "color1": "#61602C",
+        "color2": "#6C6E32",
+        "color3": "#716B48",
+        "color4": "#8A7649",
+        "color5": "#7A8535",
+        "color6": "#9B9945",
+        "color7": "#c5c1a3",
+        "color8": "#898772",
+        "color9": "#61602C",
+        "color10": "#6C6E32",
+        "color11": "#716B48",
+        "color12": "#8A7649",
+        "color13": "#7A8535",
+        "color14": "#9B9945",
+        "color15": "#c5c1a3"
+    }
+}

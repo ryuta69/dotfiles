@@ -1,0 +1,21 @@
+set $wallpaper /Users/ryuta69/Downloads/cdn.leoh.io200image_56.jpg
+
+set $background #190c0d
+set $foreground #ecd4d3
+
+set $color0 #190c0d
+set $color1 #DB745B
+set $color2 #FBAC3B
+set $color3 #F08D6B
+set $color4 #744989
+set $color5 #A8658D
+set $color6 #EDA29D
+set $color7 #ecd4d3
+set $color8 #a59493
+set $color9 #DB745B
+set $color10 #FBAC3B
+set $color11 #F08D6B
+set $color12 #744989
+set $color13 #A8658D
+set $color14 #EDA29D
+set $color15 #ecd4d3

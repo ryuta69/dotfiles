@@ -1,0 +1,21 @@
+set $wallpaper /Users/ryuta69/Downloads/image_3.jpg
+
+set $background #10100c
+set $foreground #c5c1a3
+
+set $color0 #10100c
+set $color1 #61602C
+set $color2 #6C6E32
+set $color3 #716B48
+set $color4 #8A7649
+set $color5 #7A8535
+set $color6 #9B9945
+set $color7 #c5c1a3
+set $color8 #898772
+set $color9 #61602C
+set $color10 #6C6E32
+set $color11 #716B48
+set $color12 #8A7649
+set $color13 #7A8535
+set $color14 #9B9945
+set $color15 #c5c1a3

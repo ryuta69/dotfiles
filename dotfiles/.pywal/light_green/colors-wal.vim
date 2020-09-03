@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/Users/ryuta69/Downloads/image_3.jpg"
+let background = "#10100c"
+let foreground = "#c5c1a3"
+let cursor     = "#c5c1a3"
+
+" Colors
+let color0  = "#10100c"
+let color1  = "#61602C"
+let color2  = "#6C6E32"
+let color3  = "#716B48"
+let color4  = "#8A7649"
+let color5  = "#7A8535"
+let color6  = "#9B9945"
+let color7  = "#c5c1a3"
+let color8  = "#898772"
+let color9  = "#61602C"
+let color10 = "#6C6E32"
+let color11 = "#716B48"
+let color12 = "#8A7649"
+let color13 = "#7A8535"
+let color14 = "#9B9945"
+let color15 = "#c5c1a3"

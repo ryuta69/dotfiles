@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/Users/ryuta69/Downloads/batman-sign-logo-dark-4k.jpg"
+let background = "#000000"
+let foreground = "#7ebdcf"
+let cursor     = "#7ebdcf"
+
+" Colors
+let color0  = "#000000"
+let color1  = "#074E65"
+let color2  = "#054A74"
+let color3  = "#033886"
+let color4  = "#05538A"
+let color5  = "#096A94"
+let color6  = "#0A74A6"
+let color7  = "#7ebdcf"
+let color8  = "#588490"
+let color9  = "#074E65"
+let color10 = "#054A74"
+let color11 = "#033886"
+let color12 = "#05538A"
+let color13 = "#096A94"
+let color14 = "#0A74A6"
+let color15 = "#7ebdcf"

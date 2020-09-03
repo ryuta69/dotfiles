@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/Users/ryuta69/Downloads/cowboy-bebop-wallpaper-17.jpg"
+let background = "#0C0A07"
+let foreground = "#e0c8a7"
+let cursor     = "#e0c8a7"
+
+" Colors
+let color0  = "#0C0A07"
+let color1  = "#976131"
+let color2  = "#936D38"
+let color3  = "#A27A42"
+let color4  = "#BB863E"
+let color5  = "#B28A4B"
+let color6  = "#A99061"
+let color7  = "#e0c8a7"
+let color8  = "#9c8c74"
+let color9  = "#976131"
+let color10 = "#936D38"
+let color11 = "#A27A42"
+let color12 = "#BB863E"
+let color13 = "#B28A4B"
+let color14 = "#A99061"
+let color15 = "#e0c8a7"

@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/Users/ryuta69/Downloads/cdn.leoh.io640image_244.jpg"
+let background = "#030616"
+let foreground = "#a5c5df"
+let cursor     = "#a5c5df"
+
+" Colors
+let color0  = "#030616"
+let color1  = "#0E378A"
+let color2  = "#0C3DA2"
+let color3  = "#15488F"
+let color4  = "#1F5DA9"
+let color5  = "#2E73BF"
+let color6  = "#4689C1"
+let color7  = "#a5c5df"
+let color8  = "#73899c"
+let color9  = "#0E378A"
+let color10 = "#0C3DA2"
+let color11 = "#15488F"
+let color12 = "#1F5DA9"
+let color13 = "#2E73BF"
+let color14 = "#4689C1"
+let color15 = "#a5c5df"
