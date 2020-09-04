@@ -17,107 +17,147 @@
 			"\t# l = ${1:n}.split()",
 			"\t# ===== float =====",
 			"\t# a, b = map(float, ${1:n}.split())",
-			"\t# l = list(map(float, ${1:n}.split()))$0"
+			"\t# l = list(map(float, ${1:n}.split()))",
+			"$0"
 		]
 	},
 	"Memo": {
 		"prefix": ["memo"],
 		"body": [
 			"import functools",
-			"@functools.lru_cache(maxsize=None)"
+			"@functools.lru_cache(maxsize=None)",
+			"$0"
 		]
 	},
 	"Zfill": {
 		"prefix": ["zfill"],
 		"body": [
-			"z = {0:0${1:1}d}'.format($2)$0"
+			"z = {0:0${1:1}d}'.format($2)",
+			"$0"
 		]
 	},
 	"Inf": {
 		"prefix": ["inf"],
 		"body": [
-			"i = float('inf')$0"
+			"i = float('inf')",
+			"$0"
+		]
+	},
+	"Ceil": {
+		"prefix": ["ceil"],
+		"body": [
+			"import math",
+			"c = math.ceil($1)",
+			"$0"
+		]
+	},
+	"SortString": {
+		"prefix": ["sortstring"],
+		"body": [
+			"s = ''.join(sorted($1))",
+			"$0"
+		]
+	},
+	"Floar": {
+		"prefix": ["floar"],
+		"body": [
+			"import math",
+			"f = math.floar($1)",
+			"$0"
 		]
 	},
 	"ListMulti": {
 		"prefix": ["listmulti"],
 		"body": [
-			"${1:ml} = [$2 for i in range($3)]$0"
+			"${1:ml} = [$2 for i in range($3)]",
+			"$0"
 		]
 	},
 	"ListMulti2d": {
 		"prefix": ["listmulti2d"],
 		"body": [
-			"${1:ml} = [[$2 for i in range($3)] for j in range($4)]$0"
+			"${1:ml} = [[$2 for i in range($3)] for j in range($4)]",
+			"$0"
 		]
 	},
 	"Filter": {
 		"prefix": ["filter"],
 		"body": [
-			"${1:f} = list(filter(lambda el: $3, $2))$0"
+			"${1:f} = list(filter(lambda el: $3, $2))",
+			"$0"
 		]
 	},
 	"Map": {
 		"prefix": ["map"],
 		"body": [
-			"${1:m} = list(map(lambda el: $3, $2))$0"
+			"${1:m} = list(map(lambda el: $3, $2))",
+			"$0"
 		]
 	},
 	"Reduce": {
 		"prefix": ["reduce"],
 		"body": [
 			"from functools import reduce",
-			"${1:r} = reduce(lambda hist,el: $3, $2)$0"
+			"${1:r} = reduce(lambda hist,el: $3, $2)",
+			"$0"
 		]
 	},
 	"All": {
 		"prefix": ["all"],
 		"body": [
-			"all($2 for i in $1)$0"
+			"all($2 for i in $1)",
+			"$0"
 		]
 	},
 	"CombineList": {
 		"prefix": ["combinelist"],
 		"body": [
-			"' '.join(map(str, $1))$0"
+			"' '.join(map(str, $1))",
+			"$0"
 		]
 	},
 	"Counter": {
 		"prefix": ["counter"],
 		"body": [
 			"from collections import Counter",
-			"${1:c} = Counter($2)$0"
+			"${1:c} = Counter($2)",
+			"$0"
 		]
 	},
 	"CounterSort": {
 		"prefix": ["countersort"],
 		"body": [
 			"from collections import Counter",
-			"${1:c} = Counter($2).most_common()$0"
+			"${1:c} = Counter($2).most_common()",
+			"$0"
 		]
 	},
 	"Any": {
 		"prefix": ["any"],
 		"body": [
-			"any($2 for i in $1)$0"
+			"any($2 for i in $1)",
+			"$0"
 		]
 	},
 	"NotAny": {
 		"prefix": ["notany"],
 		"body": [
-			"not any($2 for i in $1)$0"
+			"not any($2 for i in $1)",
+			"$0"
 		]
 	},
 	"Sum": {
 		"prefix": ["sum"],
 		"body": [
-			"sum($2 for i in $1)$0"
+			"sum($2 for i in $1)",
+			"$0"
 		]
 	},
 	"SameElementInList": {
 		"prefix": ["sameelementinlist"],
 		"body": [
-			"set($1).intersection(set($2))$0"
+			"set($1).intersection(set($2))",
+			"$0"
 		]
 	},
 	"ForRange": {
@@ -164,85 +204,99 @@
 	"InputInt": {
 		"prefix": ["inputint"],
 		"body": [
-			"${1:n} = int(input())$0"
+			"${1:n} = int(input())",
+			"$0"
 		]
 	},
 	"InputIntMap": {
 		"prefix": ["inputintmap"],
 		"body": [
-			"${1:a, b} = map(int, input().split())$0"
+			"${1:a, b} = map(int, input().split())",
+			"$0"
 		]
 	},
 	"ReMatch": {
 		"prefix": ["rematch"],
 		"body": [
-			"re.match('$2', $1)$0"
+			"re.match('$2', $1)",
+			"$0"
 		]
 	},
 	"InputIntList": {
 		"prefix": ["inputintlist"],
 		"body": [
-			"${1:l} = list(map(int, input().split()))$0"
+			"${1:l} = list(map(int, input().split()))",
+			"$0"
 		]
 	},
 	"InputStr": {
 		"prefix": ["inputstr"],
 		"body": [
-			"${1:n} = input()$0"
+			"${1:n} = input()",
+			"$0"
 		]
 	},
 	"SplitStr": {
 		"prefix": ["splitstr"],
 		"body": [
-			"${1:n} = list(${1:str})$0"
+			"${1:n} = list(${1:str})",
+			"$0"
 		]
 	},
 	"InputStrMap": {
 		"prefix": ["inputstrmap"],
 		"body": [
-			"${1:a, b} = input().split()$0"
+			"${1:a, b} = input().split()",
+			"$0"
 		]
 	},
 	"InputStrList": {
 		"prefix": ["inputstrlist"],
 		"body": [
-			"${1:l} = input().split()$0"
+			"${1:l} = input().split()",
+			"$0"
 		]
 	},
 	"InputFloat": {
 		"prefix": ["inputfloat"],
 		"body": [
-			"${1:n} = float(input())$0"
+			"${1:n} = float(input())",
+			"$0"
 		]
 	},
 	"InputFloatMap": {
 		"prefix": ["inputfloatmap"],
 		"body": [
-			"${1:a, b} = map(float, input().split()) $2"
+			"${1:a, b} = map(float, input().split()) $2",
+			"$0"
 		]
 	},
 	"InputFloatList": {
 		"prefix": ["inputfloatlist"],
 		"body": [
-			"${1:l} = list(map(float, input().split()))$0"
+			"${1:l} = list(map(float, input().split()))",
+			"$0"
 		]
 	},
 	"Print": {
 		"prefix": ["print"],
 		"body": [
-			"print($1 ${2:, flush=True})$0"
+			"print($1 ${2:, flush=True})",
+			"$0"
 		]
 	},
 	"PrintArrayWithBreak": {
 		"prefix": ["printarraywithbreak"],
 		"body": [
-			"print(*$1, sep='\\n')$0"
+			"print(*$1, sep='\\n')",
+			"$0"
 		]
 	},
 	"AlphabetNth": {
 		"prefix": ["alphabetnth"],
 		"body": [
-			"${1:s} = [chr(ord('a') + i) for i in range(${2:10})]$0"
+			"${1:s} = [chr(ord('a') + i) for i in range(${2:10})]",
+			"$0"
 		]
 	},
 	"Def": {
@@ -263,7 +317,8 @@
 	"Len": {
 		"prefix": ["len"],
 		"body": [
-			"len($1)$0"
+			"len($1)",
+			"$0"
 		]
 	},
 	"While": {
@@ -625,7 +680,8 @@
 		"prefix": ["replacewithregex"],
 		"body": [
 			"import re",
-			"str = re.sub(r'$1', '$2', $3)$0"
+			"str = re.sub(r'$1', '$2', $3)",
+			"$0"
 		]
 	},
 	"Fibonacci": {
@@ -751,14 +807,16 @@
 		"prefix": ["combinationScipy"],
 		"body": [
 			"from scipy.special import comb",
-			"${1:c} = int(comb($2, $3))"
+			"${1:c} = int(comb($2, $3))",
+			"$0"
 		]
 	},
 	"CombinationList": {
 		"prefix": ["combinationlist"],
 		"body": [
 			"from itertools import combinations",
-			"${1:lc} = combinations(${2:l}, ${3:3})"
+			"${1:lc} = combinations(${2:l}, ${3:3})",
+			"$0"
 		]
 	},
 	"PermutationNum": {
@@ -775,14 +833,16 @@
 		"prefix": ["permutationscipy"],
 		"body": [
 			"from scipy.special import comb",
-			"${1:c} = int(perm($2, $3))"
+			"${1:c} = int(perm($2, $3))",
+			"$0"
 		]
 	},
 	"PermutationList": {
 		"prefix": ["permutationlist"],
 		"body": [
 			"from itertools import permutations",
-			"${1:lp} = permutations(${2:l}, ${3:3})"
+			"${1:lp} = permutations(${2:l}, ${3:3})",
+			"$0"
 		]
 	},
 	"EratosthenesSieve": {
@@ -854,7 +914,8 @@
 		"prefix": ["binaryinsert"],
 		"body": [
 			"import bisect",
-			"b=bisect.bisect_left(${1:sorted_list}, ${2:pivot})$0"
+			"b=bisect.bisect_left(${1:sorted_list}, ${2:pivot})",
+			"$0"
 		]
 	},
 	"BinaryInsertMy": {
@@ -1013,7 +1074,8 @@
 		"body": [
 			"from collections import deque",
 			"# append, popleft",
-			"qu = deque([])"
+			"qu = deque([])",
+			"$0"
 		]
 	},
 	"QueueMy": {
@@ -1096,7 +1158,8 @@
 		"body": [
 			"from collections import deque",
 			"# append, pop",
-			"st = deque([])"
+			"st = deque([])",
+			"$0"
 		]
 	},
 	"StackMy": {
