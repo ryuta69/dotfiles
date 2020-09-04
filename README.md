@@ -18,8 +18,8 @@ You can change themes with one command anytime. These are my original theme.
 ### Cowboy Brown
 <img alt="cowboy brown" src="https://user-images.githubusercontent.com/41639488/92177661-e34bb880-ee7b-11ea-83bc-63149f6051bb.png">
 
-### Mist BlueGreen
-<img alt="mist bluegreen" src="https://user-images.githubusercontent.com/41639488/92177901-5a814c80-ee7c-11ea-86a6-8c2f72136c60.png">
+### Skynight Blue
+<img alt="skynight blue" src="https://user-images.githubusercontent.com/41639488/92177737-0aa28580-ee7c-11ea-8a61-c5b2c482d8a3.png">
 
 More themes are [here](https://github.com/ryuta69/dotfiles/blob/master/dotfiles/.pywal).
 

@@ -170,16 +170,20 @@ tma() {
 ## ========== Neovim ==========
 alias vivi='vi ~/.config/nvim/init.vim'
 vii() {
+	nvim -c ":call Wal()" $@;
+}
+vink() {
 	FORMAT=`nkf -g $@`;
-	vi -c ":e ++enc=${FORMAT}" $@;
+	nvim -c ":e ++enc=${FORMAT}" $@;
 }
 vigo() {
-	vi -c "call append(0, v:oldfiles)" -c "write! ~/.config/nvim/viminfo.log" -c exit;
-	vi `cat ~/.config/nvim/viminfo.log | fzf --preview 'bat --color=always {}'`;
+	nvim -c "call append(0, v:oldfiles)" -c "write! ~/.config/nvim/viminfo.log" -c exit;
+	nvim `cat ~/.config/nvim/viminfo.log | fzf --preview 'bat --color=always {}'`;
 }
 
 ## ========== Aliases && Snippets ==========
 [ -f ~/.secret_alias ] && source ~/.secret_alias
+alias sotm='wal -i `ls -d ~/.pywal/* | fzf`'
 alias visn='vi     `ls -d ~/.vsnip/*   | fzf --preview "bat --color=always {}"`'
 alias vial='vi     `ls -d ~/.aliases/* | fzf --preview "bat --color=always {}"`'
 alias soal='source `ls -d ~/.aliases/* | fzf --preview "bat --color=always {}"`'
