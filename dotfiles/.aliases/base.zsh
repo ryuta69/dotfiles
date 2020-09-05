@@ -96,7 +96,7 @@ pip-install() {
 }
 pip-update() {
 	pip install --upgrade pip
-	pip freeze | cut -d'=' -f1 | xargs -n1 pip install --upgrades
+	pip freeze | cut -d'=' -f1 | xargs -n1 pip install --upgrade
 }
 
 ## ----------------------------------------

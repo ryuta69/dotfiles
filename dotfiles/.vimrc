@@ -5,7 +5,6 @@ let plugdir=has('nvim') ? '~/.config/nvim/plugged/' : '~/.vim/plugged'
 call plug#begin(plugdir)
 	Plug 'mattn/emmet-vim'
 	Plug 'cohama/lexima.vim'
-	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
 	Plug 'machakann/vim-sandwich'
 	Plug 'junegunn/vim-easy-align'
@@ -16,6 +15,7 @@ call plug#begin(plugdir)
 	Plug 'ayu-theme/ayu-vim' | Plug 'dylanaraps/wal.vim'
 	Plug 'sheerun/vim-polyglot' | Plug 'ap/vim-css-color'
 	Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
+	Plug 'tpope/vim-fugitive' | Plug 'rhysd/conflict-marker.vim'
 	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	if has('nvim')
 		Plug 'bfredl/nvim-miniyank'
@@ -99,7 +99,7 @@ function! Wal()
 	colorscheme wal
 endfunction
 
-"" ========== FzfVim ==========
+"" ========== Fzf ==========
 nnoremap <Leader>file :Files<CR>
 nnoremap <Leader>hist :History<CR>
 nnoremap <Leader>rg   :call Rg()<CR>
@@ -114,11 +114,6 @@ function! Rg()
 	\ }))
 endfunction
 
-"" ========== VimPlug ==========
-nnoremap <Leader>clean   :PlugClean<CR>
-nnoremap <Leader>update  :PlugUpdate<CR>
-nnoremap <Leader>install :PlugInstall<CR>
-
 "" ========== Emmet ==========
 let g:user_emmet_settings = {
 	\ 'typescript'     : { 'extends' : 'jsx' },
@@ -130,6 +125,11 @@ nnoremap <Leader>vop :VsnipOpen<CR>
 imap <expr> <C-R> vsnip#available(1) ? '<Plug>(vsnip-expand)'         : '<CR>'
 imap <expr> <C-R> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<CR>'
 smap <expr> <C-R> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<CR>'
+
+"" ========== VimPlug ==========
+nnoremap <Leader>clean   :PlugClean<CR>
+nnoremap <Leader>update  :PlugUpdate<CR>
+nnoremap <Leader>install :PlugInstall<CR>
 
 "" ========== Deoplete ==========
 let g:deoplete#enable_at_startup = 1
@@ -188,6 +188,15 @@ if has("nvim")
 	map p <Plug>(miniyank-autoput)
 	map P <Plug>(miniyank-autoPut)
 endif
+
+"" ========== ConflictMarker ==========
+let g:conflict_marker_begin = '^<<<<<<< .*$'
+let g:conflict_marker_end   = '^>>>>>>> .*$'
+highlight ConflictMarkerBegin  guibg=#2f7366
+highlight ConflictMarkerOurs   guibg=#2e5049
+highlight ConflictMarkerCommonAncestorsHunk guibg=#754a81
+highlight ConflictMarkerTheirs guibg=#344f69
+highlight ConflictMarkerEnd    guibg=#2f628e
 
 "" ========== VimTrailingSpace ==========
 nnoremap <Leader>trim :FixWhitespace<CR>
