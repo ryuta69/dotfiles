@@ -21,9 +21,9 @@ brew-install() {
 	brew bundle --file ./Brewfile
 }
 brew-update() {
-	brew update
-	brew upgrade
-	brew cask upgrade
+	brew update -v
+	brew upgrade -v
+	brew cask upgrade -v
 }
 brew-clean() {
 	brew bundle cleanup --file ./Brewfile
@@ -39,7 +39,7 @@ tmux-plug-intall() {
 	/bin/bash ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 }
 tmux-plug-update() {
-	/bin/bash ~/.tmux/plugins/tpm/scripts/update_plugins.sh
+	/bin/bash ~/.tmux/plugins/tpm/scripts/update_plugin.sh
 }
 tmux-plug-clean() {
 	/bin/bash ~/.tmux/plugins/tpm/scripts/clean_plugins.sh
@@ -103,7 +103,7 @@ pip-update() {
 ##	ssh
 ## ----------------------------------------
 sshp() {
-	HOST=grep "Host" ~/.ssh/config | fzf | awk "{ print \$2 }";
+	HOST=`cat ~/.ssh/config | fzf | awk "{ print \$2 }"`;
 	ssh ${HOST};
 }
 
