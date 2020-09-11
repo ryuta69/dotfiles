@@ -143,10 +143,11 @@ nnoremap  <Leader>cocl  :CocList<CR>
 nnoremap  <Leader>cocu  :CocUpdate<CR>
 inoremap  <expr> <UP>   pumvisible() ? '<C-e><UP>'   : '<UP>'
 inoremap  <expr> <DOWN> pumvisible() ? '<C-e><DOWN>' : '<DOWN>'
-nmap <silent> <Leader>cocf  <Plug>(coc-format)
-nmap <silent> <Leader>cocr  <Plug>(coc-reference)
-nmap <silent> <Leader>cocd  <Plug>(coc-definition)
-nmap <silent> <Leader>coch  :call CocAction('doHover')<CR>
+nmap <silent> <Leader>cfmt <Plug>(coc-format)
+nmap <silent> <Leader>cref <Plug>(coc-reference)
+nmap <silent> <Leader>cdef <Plug>(coc-definition)
+nmap <silent> <Leader>cfix <Plug>(coc-fix-current)
+nmap <silent> <Leader>chov :call CocAction('doHover')<CR>
 function! TabComp()
 	if pumvisible()
 		return "\<C-n>"
