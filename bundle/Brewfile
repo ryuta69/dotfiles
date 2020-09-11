@@ -18,6 +18,7 @@ brew 'mas'
 brew "nkf"
 brew "tig"
 brew "vim"
+brew "dust"
 brew "grep"
 brew "gron"
 brew "tldr"

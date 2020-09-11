@@ -62,9 +62,7 @@ symlink_dotfiles() {
 
 configure_system() {
 	CWD=${EXEPATH}/system
-
 	osascript -e 'tell application "System Preferences" to quit' > /dev/null 2>&1
-
 	/bin/bash ${CWD}/macos.sh ${TESTMODE}
 }
 
@@ -94,10 +92,10 @@ install_bundle() {
 	rustup component add rust-src --toolchain stable
 	rustup component add rls-preview --toolchain stable
 	rustup component add rust-analysis --toolchain stable
-	cargo install ytop
-	cargo install du-dust
-	cargo install cargo-update
-	cargo install -f --git https://github.com/jez/as-tree
+	crates=($(cat ${CWD}/Cargofile))
+	for crate in ${crates}; do
+		cargo install -f --git "${crate}"
+	done
 
 	## ========== Perl ==========
 	cpanm $(cat ${CWD}/Cpanfile)
