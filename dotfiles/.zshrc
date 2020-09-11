@@ -183,10 +183,10 @@ vigo() {
 
 ## ========== Aliases && Snippets ==========
 [ -f ~/.secret_alias ] && source ~/.secret_alias
-alias sotm='wal -i `ls -d ~/.theme/* | fzf`'
-alias visn='vi     `ls -d ~/.vsnip/*   | fzf --preview "bat --color=always {}"`'
-alias vial='vi     `ls -d ~/.aliases/* | fzf --preview "bat --color=always {}"`'
-alias soal='source `ls -d ~/.aliases/* | fzf --preview "bat --color=always {}"`'
+alias sotm='wal -i `ls -d ~/.theme/*    | fzf`'
+alias visn='vi     `ls -d ~/.snippets/* | fzf --preview "bat --color=always {}"`'
+alias vial='vi     `ls -d ~/.aliases/*  | fzf --preview "bat --color=always {}"`'
+alias soal='source `ls -d ~/.aliases/*  | fzf --preview "bat --color=always {}"`'
 
 ## ----------------------------------------
 ##	FZF

@@ -236,13 +236,6 @@
 			"$0"
 		]
 	},
-	"SplitStr": {
-		"prefix": ["splitstr"],
-		"body": [
-			"${1:n} = list(${1:str})",
-			"$0"
-		]
-	},
 	"InputStrMap": {
 		"prefix": ["inputstrmap"],
 		"body": [
@@ -253,7 +246,7 @@
 	"InputStrList": {
 		"prefix": ["inputstrlist"],
 		"body": [
-			"${1:l} = input().split()",
+			"${1:s} = list(${1:str})",
 			"$0"
 		]
 	},
@@ -281,7 +274,7 @@
 	"Print": {
 		"prefix": ["print"],
 		"body": [
-			"print($1 ${2:, flush=True})",
+			"print($1, flush=True)",
 			"$0"
 		]
 	},
