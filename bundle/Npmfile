@@ -3,6 +3,7 @@ yarn
 husky
 eslint
 expect
+fixpack
 nodemon
 flow-bin
 prettier
