@@ -119,6 +119,7 @@ nnoremap <Leader>update  :PlugUpdate<CR>
 nnoremap <Leader>install :PlugInstall<CR>
 
 "" ========== Coc.nvim ==========
+let g:coc_config_home = "~"
 let g:coc_global_extensions = [
       \ 'coc-go',
       \ 'coc-sh',
@@ -135,6 +136,8 @@ let g:coc_global_extensions = [
 \ ]
 highlight CocInfoSign    guifg=None guibg=#012800
 highlight CocInfoLine    guifg=None guibg=#012800
+highlight CocHintSign    guifg=None guibg=#012800
+highlight CocHintLine    guifg=None guibg=#012800
 highlight CocWarningSign guifg=None guibg=#525200
 highlight CocWarningLine guifg=None guibg=#525200
 highlight CocErrorSign   guifg=None guibg=#340001
