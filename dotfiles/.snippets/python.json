@@ -2,22 +2,22 @@
 	"InputAll": {
 		"prefix": ["inputall"],
 		"body": [
-			"${1:n} = input()",
-			"if ' ' not in ${1:n}:",
-			"\tif ${1:n}.isdigit():",
-			"\t\t${1:n} = int(n)",
+			"n = input()",
+			"if ' ' not in n:",
+			"\tif n.isdigit():",
+			"\t\tn = int(n)",
 			"\telif float(n):",
-			"\t\t${1:n} = float(n)",
+			"\t\tn = float(n)",
 			"else:",
 			"\t# ===== int =====",
-			"\t# a, b = map(int, ${1:n}.split())",
-			"\t# l = list(map(int, ${1:n}.split()))",
+			"\t# a, b = map(int, n.split())",
+			"\t# l = list(map(int, n.split()))",
 			"\t# ===== str =====",
-			"\t# a, b = ${1:n}.split()",
-			"\t# l = ${1:n}.split()",
+			"\t# a, b = n.split()",
+			"\t# l = n.split()",
 			"\t# ===== float =====",
-			"\t# a, b = map(float, ${1:n}.split())",
-			"\t# l = list(map(float, ${1:n}.split()))",
+			"\t# a, b = map(float, n.split())",
+			"\t# l = list(map(float, n.split()))",
 			"$0"
 		]
 	},
@@ -32,7 +32,7 @@
 	"Zfill": {
 		"prefix": ["zfill"],
 		"body": [
-			"z = {0:0${1:1}d}'.format($2)",
+			"z = {0:01d}'.format($2)",
 			"$0"
 		]
 	},
@@ -69,28 +69,28 @@
 	"ListMulti": {
 		"prefix": ["listmulti"],
 		"body": [
-			"${1:ml} = [$2 for i in range($3)]",
+			"ml = [$2 for i in range($3)]",
 			"$0"
 		]
 	},
 	"ListMulti2d": {
 		"prefix": ["listmulti2d"],
 		"body": [
-			"${1:ml} = [[$2 for i in range($3)] for j in range($4)]",
+			"ml = [[$2 for i in range($3)] for j in range($4)]",
 			"$0"
 		]
 	},
 	"Filter": {
 		"prefix": ["filter"],
 		"body": [
-			"${1:f} = list(filter(lambda el: $3, $2))",
+			"f = list(filter(lambda el: $3, $2))",
 			"$0"
 		]
 	},
 	"Map": {
 		"prefix": ["map"],
 		"body": [
-			"${1:m} = list(map(lambda el: $3, $2))",
+			"m = list(map(lambda el: $3, $2))",
 			"$0"
 		]
 	},
@@ -98,7 +98,7 @@
 		"prefix": ["reduce"],
 		"body": [
 			"from functools import reduce",
-			"${1:r} = reduce(lambda hist,el: $3, $2)",
+			"r = reduce(lambda hist,el: $3, $2)",
 			"$0"
 		]
 	},
@@ -120,7 +120,7 @@
 		"prefix": ["counter"],
 		"body": [
 			"from collections import Counter",
-			"${1:c} = Counter($2)",
+			"c = Counter($2)",
 			"$0"
 		]
 	},
@@ -128,7 +128,7 @@
 		"prefix": ["countersort"],
 		"body": [
 			"from collections import Counter",
-			"${1:c} = Counter($2).most_common()",
+			"c = Counter($2).most_common()",
 			"$0"
 		]
 	},
@@ -163,21 +163,21 @@
 	"ForRange": {
 		"prefix": ["forrange"],
 		"body": [
-			"for ${1:i} in range($2):",
+			"for i in range($2):",
 			"\t$0"
 		]
 	},
 	"ForEnumerate": {
 		"prefix": ["forenumerate"],
 		"body": [
-			"for ${1:i, item} in enumerate($2):",
+			"for i, item in enumerate($2):",
 			"\t$0"
 		]
 	},
 	"For": {
 		"prefix": ["for"],
 		"body": [
-			"for ${1:i} in $2:",
+			"for i in $2:",
 			"\t$0"
 		]
 	},
@@ -204,14 +204,14 @@
 	"InputInt": {
 		"prefix": ["inputint"],
 		"body": [
-			"${1:n} = int(input())",
+			"n = int(input())",
 			"$0"
 		]
 	},
 	"InputIntMap": {
 		"prefix": ["inputintmap"],
 		"body": [
-			"${1:a, b} = map(int, input().split())",
+			"a, b = map(int, input().split())",
 			"$0"
 		]
 	},
@@ -225,49 +225,49 @@
 	"InputIntList": {
 		"prefix": ["inputintlist"],
 		"body": [
-			"${1:l} = list(map(int, input().split()))",
+			"l = list(map(int, input().split()))",
 			"$0"
 		]
 	},
 	"InputStr": {
 		"prefix": ["inputstr"],
 		"body": [
-			"${1:n} = input()",
+			"n = input()",
 			"$0"
 		]
 	},
 	"InputStrMap": {
 		"prefix": ["inputstrmap"],
 		"body": [
-			"${1:a, b} = input().split()",
+			"a, b = input().split()",
 			"$0"
 		]
 	},
 	"InputStrList": {
 		"prefix": ["inputstrlist"],
 		"body": [
-			"${1:s} = list(${1:str})",
+			"s = list(input())",
 			"$0"
 		]
 	},
 	"InputFloat": {
 		"prefix": ["inputfloat"],
 		"body": [
-			"${1:n} = float(input())",
+			"n = float(input())",
 			"$0"
 		]
 	},
 	"InputFloatMap": {
 		"prefix": ["inputfloatmap"],
 		"body": [
-			"${1:a, b} = map(float, input().split()) $2",
+			"a, b = map(float, input().split()) $2",
 			"$0"
 		]
 	},
 	"InputFloatList": {
 		"prefix": ["inputfloatlist"],
 		"body": [
-			"${1:l} = list(map(float, input().split()))",
+			"l = list(map(float, input().split()))",
 			"$0"
 		]
 	},
@@ -288,7 +288,7 @@
 	"AlphabetNth": {
 		"prefix": ["alphabetnth"],
 		"body": [
-			"${1:s} = [chr(ord('a') + i) for i in range(${2:10})]",
+			"s = [chr(ord('a') + i) for i in range(${2:10})]",
 			"$0"
 		]
 	},
@@ -302,7 +302,7 @@
 	"Class": {
 		"prefix": ["class"],
 		"body": [
-			"class $1:",
+			"class ${1:classname}:",
 			"\tdef __init__(self):",
 			"\t$0"
 		]
@@ -800,7 +800,7 @@
 		"prefix": ["combinationScipy"],
 		"body": [
 			"from scipy.special import comb",
-			"${1:c} = int(comb($2, $3))",
+			"c = int(comb($2, $3))",
 			"$0"
 		]
 	},
@@ -808,7 +808,7 @@
 		"prefix": ["combinationlist"],
 		"body": [
 			"from itertools import combinations",
-			"${1:lc} = combinations(${2:l}, ${3:3})",
+			"lc = combinations(${2:l}, ${3:3})",
 			"$0"
 		]
 	},
@@ -826,7 +826,7 @@
 		"prefix": ["permutationscipy"],
 		"body": [
 			"from scipy.special import comb",
-			"${1:c} = int(perm($2, $3))",
+			"c = int(perm($2, $3))",
 			"$0"
 		]
 	},
@@ -834,7 +834,7 @@
 		"prefix": ["permutationlist"],
 		"body": [
 			"from itertools import permutations",
-			"${1:lp} = permutations(${2:l}, ${3:3})",
+			"lp = permutations(${2:l}, ${3:3})",
 			"$0"
 		]
 	},
@@ -907,7 +907,7 @@
 		"prefix": ["binaryinsert"],
 		"body": [
 			"import bisect",
-			"b=bisect.bisect_left(${1:sorted_list}, ${2:pivot})",
+			"b=bisect.bisect_left(sorted_list, pivot)",
 			"$0"
 		]
 	},
