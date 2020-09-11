@@ -142,8 +142,9 @@ highlight CocWarningSign guifg=None guibg=#525200
 highlight CocWarningLine guifg=None guibg=#525200
 highlight CocErrorSign   guifg=None guibg=#340001
 highlight CocErrorLine   guifg=None guibg=#340001
-nnoremap  <Leader>cocl  :CocList<CR>
-nnoremap  <Leader>cocu  :CocUpdate<CR>
+nnoremap  <Leader>cls  :CocList<CR>
+nnoremap  <Leader>cupd :CocUpdate<CR>
+nnoremap  <Leader>cdis :CocDisable<CR>
 inoremap  <expr> <UP>   pumvisible() ? '<C-e><UP>'   : '<UP>'
 inoremap  <expr> <DOWN> pumvisible() ? '<C-e><DOWN>' : '<DOWN>'
 nmap <silent> <Leader>cfmt <Plug>(coc-format)
