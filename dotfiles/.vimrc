@@ -5,6 +5,7 @@ let plugdir=has('nvim') ? '~/.config/nvim/plugged/' : '~/.vim/plugged'
 call plug#begin(plugdir)
 	Plug 'mattn/emmet-vim'
 	Plug 'cohama/lexima.vim'
+	Plug 'bfredl/nvim-miniyank'
 	Plug 'tpope/vim-commentary'
 	Plug 'machakann/vim-sandwich'
 	Plug 'junegunn/vim-easy-align'
@@ -14,17 +15,9 @@ call plug#begin(plugdir)
 	Plug 'ConradIrwin/vim-bracketed-paste'
 	Plug 'ayu-theme/ayu-vim' | Plug 'dylanaraps/wal.vim'
 	Plug 'sheerun/vim-polyglot' | Plug 'ap/vim-css-color'
-	Plug 'hrsh7th/vim-vsnip' | Plug 'hrsh7th/vim-vsnip-integ'
 	Plug 'tpope/vim-fugitive' | Plug 'rhysd/conflict-marker.vim'
+	Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-	if has('nvim')
-		Plug 'bfredl/nvim-miniyank'
-		Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	else
-		Plug 'roxma/nvim-yarp'
-		Plug 'Shougo/deoplete.nvim'
-		Plug 'roxma/vim-hug-neovim-rpc'
-	endif
 call plug#end()
 
 "" ----------------------------------------
@@ -120,41 +113,60 @@ let g:user_emmet_settings = {
 	\ 'javascript.jsx' : { 'extends' : 'jsx' }
 \ }
 
-"" ========== Vsnip ==========
-nnoremap <Leader>vop :VsnipOpen<CR>
-imap <expr> <C-R> vsnip#available(1) ? '<Plug>(vsnip-expand)'         : '<CR>'
-imap <expr> <C-R> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<CR>'
-smap <expr> <C-R> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<CR>'
-
 "" ========== VimPlug ==========
 nnoremap <Leader>clean   :PlugClean<CR>
 nnoremap <Leader>update  :PlugUpdate<CR>
 nnoremap <Leader>install :PlugInstall<CR>
 
-"" ========== Deoplete ==========
-let g:deoplete#enable_at_startup = 1
-inoremap <expr> <UP>   pumvisible() ? '<C-e><UP>'   : '<UP>'
-inoremap <expr> <DOWN> pumvisible() ? '<C-e><DOWN>' : '<DOWN>'
-function! DeoTab()
+"" ========== Coc.nvim ==========
+let g:coc_global_extensions = [
+      \ 'coc-go',
+      \ 'coc-sh',
+      \ 'coc-css',
+      \ 'coc-sql',
+      \ 'coc-rls',
+      \ 'coc-json',
+      \ 'coc-html',
+      \ 'coc-vimlsp',
+      \ 'coc-python',
+      \ 'coc-snippets',
+      \ 'coc-tsserver',
+      \ 'coc-markdownlint',
+\ ]
+highlight CocInfoSign    guifg=None guibg=#012800
+highlight CocInfoLine    guifg=None guibg=#012800
+highlight CocWarningSign guifg=None guibg=#525200
+highlight CocWarningLine guifg=None guibg=#525200
+highlight CocErrorSign   guifg=None guibg=#340001
+highlight CocErrorLine   guifg=None guibg=#340001
+nnoremap  <Leader>cocl  :CocList<CR>
+nnoremap  <Leader>cocu  :CocUpdate<CR>
+inoremap  <expr> <UP>   pumvisible() ? '<C-e><UP>'   : '<UP>'
+inoremap  <expr> <DOWN> pumvisible() ? '<C-e><DOWN>' : '<DOWN>'
+nmap <silent> <Leader>cocf  <Plug>(coc-format)
+nmap <silent> <Leader>cocr  <Plug>(coc-reference)
+nmap <silent> <Leader>cocd  <Plug>(coc-definition)
+nmap <silent> <Leader>coch  :call CocAction('doHover')<CR>
+function! TabComp()
 	if pumvisible()
 		return "\<C-n>"
-	elseif vsnip#available(1)
-		return "\<Plug>(vsnip-jump-next)"
+	elseif coc#jumpable()
+		return "\<C-r>=coc#rpc#request('snippetNext',[])\<CR>"
 	else
 		return "\<Tab>"
 	endif
 endfunction
-imap <expr> <Tab> DeoTab() | smap <expr> <Tab> DeoTab()
-function! DeoShiftTab()
+imap <expr> <Tab> TabComp() | smap <expr> <Tab> TabComp()
+function! TabShiftComp()
 	if pumvisible()
 		return "\<C-p>"
-	elseif vsnip#available(-1)
-		return "\<Plug>(vsnip-jump-prev)"
+	elseif coc#jumpable()
+		return "\<C-r>=coc#rpc#request('snippetPrev',[])\<CR>"
 	else
 		return "\<S-Tab>"
 	endif
 endfunction
-imap <expr> <S-Tab> DeoShiftTab() | smap <expr> <S-Tab> DeoShiftTab()
+imap <expr> <S-Tab> TabShiftComp() | smap <expr> <S-Tab> TabShiftComp()
 
 "" ========== Polyglot ==========
 let g:polyglot_excludes = ['csv']
@@ -194,9 +206,9 @@ let g:conflict_marker_begin = '^<<<<<<< .*$'
 let g:conflict_marker_end   = '^>>>>>>> .*$'
 highlight ConflictMarkerBegin  guibg=#2f7366
 highlight ConflictMarkerOurs   guibg=#2e5049
-highlight ConflictMarkerCommonAncestorsHunk guibg=#754a81
 highlight ConflictMarkerTheirs guibg=#344f69
 highlight ConflictMarkerEnd    guibg=#2f628e
+highlight ConflictMarkerCommonAncestorsHunk guibg=#754a81
 
 "" ========== VimTrailingSpace ==========
 nnoremap <Leader>trim :FixWhitespace<CR>

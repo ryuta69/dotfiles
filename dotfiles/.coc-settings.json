@@ -1,0 +1,8 @@
+{
+	"python.jediEnabled": false,
+	"snippets.autoTrigger": false,
+	"snippets.snipmate.enable": false,
+	"snippets.ultisnips.enable": false,
+	"snippets.loadFromExtensions": false,
+	"snippets.textmateSnippetsRoots": ["~/.snippets"]
+}

@@ -15,6 +15,7 @@ EXEPATH=$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)
 symlink_dotfiles() {
 	CWD="${EXEPATH}"/dotfiles
 
+	VIPATH="${HOME}/.vim"                                  && mkdir -p ${VIPATH}
 	CRPATH="${HOME}/.cargo"                                && mkdir -p ${CRPATH}
 	NVPATH="${HOME}/.config/nvim"                          && mkdir -p ${NVPATH}
 	NEPATH="${HOME}/.config/neofetch"                      && mkdir -p ${NEPATH}
@@ -29,11 +30,12 @@ symlink_dotfiles() {
 	for abspath in ${CWD}/*; do
 		filename=$(basename -- "$abspath");
 		if [[ ${SKIPLIST[@]} =~ $filename ]]; then continue; fi;
-		if [[ $filename = '.vsnip' ]]; then ln -sfnv $abspath ${VSPATH}/snippets; fi;
 		if [[ $filename = '.vimrc' ]]; then ln -sfnv $abspath ${NVPATH}/init.vim; fi;
+		if [[ $filename = '.snippets' ]]; then ln -sfnv $abspath ${VSPATH}/snippets; fi;
 		if [[ $filename = '.rustcfg' ]]; then ln -sfnv $abspath ${CRPATH}/config; continue; fi;
 		if [[ $filename = '.alacritty.yml' ]]; then ln -sfnv $abspath ${AAPATH}/alacritty.yml; fi;
 		if [[ $filename = '.neofetch.conf' ]]; then ln -sfnv $abspath ${NEPATH}/config.conf; continue; fi;
+		if [[ $filename = '.coc-settings.json' ]]; then ln -sfnv $abspath ${VIPATH}/coc-settings.json; then ln -sfnv $abspath ${NVPATH}/coc-settings.json; continue; fi;
 		ln -sfnv $abspath ${HOME};
 	done
 
