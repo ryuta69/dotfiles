@@ -18,7 +18,7 @@
 	coc = !git branch | fzf | xargs git checkout
 	cof = !git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 git checkout
 	; cor = !hub pr checkout `hub pr list | fzf`
-	cor = !git fetch -p && git checkout -b $1 origin/$1
+	cor = !"f() { git fetch -p; git checkout -b $1 origin/$1; }; f"
 	cp  = cherry-pick
 	del = !git branch -r --merged | grep -v 'master\\|develop' | sed 's/origin\\///' | xargs -n 1 git push --delete origin && git fetch origin --prune
 	df  = diff
