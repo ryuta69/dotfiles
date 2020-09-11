@@ -44,11 +44,11 @@ symlink_dotfiles() {
 
 	for abspath in ${CWD}/.library/*; do
 		filename=$(basename -- "$abspath");
-		if [[ $filename = 'karabiner.json' ]]; then ln -sfnv $abspath ${KRPATH}; continue; fi;
-		if [[ $filename = 'ubersicht' ]]; then ln -sfnv $abspath ${UBPATH}/widgets; continue; fi;
-		if [[ $filename = 'Alfred.alfredpreferences' ]]; then ln -sfnv $abspath ${ALPATH}; continue; fi;
-		if [[ $filename = 'com.googlecode.iterm2.plist' ]]; then ln -sfnv $abspath ${PLPATH}; continue; fi;
-		if [[ $filename = 'com.knollsoft.Rectangle.plist' ]]; then ln -sfnv $abspath ${PLPATH}; continue; fi;
+		if [[ $filename = 'karabiner.json' ]]; then ln -sfnv $abspath ${KRPATH}; fi;
+		if [[ $filename = 'ubersicht' ]]; then ln -sfnv $abspath ${UBPATH}/widgets; fi;
+		if [[ $filename = 'Alfred.alfredpreferences' ]]; then ln -sfnv $abspath ${ALPATH}; fi;
+		if [[ $filename = 'com.googlecode.iterm2.plist' ]]; then ln -sfnv $abspath ${PLPATH}; fi;
+		if [[ $filename = 'com.knollsoft.Rectangle.plist' ]]; then ln -sfnv $abspath ${PLPATH}; fi;
 	done
 
 	if ! ${TESTMODE}; then
