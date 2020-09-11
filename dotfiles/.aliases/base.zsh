@@ -26,7 +26,7 @@ brew-update() {
 	brew cask upgrade -v
 }
 brew-clean() {
-	brew bundle cleanup --file ./Brewfile
+	brew bundle cleanup --file ./Brewfile -fv
 }
 brew-list() {
 	brew bundle dump > ./Brewfile

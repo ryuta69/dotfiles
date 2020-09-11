@@ -1,6 +1,9 @@
 ## ----------------------------------------
 ##	Brewfile
 ## ----------------------------------------
+tap "homebrew/cask"
+tap "homebrew/bundle"
+tap "homebrew/services"
 cask_args appdir: "/Applications"
 
 ## ========== Base ==========
@@ -54,9 +57,6 @@ brew "python@3.8"
 
 ## ========== Database ==========
 brew "mysql"
-brew "redis"
-tap  "mongodb/brew"
-brew "mongodb-community"
 
 ## ========== Fonts ==========
 tap  "homebrew/cask-fonts"
@@ -68,6 +68,7 @@ cask "slack"
 cask "alfred"
 cask "docker"
 cask "kindle"
+cask "iterm2"
 cask "notion"
 cask "skitch"
 cask "zoomus"
@@ -81,7 +82,6 @@ cask "appcleaner"
 cask "sequel-pro"
 cask "google-chrome"
 cask "android-studio"
-cask "mongodb-compass"
 cask "karabiner-elements"
 cask "visual-studio-code"
 cask "google-japanese-ime"
