@@ -1,4 +1,5 @@
 {
+	"coc.source.file.ignoreHidden": false,
 	"python.jediEnabled": false,
 	"snippets.autoTrigger": false,
 	"snippets.snipmate.enable": false,
