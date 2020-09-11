@@ -21,7 +21,7 @@ You can change several themes anytime with only one command. These are my origin
 ### Skynight Blue
 <img alt="skynight blue" src="https://user-images.githubusercontent.com/41639488/92177737-0aa28580-ee7c-11ea-8a61-c5b2c482d8a3.png">
 
-More themes are [here](https://github.com/ryuta69/dotfiles/blob/master/dotfiles/.pywal).
+More themes are [here](https://github.com/ryuta69/dotfiles/blob/master/dotfiles/.themes).
 
 <br />
 
