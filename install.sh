@@ -15,16 +15,16 @@ EXEPATH=$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)
 symlink_dotfiles() {
 	CWD="${EXEPATH}"/dotfiles
 
-	VIPATH="${HOME}/.vim"                                  && mkdir -p ${VIPATH}
-	CRPATH="${HOME}/.cargo"                                && mkdir -p ${CRPATH}
-	NVPATH="${HOME}/.config/nvim"                          && mkdir -p ${NVPATH}
-	NEPATH="${HOME}/.config/neofetch"                      && mkdir -p ${NEPATH}
-	KRPATH="${HOME}/.config/karabiner"                     && mkdir -p ${KRPATH}
-	AAPATH="${HOME}/.config/alacritty"                     && mkdir -p ${AAPATH}
-	PLPATH="${HOME}/Library/Preferences"                   && mkdir -p ${PLPATH}
-	ALPATH="${HOME}/Library/Application Support/Alfred"    && mkdir -p ${ALPATH}
-	VSPATH="${HOME}/Library/Application Support/Code/User" && mkdir -p ${VSPATH}
-	UBPATH="${HOME}/Library/Application Support/Übersicht" && mkdir -p ${UBPATH}
+	VIPATH="${HOME}/.vim"                                  && mkdir -p "${VIPATH}"
+	CRPATH="${HOME}/.cargo"                                && mkdir -p "${CRPATH}"
+	NVPATH="${HOME}/.config/nvim"                          && mkdir -p "${NVPATH}"
+	NEPATH="${HOME}/.config/neofetch"                      && mkdir -p "${NEPATH}"
+	KRPATH="${HOME}/.config/karabiner"                     && mkdir -p "${KRPATH}"
+	AAPATH="${HOME}/.config/alacritty"                     && mkdir -p "${AAPATH}"
+	PLPATH="${HOME}/Library/Preferences"                   && mkdir -p "${PLPATH}"
+	ALPATH="${HOME}/Library/Application Support/Alfred"    && mkdir -p "${ALPATH}"
+	VSPATH="${HOME}/Library/Application Support/Code/User" && mkdir -p "${VSPATH}"
+	UBPATH="${HOME}/Library/Application Support/Übersicht" && mkdir -p "${UBPATH}"
 	SKIPLIST=(".library" ".vscode")
 
 	for abspath in ${CWD}/*; do
@@ -35,7 +35,7 @@ symlink_dotfiles() {
 		if [[ $filename = '.rustcfg' ]]; then ln -sfnv $abspath ${CRPATH}/config; continue; fi;
 		if [[ $filename = '.alacritty.yml' ]]; then ln -sfnv $abspath ${AAPATH}/alacritty.yml; fi;
 		if [[ $filename = '.neofetch.conf' ]]; then ln -sfnv $abspath ${NEPATH}/config.conf; continue; fi;
-		if [[ $filename = '.coc-settings.json' ]]; then ln -sfnv $abspath ${VIPATH}/coc-settings.json; then ln -sfnv $abspath ${NVPATH}/coc-settings.json; continue; fi;
+		if [[ $filename = '.coc-settings.json' ]]; then ln -sfnv $abspath ${VIPATH}/coc-settings.json; ln -sfnv $abspath ${NVPATH}/coc-settings.json; continue; fi;
 		ln -sfnv $abspath ${HOME};
 	done
 
