@@ -24,7 +24,7 @@ symlink_dotfiles() {
 	ALPATH="${HOME}/Library/Application Support/Alfred"    && mkdir -p "${ALPATH}"
 	VSPATH="${HOME}/Library/Application Support/Code/User" && mkdir -p "${VSPATH}"
 	UBPATH="${HOME}/Library/Application Support/Übersicht" && mkdir -p "${UBPATH}"
-	SKIPLIST=(".library" ".vscode")
+	SKIPLIST=(".library" ".vscode" ".dev_config")
 
 	for abspath in ${CWD}/*; do
 		filename=$(basename -- "$abspath");

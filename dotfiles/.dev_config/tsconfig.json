@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "sourceMap": true,
+    "noEmit": true,
+    "strict": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@ts/*": ["ts/*"],
+      "@scss/*": ["scss/*"],
+      "@assets/*": ["assets/*"]
+    },
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*"]
+}

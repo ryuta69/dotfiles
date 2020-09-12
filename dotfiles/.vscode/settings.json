@@ -6,7 +6,6 @@
 	"editor.tabSize": 4,
 	"editor.fontSize": 15,
 	"editor.wordWrap": "on",
-	"editor.formatOnSave": true,
 	"editor.insertSpaces": false,
 	"editor.tabCompletion": "on",
 	"editor.fontLigatures": true,
@@ -21,13 +20,28 @@
 	"editor.acceptSuggestionOnEnter": "on",
 	"editor.scrollbar.verticalScrollbarSize": 0,
 	"editor.fontFamily": "HackNerdFontComplete-Italic",
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.quickSuggestions": {
 		"other": true,
 		"strings": true,
 		"comments": true
 	},
 	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": true
+		"source.fixAll.eslint": true,
+    	"source.fixAll.stylelint": true
+	},
+	"editor.formatOnSave": true,
+	"[typescript]": {
+		"editor.formatOnSave": false
+	},
+	"[javascript]": {
+		"editor.formatOnSave": false
+	},
+	"[css]": {
+		"editor.formatOnSave": false
+	},
+	"[scss]": {
+		"editor.formatOnSave": false
 	},
 	"emmet.includeLanguages": {
 		"php": "html",
@@ -47,7 +61,7 @@
 	"explorer.confirmDelete": false,
 	"explorer.openEditors.visible": 0,
 	"explorer.confirmDragAndDrop": false,
-	"files.autoSave": "afterDelay",
+	"files.autoSave": "off",
 	"files.trimFinalNewlines": true,
 	"files.autoGuessEncoding": true,
 	"files.insertFinalNewline": false,
