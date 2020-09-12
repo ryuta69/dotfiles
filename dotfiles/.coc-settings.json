@@ -1,6 +1,5 @@
 {
 	"coc.source.file.ignoreHidden": false,
-	"codeLens.enable": true,
 	"diagnostic.virtualText": true,
 	"python.jediEnabled": false,
 	"snippets.autoTrigger": false,
