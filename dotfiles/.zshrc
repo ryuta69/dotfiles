@@ -13,6 +13,11 @@ export ENHANCD_FILTER=fzf
 export TERM=xterm-256color
 export SLACK_DEVELOPER_MENU=true
 export HOMEBREW_NO_AUTO_UPDATE=1
+export PATH="$PATH:${HOME}/perl5/bin"
+export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
+export PERL_MB_OPT="--install_base \"${HOME}/perl5\""
+export PERL5LIB="${HOME}/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
+export PERL_LOCAL_LIB_ROOT="${HOME}/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
 ## ----------------------------------------
@@ -91,7 +96,8 @@ alias python='/usr/local/bin/python3.8' py='python' pip='/usr/local/bin/pip3'
 alias psa='ps aux' pskl='psa | fzf | awk "{ print \$2 }" | xargs kill -9'
 alias fd='fd -iH --no-ignore-vcs -E ".git|node_modules"' rmds='fd .DS_Store -X rm'
 alias rg='rg --hidden -g "!.git" -g "!node_modules" --max-columns 200' rgi='rg -i'
-alias ll='exa -alhF --git-ignore --group-directories-first --time-style=long-iso --ignore-glob=".git|node_modules"' tr2='ll -T -L=2' tr3='ll -T -L=3'
+alias ll='exa -alhF --group-directories-first --time-style=long-iso'
+alias llex='ll --git-ignore --ignore-glob=".git|node_modules"' tr2='llex -T -L=2' tr3='llex -T -L=3'
 vv()   {
 	[ -z "$1" ] && code -r ./ && return 0;
 	code -r "$1";

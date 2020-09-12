@@ -98,6 +98,9 @@ install_bundle() {
 	done
 
 	## ========== Perl ==========
+	PERL_MM_USE_DEFAULT=1 PERL_MM_OPT="INSTALL_BASE=$HOME/perl5" cpan local::lib
+	eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)
+	cpan App::cpanminus
 	cpanm $(cat ${CWD}/Cpanfile)
 
 	## ========== Git ==========

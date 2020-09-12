@@ -128,6 +128,7 @@ let g:coc_global_extensions = [
       \ 'coc-rls',
       \ 'coc-json',
       \ 'coc-html',
+      \ 'coc-perl',
       \ 'coc-vimlsp',
       \ 'coc-python',
       \ 'coc-snippets',
