@@ -66,6 +66,14 @@
 			"$0"
 		]
 	},
+	"Exit": {
+		"prefix": ["exit"],
+		"body": [
+			"import sys",
+			"sys.exit()",
+			"$0"
+		]
+	},
 	"ListMulti": {
 		"prefix": ["listmulti"],
 		"body": [
