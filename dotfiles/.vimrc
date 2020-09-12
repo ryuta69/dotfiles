@@ -135,14 +135,10 @@ let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ 'coc-markdownlint',
 \ ]
-highlight CocInfoSign    guifg=None guibg=#012800
 highlight CocInfoLine    guifg=None guibg=#012800
-highlight CocHintSign    guifg=None guibg=#012800
 highlight CocHintLine    guifg=None guibg=#012800
-highlight CocWarningSign guifg=None guibg=#525200
-highlight CocWarningLine guifg=None guibg=#525200
-highlight CocErrorSign   guifg=None guibg=#340001
 highlight CocErrorLine   guifg=None guibg=#340001
+highlight CocWarningLine guifg=None guibg=#525200
 nnoremap  <Leader>cls  :CocList<CR>
 nnoremap  <Leader>cupd :CocUpdate<CR>
 nnoremap  <Leader>cdis :CocDisable<CR>
@@ -152,6 +148,8 @@ nmap <silent> <Leader>cfmt <Plug>(coc-format)
 nmap <silent> <Leader>cref <Plug>(coc-reference)
 nmap <silent> <Leader>cdef <Plug>(coc-definition)
 nmap <silent> <Leader>cfix <Plug>(coc-fix-current)
+nmap <silent> <Leader>cn   <Plug>(coc-diagnostic-next)
+nmap <silent> <Leader>cp   <Plug>(coc-diagnostic-prev)
 nmap <silent> <Leader>chov :call CocAction('doHover')<CR>
 function! TabComp()
 	if pumvisible()
