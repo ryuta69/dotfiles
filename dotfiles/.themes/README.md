@@ -1,6 +1,8 @@
 ## Themes
 
-You can switch themes with one command.
+You can switch themes with one command, `wal -i {theme directory}/desktop.jpg`.
+
+There is an alias inside .zshrc `sotm`, which fuzzy-find theme directory and does a command above. 
 
 ### Sunset Orange
 <img alt="sunset orange" src="https://user-images.githubusercontent.com/41639488/91911058-435f2500-eceb-11ea-98c3-45ee1aab066a.png">
