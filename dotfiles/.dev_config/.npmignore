@@ -4,6 +4,7 @@
 .github
 .prettierrc
 .tags
+.vscode
 node_modules
 src
 tsconfig.json
