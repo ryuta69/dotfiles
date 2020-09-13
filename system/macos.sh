@@ -1478,8 +1478,22 @@ ExtraSettings() {
 	# ========== Disable Animation in Finder ==========
 	defaults write com.apple.finder DisableAllAnimations -bool true
 
-	# ========== Disable Dock ==========
+	# ========== Dock Start Appearance time ==========
+	# - default
+	# defaults delete com.apple.dock autohide-delay
+	# @int/float: seconds
 	defaults write com.apple.dock autohide-delay -float 1000
+
+	# ========== Dock Appearance Animation time ==========
+	# - default
+	# defaults delete com.apple.dock autohide-time-modifier
+	# @int/float: seconds
+	defaults write com.apple.dock autohide-time-modifier -float 0
+
+	# ========== Dock Icon Bouncing ==========
+	# - default
+	# defaults delete com.apple.dock no-bouncing
+	# - No Bounce
 	defaults write com.apple.dock no-bouncing -bool TRUE
 
 	# ========== Never allow password hints at login ==========
