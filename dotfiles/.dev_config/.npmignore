@@ -1,0 +1,12 @@
+*.map
+.DS_Store
+.eslintrc.js
+.github
+.prettierrc
+.tags
+node_modules
+src
+tsconfig.json
+tslint.json
+yarn-error.log
+yarn.lock
