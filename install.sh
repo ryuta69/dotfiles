@@ -29,11 +29,12 @@ symlink_dotfiles() {
 	for abspath in ${CWD}/*; do
 		filename=$(basename -- "$abspath");
 		if [[ ${SKIPLIST[@]} =~ $filename ]]; then continue; fi;
+		if [[ $filename = '.npmrc' ]]; then cp $abspath ${HOME}; continue; fi;
 		if [[ $filename = '.vimrc' ]]; then ln -sfnv $abspath ${NVPATH}/init.vim; fi;
 		if [[ $filename = '.snippets' ]]; then ln -sfnv $abspath ${VSPATH}/snippets; fi;
 		if [[ $filename = '.rustcfg' ]]; then ln -sfnv $abspath ${CRPATH}/config; continue; fi;
-		if [[ $filename = '.alacritty.yml' ]]; then ln -sfnv $abspath ${AAPATH}/alacritty.yml; fi;
 		if [[ $filename = '.neofetch.conf' ]]; then ln -sfnv $abspath ${NEPATH}/config.conf; continue; fi;
+		if [[ $filename = '.alacritty.yml' ]]; then ln -sfnv $abspath ${AAPATH}/alacritty.yml; continue; fi;
 		if [[ $filename = '.coc-settings.json' ]]; then ln -sfnv $abspath ${HOME}/coc-settings.json; continue; fi;
 		ln -sfnv $abspath ${HOME};
 	done
