@@ -8,7 +8,7 @@
 	ada = add -A
 	adf = !git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 git add
 	adu = !git diff --name-only --cached | fzf -m --print0 | xargs -0 git restore --staged
-	br  = branch -a
+	br  = branch -av
 	brd = !git branch | fzf -m --print0 | tr -d ' ' | xargs -0 git branch -D
 	bl  = !"f() { git blame $1 | fzf --preview 'echo {} | cut -f1 -d\" \" | xargs git show --color'; }; f"
 	cm  = commit --verbose
@@ -43,7 +43,8 @@
 	plr = pull --rebase
 	pr  = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request' | head -n 1; }; f"
 	rb  = rebase
-	rf  = reflog --date=iso
+	rf  = reflog --format='%C(auto)%h %<|(20)%gd %C(blue)%ci%C(reset) %gs (%s)'
+	rfs = !git reflog --format='%C(auto)%h %<|(20)%gd %C(blue)%ci%C(reset) %gs (%s)' | awk -F' ' '{print $2}' | xargs git reset --hard
 	rs  = reset
 	rsh = reset --hard
 	rmg = !rm -rf `ghq list -p | fzf`
@@ -101,17 +102,12 @@
 [delta]
 	width = 160
 	line-numbers = true
-	side-by-side = true
-	features = decorations
-	hunk-header-style = omit
+	file-style = "#338ECF" ul
+	file-decoration-style = none
 	syntax-theme = Monokai Extended
 	whitespace-error-style = 22 reverse
 	line-numbers-left-style = "#3D424D"
 	line-numbers-right-style = "#3D424D"
-
-[delta "decorations"]
-	file-style = "#338ECF" ul
-	file-decoration-style = none
 
 [diff]
 	prompt    = false
