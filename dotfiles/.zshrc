@@ -14,6 +14,7 @@ export TERM=xterm-256color
 export SLACK_DEVELOPER_MENU=true
 export HOMEBREW_NO_AUTO_UPDATE=1
 export PATH="$PATH:${HOME}/perl5/bin"
+export TODO_DB_PATH="${HOME}/.todo.json"
 export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
 export PERL_MB_OPT="--install_base \"${HOME}/perl5\""
 export PERL5LIB="${HOME}/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
