@@ -914,6 +914,38 @@
 			"\t\treturn [self.same_union_members(r) for r in self.roots()]"
 		]
 	},
+	"UnionFindWithWeight": {
+		"prefix": ["unionfindwithweight"],
+		"body": [
+			"class UnionfindWithWeight():",
+			"\tdef __init__(self, n):",
+			"\t\tself.dist\t= [0]  * (n+1)",
+			"\t\tself.ranks   = [0]  * (n+1)",
+			"\t\tself.parents = [-1] * (n+1)",
+			"\tdef find_root(self, x):",
+			"\t\tif self.parents[x] < 0:",
+			"\t\t\treturn self.dist[x], x",
+			"\t\telse:",
+			"\t\t\ttmp = self.find_root(self.parents[x])",
+			"\t\t\tself.dist[x]\t+= tmp[0]",
+			"\t\t\tself.parents[x] =  tmp[1]",
+			"\t\t\treturn self.dist[x], self.parents[x]",
+			"\tdef union(self, x, y, dist):",
+			"\t\tx_root = self.find_root(x)[1]",
+			"\t\ty_root = self.find_root(y)[1]",
+			"\t\tdiff = dist + self.dist[x] - self.dist[y]",
+			"\t\tif x_root == y_root and diff != 0:",
+			"\t\t\t# print('This dist is invalid.', flush=True)",
+			"\t\t\treturn -1",
+			"\t\tif self.ranks[y_root] > self.ranks[x_root]:",
+			"\t\t\tx_oot ,y_root = y_root, x_root",
+			"\t\t\tdiff =- diff",
+			"\t\tself.parents[y_root] = x_root",
+			"\t\tself.dist[y_root] = diff",
+			"\t\tif self.ranks[y_root] == self.ranks[x_root]:",
+			"\t\t\tself.ranks[x_root] += 1"
+		]
+	},
 	"BinaryInsert": {
 		"prefix": ["binaryinsert"],
 		"body": [
