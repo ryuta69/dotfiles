@@ -1,5 +1,6 @@
 {
 	"coc.source.file.ignoreHidden": false,
+	"coc.preferences.formatOnSaveFiletypes": ["typescript", "javascript"],
 	"diagnostic.virtualText": true,
 	"python.jediEnabled": false,
 	"snippets.autoTrigger": false,
