@@ -100,8 +100,8 @@
 	helper = osxkeychain
 
 [delta]
-	width = 160
 	line-numbers = true
+	hunk-header-style = omit
 	file-style = "#338ECF" ul
 	file-decoration-style = none
 	syntax-theme = Monokai Extended
