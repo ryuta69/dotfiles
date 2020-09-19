@@ -37,7 +37,7 @@
 	opi = !hub issue show `hub issue | fzf`
 	opp = !hub pr show `hub pr list | fzf`
 	opr = !hub api --paginate -XGET user/repos -f affiliation=owner -f per_page=100 | jq -r '.[].name' | fzf | xargs hub browse
-	opt = !hub api --paginate -XGET gists -f affiliation=owner -f per_page=100 | jq -r '.[] | "\\(.files | keys[]) \\(.id)"' | fzf | awk -F' ' '{print $NF}' | xargs -I{} open -a "Google Chrome" https://gist.github.com/ryuta69/{}
+	opt = !hub api --paginate -XGET gists -f affiliation=owner -f per_page=100 | jq -r '.[] | \"\\(.files | keys[]) \\(.id)\"' | fzf | awk -F' ' '{print $NF}' | xargs -I{} open -a "Google Chrome" https://gist.github.com/ryuta69/{}
 	ps  = !git push origin `git rev-parse --abbrev-ref HEAD`
 	pl  = !git pull origin `git rev-parse --abbrev-ref HEAD`
 	plr = pull --rebase
