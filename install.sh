@@ -7,50 +7,23 @@ fi
 
 shopt -s dotglob
 TESTMODE=false
-EXEPATH=$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)
+EXEPATH=$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)
 
 ## ----------------------------------------
 ##	Functions
 ## ----------------------------------------
 symlink_dotfiles() {
-	CWD="${EXEPATH}"/dotfiles
-
-	CRPATH="${HOME}/.cargo"                                && mkdir -p "${CRPATH}"
-	NVPATH="${HOME}/.config/nvim"                          && mkdir -p "${NVPATH}"
-	NEPATH="${HOME}/.config/neofetch"                      && mkdir -p "${NEPATH}"
-	KRPATH="${HOME}/.config/karabiner"                     && mkdir -p "${KRPATH}"
-	AAPATH="${HOME}/.config/alacritty"                     && mkdir -p "${AAPATH}"
-	PLPATH="${HOME}/Library/Preferences"                   && mkdir -p "${PLPATH}"
-	ALPATH="${HOME}/Library/Application Support/Alfred"    && mkdir -p "${ALPATH}"
-	VSPATH="${HOME}/Library/Application Support/Code/User" && mkdir -p "${VSPATH}"
-	UBPATH="${HOME}/Library/Application Support/Übersicht" && mkdir -p "${UBPATH}"
-	SKIPLIST=(".library" ".vscode" ".dev_config")
-
-	for abspath in ${CWD}/*; do
-		filename=$(basename -- "$abspath");
-		if [[ ${SKIPLIST[@]} =~ $filename ]]; then continue; fi;
-		if [[ $filename = '.npmrc' ]]; then cp $abspath ${HOME}; continue; fi;
-		if [[ $filename = '.vimrc' ]]; then ln -sfnv $abspath ${NVPATH}/init.vim; fi;
-		if [[ $filename = '.snippets' ]]; then ln -sfnv $abspath ${VSPATH}/snippets; fi;
-		if [[ $filename = '.rustcfg' ]]; then ln -sfnv $abspath ${CRPATH}/config; continue; fi;
-		if [[ $filename = '.neofetch.conf' ]]; then ln -sfnv $abspath ${NEPATH}/config.conf; continue; fi;
-		if [[ $filename = '.alacritty.yml' ]]; then ln -sfnv $abspath ${AAPATH}/alacritty.yml; continue; fi;
-		if [[ $filename = '.coc-settings.json' ]]; then ln -sfnv $abspath ${HOME}/coc-settings.json; continue; fi;
-		ln -sfnv $abspath ${HOME};
-	done
-
-	for abspath in ${CWD}/.vscode/*; do
-		ln -sfnv $abspath ${VSPATH};
-	done
-
-	for abspath in ${CWD}/.library/*; do
-		filename=$(basename -- "$abspath");
-		if [[ $filename = 'karabiner.json' ]]; then ln -sfnv $abspath ${KRPATH}; fi;
-		if [[ $filename = 'ubersicht' ]]; then ln -sfnv $abspath ${UBPATH}/widgets; fi;
-		if [[ $filename = 'Alfred.alfredpreferences' ]]; then ln -sfnv $abspath ${ALPATH}; fi;
-		if [[ $filename = 'com.googlecode.iterm2.plist' ]]; then ln -sfnv $abspath ${PLPATH}; fi;
-		if [[ $filename = 'com.knollsoft.Rectangle.plist' ]]; then ln -sfnv $abspath ${PLPATH}; fi;
-	done
+	handle_symlink_from_file() {
+		file=$1
+		dirpath=$(dirname "${file}") && filename=$(basename "${file}")
+		abspath=$(cd "${dirpath}" && pwd)"/${filename}"
+	    relpath=$(echo "${file}" | sed "s|^\./dotfiles/||")
+	    target="${HOME}/${relpath}"
+		mkdir -p "$(dirname "${target}")"
+	    ln -sfnv "${abspath}" "${target}" > /dev/null
+	}
+	export -f handle_symlink_from_file
+	find ./dotfiles \( -type l -o -type f \) -exec bash -c 'handle_symlink_from_file "{}"' \;
 
 	if ! ${TESTMODE}; then
 		zinit self-update
