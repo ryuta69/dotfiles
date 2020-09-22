@@ -81,7 +81,7 @@ bindkey "^[[B" down-line-or-beginning-search
 
 ## ----------------------------------------
 ##	Alias & Function
-##	- ~/.aliases/**.zsh has more aliases which not often used.
+##	- ~/.aliases/**.zsh has more aliases.
 ## ----------------------------------------
 alias vi='nvim'
 alias cdh='cd ~'
@@ -142,7 +142,7 @@ alias -s {html,mp3,mp4,mov}='open'
 alias -s {applescript}='osascript'
 
 ## ========== Git ==========
-## - ~/.gitconfig has most of git aliases.
+## - ~/.gitconfig has more git aliases.
 alias g='git' && compdef _git g
 alias cdgh='cd `ghq list -p | fzf`'
 alias cdg='cd `git rev-parse --show-toplevel`'

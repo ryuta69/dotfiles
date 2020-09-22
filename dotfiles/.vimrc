@@ -118,7 +118,7 @@ nnoremap <Leader>update  :PlugUpdate<CR>
 nnoremap <Leader>install :PlugInstall<CR>
 
 "" ========== Coc.nvim ==========
-let g:coc_config_home = "~"
+let g:coc_config_home = "~/.config/coc"
 let g:coc_global_extensions = [
       \ 'coc-go',
       \ 'coc-sh',
@@ -128,7 +128,6 @@ let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-html',
       \ 'coc-perl',
-      \ 'coc-eslint',
       \ 'coc-vimlsp',
       \ 'coc-python',
       \ 'coc-snippets',
