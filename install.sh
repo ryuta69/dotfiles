@@ -17,10 +17,10 @@ symlink_dotfiles() {
 		file=$1
 		dirpath=$(dirname "${file}") && filename=$(basename "${file}")
 		abspath=$(cd "${dirpath}" && pwd)"/${filename}"
-	    relpath=$(echo "${file}" | sed "s|^\./dotfiles/||")
-	    target="${HOME}/${relpath}"
+		relpath=$(echo "${file}" | sed "s|^\./dotfiles/||")
+		target="${HOME}/${relpath}"
 		mkdir -p "$(dirname "${target}")"
-	    ln -sfnv "${abspath}" "${target}" > /dev/null
+		ln -sfnv "${abspath}" "${target}" > /dev/null
 	}
 	export -f handle_symlink_from_file
 	find ./dotfiles \( -type l -o -type f \) -exec bash -c 'handle_symlink_from_file "{}"' \;
@@ -119,8 +119,6 @@ install_bundle() {
 	## ========== Yabai ==========
 	# brew services start skhd
 	# brew services start yabai
-	# cd ${HOME}/Library/Application\ Support/Übersicht/widgets/status_bar
-	# yarn install
 
 	## ========== Docker ==========
 	mkdir -p ${HOME}/.zsh/completion

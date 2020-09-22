@@ -1,3 +1,5 @@
+# Exceptional bundles which can't be automated
+
 ## Chrome Extension
 
 ### AdBlock

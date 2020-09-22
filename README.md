@@ -27,8 +27,6 @@ You can change several themes anytime with only one command. These are my origin
 ## Installation
 
 ```bash
-# Never run whole scripts if you don't know inside.
-
 # Initialize to install core tools such as xcode, brew, and zsh.
 # By default, You don't have any CLI such as git, make, nor wget.
 # This uses only by curl and bash, and it will be completed automatically.
@@ -59,7 +57,7 @@ all:      All installations (except init)
 <br />
 
 ## Thanks
-These links gave me knowledges.
+#### knowledge
 
 https://qiita.com/b4b4r07/items/b70178e021bef12cd4a2
 
@@ -67,7 +65,7 @@ https://github.com/kevinSuttle/macOS-Defaults/blob/master/REFERENCE.md
 
 https://github.com/tech-otaku/macos-config-mojave/blob/master/macos-config.sh
 
-These links are great designs impressed me.
+#### design
 
 https://github.com/alnj/dotfiles
 
