@@ -190,7 +190,7 @@ vigo() {
 
 ## ========== Aliases && Snippets ==========
 [ -f ~/.secret_alias ] && source ~/.secret_alias
-alias sotm='wal -i `ls -d ~/.theme/*    | fzf`'
+alias sotm='wal -i `ls -d ~/.theme/*    | fzf`/desktop.jpg'
 alias visn='vi     `ls -d ~/.snippets/* | fzf --preview "bat --color=always {}"`'
 alias vial='vi     `ls -d ~/.aliases/*  | fzf --preview "bat --color=always {}"`'
 alias soal='source `ls -d ~/.aliases/*  | fzf --preview "bat --color=always {}"`'
@@ -199,7 +199,7 @@ alias soal='source `ls -d ~/.aliases/*  | fzf --preview "bat --color=always {}"`
 ##	FZF
 ## ----------------------------------------
 export FZF_DEFAULT_COMMAND="rg --files"
-export FZF_DEFAULT_OPTS='--reverse --height 70% --color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229 --color info:150,prompt:110,spinner:150,pointer:167,marker:174'
+export FZF_DEFAULT_OPTS='--reverse --color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229 --color info:150,prompt:110,spinner:150,pointer:167,marker:174'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ## ----------------------------------------
