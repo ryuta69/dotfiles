@@ -6,6 +6,6 @@ contact_links:
   - name: Feature
     about: If you want some feature, report from here
     url: https://github.com/ryuta69/dotfiles/issues/new?template=feature.md
-  - name: Suggestion
-    about: If you have a suggestion to me, report from here
-    url: https://github.com/ryuta69/dotfiles/issues/new?template=suggestion.md
+  - name: Question
+    about: If you have a question to me, report from here
+    url: https://github.com/ryuta69/dotfiles/issues/new?template=question.md
