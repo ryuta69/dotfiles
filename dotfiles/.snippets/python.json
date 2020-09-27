@@ -88,6 +88,12 @@
 			"$0"
 		]
 	},
+	"Sort2dList": {
+		"prefix": ["sort2dlist"],
+		"body": [
+			"l = sorted(l, key=lambda x:x[0])"
+		]
+	},
 	"Filter": {
 		"prefix": ["filter"],
 		"body": [
@@ -487,6 +493,16 @@
 			"# G[1].append(2)"
 		]
 	},
+	"DefaultDict": {
+		"prefix": ["defaultdict"],
+		"body": [
+			"from collections import defaultdict",
+			"G = defaultdict(list)",
+			"for i in range(n):",
+			"\tG[i] = []",
+			"# G[0].append(2)"
+		]
+	},
 	"breadthfirstsearch": {
 		"prefix": ["bfs"],
 		"body": [
@@ -817,6 +833,7 @@
 		"body": [
 			"from itertools import combinations",
 			"lc = combinations(${2:l}, ${3:3})",
+			"# lc = for a,b,c... in lc:",
 			"$0"
 		]
 	},
