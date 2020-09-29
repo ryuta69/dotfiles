@@ -7,7 +7,6 @@ call plug#begin(plugdir)
 	Plug 'bfredl/nvim-miniyank'
 	Plug 'tpope/vim-commentary'
 	Plug 'junegunn/vim-easy-align'
-	Plug 'Lokaltog/vim-easymotion'
 	Plug 'yuttie/comfortable-motion.vim'
 	Plug 'bronson/vim-trailing-whitespace'
 	Plug 'ConradIrwin/vim-bracketed-paste'
@@ -16,6 +15,8 @@ call plug#begin(plugdir)
 	Plug 'cohama/lexima.vim' | 	Plug 'machakann/vim-sandwich'
 	Plug 'tpope/vim-fugitive' | Plug 'rhysd/conflict-marker.vim'
 	Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+	Plug 'haya14busa/incsearch.vim' | Plug 'haya14busa/incsearch-fuzzy.vim'
+	Plug 'Lokaltog/vim-easymotion' | Plug 'haya14busa/incsearch-easymotion.vim'
 	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call plug#end()
 
@@ -186,6 +187,16 @@ nmap ga <Plug>(LiveEasyAlign)
 let g:EasyMotion_do_mapping=0
 let g:EasyMotion_enter_jump_first=1
 map <Leader>s <Plug>(easymotion-sn)
+function! s:config_easyfuzzymotion(...) abort
+  return extend(copy({
+  \   'converters': [incsearch#config#fuzzyword#converter()],
+  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+  \   'is_expr': 0,
+  \   'is_stay': 1
+  \ }), get(a:, 1, {}))
+endfunction
+noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
 "" ========== VimFugitive ==========
 nnoremap <Leader>gd  :Gdiff<CR>
