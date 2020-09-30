@@ -1,8 +1,8 @@
 "" ----------------------------------------
 ""	Plugin
 "" ----------------------------------------
-let plugdir=has('nvim') ? '~/.config/nvim/plugged/' : '~/.vim/plugged'
-call plug#begin(plugdir)
+let s:plugdir=has('nvim') ? '~/.config/nvim/plugged/' : '~/.vim/plugged'
+call plug#begin(s:plugdir)
 	Plug 'mattn/emmet-vim'
 	Plug 'bfredl/nvim-miniyank'
 	Plug 'tpope/vim-commentary'
@@ -116,8 +116,8 @@ let g:user_emmet_settings = {
 
 "" ========== VimPlug ==========
 nnoremap <Leader>clean   :PlugClean<CR>
-nnoremap <Leader>update  :PlugUpdate<CR>
 nnoremap <Leader>install :PlugInstall<CR>
+nnoremap <Leader>update  :PlugUpgrade \| PlugUpdate<CR>
 
 "" ========== Coc.nvim ==========
 let g:coc_config_home = "~/.config/coc"
@@ -200,6 +200,7 @@ endfunction
 noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
 "" ========== VimFugitive ==========
+set diffopt+=vertical
 nnoremap <Leader>gd  :Gdiff<CR>
 nnoremap <Leader>ga  :Gwrite<CR>
 nnoremap <Leader>gb  :Gblame<CR>
@@ -209,7 +210,6 @@ nnoremap <Leader>gm  :Gdiffsplit!<CR>
 nnoremap <Leader>dp  :diffput 1 \| diffupdate<CR>
 nnoremap <Leader>dgl :diffget //2 \| diffupdate<CR>
 nnoremap <Leader>dgr :diffget //3 \| diffupdate<CR>
-set diffopt+=vertical
 
 "" ========== NvimMiniyank ==========
 if has("nvim")
