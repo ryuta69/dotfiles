@@ -101,6 +101,21 @@
 			"$0"
 		]
 	},
+	"ConvertBin": {
+		"prefix": ["convertbin"],
+		"body": [
+			"bini = format(i, 'b')"
+		]
+	},
+	"NpSearchSorted": {
+		"prefix": ["npsearchsorted"],
+		"body": [
+			"import numpy as np",
+			"target = np.array(list())",
+			"source = np.array(list())",
+			"b_num = np.searchsorted(target, source)"
+		]
+	},
 	"Map": {
 		"prefix": ["map"],
 		"body": [
