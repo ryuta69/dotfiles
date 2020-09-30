@@ -12,7 +12,7 @@ call plug#begin(plugdir)
 	Plug 'ConradIrwin/vim-bracketed-paste'
 	Plug 'ayu-theme/ayu-vim' | Plug 'dylanaraps/wal.vim'
 	Plug 'sheerun/vim-polyglot' | Plug 'ap/vim-css-color'
-	Plug 'cohama/lexima.vim' | 	Plug 'machakann/vim-sandwich'
+	Plug 'cohama/lexima.vim' | Plug 'machakann/vim-sandwich'
 	Plug 'tpope/vim-fugitive' | Plug 'rhysd/conflict-marker.vim'
 	Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 	Plug 'haya14busa/incsearch.vim' | Plug 'haya14busa/incsearch-fuzzy.vim'
@@ -64,6 +64,7 @@ nnoremap <Up> gk
 nnoremap <Down> gj
 tnoremap <ESC> <C-\><C-n>
 nnoremap <Leader>t :tabnew<CR>
+nnoremap <Leader>n :set invnumber<CR>
 nnoremap <Leader>1 :diffget LOCAL<CR>
 nnoremap <Leader>2 :diffget BASE<CR>
 nnoremap <Leader>3 :diffget REMOTE<CR>
