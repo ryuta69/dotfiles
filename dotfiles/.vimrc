@@ -17,7 +17,7 @@ call plug#begin(s:plugdir)
 	Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 	Plug 'haya14busa/incsearch.vim' | Plug 'haya14busa/incsearch-fuzzy.vim'
 	Plug 'Lokaltog/vim-easymotion' | Plug 'haya14busa/incsearch-easymotion.vim'
-	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
 call plug#end()
 
 "" ----------------------------------------
@@ -39,11 +39,11 @@ set smartcase ignorecase wildignorecase
 set rulerformat=%40(%1*%=%l,%-(%c%V%)\ %=%t%)%*
 set noexpandtab tabstop=4 softtabstop=-1 shiftwidth=0
 set encoding=utf-8 fileencodings=cp932,sjis,euc-jp,utf-8,iso-2022-jp
-autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 if has('nvim')
 	set inccommand=split
 else
-	syntax on
+	sy on
 	set ttyfast
 	set autoread
 	set wildmenu
@@ -57,67 +57,62 @@ endif
 "" ----------------------------------------
 ""	Mapping
 "" ----------------------------------------
-nnoremap Y y$
-nnoremap + <C-a>
-nnoremap - <C-x>
-nnoremap <Up> gk
-nnoremap <Down> gj
-tnoremap <ESC> <C-\><C-n>
-nnoremap <Leader>t :tabnew<CR>
-nnoremap <Leader>n :set invnumber<CR>
-nnoremap <Leader>1 :diffget LOCAL<CR>
-nnoremap <Leader>2 :diffget BASE<CR>
-nnoremap <Leader>3 :diffget REMOTE<CR>
-nnoremap <Leader>code :!code %:p<CR>
-nnoremap <Leader>dir  :!code -r %:p:h<CR>
-nnoremap <Leader>term :split \| terminal<CR>
-map <Leader>\ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nn Y y$
+nn + <C-a>
+nn - <C-x>
+nn <Up> gk
+nn <Down> gj
+tno <ESC> <C-\><C-n>
+nn <Leader>t :tabnew<CR>
+nn <Leader>n :set invnumber<CR>
+nn <Leader>1 :diffget LOCAL<CR>
+nn <Leader>2 :diffget BASE<CR>
+nn <Leader>3 :diffget REMOTE<CR>
+nn <Leader>code :!code %:p<CR>
+nn <Leader>dir :!code -r %:p:h<CR>
+nn <Leader>term :split \| terminal<CR>
 
 "" ----------------------------------------
 ""	PluginSetting
 "" ----------------------------------------
-" ========== Theme ==========
-let ayucolor='dark' | colorscheme ayu
-highlight Normal      guibg=#0A0E14
-highlight FoldColumn  guibg=#0A0E14
-highlight User1       guifg=#3D424D
-highlight ModeMsg     guifg=#3D424D
-highlight EndOfBuffer ctermfg=0 guifg=bg
-highlight DiffAdd     gui=NONE  guifg=NONE    guibg=#012800
-highlight DiffDelete  gui=bold  guifg=#340001 guibg=#340001
-highlight DiffChange  gui=NONE  guifg=NONE    guibg=#012800
-highlight DiffText    gui=NONE  guifg=NONE    guibg=#012800
-nnoremap  <Leader>wal :call Wal()<CR>
-function! Wal()
-	set notermguicolors
-	colorscheme wal
-endfunction
+"" ========== Theme ==========
+let ayucolor='dark' | colo ayu
+hi User1 guifg=#3D424D
+hi Normal guibg=#0A0E14
+hi ModeMsg guifg=#3D424D
+hi FoldColumn guibg=#0A0E14
+hi EndOfBuffer ctermfg=0 guifg=bg
+hi DiffAdd gui=NONE guifg=NONE guibg=#012800
+hi DiffText gui=NONE guifg=NONE guibg=#012800
+hi DiffChange gui=NONE guifg=NONE guibg=#012800
+hi DiffDelete gui=bold guifg=#340001 guibg=#340001
+nn <Leader>wal :set notermguicolors \| colo wal<CR><CR>
 
 "" ========== Fzf ==========
-nnoremap <Leader>file :Files<CR>
-nnoremap <Leader>hist :History<CR>
-nnoremap <Leader>rg   :call Rg()<CR>
+nn <Leader>file :Files<CR>
+nn <Leader>hist :History<CR>
+nn <Leader>rg :call Rg()<CR>
 let g:fzf_layout={'right': '~45%'}
-command! -bang -nargs=* History call fzf#vim#history(fzf#vim#with_preview('down:50%'))
-command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview('down:50%'), <bang>0)
-function! Rg()
+com! -bang -nargs=* History call fzf#vim#history(fzf#vim#with_preview('down:50%'))
+com! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview('down:50%'), <bang>0)
+fun! Rg()
 	let string=input('Search String: ')
 	call fzf#run(fzf#wrap({
 		\ 'source': 'rg -lin ' . string,
 		\ 'options': '--preview-window bottom:60% --preview "rg -in --color=always ' . string . ' {}"'
 	\ }))
-endfunction
+endfun
 
 "" ========== Emmet ==========
 let g:user_emmet_settings = {
-	\ 'typescript'     : { 'extends' : 'jsx' },
+	\ 'typescript' : { 'extends' : 'jsx' },
 	\ 'javascript.jsx' : { 'extends' : 'jsx' }
 \ }
 
 "" ========== VimPlug ==========
-nnoremap <Leader>clean   :PlugClean<CR>
-nnoremap <Leader>install :PlugInstall<CR>
-nnoremap <Leader>update  :PlugUpgrade \| PlugUpdate<CR>
+nn <Leader>clean :PlugClean<CR>
+nn <Leader>install :PlugInstall<CR>
+nn <Leader>update :PlugUpgrade \| PlugUpdate<CR>
 
 "" ========== Coc.nvim ==========
 let g:coc_config_home = "~/.config/coc"
@@ -137,23 +132,22 @@ let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ 'coc-markdownlint',
 \ ]
-highlight CocInfoLine    guifg=None guibg=#012800
-highlight CocHintLine    guifg=None guibg=#012800
-highlight CocErrorLine   guifg=None guibg=#340001
-highlight CocWarningLine guifg=None guibg=#525200
-nnoremap  <Leader>cls  :CocList<CR>
-nnoremap  <Leader>cupd :CocUpdate<CR>
-nnoremap  <Leader>cdis :CocDisable<CR>
-inoremap  <expr> <UP>   pumvisible() ? '<C-e><UP>'   : '<UP>'
-inoremap  <expr> <DOWN> pumvisible() ? '<C-e><DOWN>' : '<DOWN>'
-nmap <silent> <Leader>cfmt <Plug>(coc-format)
-nmap <silent> <Leader>cref <Plug>(coc-reference)
-nmap <silent> <Leader>cdef <Plug>(coc-definition)
-nmap <silent> <Leader>cfix <Plug>(coc-fix-current)
-nmap <silent> <Leader>cn   <Plug>(coc-diagnostic-next)
-nmap <silent> <Leader>cp   <Plug>(coc-diagnostic-prev)
-nmap <silent> <Leader>chov :call CocAction('doHover')<CR>
-function! TabComp()
+hi CocInfoLine guifg=None guibg=#012800
+hi CocHintLine guifg=None guibg=#012800
+hi CocErrorLine guifg=None guibg=#340001
+hi CocWarningLine guifg=None guibg=#525200
+nn <Leader>cls :CocList<CR>
+nn <Leader>cupd :CocUpdate<CR>
+nn <Leader>cdis :CocDisable<CR>
+nm <silent> <Leader>cfmt <Plug>(coc-format)
+nm <silent> <Leader>cref <Plug>(coc-reference)
+nm <silent> <Leader>cdef <Plug>(coc-definition)
+nm <silent> <Leader>cfix <Plug>(coc-fix-current)
+nm <silent> <Leader>cn <Plug>(coc-diagnostic-next)
+nm <silent> <Leader>cp <Plug>(coc-diagnostic-prev)
+ino <expr> <UP> pumvisible() ? '<C-e><UP>' : '<UP>'
+ino <expr> <DOWN> pumvisible() ? '<C-e><DOWN>' : '<DOWN>'
+fun! TabComp()
 	if pumvisible()
 		return "\<C-n>"
 	elseif coc#jumpable()
@@ -161,9 +155,9 @@ function! TabComp()
 	else
 		return "\<Tab>"
 	endif
-endfunction
-imap <expr> <Tab> TabComp() | smap <expr> <Tab> TabComp()
-function! TabShiftComp()
+endfun
+im <expr> <Tab> TabComp() | smap <expr> <Tab> TabComp()
+fun! TabShiftComp()
 	if pumvisible()
 		return "\<C-p>"
 	elseif coc#jumpable()
@@ -171,45 +165,42 @@ function! TabShiftComp()
 	else
 		return "\<S-Tab>"
 	endif
-endfunction
-imap <expr> <S-Tab> TabShiftComp() | smap <expr> <S-Tab> TabShiftComp()
+endfun
+im <expr> <S-Tab> TabShiftComp() | smap <expr> <S-Tab> TabShiftComp()
 
 "" ========== Polyglot ==========
 let g:polyglot_excludes = ['csv']
 
-"" ========== Sandwich ==========
-let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
-
 "" ========== EasyAlign ==========
-xmap ga <Plug>(LiveEasyAlign)
-nmap ga <Plug>(LiveEasyAlign)
+xm ga <Plug>(LiveEasyAlign)
+nm ga <Plug>(LiveEasyAlign)
 
 "" ========== EasyMotion ==========
 let g:EasyMotion_do_mapping=0
 let g:EasyMotion_enter_jump_first=1
 map <Leader>s <Plug>(easymotion-sn)
-function! s:config_easyfuzzymotion(...) abort
-  return extend(copy({
-  \   'converters': [incsearch#config#fuzzyword#converter()],
-  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
-  \   'is_expr': 0,
-  \   'is_stay': 1
-  \ }), get(a:, 1, {}))
-endfunction
-noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
+fun! s:config_easyfuzzymotion(...) abort
+	return extend(copy({
+		\ 'converters': [incsearch#config#fuzzyword#converter()],
+		\ 'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+		\ 'keymap': {"\<CR>": '<Over>(easymotion)'},
+		\ 'is_expr': 0,
+		\ 'is_stay': 1
+	\ }), get(a:, 1, {}))
+endfun
+no <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
 "" ========== VimFugitive ==========
 set diffopt+=vertical
-nnoremap <Leader>gd  :Gdiff<CR>
-nnoremap <Leader>ga  :Gwrite<CR>
-nnoremap <Leader>gb  :Gblame<CR>
-nnoremap <Leader>gs  :Gstatus<CR>
-nnoremap <Leader>du  :diffupdate<CR>
-nnoremap <Leader>gm  :Gdiffsplit!<CR>
-nnoremap <Leader>dp  :diffput 1 \| diffupdate<CR>
-nnoremap <Leader>dgl :diffget //2 \| diffupdate<CR>
-nnoremap <Leader>dgr :diffget //3 \| diffupdate<CR>
+nn <Leader>gd :Gdiff<CR>
+nn <Leader>ga :Gwrite<CR>
+nn <Leader>gb :Gblame<CR>
+nn <Leader>gs :Gstatus<CR>
+nn <Leader>du :diffupdate<CR>
+nn <Leader>gm :Gdiffsplit!<CR>
+nn <Leader>dp :diffput 1 \| diffupdate<CR>
+nn <Leader>dgl :diffget //2 \| diffupdate<CR>
+nn <Leader>dgr :diffget //3 \| diffupdate<CR>
 
 "" ========== NvimMiniyank ==========
 if has("nvim")
@@ -218,13 +209,13 @@ if has("nvim")
 endif
 
 "" ========== ConflictMarker ==========
+let g:conflict_marker_end = '^>>>>>>> .*$'
 let g:conflict_marker_begin = '^<<<<<<< .*$'
-let g:conflict_marker_end   = '^>>>>>>> .*$'
-highlight ConflictMarkerBegin  guibg=#2f7366
-highlight ConflictMarkerOurs   guibg=#2e5049
-highlight ConflictMarkerTheirs guibg=#344f69
-highlight ConflictMarkerEnd    guibg=#2f628e
-highlight ConflictMarkerCommonAncestorsHunk guibg=#754a81
+hi ConflictMarkerEnd guibg=#2f628e
+hi ConflictMarkerOurs guibg=#2e5049
+hi ConflictMarkerBegin guibg=#2f7366
+hi ConflictMarkerTheirs guibg=#344f69
+hi ConflictMarkerCommonAncestorsHunk guibg=#754a81
 
 "" ========== VimTrailingSpace ==========
-nnoremap <Leader>trim :FixWhitespace<CR>
+nn <Leader>trim :FixWhitespace<CR>
