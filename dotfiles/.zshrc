@@ -61,7 +61,7 @@ setopt magic_equal_subst
 export HISTSIZE=100
 export SAVEHIST=10000
 export HISTFILE=${HOME}/.zsh_history
-export FPATH="${HOME}/.zsh/completion:${FPATH}"
+export FPATH="${HOME}/.zinit/completions:${FPATH}"
 autoload -Uz compinit && compinit -i && compinit
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*:default' list-colors ${LS_COLORS}
@@ -229,11 +229,14 @@ fi
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
-zinit light-mode for zinit-zsh/z-a-patch-dl zinit-zsh/z-a-as-monitor zinit-zsh/z-a-bin-gem-node
-zinit light b4b4r07/enhancd
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-syntax-highlighting
+zinit lucid for \
+	b4b4r07/enhancd \
+	zsh-users/zsh-completions \
+	zsh-users/zsh-autosuggestions \
+	zsh-users/zsh-syntax-highlighting \
+	as'completion' is-snippet 'https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker' \
+	as'completion' is-snippet 'https://github.com/docker/machine/blob/master/contrib/completion/zsh/_docker-machine' \
+	as'completion' is-snippet 'https://github.com/docker/compose/blob/master/contrib/completion/zsh/_docker-compose'
 
 ## ----------------------------------------
 ##	Prompt

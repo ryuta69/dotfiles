@@ -120,11 +120,6 @@ install_bundle() {
 	# brew services start skhd
 	# brew services start yabai
 
-	## ========== Docker ==========
-	mkdir -p ${HOME}/.zsh/completion
-	curl -L https://raw.githubusercontent.com/docker/compose/1.25.4/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
-	curl -L https://raw.githubusercontent.com/docker/machine/v0.16.0/contrib/completion/zsh/_docker-machine > ~/.zsh/completion/_docker-machine
-
 	## ========== Remote pbcopy ==========
 	if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 		curl -fsSLo pbcopy-linux-amd64.tar.gz https://github.com/skaji/remote-pbcopy-iterm2/releases/latest/download/pbcopy-linux-amd64.tar.gz

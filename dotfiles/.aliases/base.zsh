@@ -74,7 +74,7 @@ zinit-plug-update() {
 	zinit update
 }
 zinit-plug-clean() {
-	zinit clean
+	zinit delete --clean
 }
 
 ## ----------------------------------------
