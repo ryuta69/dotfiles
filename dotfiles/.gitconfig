@@ -22,6 +22,7 @@
 	cp  = cherry-pick
 	del = !git branch -r --merged | grep -v 'master\\|develop' | sed 's/origin\\///' | xargs -n 1 git push --delete origin && git fetch origin --prune
 	df  = diff
+	dfc = diff --cached
 	dfh = diff HEAD
 	dfr = !git diff origin `git rev-parse --abbrev-ref HEAD`
 	dft = difftool
