@@ -3,14 +3,13 @@
 "" ----------------------------------------
 let s:plugdir=has('nvim') ? '~/.config/nvim/plugged/' : '~/.vim/plugged'
 call plug#begin(s:plugdir)
-	Plug 'mattn/emmet-vim'
+	Plug 'ayu-theme/ayu-vim'
 	Plug 'bfredl/nvim-miniyank'
 	Plug 'tpope/vim-commentary'
 	Plug 'junegunn/vim-easy-align'
 	Plug 'yuttie/comfortable-motion.vim'
 	Plug 'bronson/vim-trailing-whitespace'
 	Plug 'ConradIrwin/vim-bracketed-paste'
-	Plug 'ayu-theme/ayu-vim' | Plug 'dylanaraps/wal.vim'
 	Plug 'sheerun/vim-polyglot' | Plug 'ap/vim-css-color'
 	Plug 'cohama/lexima.vim' | Plug 'machakann/vim-sandwich'
 	Plug 'tpope/vim-fugitive' | Plug 'rhysd/conflict-marker.vim'
@@ -18,6 +17,7 @@ call plug#begin(s:plugdir)
 	Plug 'haya14busa/incsearch.vim' | Plug 'haya14busa/incsearch-fuzzy.vim'
 	Plug 'Lokaltog/vim-easymotion' | Plug 'haya14busa/incsearch-easymotion.vim'
 	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
+	Plug 'mattn/emmet-vim', {'for': ['html', 'typescript', 'javascript', 'javascript.jsx']}
 call plug#end()
 
 "" ----------------------------------------
@@ -86,20 +86,19 @@ hi DiffAdd gui=NONE guifg=NONE guibg=#012800
 hi DiffText gui=NONE guifg=NONE guibg=#012800
 hi DiffChange gui=NONE guifg=NONE guibg=#012800
 hi DiffDelete gui=bold guifg=#340001 guibg=#340001
-nn <Leader>wal :set notermguicolors \| colo wal<CR><CR>
 
 "" ========== Fzf ==========
 nn <Leader>file :Files<CR>
 nn <Leader>hist :History<CR>
 nn <Leader>rg :call Rg()<CR>
-let g:fzf_layout={'right': '~45%'}
+let g:fzf_layout={'right': '~50%'}
 com! -bang -nargs=* History call fzf#vim#history(fzf#vim#with_preview('down:50%'))
 com! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview('down:50%'), <bang>0)
 fun! Rg()
 	let string=input('Search String: ')
 	call fzf#run(fzf#wrap({
 		\ 'source': 'rg -lin ' . string,
-		\ 'options': '--preview-window bottom:60% --preview "rg -in --color=always ' . string . ' {}"'
+		\ 'options': '--preview-window bottom:50% --preview "rg -in --color=always ' . string . ' {}"'
 	\ }))
 endfun
 
@@ -209,13 +208,13 @@ if has("nvim")
 endif
 
 "" ========== ConflictMarker ==========
-let g:conflict_marker_end = '^>>>>>>> .*$'
-let g:conflict_marker_begin = '^<<<<<<< .*$'
 hi ConflictMarkerEnd guibg=#2f628e
 hi ConflictMarkerOurs guibg=#2e5049
 hi ConflictMarkerBegin guibg=#2f7366
 hi ConflictMarkerTheirs guibg=#344f69
 hi ConflictMarkerCommonAncestorsHunk guibg=#754a81
+let g:conflict_marker_end = '^>>>>>>> .*$'
+let g:conflict_marker_begin = '^<<<<<<< .*$'
 
 "" ========== VimTrailingSpace ==========
 nn <Leader>trim :FixWhitespace<CR>
