@@ -3,6 +3,7 @@
 "" ----------------------------------------
 let s:plugdir=has('nvim') ? '~/.config/nvim/plugged/' : '~/.vim/plugged'
 call plug#begin(s:plugdir)
+	Plug 'mattn/emmet-vim'
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'bfredl/nvim-miniyank'
 	Plug 'tpope/vim-commentary'
@@ -17,7 +18,6 @@ call plug#begin(s:plugdir)
 	Plug 'haya14busa/incsearch.vim' | Plug 'haya14busa/incsearch-fuzzy.vim'
 	Plug 'Lokaltog/vim-easymotion' | Plug 'haya14busa/incsearch-easymotion.vim'
 	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
-	Plug 'mattn/emmet-vim', {'for': ['html', 'typescript', 'javascript', 'javascript.jsx']}
 call plug#end()
 
 "" ----------------------------------------
@@ -124,6 +124,7 @@ let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-html',
       \ 'coc-perl',
+      \ 'coc-eslint',
       \ 'coc-vimlsp',
       \ 'coc-python',
       \ 'coc-snippets',
@@ -131,13 +132,13 @@ let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ 'coc-markdownlint',
 \ ]
+nn <Leader>cls :CocList<CR>
+nn <Leader>cupd :CocUpdate<CR>
+nn <Leader>cdis :CocDisable<CR>
 hi CocInfoLine guifg=None guibg=#012800
 hi CocHintLine guifg=None guibg=#012800
 hi CocErrorLine guifg=None guibg=#340001
 hi CocWarningLine guifg=None guibg=#525200
-nn <Leader>cls :CocList<CR>
-nn <Leader>cupd :CocUpdate<CR>
-nn <Leader>cdis :CocDisable<CR>
 nm <silent> <Leader>cfmt <Plug>(coc-format)
 nm <silent> <Leader>cref <Plug>(coc-reference)
 nm <silent> <Leader>cdef <Plug>(coc-definition)
