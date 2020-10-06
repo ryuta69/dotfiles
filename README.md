@@ -5,7 +5,7 @@
 - **Shell** : [zsh](https://wiki.archlinux.org/index.php/zsh) with [zinit](https://zdharma.org/zinit/wiki/)
 - **App Launcher** : [Alfred](alfredapp.com)
 - **Window Manager** : [Rectangle](https://rectangleapp.com/)
-- **Fonts** : [Hack Nerd Fonts Italic](nerdfonts.com)
+- **Fonts** : [Hack Nerd Fonts Italic](https://www.nerdfonts.com/)
 
 ## Preview
 
