@@ -139,12 +139,14 @@ hi CocInfoLine guifg=None guibg=#012800
 hi CocHintLine guifg=None guibg=#012800
 hi CocErrorLine guifg=None guibg=#340001
 hi CocWarningLine guifg=None guibg=#525200
-nm <silent> <Leader>cfmt <Plug>(coc-format)
-nm <silent> <Leader>cref <Plug>(coc-reference)
-nm <silent> <Leader>cdef <Plug>(coc-definition)
-nm <silent> <Leader>cfix <Plug>(coc-fix-current)
+nm <silent> <Leader>cr <Plug>(coc-reference)
 nm <silent> <Leader>cn <Plug>(coc-diagnostic-next)
 nm <silent> <Leader>cp <Plug>(coc-diagnostic-prev)
+nm <silent> <Leader>ch :call CocAction('doHover')<CR>
+nm <silent> <Leader>cds :call CocAction('jumpDefinition','split')<CR>
+nm <silent> <Leader>cdv :call CocAction('jumpDefinition','vsplit')<CR>
+
+"" ========== Completion ==========
 ino <expr> <UP> pumvisible() ? '<C-e><UP>' : '<UP>'
 ino <expr> <DOWN> pumvisible() ? '<C-e><DOWN>' : '<DOWN>'
 fun! TabComp()

@@ -116,6 +116,21 @@
 			"b_num = np.searchsorted(target, source)"
 		]
 	},
+	"Divisors": {
+		"prefix": ["divisors"],
+		"body": [
+			"def make_divisors(n):",
+			"\tlower_divisors , upper_divisors = [], []",
+			"\ti = 1",
+			"\twhile i*i <= n:",
+			"\t\tif n % i == 0:",
+			"\t\t\tlower_divisors.append(i)",
+			"\t\t\tif i != n // i:",
+			"\t\t\t\tupper_divisors.append(n//i)",
+			"\t\ti += 1",
+			"\treturn lower_divisors + upper_divisors[::-1]"
+		]
+	},
 	"Map": {
 		"prefix": ["map"],
 		"body": [
