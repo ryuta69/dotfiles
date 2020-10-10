@@ -3,6 +3,7 @@ numpy
 imgcat
 pillow
 pynvim
+poetry
 glances
 requests
 selenium
