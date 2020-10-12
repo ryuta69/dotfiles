@@ -1,0 +1,21 @@
+set $wallpaper /Users/ryuta69/Downloads/image_177.jpg
+
+set $background #100f0b
+set $foreground #bfcfde
+
+set $color0 #100f0b
+set $color1 #AC9569
+set $color2 #737C81
+set $color3 #789BC3
+set $color4 #A2A5A2
+set $color5 #BBC1BE
+set $color6 #E3D1AF
+set $color7 #bfcfde
+set $color8 #85909b
+set $color9 #AC9569
+set $color10 #737C81
+set $color11 #789BC3
+set $color12 #A2A5A2
+set $color13 #BBC1BE
+set $color14 #E3D1AF
+set $color15 #bfcfde
