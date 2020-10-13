@@ -1,0 +1,66 @@
+[
+    {
+        "path": "conftest.py",
+        "line": 12,
+        "func_name": "collect_types_fixture",
+        "type_comments": [
+            "() -> Iterator"
+        ],
+        "samples": 1
+    },
+    {
+        "path": "src/merge_insertion_sort.py",
+        "line": 13,
+        "func_name": "merge_insertion_sort",
+        "type_comments": [
+            "(List[int]) -> List[int]"
+        ],
+        "samples": 2
+    },
+    {
+        "path": "src/merge_insertion_sort.py",
+        "line": 27,
+        "func_name": "binary_search_insertion",
+        "type_comments": [
+            "(List[int], int) -> List[int]"
+        ],
+        "samples": 2
+    },
+    {
+        "path": "src/merge_insertion_sort.py",
+        "line": 43,
+        "func_name": "sortlist_2d",
+        "type_comments": [
+            "(List[List[int]]) -> pyannotate_runtime.collect_types.UnknownType",
+            "(List[List[int]]) -> List[List[int]]"
+        ],
+        "samples": 6
+    },
+    {
+        "path": "src/merge_insertion_sort.py",
+        "line": 44,
+        "func_name": "merge",
+        "type_comments": [
+            "(List[List[int]], List[List[int]]) -> List[List[int]]"
+        ],
+        "samples": 2
+    },
+    {
+        "path": "src/test/test_merge_insertion_sort.py",
+        "line": 4,
+        "func_name": "test_positive_integer",
+        "type_comments": [
+            "() -> None"
+        ],
+        "samples": 1
+    },
+    {
+        "path": "src/test/test_merge_insertion_sort.py",
+        "line": 9,
+        "func_name": "test_negative_integer",
+        "type_comments": [
+            "() -> None"
+        ],
+        "samples": 1
+    }
+]
