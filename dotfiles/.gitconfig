@@ -48,7 +48,7 @@
 	rfs = !git reflog --format='%C(auto)%h %<|(20)%gd %C(blue)%ci%C(reset) %gs (%s)' | awk -F' ' '{print $2}' | xargs git reset --hard
 	rs  = reset
 	rsh = reset --hard
-	rmg = !rm -rf `ghq list -p | fzf`
+	rmg = !ghq list -p | fzf -m --print0 | xargs -0 rm -rf
 	rv  = !"f() { git revert $1^..$2; }; f"
 	sca = secrets --scan-history
 	st  = status
