@@ -93,7 +93,7 @@ alias psa='ps aux' pskl='psa | fzf | awk "{ print \$2 }" | xargs kill -9'
 alias python='/usr/local/bin/python3.8' py='python' pip='/usr/local/bin/pip3'
 alias fd='fd -iH --no-ignore-vcs -E ".git|node_modules"' rmds='fd .DS_Store -X rm'
 alias rg='rg --hidden -g "!.git" -g "!node_modules" --max-columns 200' rgi='rg -i'
-alias llex='ll --git-ignore --ignore-glob=".git|node_modules"' tr2='llex -T -L=2' tr3='llex -T -L=3'
+alias llx='ll --git-ignore --ignore-glob=".git|node_modules"' tr2='llx -T -L=2' tr3='llx -T -L=3'
 vv()   {
 	[ -z "$1" ] && code -r ./ && return 0;
 	code -r "$1";

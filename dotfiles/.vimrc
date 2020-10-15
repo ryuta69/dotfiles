@@ -1,7 +1,24 @@
 "" ----------------------------------------
 ""	Plugin
 "" ----------------------------------------
-let s:plugdir=has('nvim') ? '~/.config/nvim/plugged/' : '~/.vim/plugged'
+let s:vimdir   = has('nvim') ? '~/.config/nvim/' : '~/.vim/'
+let s:plugdir  = s:vimdir . 'plugged'
+let s:plugfile = s:vimdir . 'autoload/plug.vim'
+let s:plugurl  = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+if empty(glob(s:plugfile))
+	silent !echo '[Downloading vim-plug] ...'
+	silent execute '!mkdir -p ' . s:vimdir . 'autoload'
+	if executable('curl')
+		silent execute '!curl -sLo ' . s:plugfile ' ' . s:plugurl
+	elseif executable('wget')
+		silent execute '!wget -q -O ' . s:plugfile ' ' . s:plugurl
+	else
+		silent !echo 'vim-plug failed: you need either wget or curl'
+		cquit
+	endif
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin(s:plugdir)
 	Plug 'mattn/emmet-vim'
 	Plug 'ayu-theme/ayu-vim'
