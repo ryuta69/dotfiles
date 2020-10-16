@@ -19,4 +19,9 @@ format:
 lint:
 	poetry run flake8 ./src
 
+doc:
+	# poetry run sphinx-quickstart docs
+	poetry run sphinx-apidoc -f -o ./docs .
+	poetry run sphinx-build -b singlehtml ./docs ./docs/_build
+
 all: test annotate typecheck format lint
