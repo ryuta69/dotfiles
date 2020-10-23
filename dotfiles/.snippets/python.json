@@ -290,7 +290,7 @@
 	"InputStrList": {
 		"prefix": ["inputstrlist"],
 		"body": [
-			"s = list(input())",
+			"s = list(input().split())",
 			"$0"
 		]
 	},
@@ -389,6 +389,26 @@
 			"if $1:",
 			"\t$0",
 			"else:"
+		]
+	},
+	"Kaibun": {
+		"prefix": ["kaibun"],
+		"body": [
+			"def kaibun(n):",
+			"\tleft = 0",
+			"\tright = len(n)-1",
+			"\tl = len(n)",
+			"\tans = 0",
+			"",
+			"\twhile left < right and len(n) != 10:",
+			"\t\tif n[left] != n[right]:",
+			"\t\t\tn = n[:l] + n[left] + n[l:]",
+			"\t\t\tleft = 0",
+			"\t\t\tright = len(n)-1",
+			"\t\t\tans += 1",
+			"\t\telse:",
+			"\t\t\tleft += 1",
+			"\t\t\tright -= 1"
 		]
 	},
 	"Queens": {
