@@ -1,16 +1,6 @@
 
 
 
-# Add
-# Delete
-# Feature
-# Fix
-# Refactor
-# Rename
-# Update
-# Merge
-# Initial Commit
-#
 # <Type>(<file/func/arg>): <Task Name>
 # What you cared and how you've changed.
 #
@@ -19,3 +9,6 @@
 # 2. First line must be less than 50 characters.
 # 3. First line must not use period at end of line.
 # 4. Never blank body.
+#
+# [Completion]
+# Add Delete Feature Fix Refactor Rename Update Merge Revert InitialCommit
