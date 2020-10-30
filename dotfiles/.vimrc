@@ -20,10 +20,10 @@ if empty(glob(s:plugfile))
 endif
 
 call plug#begin(s:plugdir)
-	Plug 'mattn/emmet-vim'
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'bfredl/nvim-miniyank'
 	Plug 'tpope/vim-commentary'
+	Plug 'mg979/vim-visual-multi'
 	Plug 'junegunn/vim-easy-align'
 	Plug 'yuttie/comfortable-motion.vim'
 	Plug 'bronson/vim-trailing-whitespace'
