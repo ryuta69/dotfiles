@@ -7,15 +7,18 @@ export const command = 'sh status_bar/scripts/desktop.sh';
 
 export const refreshFrequency = 5000;
 
+// White theme
+// color: #0A0E14;
+// background-color: #FAFAFA
 export const className = `
   bottom: 0;
-  color: #0a0E14;
+  color: #FAFAFA;
   width: 100%;
-  background-color: #FAFAFA;
+  background-color: #0A0E14;
 
   .desktop {
     align-items: center;
-    color: #a8a8a8;
+    color: #A8A8A8;
     display: flex;
     font-size: 14px;
     height: 23px;
