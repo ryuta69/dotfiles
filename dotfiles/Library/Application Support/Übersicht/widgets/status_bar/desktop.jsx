@@ -9,9 +9,9 @@ export const refreshFrequency = 5000;
 
 export const className = `
   bottom: 0;
-  color: #a8a8a8;
+  color: #0a0E14;
   width: 100%;
-  background-color: #0A0E14;
+  background-color: #FAFAFA;
 
   .desktop {
     align-items: center;
