@@ -95,9 +95,9 @@ nn <Leader>term :split \| terminal<CR>
 "" ========== Theme ==========
 let ayucolor='dark' | colo ayu
 hi User1 guifg=#3D424D
-hi Normal guibg=#0A0E14
+hi Normal guibg=#000000
 hi ModeMsg guifg=#3D424D
-hi FoldColumn guibg=#0A0E14
+hi FoldColumn guibg=#000000
 hi EndOfBuffer ctermfg=0 guifg=bg
 hi DiffAdd gui=NONE guifg=NONE guibg=#012800
 hi DiffText gui=NONE guifg=NONE guibg=#012800
