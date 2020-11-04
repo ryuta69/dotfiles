@@ -20,7 +20,7 @@ if empty(glob(s:plugfile))
 endif
 
 call plug#begin(s:plugdir)
-	Plug 'ayu-theme/ayu-vim'
+	Plug 'ryuta69/elly.vim'
 	Plug 'bfredl/nvim-miniyank'
 	Plug 'tpope/vim-commentary'
 	Plug 'mg979/vim-visual-multi'
@@ -93,12 +93,9 @@ nn <Leader>term :split \| terminal<CR>
 ""	PluginSetting
 "" ----------------------------------------
 "" ========== Theme ==========
-let ayucolor='dark' | colo ayu
+colo elly
 hi User1 guifg=#3D424D
-hi Normal guibg=#000000
 hi ModeMsg guifg=#3D424D
-hi FoldColumn guibg=#000000
-hi EndOfBuffer ctermfg=0 guifg=bg
 hi DiffAdd gui=NONE guifg=NONE guibg=#012800
 hi DiffText gui=NONE guifg=NONE guibg=#012800
 hi DiffChange gui=NONE guifg=NONE guibg=#012800
