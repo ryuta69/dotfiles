@@ -153,7 +153,7 @@ gcre() {
 
 ## ========== Tmux ==========
 alias tm='tmux' && compdef _tmux tm
-alias tmn='tm attach -t main || tmux new -s main'
+alias tmn='tm attach -t 1 || tmux new -s 1'
 alias tmkl='tmux list-sessions | fzf -m | cut -d: -f 1 | xargs -I{} tmux kill-session -t {}'
 tmrn() {
 	selected=`tmux list-sessions | fzf | cut -d : -f 1`
