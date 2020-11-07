@@ -41,9 +41,11 @@ call plug#end()
 ""	Configure
 "" ----------------------------------------
 set nobomb
+set nowrap
 set lazyredraw
 set laststatus=0
 set termguicolors
+set formatoptions-=t
 let $LANG='en_US.UTF-8'
 let mapleader="\<Space>"
 set title titlestring=%F
