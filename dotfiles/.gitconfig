@@ -43,6 +43,7 @@
 	pl  = !git pull origin `git rev-parse --abbrev-ref HEAD`
 	plr = pull --rebase
 	pr  = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request' | head -n 1; }; f"
+	ra  = !"f() { echo $1 | sed 's/https/git/g' | sed 's/$/.git/g' | xargs git remote add forked }; f"
 	rb  = rebase
 	rf  = reflog --format='%C(auto)%h %<|(20)%gd %C(blue)%ci%C(reset) %gs (%s)'
 	rfs = !git reflog --format='%C(auto)%h %<|(20)%gd %C(blue)%ci%C(reset) %gs (%s)' | awk -F' ' '{print $2}' | xargs git reset --hard
