@@ -20,6 +20,7 @@ if empty(glob(s:plugfile))
 endif
 
 call plug#begin(s:plugdir)
+	Plug 'mattn/emmet-vim'
 	Plug 'ryuta69/elly.vim'
 	Plug 'bfredl/nvim-miniyank'
 	Plug 'tpope/vim-commentary'
@@ -119,6 +120,7 @@ fun! Rg()
 endfun
 
 "" ========== Emmet ==========
+let g:user_emmet_leader_key='<C-E>'
 let g:user_emmet_settings = {
 	\ 'typescript' : { 'extends' : 'jsx' },
 	\ 'javascript.jsx' : { 'extends' : 'jsx' }
