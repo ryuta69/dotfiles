@@ -5,8 +5,8 @@
 ### AdBlock
 https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom
 
-### Ayu Black Theme
-https://chrome.google.com/webstore/detail/ayu-theme/ajncgkjfbpnldolgflagmnceccefpbjb
+### Elly Theme
+https://chrome.google.com/webstore/detail/elly-theme/fmmbppkbdanfmmejahpkpkecbodackhg
 
 ### Clear Cache
 https://chrome.google.com/webstore/detail/clear-cache/cppjkneekbjaeellbfkmgnhonkkjfpdn
@@ -37,6 +37,9 @@ https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfb
 
 ### Youtube Repeat Button
 https://chrome.google.com/webstore/detail/youtube-repeat-button/aihdpnkmhcbjkfonmmfepcjjfaenobip
+
+### Web Sniffer
+https://chrome.google.com/webstore/detail/web-sniffer/ndfgffclcpdbgghfgkmooklaendohaef
 
 
 ## Vimium
