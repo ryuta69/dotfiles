@@ -13,9 +13,7 @@
 
 <img alt="elly iterm2" src="https://user-images.githubusercontent.com/41639488/98157819-3f36ca00-1f1d-11eb-962c-17f33996bd48.png">
 
-(The screenshot is https://github.com/ryuta69/elly.vim, the theme I created.)
-
-There are several other themes that you can switch to anytime with a command `sotm`.
+The screenshot is https://github.com/ryuta69/elly.vim, the theme I created. There are several other themes.
 
 <table>
     <tbody>
@@ -38,9 +36,8 @@ There are several other themes that you can switch to anytime with a command `so
     </tbody>
 </table>
 
-
 ## Articles
- 
+
 - Trending #1 in Reddit/r/unixporn(2020/11): https://www.reddit.com/r/unixporn/comments/jo36fx/rectangle_i_created_a_new_color_theme_which_is/
 - Trending #3 in Reddit/r/unixporn(2020/10): https://www.reddit.com/r/unixporn/comments/irl7i5/rectangle_ubersicht_orange_sunset_theme/
 - Trending #1 in Reddit/r/vimporn(2020/11): https://www.reddit.com/r/vimporn/comments/jnx2oi/created_new_theme_ellyvim_which_is_nostalgic_and/
