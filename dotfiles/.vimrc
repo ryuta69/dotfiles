@@ -54,8 +54,8 @@ set splitright splitbelow
 set clipboard=unnamedplus
 set fileformats=unix,dos,mac
 set whichwrap=b,s,h,l,<,>,[,]
+set ignorecase wildignorecase
 set hidden nobackup noswapfile
-set smartcase ignorecase wildignorecase
 set rulerformat=%40(%1*%=%l,%-(%c%V%)\ %=%t%)%*
 set noexpandtab tabstop=4 softtabstop=-1 shiftwidth=0
 set encoding=utf-8 fileencodings=cp932,sjis,euc-jp,utf-8,iso-2022-jp
