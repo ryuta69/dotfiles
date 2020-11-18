@@ -32,6 +32,12 @@ export const className = `
 
 export const render = ({ output }) => {
   let data = parse(output);
+  if (typeof data === "undefined") {
+    return (
+	  <div className="desktop">
+      </div>
+    );
+  }
 
   return (
     <div className="desktop">
