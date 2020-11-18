@@ -1,5 +1,3 @@
-import get from 'lodash/fp/get';
-
 const iconPicker = (level, status) => {
   if (status === 'AC') {
     return 'fa-bolt';
@@ -29,13 +27,13 @@ const iconColorPicker = level => {
 const Battery = ({ data }) => (
   <div>
     <i
-      className={`fas ${iconPicker(get('level')(data), get('status')(data))}`}
+      className={`fas ${iconPicker(data.level, data.status)}`}
       style={{
-        color: iconColorPicker(get('level')(data)),
+        color: iconColorPicker(data.level),
       }}
     />
     &nbsp;
-    {get('level')(data)}%
+    { data.level }%
   </div>
 );
 

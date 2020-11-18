@@ -1154,6 +1154,20 @@
 			"\treturn left"
 		]
 	},
+	"CombinationsList": {
+		"prefix": ["conmbinationslist"],
+		"body": [
+			"import numpy as np",
+			"combs = np.array(np.meshgrid([1,2], [3,4,5])).T.reshape(-1,2)"
+		]
+	},
+	"nsmallest": {
+		"prefix": ["nsmallest"],
+		"body": [
+			"from heapq import nsmallest",
+			"nsmallest(3, [[1,2],[3,4],[5,6]], key=lambda e:sum(e))"
+		]
+	},
 	"Quicksort": {
 		"prefix": ["quicksort"],
 		"body": [

@@ -1,4 +1,3 @@
-import get from 'lodash/fp/get';
 import Wifi from './components/wifi.jsx';
 import Battery from './components/battery.jsx';
 import { parse } from './helpers.jsx';
@@ -7,9 +6,6 @@ export const command = 'sh status_bar/scripts/desktop.sh';
 
 export const refreshFrequency = 5000;
 
-// White theme
-// color: #0A0E14;
-// background-color: #FAFAFA
 export const className = `
   bottom: 0;
   color: #FAFAFA;
@@ -39,9 +35,9 @@ export const render = ({ output }) => {
 
   return (
     <div className="desktop">
-      <div>{get('date_time')(data)}</div>
-      <Wifi data={get('wifi')(data)} />
-      <Battery data={get('battery')(data)} />
+      <div>{ data.date_time }</div>
+      <Wifi data={ data.wifi } />
+      <Battery data={ data.battery } />
     </div>
   );
 };
