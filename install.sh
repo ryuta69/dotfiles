@@ -147,8 +147,8 @@ initialize() {
 		ssh-keyscan -t rsa github.com >> ${HOME}/.ssh/known_hosts
 		curl -u "ryuta69" --data "{\"title\":\"NewSSHKey\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
 
-		mkdir -p ${HOME}/.ghq/github.com/ryuta69
-		git clone https://github.com/ryuta69/dotfiles
+		mkdir -p ${HOME}/.ghq/github.com/ryuta69/dotfiles && cd $_
+		git clone https://github.com/ryuta69/dotfiles .
 	fi
 
 	brew tap homebrew/bundle
