@@ -21,7 +21,7 @@ endif
 
 call plug#begin(s:plugdir)
 	Plug 'mattn/emmet-vim'
-	Plug 'ryuta69/elly.vim'
+	Plug 'ulwlu/elly.vim'
 	Plug 'bfredl/nvim-miniyank'
 	Plug 'tpope/vim-commentary'
 	Plug 'mg979/vim-visual-multi'

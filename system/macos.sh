@@ -1504,10 +1504,10 @@ ExtraSettings() {
 
 	# ========== Set Computer Name ==========
 	# !!!!! This should not be set !!!!!
-	# sudo scutil --set HostName "ryuta69"
-	# sudo scutil --set ComputerName "ryuta69"
-	# sudo scutil --set LocalHostName "ryuta69"
-	# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "ryuta69"
+	# sudo scutil --set HostName "ulwlu"
+	# sudo scutil --set ComputerName "ulwlu"
+	# sudo scutil --set LocalHostName "ulwlu"
+	# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "ulwlu"
 
 	# ========== Disable Sound on Boot ==========
 	sudo nvram SystemAudioVolume=" "

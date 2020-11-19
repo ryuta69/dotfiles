@@ -145,10 +145,10 @@ initialize() {
 		mkdir -p ${HOME}/.ssh
 		ssh-keygen -t rsa -b 4096 -C "eyma22s.yu@gmail.com"
 		ssh-keyscan -t rsa github.com >> ${HOME}/.ssh/known_hosts
-		curl -u "ryuta69" --data "{\"title\":\"NewSSHKey\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
+		curl -u "ulwlu" --data "{\"title\":\"NewSSHKey\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
 
-		mkdir -p ${HOME}/.ghq/github.com/ryuta69/dotfiles && cd $_
-		git clone https://github.com/ryuta69/dotfiles .
+		mkdir -p ${HOME}/.ghq/github.com/ulwlu/dotfiles && cd $_
+		git clone https://github.com/ulwlu/dotfiles .
 	fi
 
 	brew tap homebrew/bundle

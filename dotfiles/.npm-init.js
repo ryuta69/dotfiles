@@ -22,7 +22,7 @@ const json = {
     name: repo,
     description: '',
     version: '0.1.0',
-    author: 'ryuta69 <eyma22s.yu@gmail.com> (https://ryuta69.netlify.app)'
+    author: 'ulwlu <eyma22s.yu@gmail.com> (https://ulwlu.netlify.app)'
 };
 
 if (meta) {

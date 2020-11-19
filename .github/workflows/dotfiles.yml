@@ -11,10 +11,10 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run help command.
       run: |
-        curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --help
+        curl https://raw.githubusercontent.com/ulwlu/dotfiles/master/install.sh | /bin/bash -s -- --help
     - name: Run initial setup.
       run: |
-        curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/install.sh | /bin/bash -s -- --init
+        curl https://raw.githubusercontent.com/ulwlu/dotfiles/master/install.sh | /bin/bash -s -- --init
     - name: Run dotfiles setup.
       run: |
         /bin/bash install.sh --force --test --dotfiles

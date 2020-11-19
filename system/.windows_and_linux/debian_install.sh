@@ -42,13 +42,13 @@ cargo install ytop
 cargo install du-dust
 cargo install -f --git https://github.com/jez/as-tree
 
-curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/bundle/Vsplug > ~/Vsplug
-curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/dotfiles/.vimrc > ~/.vimrc
-curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/dotfiles/.zshrc > ~/.zshrc
-curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/dotfiles/.p10k.zsh > ~/.p10k.zsh
-curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/dotfiles/.gitconfig > ~/.gitconfig
-curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/dotfiles/.gitignore > ~/.gitignore
-curl https://raw.githubusercontent.com/ryuta69/dotfiles/master/dotfiles/.tmux.conf > ~/.tmux.conf
+curl https://raw.githubusercontent.com/ulwlu/dotfiles/master/bundle/Vsplug > ~/Vsplug
+curl https://raw.githubusercontent.com/ulwlu/dotfiles/master/dotfiles/.vimrc > ~/.vimrc
+curl https://raw.githubusercontent.com/ulwlu/dotfiles/master/dotfiles/.zshrc > ~/.zshrc
+curl https://raw.githubusercontent.com/ulwlu/dotfiles/master/dotfiles/.p10k.zsh > ~/.p10k.zsh
+curl https://raw.githubusercontent.com/ulwlu/dotfiles/master/dotfiles/.gitconfig > ~/.gitconfig
+curl https://raw.githubusercontent.com/ulwlu/dotfiles/master/dotfiles/.gitignore > ~/.gitignore
+curl https://raw.githubusercontent.com/ulwlu/dotfiles/master/dotfiles/.tmux.conf > ~/.tmux.conf
 mkdir ${HOME}/.config/nvim
 cp ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
 

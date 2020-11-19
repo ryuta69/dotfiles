@@ -2,10 +2,10 @@ blank_issues_enabled: false
 contact_links:
   - name: Bug
     about: If you find a bug, report from here
-    url: https://github.com/ryuta69/dotfiles/issues/new?template=bug.md
+    url: https://github.com/ulwlu/dotfiles/issues/new?template=bug.md
   - name: Feature
     about: If you want some feature, report from here
-    url: https://github.com/ryuta69/dotfiles/issues/new?template=feature.md
+    url: https://github.com/ulwlu/dotfiles/issues/new?template=feature.md
   - name: Question
     about: If you have a question to me, report from here
-    url: https://github.com/ryuta69/dotfiles/issues/new?template=question.md
+    url: https://github.com/ulwlu/dotfiles/issues/new?template=question.md
