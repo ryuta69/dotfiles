@@ -20,7 +20,7 @@ if empty(glob(s:plugfile))
 endif
 
 call plug#begin(s:plugdir)
-	Plug 'ulwlu/elly.vim'
+	Plug 'ulwlu/abyss.vim'
 	Plug 'mattn/emmet-vim'
 	Plug 'bfredl/nvim-miniyank'
 	Plug 'tpope/vim-commentary'
@@ -96,7 +96,7 @@ nn <Leader>term :split \| terminal<CR>
 ""	PluginSetting
 "" ----------------------------------------
 "" ========== Theme ==========
-colo elly
+colo abyss
 hi User1 guifg=#3D424D
 hi ModeMsg guifg=#3D424D
 hi DiffAdd gui=NONE guifg=NONE guibg=#012800
