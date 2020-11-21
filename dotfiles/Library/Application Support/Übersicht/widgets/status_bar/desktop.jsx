@@ -8,16 +8,15 @@ export const refreshFrequency = 5000;
 
 export const className = `
   bottom: 0;
-  color: #FAFAFA;
   width: 100%;
-  background-color: #0A0E14;
+  background-color: #040f18;
 
   .desktop {
     align-items: center;
-    color: #A8A8A8;
+    color: #48697e;
     display: flex;
-    font-size: 14px;
-    height: 23px;
+    font-size: 13px;
+    height: 20px;
     margin-left: 20px;
   }
 
