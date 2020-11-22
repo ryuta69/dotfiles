@@ -13,7 +13,13 @@
 
 <img alt="elly iterm2" src="https://user-images.githubusercontent.com/41639488/98157819-3f36ca00-1f1d-11eb-962c-17f33996bd48.png">
 
-The screenshot is https://github.com/ulwlu/elly.vim, the theme I created. There are several other themes.
+The screenshot is https://github.com/ulwlu/elly.vim, the theme I created.
+
+<img alt="abyss.vim" src="https://user-images.githubusercontent.com/41639488/99898465-06507080-2ce5-11eb-8aac-d62fb93fe2d7.png">
+
+The screenshot is https://github.com/ulwlu/abyss.vim, the theme I created for dark theme.
+
+There are several other themes.
 
 <table>
     <tbody>
