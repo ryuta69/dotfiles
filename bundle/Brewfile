@@ -38,6 +38,7 @@ brew "hyperfine"
 brew "brightness"
 brew "shellcheck"
 brew "git-secrets"
+brew "koekeishiya/formulae/yabai"
 
 ## ========== Shell ==========
 brew "zsh"
