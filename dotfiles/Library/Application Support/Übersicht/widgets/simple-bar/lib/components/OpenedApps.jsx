@@ -12,7 +12,10 @@ const OpenedApps = ({ apps }) => {
       const classes = classnames('space__icon', {
         'space__icon--focused': focused === 1
       })
-      return <Icon className={classes} key={i} />
+      return <div>
+	    <Icon className={classes} key={i} />
+	    <span>{name}</span>
+	  </div>
     })
 }
 

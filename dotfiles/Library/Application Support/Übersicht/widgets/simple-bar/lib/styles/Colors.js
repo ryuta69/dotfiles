@@ -8,7 +8,7 @@ export const Colors = {
   orange: "#1F6CA1",
   blue: "#277BB1",
   magenta: "#10598B",
-  cyan: "#48697E",
+  cyan: "#277BB1",
   background: "#040F18",
   lightGrey: 'rgba(0, 0, 0, 0.05)',
   font: 'HackNerdFontComplete',

@@ -8,7 +8,7 @@ export const BaseStyles = /* css */ `
   align-items: center;
   padding: 4px 5px;
   box-sizing: border-box;
-  color: white;
+  color: #48697E;
   font-size: 11px;
   font-family: ${Colors.font};
 }
@@ -258,9 +258,12 @@ export const SpacesStyles = /* css */ `
 .spaces__add {
   display: flex;
   align-items: center;
+  font-size: 10px;
   margin-right: 5px;
   padding: 3px 6px;
-  background-color: ${Colors.minor};
+  height: 13px;
+  color: black;
+  background-color: ${Colors.magenta};
   border-radius: 2px;
   box-shadow: ${Colors.lightShadow};
   cursor: pointer;
@@ -294,8 +297,9 @@ export const SpacesStyles = /* css */ `
   width: 11px;
   height: 11px;
   margin-left: 6px;
+  margin-right: 3px;
+  margin-bottom: -2px;
   fill: currentColor;
-  opacity: 0.5;
   transform: translateZ(0);
 }
 .space__icon--focused {
