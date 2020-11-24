@@ -11,19 +11,20 @@
 
 ## Preview
 
+### Light Mode
+
+The theme is https://github.com/ulwlu/elly.vim, I created for myself.
+
+<img alt="elly.vim" src="https://user-images.githubusercontent.com/41639488/100081526-78ae8580-2e8a-11eb-845f-4b1d5e342295.png">
+
+
 ### Dark Mode
 
 The theme is https://github.com/ulwlu/abyss.vim, I created for myself.
 
 <img alt="abyss.vim" src="https://user-images.githubusercontent.com/41639488/99902313-3fe2a500-2d00-11eb-9050-7df6bd30932d.png">
 
-### Light Mode
-
-The theme is https://github.com/ulwlu/elly.vim, I created for myself.
-
-<img alt="elly iterm2" src="https://user-images.githubusercontent.com/41639488/98157819-3f36ca00-1f1d-11eb-962c-17f33996bd48.png">
-
-There are several other themes.
+....And there are several other themes.
 
 <table>
     <tbody>
