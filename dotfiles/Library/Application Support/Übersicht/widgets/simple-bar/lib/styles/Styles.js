@@ -8,7 +8,7 @@ export const BaseStyles = /* css */ `
   align-items: center;
   padding: 4px 5px;
   box-sizing: border-box;
-  color: #48697E;
+  color: ${Colors.foreground};
   font-size: 11px;
   font-family: ${Colors.font};
 }
@@ -413,7 +413,7 @@ export const SpacesStyles = /* css */ `
 .spaces__add > svg {
   width: 10px;
   height: 10px;
-  fill: #fff;
+  fill: ${Colors.background};
 }
 `
 
