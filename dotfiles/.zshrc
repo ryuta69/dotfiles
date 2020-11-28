@@ -218,7 +218,7 @@ source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 zinit lucid for \
-	b4b4r07/enhancd \
+	ulwlu/enhancd \
 	zsh-users/zsh-completions \
 	zsh-users/zsh-autosuggestions \
 	zsh-users/zsh-syntax-highlighting \

@@ -42,11 +42,9 @@ call plug#end()
 ""	Configure
 "" ----------------------------------------
 set nobomb
-set nowrap
 set lazyredraw
 set laststatus=0
 set termguicolors
-set formatoptions-=t
 let $LANG='en_US.UTF-8'
 let mapleader="\<Space>"
 set title titlestring=%F
@@ -134,20 +132,20 @@ nn <Leader>update :PlugUpgrade \| PlugUpdate<CR>
 "" ========== Coc.nvim ==========
 let g:coc_config_home = "~/.config/coc"
 let g:coc_global_extensions = [
-      \ 'coc-go',
-      \ 'coc-sh',
-      \ 'coc-css',
-      \ 'coc-sql',
-      \ 'coc-rls',
-      \ 'coc-json',
-      \ 'coc-html',
-      \ 'coc-perl',
-      \ 'coc-vimlsp',
-      \ 'coc-python',
-      \ 'coc-snippets',
-      \ 'coc-prettier',
-      \ 'coc-tsserver',
-      \ 'coc-markdownlint',
+	\ 'coc-go',
+	\ 'coc-sh',
+	\ 'coc-css',
+	\ 'coc-sql',
+	\ 'coc-rls',
+	\ 'coc-json',
+	\ 'coc-html',
+	\ 'coc-perl',
+	\ 'coc-vimlsp',
+	\ 'coc-python',
+	\ 'coc-snippets',
+	\ 'coc-prettier',
+	\ 'coc-tsserver',
+	\ 'coc-markdownlint',
 \ ]
 nn <Leader>cls :CocList<CR>
 nn <Leader>cupd :CocUpdate<CR>
