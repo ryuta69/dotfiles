@@ -143,7 +143,7 @@ initialize() {
 		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 		mkdir -p ${HOME}/.ssh
-		ssh-keygen -t rsa -b 4096 -C "eyma22s.yu@gmail.com"
+		ssh-keygen -t rsa -b 4096 -C "ooulwluoo@gmail.com"
 		ssh-keyscan -t rsa github.com >> ${HOME}/.ssh/known_hosts
 		curl -u "ulwlu" --data "{\"title\":\"NewSSHKey\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
 
