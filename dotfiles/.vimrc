@@ -150,10 +150,6 @@ let g:coc_global_extensions = [
 nn <Leader>cls :CocList<CR>
 nn <Leader>cupd :CocUpdate<CR>
 nn <Leader>cdis :CocDisable<CR>
-hi CocInfoLine guifg=None guibg=#012800
-hi CocHintLine guifg=None guibg=#012800
-hi CocErrorLine guifg=None guibg=#340001
-hi CocWarningLine guifg=None guibg=#525200
 nm <silent> <Leader>cr <Plug>(coc-reference)
 nm <silent> <Leader>cn <Plug>(coc-diagnostic-next)
 nm <silent> <Leader>cp <Plug>(coc-diagnostic-prev)

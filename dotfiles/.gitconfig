@@ -104,7 +104,8 @@
 [delta]
 	line-numbers = true
 	hunk-header-style = omit
-	file-style = "#338ECF" box
+	file-style = "#338ECF" ul
+	file-decoration-style = none
 	syntax-theme = Monokai Extended
 	whitespace-error-style = 22 reverse
 	line-numbers-left-style = "#3D424D"
