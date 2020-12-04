@@ -104,9 +104,9 @@ lnsv() {
 	ln -sfnv "${abspath}" "$2";
 }
 rgf()  {
-	[ -z "$2" ] && matches=`rgi "$1"` || matches=`rg --files | rgi "$1"`;
+	[ -z "$2" ] && matches=`rg "$1" -l` || matches=`rg --files | rg "$1"`;
 	[ -z "${matches}" ] && echo "no matches\n" && return 0;
-	selected=`echo "${matches}" | fzf --preview 'rgi -n "$1" {}'`;
+	selected=`echo "${matches}" | fzf --preview "rg -pn '$1' {}"`;
 	[ -z "${selected}" ] && echo "fzf Canceled." && return 0;
 	vi "${selected}";
 }
@@ -193,7 +193,7 @@ alias soal='source `ls -d ~/.aliases/*  | fzf --preview "bat --color=always {}"`
 ##	FZF
 ## ----------------------------------------
 export FZF_DEFAULT_COMMAND="rg --files"
-export FZF_DEFAULT_OPTS='--reverse --color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229 --color info:150,prompt:110,spinner:150,pointer:167,marker:174'
+export FZF_DEFAULT_OPTS='--reverse --height 80% --color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229 --color info:150,prompt:110,spinner:150,pointer:167,marker:174'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ## ----------------------------------------
