@@ -113,7 +113,7 @@ rgf()  {
 catp() { cat "$1" | pbcopy }
 at()   { python3 "$1".py < "$1" }
 mkcd() { mkdir "$1" && cd "$1"; }
-fdr()  { fd "$1" -x sd "$2" "$3"; }
+fdr()  { fd "$1" -x rename "s/${2}/${3}/ if -f" }
 rgr()  { rg -l "$1" | xargs sd "$1" "$2"; }
 cmpr() { ffmpeg -i "$1" -vcodec h264 -acodec mp2 output.mp4; }
 absp() { echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"); }
