@@ -111,7 +111,7 @@ sshp() {
 ##	Install Github Release
 ## ----------------------------------------
 dlgr() {
-	read repo"?type <author>/<repo> : ";
+	read repo"?type https://api.github.com/repos/{author}/{repo}/releases/latest : ";
 	URL=`curl -s "${repo}" | grep "browser_download_url" | cut -d '"' -f 4 | fzf`
 	curl -sOL ${URL}
 }
