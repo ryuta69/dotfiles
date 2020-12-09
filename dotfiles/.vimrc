@@ -36,6 +36,7 @@ call plug#begin(s:plugdir)
 	Plug 'haya14busa/incsearch.vim' | Plug 'haya14busa/incsearch-fuzzy.vim'
 	Plug 'Lokaltog/vim-easymotion' | Plug 'haya14busa/incsearch-easymotion.vim'
 	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
+	Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
 "" ----------------------------------------
@@ -146,6 +147,7 @@ let g:coc_global_extensions = [
 	\ 'coc-prettier',
 	\ 'coc-tsserver',
 	\ 'coc-markdownlint',
+	\ 'coc-fzf-preview',
 \ ]
 nn <Leader>cls :CocList<CR>
 nn <Leader>cupd :CocUpdate<CR>
@@ -203,12 +205,23 @@ fun! s:config_easyfuzzymotion(...) abort
 endfun
 no <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
+"" ========== FzfPreview ==========
+nnoremap <silent> <Leader>fb    :<C-u>CocCommand fzf-preview.Buffers<CR>
+nnoremap <silent> <Leader>fgs   :<C-u>CocCommand fzf-preview.GitStatus<CR>
+nnoremap <silent> <Leader>fga   :<C-u>CocCommand fzf-preview.GitActions<CR>
+nnoremap          <Leader>fgr   :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
+nnoremap <silent> <Leader>ff    :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
+let g:fzf_preview_floating_window_rate = 0.8
+let g:fzf_preview_command = 'bat --color=always --plain {-1}'
+let g:fzf_preview_git_status_preview_command =
+	\ "[[ $(git diff --cached -- {-1}) != \"\" ]] && git diff --cached --color=always -- {-1} | delta || " .
+	\ "[[ $(git diff -- {-1}) != \"\" ]] && git diff --color=always -- {-1} | delta || " .
+	\ g:fzf_preview_command
+
 "" ========== VimFugitive ==========
 set diffopt+=vertical
 nn <Leader>gd :Gdiff<CR>
-nn <Leader>ga :Gwrite<CR>
 nn <Leader>gb :Gblame<CR>
-nn <Leader>gs :Gstatus<CR>
 nn <Leader>du :diffupdate<CR>
 nn <Leader>gm :Gdiffsplit!<CR>
 nn <Leader>dp :diffput 1 \| diffupdate<CR>
