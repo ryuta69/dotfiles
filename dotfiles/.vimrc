@@ -144,20 +144,16 @@ let g:coc_global_extensions = [
 	\ 'coc-vimlsp',
 	\ 'coc-python',
 	\ 'coc-snippets',
-	\ 'coc-prettier',
 	\ 'coc-tsserver',
-	\ 'coc-markdownlint',
 	\ 'coc-fzf-preview',
+	\ 'coc-markdownlint',
 \ ]
-nn <Leader>cls :CocList<CR>
-nn <Leader>cupd :CocUpdate<CR>
-nn <Leader>cdis :CocDisable<CR>
-nm <silent> <Leader>cr <Plug>(coc-reference)
+nn <Leader>upd :CocUpdate<CR>
+nn <Leader>dis :CocDisable<CR>
 nm <silent> <Leader>cn <Plug>(coc-diagnostic-next)
 nm <silent> <Leader>cp <Plug>(coc-diagnostic-prev)
 nm <silent> <Leader>ch :call CocAction('doHover')<CR>
-nm <silent> <Leader>cds :call CocAction('jumpDefinition','split')<CR>
-nm <silent> <Leader>cdv :call CocAction('jumpDefinition','vsplit')<CR>
+nm <silent> <Leader>cd :call CocAction('jumpDefinition','split')<CR>
 
 "" ========== Completion ==========
 ino <expr> <UP> pumvisible() ? '<C-e><UP>' : '<UP>'
@@ -206,6 +202,7 @@ endfun
 no <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
 "" ========== FzfPreview ==========
+nnoremap <silent> <Leader>fm :<C-u>CocCommand fzf-preview.Marks<CR>
 nnoremap <silent> <Leader>gs :<C-u>CocCommand fzf-preview.GitStatus<CR>
 nnoremap <silent> <Leader>ga :<C-u>CocCommand fzf-preview.GitActions<CR>
 nnoremap          <Leader>gr :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
