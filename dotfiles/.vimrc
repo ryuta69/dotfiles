@@ -46,6 +46,7 @@ set nobomb
 set lazyredraw
 set laststatus=0
 set termguicolors
+set signcolumn=yes
 let $LANG='en_US.UTF-8'
 let mapleader="\<Space>"
 set title titlestring=%F
@@ -136,6 +137,7 @@ let g:coc_global_extensions = [
 	\ 'coc-go',
 	\ 'coc-sh',
 	\ 'coc-css',
+	\ 'coc-git',
 	\ 'coc-sql',
 	\ 'coc-rls',
 	\ 'coc-json',
@@ -150,8 +152,12 @@ let g:coc_global_extensions = [
 \ ]
 nn <Leader>upd :CocUpdate<CR>
 nn <Leader>dis :CocDisable<CR>
+nm <silent> <Leader>cdn <Plug>(coc-git-nextchunk)
+nm <silent> <Leader>cdp <Plug>(coc-git-prevchunk)
 nm <silent> <Leader>cn <Plug>(coc-diagnostic-next)
 nm <silent> <Leader>cp <Plug>(coc-diagnostic-prev)
+nm <silent> <Leader>ccn <Plug>(coc-git-nextconflict)
+nm <silent> <Leader>ccp <Plug>(coc-git-prevconflict)
 nm <silent> <Leader>ch :call CocAction('doHover')<CR>
 nm <silent> <Leader>cd :call CocAction('jumpDefinition','split')<CR>
 
