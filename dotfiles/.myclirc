@@ -41,3 +41,17 @@ rank = '''SELECT
   dense_rank() over(order by $1 desc) as `Rank`
 FROM $2
 '''
+
+maxgroup = '''select e1.id, e1.$2
+from $1 as e1 left outer join $1 as e2
+on e1.id = e2.id AND e1.$2 < e2.$2
+where e2.$2 is NULL
+'''
+
+topingroup = '''select e.id, e.$2
+from $1 as t
+where (
+	select count(distinct $2)
+    from $1 as t2
+    where t2.id = t.id AND t2.$2 >= t.$2) <= $3
+'''
