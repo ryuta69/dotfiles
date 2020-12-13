@@ -23,12 +23,21 @@ Token.Menu.Completions.Completion = 'bg:#1f2430 #f0f0f0'
 Token.Menu.Completions.Completion.Current = 'bg:#1f2430 #ff8f40'
 
 [favorite_queries]
-ikey = '''ALTER TABLE `$1`
+addindex = '''ALTER TABLE `$1`
 ADD INDEX `IDX_$1_$2` (`$2` ASC)'''
 
-fkey = '''ALTER TABLE `$1`
-ADD CONSTRAINT `FK_$1_$2`
-FOREIGN KEY (`$2`)
-REFERENCES `$3` (`$2`)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION'''
+selectnthbiggest = '''SELECT *
+FROM $1
+WHERE $2 = (SELECT $2 FROM $1 GROUP BY $2 ORDER BY $2 DESC LIMIT $3 OFFSET 1)
+'''
+
+ifnull = '''select ifnull(
+(select $1 from $2),
+Null)
+'''
+
+rank = '''SELECT
+  $1,
+  dense_rank() over(order by $1 desc) as `Rank`
+FROM $2
+'''

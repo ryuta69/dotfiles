@@ -290,7 +290,7 @@
 	"InputStrList": {
 		"prefix": ["inputstrlist"],
 		"body": [
-			"s = list(input().split())",
+			"s = list(input())",
 			"$0"
 		]
 	},
@@ -1358,6 +1358,49 @@
 			"\t\t\t\tis_visited[new_h][new_w] = VISITED",
 			"\treturn -1",
 			"steps = mazesearch(G, initial_h, initial_w, target_h, target_w)"
+		]
+	},
+	"Lock": {
+		"prefix": ["lock"],
+		"body": [
+			"from threading import Lock",
+			"class ab:",
+			"\tdef __init__(self, n):",
+			"\t\tself.n = n",
+			"\t\tself.am = Lock()",
+			"\t\tself.bm = Lock()",
+			"\t\tself.bm.acquire()",
+			"\tdef a(self):",
+			"\t\tself.am.acquire()",
+			"\t\tprint('a')",
+			"\t\tself.bm.release()",
+			"\tdef b(self):",
+			"\t\tself.bm.acquire()",
+			"\t\tprint('b')",
+			"\t\tself.am.release()"
+		]
+	},
+	"Semaphore": {
+		"prefix": ["semaphore"],
+		"body": [
+			"from threading import Barrier, Semaphore",
+			"class h2o:",
+			"\tdef __init__(self):",
+			"\t\tself.b = Barrier(3)",
+			"\t\tself.h = Semaphore(2)",
+			"\t\tself.o = Semaphore(1)",
+			"",
+			"\tdef h(self):",
+			"\t\tself.h.acquire()",
+			"\t\tself.b.wait()",
+			"\t\tprint('a')",
+			"\t\tself.h.release()",
+			"",
+			"\tdef o(self):",
+			"\t\tself.o.acquire()",
+			"\t\tself.b.wait()",
+			"\t\tprint('b')",
+			"\t\tself.o.release()"
 		]
 	},
 	"Stack": {
