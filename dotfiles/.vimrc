@@ -89,8 +89,6 @@ nn <Leader>n :set invnumber<CR>
 nn <Leader>1 :diffget LOCAL<CR>
 nn <Leader>2 :diffget BASE<CR>
 nn <Leader>3 :diffget REMOTE<CR>
-nn <Leader>code :!code %:p<CR>
-nn <Leader>dir :!code -r %:p:h<CR>
 nn <Leader>term :split \| terminal<CR>
 
 "" ----------------------------------------
@@ -100,25 +98,6 @@ nn <Leader>term :split \| terminal<CR>
 colo elly
 hi User1 guifg=#3D424D
 hi ModeMsg guifg=#3D424D
-hi DiffAdd gui=NONE guifg=NONE guibg=#012800
-hi DiffText gui=NONE guifg=NONE guibg=#012800
-hi DiffChange gui=NONE guifg=NONE guibg=#012800
-hi DiffDelete gui=bold guifg=#340001 guibg=#340001
-
-"" ========== Fzf ==========
-nn <Leader>file :Files<CR>
-nn <Leader>hist :History<CR>
-nn <Leader>rg :call Rg()<CR>
-let g:fzf_layout={'right': '~50%'}
-com! -bang -nargs=* History call fzf#vim#history(fzf#vim#with_preview('down:50%'))
-com! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview('down:50%'), <bang>0)
-fun! Rg()
-	let string=input('Search String: ')
-	call fzf#run(fzf#wrap({
-		\ 'source': 'rg -lin ' . string,
-		\ 'options': '--preview-window bottom:50% --preview "rg -in --color=always ' . string . ' {}"'
-	\ }))
-endfun
 
 "" ========== Emmet ==========
 let g:user_emmet_leader_key='<C-E>'
@@ -153,12 +132,12 @@ let g:coc_global_extensions = [
 \ ]
 nn <Leader>upd :CocUpdate<CR>
 nn <Leader>dis :CocDisable<CR>
-nm <silent> <Leader>cdn <Plug>(coc-git-nextchunk)
-nm <silent> <Leader>cdp <Plug>(coc-git-prevchunk)
-nm <silent> <Leader>cn <Plug>(coc-diagnostic-next)
-nm <silent> <Leader>cp <Plug>(coc-diagnostic-prev)
-nm <silent> <Leader>ccn <Plug>(coc-git-nextconflict)
-nm <silent> <Leader>ccp <Plug>(coc-git-prevconflict)
+nm <silent> <Leader>gn <Plug>(coc-git-nextchunk)
+nm <silent> <Leader>gp <Plug>(coc-git-prevchunk)
+nm <silent> <Leader>dn <Plug>(coc-diagnostic-next)
+nm <silent> <Leader>dp <Plug>(coc-diagnostic-prev)
+nm <silent> <Leader>cn <Plug>(coc-git-nextconflict)
+nm <silent> <Leader>cp <Plug>(coc-git-prevconflict)
 nm <silent> <Leader>ch :call CocAction('doHover')<CR>
 nm <silent> <Leader>cd :call CocAction('jumpDefinition','split')<CR>
 
@@ -210,6 +189,7 @@ no <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
 "" ========== FzfPreview ==========
 nnoremap <silent> <Leader>fm :<C-u>CocCommand fzf-preview.Marks<CR>
+nnoremap <silent> <Leader>fo :<C-u>CocCommand fzf-preview.OldFiles<CR>
 nnoremap <silent> <Leader>gs :<C-u>CocCommand fzf-preview.GitStatus<CR>
 nnoremap <silent> <Leader>ga :<C-u>CocCommand fzf-preview.GitActions<CR>
 nnoremap          <Leader>gr :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
