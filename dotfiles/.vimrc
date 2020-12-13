@@ -52,6 +52,7 @@ let mapleader="\<Space>"
 set title titlestring=%F
 set splitright splitbelow
 set clipboard=unnamedplus
+set nowrap formatoptions-=t
 set fileformats=unix,dos,mac
 set whichwrap=b,s,h,l,<,>,[,]
 set ignorecase wildignorecase
