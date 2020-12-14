@@ -36,10 +36,11 @@ ifnull = '''select ifnull(
 Null)
 '''
 
-rank = '''SELECT
+rank = '''select
   $1,
-  dense_rank() over(order by $1 desc) as `Rank`
-FROM $2
+  $2,
+  dense_rank() over(partition by $1 order by $2 desc) as r
+from $3
 '''
 
 maxgroup = '''select e1.id, e1.$2
@@ -54,4 +55,18 @@ where (
 	select count(distinct $2)
     from $1 as t2
     where t2.id = t.id AND t2.$2 >= t.$2) <= $3
+'''
+
+rownumber = '''select
+  $1,
+  $2,
+  row_number() over(partition by $1 order by $2 desc) as rn
+FROM $3
+'''
+
+cumulativesum = '''select
+  $1,
+  $2,
+  sum($2) over(partition by $2 order by $1 desc) as rn
+FROM $3
 '''
