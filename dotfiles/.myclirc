@@ -70,3 +70,25 @@ cumulativesum = '''select
   sum($2) over(partition by $2 order by $1 desc) as rn
 FROM $3
 '''
+
+countwithcondition = '''
+select sum(
+        case
+			when a.$1 + 1 = b.$1 then 1
+            else 0
+        end
+       ) as cnt
+from $2 as a inner join $2 as b
+on a.id = b.id
+'''
+
+median = ''' select id as median
+from (
+        select id,
+               $1,
+               sum($1) over (order by id) as csum,
+               sum($1) over () as total
+               from $2
+) s
+where s.total / 2.0 between s.csum - s.$1 and s.csum
+'''
