@@ -105,6 +105,7 @@
 	line-numbers = true
 	file-style = "#338ECF"
 	file-decoration-style = "#338ECF" ul
+	commit-decoration-style = "#BB0000" box
 	syntax-theme = Monokai Extended
 	whitespace-error-style = 22 reverse
 	line-numbers-left-style = "#3D424D"
