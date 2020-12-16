@@ -32,6 +32,7 @@
 	lgg = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lgs = !git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit | fzf --preview 'echo {} | cut -f1 -d\" \" | xargs git show --color'
 	lgp = log -p
+	lgd = !"f() { b=$(git rev-parse --abbrev-ref HEAD); git log origin/$b..$b --oneline | fzf --preview 'echo {} | cut -f1 -d\" \" | xargs git show --color'; }; f"
 	mt  = mergetool
 	op  = !hub browse
 	opg = !hub browse `ghq list | fzf | cut -d "/" -f 2,3`
