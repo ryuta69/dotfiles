@@ -82,7 +82,8 @@ from $2 as a inner join $2 as b
 on a.id = b.id
 '''
 
-median = ''' select id as median
+median = '''
+select id as median
 from (
         select id,
                $1,
@@ -91,4 +92,58 @@ from (
                from $2
 ) s
 where s.total / 2.0 between s.csum - s.$1 and s.csum
+'''
+
+groupconsecutive = '''
+select id
+from (
+	select d.*,
+	       count(d.id) over (partition by d.grp) as cnt
+	from (
+		select id
+		       id - row_number() over (order by id) as grp
+		from $1
+		where $2
+	) d
+) a
+where a.cnt >= 3
+'''
+
+changevertical='''
+select min($3),
+       min($4),
+       min($5)
+from   (
+ select
+  case
+   when field = '$3' then @am:=@am+1
+   when field = '$4' then @as:=@as+1
+   when field = '$5' then @eu:=@eu+1
+  end as rowline,
+  case
+   when field = '$3' then $2
+   else null
+  end as $3,
+  case
+   when field = '$4' then $2
+   else null
+  end as $4,
+  case
+   when field = '$5' then $2
+   else null
+  end as $5
+ from $1
+ inner join (select @am:=0, @as := 0, @eu:=0) hoge
+ order by $2
+) hoge
+group by rowline
+'''
+
+nthingroup='''
+select o1.id,
+       o1.$2
+from $1 as o1 inner join $1 as o2
+on o1.id = o2.id and o1.$2 >= o2.$2
+group by o1.id, o1.$2
+having count(*) = $3
 '''
