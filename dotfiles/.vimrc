@@ -205,8 +205,10 @@ let g:fzf_preview_git_status_preview_command =
 
 "" ========== VimFugitive ==========
 set diffopt+=vertical
+nn <Leader>gw :Gw<CR>
 nn <Leader>gd :Gdiff<CR>
 nn <Leader>gb :Gblame<CR>
+nn <Leader>gc :Gcommit<CR>
 nn <Leader>du :diffupdate<CR>
 nn <Leader>gm :Gdiffsplit!<CR>
 nn <Leader>dp :diffput 1 \| diffupdate<CR>
