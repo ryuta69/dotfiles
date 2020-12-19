@@ -67,8 +67,16 @@ FROM $3
 cumulativesum = '''select
   $1,
   $2,
-  sum($2) over(partition by $2 order by $1 desc) as rn
-FROM $3
+  sum($2) over(partition by $2 order by $1 desc) as csum
+from $3
+'''
+
+cumulativesum2 = '''
+select
+  id,
+  (@csum := @csum + $2) as csum
+from $1
+inner join (select @csum:=0) as t
 '''
 
 countwithcondition = '''
@@ -146,4 +154,36 @@ from $1 as o1 inner join $1 as o2
 on o1.id = o2.id and o1.$2 >= o2.$2
 group by o1.id, o1.$2
 having count(*) = $3
+'''
+
+groupcumulativesum=''' select
+    id,
+    if (sth!=@prev+1, @flag:=@flag+1, @flag) as flag,
+    sth,
+    @prev:=sth
+from $1
+inner join (select @prev:=0, @flag:=0) as h
+'''
+
+recursive='''with recursive cte as (
+ select id,
+        1 as lvl
+ from $1
+ union all
+ select e.id,
+        cte.lvl+1 as lvl
+ from cte
+ inner join $1 e
+ on cte.id = e.id
+)
+'''
+
+consecutiveseq='''with recursive seq as (
+    select 0 as value
+    union all
+    select value+1
+    from seq
+    where value<100
+)
+select * from seq
 '''

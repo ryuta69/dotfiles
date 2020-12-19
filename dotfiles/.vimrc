@@ -90,6 +90,8 @@ nn <Leader>1 :diffget LOCAL<CR>
 nn <Leader>2 :diffget BASE<CR>
 nn <Leader>3 :diffget REMOTE<CR>
 nn <Leader>term :split \| terminal<CR>
+nn <Leader>sgd :split \| terminal git diff<CR>
+nn <Leader>sgp :split \| terminal git log -p<CR>
 
 "" ----------------------------------------
 ""	PluginSetting
@@ -207,6 +209,7 @@ let g:fzf_preview_git_status_preview_command =
 set diffopt+=vertical
 nn <Leader>gw :Gw<CR>
 nn <Leader>gd :Gdiff<CR>
+nn <Leader>gp :Gpush<CR>
 nn <Leader>gb :Gblame<CR>
 nn <Leader>gc :Gcommit<CR>
 nn <Leader>du :diffupdate<CR>
