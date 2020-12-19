@@ -25,16 +25,12 @@ call plug#begin(s:plugdir)
 	Plug 'bfredl/nvim-miniyank'
 	Plug 'tpope/vim-commentary'
 	Plug 'mg979/vim-visual-multi'
-	Plug 'junegunn/vim-easy-align'
-	Plug 'yuttie/comfortable-motion.vim'
 	Plug 'bronson/vim-trailing-whitespace'
 	Plug 'ConradIrwin/vim-bracketed-paste'
 	Plug 'sheerun/vim-polyglot' | Plug 'ap/vim-css-color'
 	Plug 'cohama/lexima.vim' | Plug 'machakann/vim-sandwich'
 	Plug 'tpope/vim-fugitive' | Plug 'rhysd/conflict-marker.vim'
 	Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-	Plug 'haya14busa/incsearch.vim' | Plug 'haya14busa/incsearch-fuzzy.vim'
-	Plug 'Lokaltog/vim-easymotion' | Plug 'haya14busa/incsearch-easymotion.vim'
 	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
 	Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
 call plug#end()
@@ -84,14 +80,9 @@ nn - <C-x>
 nn <Up> gk
 nn <Down> gj
 tno <ESC> <C-\><C-n>
-nn <Leader>t :tabnew<CR>
 nn <Leader>n :set invnumber<CR>
-nn <Leader>1 :diffget LOCAL<CR>
-nn <Leader>2 :diffget BASE<CR>
-nn <Leader>3 :diffget REMOTE<CR>
 nn <Leader>term :split \| terminal<CR>
 nn <Leader>sgd :split \| terminal git diff<CR>
-nn <Leader>sgp :split \| terminal git log -p<CR>
 
 "" ----------------------------------------
 ""	PluginSetting
@@ -170,25 +161,6 @@ im <expr> <S-Tab> TabShiftComp() | smap <expr> <S-Tab> TabShiftComp()
 "" ========== Polyglot ==========
 let g:polyglot_excludes = ['csv']
 
-"" ========== EasyAlign ==========
-xm ga <Plug>(LiveEasyAlign)
-nm ga <Plug>(LiveEasyAlign)
-
-"" ========== EasyMotion ==========
-let g:EasyMotion_do_mapping=0
-let g:EasyMotion_enter_jump_first=1
-map <Leader>s <Plug>(easymotion-sn)
-fun! s:config_easyfuzzymotion(...) abort
-	return extend(copy({
-		\ 'converters': [incsearch#config#fuzzyword#converter()],
-		\ 'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-		\ 'keymap': {"\<CR>": '<Over>(easymotion)'},
-		\ 'is_expr': 0,
-		\ 'is_stay': 1
-	\ }), get(a:, 1, {}))
-endfun
-no <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
-
 "" ========== FzfPreview ==========
 nnoremap <silent> <Leader>fm :<C-u>CocCommand fzf-preview.Marks<CR>
 nnoremap <silent> <Leader>fo :<C-u>CocCommand fzf-preview.OldFiles<CR>
@@ -197,7 +169,7 @@ nnoremap <silent> <Leader>ga :<C-u>CocCommand fzf-preview.GitActions<CR>
 nnoremap          <Leader>gr :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
 nnoremap <silent> <Leader>ff :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
 let g:fzf_preview_disable_mru = 0
-let g:fzf_preview_floating_window_rate = 0.8
+let g:fzf_preview_floating_window_rate = 0.9
 let g:fzf_preview_command = 'bat --color=always --plain {-1}'
 let g:fzf_preview_default_fzf_options = { '--reverse': v:true, '--preview-window': 'wrap:70%' }
 let g:fzf_preview_git_status_preview_command =
@@ -207,7 +179,7 @@ let g:fzf_preview_git_status_preview_command =
 
 "" ========== VimFugitive ==========
 set diffopt+=vertical
-nn <Leader>gw :Gw<CR>
+nn <Leader>ga :Gw<CR>
 nn <Leader>gd :Gdiff<CR>
 nn <Leader>gp :Gpush<CR>
 nn <Leader>gb :Gblame<CR>
