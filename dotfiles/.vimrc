@@ -75,18 +75,14 @@ endif
 ""	Mapping
 "" ----------------------------------------
 nn Y y$
-nn + <C-a>
-nn - <C-x>
-nn <Up> gk
-nn <Down> gj
 tno <ESC> <C-\><C-n>
-nn <Leader>uu :resize +5<CR>
-nn <Leader>dd :resize -5<CR>
-nn <Leader>rr :vertical resize -5<CR>
-nn <Leader>ll :vertical resize +5<CR>
+nn + <C-a>| nn - <C-x>
+nn <Up> gk| nn <Down> gj
 nn <Leader>n :set invnumber<CR>
-nn <Leader>term :split \| terminal<CR>
+nn <Leader>sh :split \| terminal<CR>
 nn <Leader>sgd :split \| terminal git diff<CR>
+nn <Leader>uu :resize +5<CR>| nn <Leader>dd :resize -5<CR>
+nn <Leader>rr :vertical resize -5<CR>| nn <Leader>ll :vertical resize +5<CR>
 
 "" ----------------------------------------
 ""	PluginSetting
@@ -150,7 +146,7 @@ fun! TabComp()
 		return "\<Tab>"
 	endif
 endfun
-im <expr> <Tab> TabComp() | smap <expr> <Tab> TabComp()
+im <expr> <Tab> TabComp()| smap <expr> <Tab> TabComp()
 fun! TabShiftComp()
 	if pumvisible()
 		return "\<C-p>"
@@ -160,7 +156,7 @@ fun! TabShiftComp()
 		return "\<S-Tab>"
 	endif
 endfun
-im <expr> <S-Tab> TabShiftComp() | smap <expr> <S-Tab> TabShiftComp()
+im <expr> <S-Tab> TabShiftComp()| smap <expr> <S-Tab> TabShiftComp()
 
 "" ========== Polyglot ==========
 let g:polyglot_excludes = ['csv']
@@ -191,8 +187,8 @@ nn <Leader>gc :Gcommit<CR>
 nn <Leader>du :diffupdate<CR>
 nn <Leader>gm :Gdiffsplit!<CR>
 nn <Leader>dp :diffput 1 \| diffupdate<CR>
-nn <Leader>dgl :diffget //2 \| diffupdate<CR>
-nn <Leader>dgr :diffget //3 \| diffupdate<CR>
+nn <Leader>dl :diffget //2 \| diffupdate<CR>
+nn <Leader>dr :diffget //3 \| diffupdate<CR>
 
 "" ========== NvimMiniyank ==========
 if has("nvim")
