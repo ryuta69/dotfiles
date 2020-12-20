@@ -179,7 +179,7 @@ let g:fzf_preview_git_status_preview_command =
 
 "" ========== VimFugitive ==========
 set diffopt+=vertical
-nn <Leader>ga :Gw<CR>
+nn <Leader>gw :Gw<CR>
 nn <Leader>gd :Gdiff<CR>
 nn <Leader>gp :Gpush<CR>
 nn <Leader>gb :Gblame<CR>
