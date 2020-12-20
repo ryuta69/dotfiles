@@ -53,7 +53,7 @@ setopt auto_menu
 setopt share_history
 setopt auto_param_slash
 setopt magic_equal_subst
-export HISTSIZE=100
+export HISTSIZE=1000
 export SAVEHIST=10000
 export HISTFILE=${HOME}/.zsh_history
 export FPATH="${HOME}/.zinit/completions:${FPATH}"
@@ -89,8 +89,8 @@ alias ydl='youtube-dl -x --audio-format mp3'
 alias virc='vi ~/.zshrc' sorc='source ~/.zshrc'
 alias bat='bat --color=always --style=header,grid'
 alias dus='dust -pr -d 2 -X ".git" -X "node_modules"'
-alias ll='exa -alhF --group-directories-first --time-style=long-iso'
 alias psa='ps aux' pskl='psa | fzf | awk "{ print \$2 }" | xargs kill -9'
+alias ll='exa -alhF --group-directories-first --time-style=long-iso --icons'
 alias python='/usr/local/bin/python3.8' py='python' pip='/usr/local/bin/pip3'
 alias fd='fd -iH --no-ignore-vcs -E ".git|node_modules"' rmds='fd .DS_Store -X rm'
 alias rg='rg --hidden -g "!.git" -g "!node_modules" --max-columns 200' rgi='rg -i'
@@ -112,10 +112,9 @@ rgf()  {
 	vi "${selected}";
 }
 catp() { cat "$1" | pbcopy }
-at()   { python3 "$1".py < "$1" }
 mkcd() { mkdir "$1" && cd "$1"; }
-fdr()  { fd "$1" -x rename "s/${2}/${3}/ if -f" }
 rgr()  { rg -l "$1" | xargs sd "$1" "$2"; }
+fdr()  { fd "$1" -x rename "s/${2}/${3}/ if -f" }
 cmpr() { ffmpeg -i "$1" -vcodec h264 -acodec mp2 output.mp4; }
 absp() { echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1"); }
 
@@ -154,7 +153,7 @@ gcre() {
 
 ## ========== Tmux ==========
 alias tm='tmux' && compdef _tmux tm
-alias tmn='tm attach -t 1 || tmux new -s 1'
+alias tmn='tmux attach -t 1 || tmux new -s 1'
 alias tmkl='tmux list-sessions | fzf -m | cut -d: -f 1 | xargs -I{} tmux kill-session -t {}'
 tmrn() {
 	selected=`tmux list-sessions | fzf | cut -d : -f 1`
@@ -172,9 +171,6 @@ tma() {
 
 ## ========== Neovim ==========
 alias vivi='vi ~/.config/nvim/init.vim'
-vii() {
-	nvim -c ":call Wal()" $@;
-}
 vink() {
 	FORMAT=`nkf -g $@`;
 	nvim -c ":e ++enc=${FORMAT}" $@;
