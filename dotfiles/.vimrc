@@ -80,6 +80,10 @@ nn - <C-x>
 nn <Up> gk
 nn <Down> gj
 tno <ESC> <C-\><C-n>
+nn <Leader>uu :resize +5<CR>
+nn <Leader>dd :resize -5<CR>
+nn <Leader>rr :vertical resize -5<CR>
+nn <Leader>ll :vertical resize +5<CR>
 nn <Leader>n :set invnumber<CR>
 nn <Leader>term :split \| terminal<CR>
 nn <Leader>sgd :split \| terminal git diff<CR>
