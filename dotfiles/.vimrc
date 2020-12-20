@@ -22,12 +22,11 @@ endif
 call plug#begin(s:plugdir)
 	Plug 'ulwlu/elly.vim'
 	Plug 'mattn/emmet-vim'
-	Plug 'bfredl/nvim-miniyank'
 	Plug 'tpope/vim-commentary'
-	Plug 'mg979/vim-visual-multi'
+	Plug 'bfredl/nvim-miniyank'
 	Plug 'bronson/vim-trailing-whitespace'
 	Plug 'ConradIrwin/vim-bracketed-paste'
-	Plug 'sheerun/vim-polyglot' | Plug 'ap/vim-css-color'
+	Plug 'ap/vim-css-color' | Plug 'sheerun/vim-polyglot'
 	Plug 'cohama/lexima.vim' | Plug 'machakann/vim-sandwich'
 	Plug 'tpope/vim-fugitive' | Plug 'rhysd/conflict-marker.vim'
 	Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
