@@ -79,7 +79,7 @@ nn + <C-a>| nn - <C-x>
 nn <Up> gk| nn <Down> gj
 nn <Leader>n :set invnumber<CR>
 nn <Leader>sh :split \| terminal<CR>
-nn <Leader>sgd :split \| terminal git diff<CR>
+nn <Leader>sg :split \| terminal git diff<CR>
 nn <Leader>uu :resize +5<CR>| nn <Leader>dd :resize -5<CR>
 nn <Leader>rr :vertical resize -5<CR>| nn <Leader>ll :vertical resize +5<CR>
 

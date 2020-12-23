@@ -73,9 +73,9 @@ from $3
 
 cumulativesum2 = '''
 select
-  id,
-  (@csum := @csum + $2) as csum
-from $1
+  $1,
+  (@csum := @csum + 1) as csum
+from $2
 inner join (select @csum:=0) as t
 '''
 
