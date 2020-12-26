@@ -31,7 +31,6 @@ call plug#begin(s:plugdir)
 	Plug 'tpope/vim-fugitive' | Plug 'rhysd/conflict-marker.vim'
 	Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
-	Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
 "" ----------------------------------------
