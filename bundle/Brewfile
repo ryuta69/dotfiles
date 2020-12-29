@@ -22,8 +22,6 @@ brew "nkf"
 brew "vim"
 brew "dust"
 brew "grep"
-brew "gron"
-brew "tldr"
 brew "tmux"
 brew "mycli"
 brew "neovim"
@@ -36,9 +34,7 @@ brew "neofetch"
 brew "git-delta"
 brew "hyperfine"
 brew "brightness"
-brew "shellcheck"
 brew "git-secrets"
-brew "koekeishiya/formulae/yabai"
 
 ## ========== Shell ==========
 brew "zsh"
@@ -86,6 +82,5 @@ cask "karabiner-elements"
 cask "visual-studio-code"
 cask "google-japanese-ime"
 cask "adobe-creative-cloud"
-mas  "LINE", id: 539883307
 mas  "Xcode", id: 497799835
 mas  "Gifski", id: 1351639930
