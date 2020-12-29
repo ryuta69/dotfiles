@@ -5,8 +5,8 @@ if [[ "$OSTYPE" != "darwin"* ]]; then
   exit 1
 fi
 
-shopt -s dotglob
 TESTMODE=false
+shopt -s dotglob
 EXEPATH=$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)
 
 ## ----------------------------------------
@@ -175,7 +175,7 @@ usage() {
     dotfiles: Dotfiles installation"
     all:      All installations (except init)"
 
-  EOS
+EOS
 }
 
 ## ----------------------------------------
