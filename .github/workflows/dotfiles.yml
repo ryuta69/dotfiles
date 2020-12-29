@@ -4,20 +4,18 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: macOS-latest
-
     steps:
     - uses: actions/checkout@v2
-    - name: Run help command.
-      run: |
-        curl https://raw.githubusercontent.com/ulwlu/dotfiles/master/install.sh | /bin/bash -s -- --help
+
     - name: Run initial setup.
       run: |
         curl https://raw.githubusercontent.com/ulwlu/dotfiles/master/install.sh | /bin/bash -s -- --init
+
     - name: Run dotfiles setup.
       run: |
         /bin/bash install.sh --force --test --dotfiles
+
     - name: Run system setup.
       run: |
         /bin/bash install.sh --force --test --system
