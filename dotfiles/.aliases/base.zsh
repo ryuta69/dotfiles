@@ -1,143 +1,143 @@
 ## ----------------------------------------
-##	Vim
+##  Vim
 ## ----------------------------------------
 vim-plug-install() {
-	vim  +'PlugInstall --sync' +qa
-	nvim +'PlugInstall --sync' +qa
+  vim  +'PlugInstall --sync' +qa
+  nvim +'PlugInstall --sync' +qa
 }
 vim-plug-update() {
-	vim  +'PlugUpdate --sync' +qa
-	nvim +'PlugUpdate --sync' +qa
+  vim  +'PlugUpdate --sync' +qa
+  nvim +'PlugUpdate --sync' +qa
 }
 vim-plug-clean() {
-	vim  +'PlugClean --sync' +qa
-	nvim +'PlugClean --sync' +qa
+  vim  +'PlugClean --sync' +qa
+  nvim +'PlugClean --sync' +qa
 }
 
 ## ----------------------------------------
-##	Brew
+##  Brew
 ## ----------------------------------------
 brew-install() {
-	brew bundle --file ./Brewfile
+  brew bundle --file ./Brewfile
 }
 brew-update() {
-	brew update -v
-	brew upgrade -v
-	brew cask upgrade -v
+  brew update -v
+  brew upgrade -v
+  brew cask upgrade -v
 }
 brew-clean() {
-	brew bundle cleanup --file ./Brewfile -fv
+  brew bundle cleanup --file ./Brewfile -fv
 }
 brew-list() {
-	brew bundle dump > ./Brewfile
+  brew bundle dump > ./Brewfile
 }
 
 ## ----------------------------------------
-##	Tmux
+##  Tmux
 ## ----------------------------------------
 tmux-plug-intall() {
-	/bin/bash ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+  /bin/bash ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 }
 tmux-plug-update() {
-	/bin/bash ~/.tmux/plugins/tpm/scripts/update_plugin.sh
+  /bin/bash ~/.tmux/plugins/tpm/scripts/update_plugin.sh
 }
 tmux-plug-clean() {
-	/bin/bash ~/.tmux/plugins/tpm/scripts/clean_plugins.sh
+  /bin/bash ~/.tmux/plugins/tpm/scripts/clean_plugins.sh
 }
 
 ## ----------------------------------------
-##	VSCode
+##  VSCode
 ## ----------------------------------------
 vscode-plug-install() {
-	# This also updates.
-	plugins=($(cat ./Vsplug))
-	for plugin in ${plugins}; do
-		code --install-extension ${plugin}
-	done
+  # This also updates.
+  plugins=($(cat ./Vsplug))
+  for plugin in ${plugins}; do
+    code --install-extension ${plugin}
+  done
 }
 vscode-plug-clean() {
-	plugin=$(cat ./Vsplug | fzf)
-	code --uninstall-extension ${plugin}
+  plugin=$(cat ./Vsplug | fzf)
+  code --uninstall-extension ${plugin}
 }
 vscode-plug-list() {
-	code --list-extensions > ./bundle/Vsplug
+  code --list-extensions > ./bundle/Vsplug
 }
 
 ## ----------------------------------------
-##	Zinit
+##  Zinit
 ## ----------------------------------------
 zinit-plug-install() {
-	source ~/.zshrc
+  source ~/.zshrc
 }
 zinit-plug-update() {
-	zinit self-update
-	zinit update
+  zinit self-update
+  zinit update
 }
 zinit-plug-clean() {
-	zinit delete --clean
+  zinit delete --clean
 }
 
 ## ----------------------------------------
-##	Npm
+##  Npm
 ## ----------------------------------------
 npm-install() {
-	npm install -g $(cat ./Npmfile)
+  npm install -g $(cat ./Npmfile)
 }
 npm-update() {
-	npm update -g npm
-	npm update -g
+  npm update -g npm
+  npm update -g
 }
 
 ## ----------------------------------------
-##	Pip
+##  Pip
 ## ----------------------------------------
 pip-install() {
-	pip3 install -r ./Pipfile
+  pip3 install -r ./Pipfile
 }
 pip-update() {
-	pip install --upgrade pip
-	pip freeze | cut -d'=' -f1 | xargs -n1 pip install --upgrade
+  pip install --upgrade pip
+  pip freeze | cut -d'=' -f1 | xargs -n1 pip install --upgrade
 }
 
 ## ----------------------------------------
-##	ssh
+##  ssh
 ## ----------------------------------------
 sshp() {
-	HOST=`cat ~/.ssh/config | fzf | awk "{ print \$2 }"`;
-	ssh ${HOST};
+  HOST=`cat ~/.ssh/config | fzf | awk "{ print \$2 }"`;
+  ssh ${HOST};
 }
 
 ## ----------------------------------------
-##	Install Github Release
+##  Install Github Release
 ## ----------------------------------------
 dlgr() {
-	read repo"?type https://api.github.com/repos/{author}/{repo}/releases/latest : ";
-	URL=`curl -s "${repo}" | grep "browser_download_url" | cut -d '"' -f 4 | fzf`
-	curl -sOL ${URL}
+  read repo"?type https://api.github.com/repos/{author}/{repo}/releases/latest : ";
+  URL=`curl -s "${repo}" | grep "browser_download_url" | cut -d '"' -f 4 | fzf`
+  curl -sOL ${URL}
 }
 
 ## ----------------------------------------
-##	System Colors
+##  System Colors
 ## ----------------------------------------
 alias pw='python -m pywal -i'
 
 ## ----------------------------------------
-##	tar
+##  tar
 ## ----------------------------------------
 tz() { tar zcvf "$1.tar.gz" "$1"; }
 extract() {
-	case "$1" in
-		*.tar.gz|*.tgz)  tar xzvf   "$1";;
-		*.tar.xz)        tar Jxvf   "$1";;
-		*.zip)           unzip      "$1";;
-		*.lzh)           lha e      "$1";;
-		*.tar.bz2|*.tbz) tar xjvf   "$1";;
-		*.tar.Z)         tar zxvf   "$1";;
-		*.gz)            gzip -d    "$1";;
-		*.bz2)           bzip2 -dc  "$1";;
-		*.Z)             uncompress "$1";;
-		*.tar)           tar xvf    "$1";;
-		*.arj)           unarj      "$1";;
-	esac
+  case "$1" in
+    *.tar.gz|*.tgz)  tar xzvf   "$1";;
+    *.tar.xz)        tar Jxvf   "$1";;
+    *.zip)           unzip      "$1";;
+    *.lzh)           lha e      "$1";;
+    *.tar.bz2|*.tbz) tar xjvf   "$1";;
+    *.tar.Z)         tar zxvf   "$1";;
+    *.gz)            gzip -d    "$1";;
+    *.bz2)           bzip2 -dc  "$1";;
+    *.Z)             uncompress "$1";;
+    *.tar)           tar xvf    "$1";;
+    *.arj)           unarj      "$1";;
+  esac
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract

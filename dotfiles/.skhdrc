@@ -1,5 +1,5 @@
 ## ----------------------------------------
-##	Windows Moving
+##  Windows Moving
 ## ----------------------------------------
 alt - r                   : yabai -m space --rotate 90
 shift + alt + cmd - left  : yabai -m window --swap west
@@ -8,7 +8,7 @@ shift + alt + cmd - up    : yabai -m window --swap north
 shift + alt + cmd - down  : yabai -m window --swap south
 
 ## ----------------------------------------
-##	Windows Focusing
+##  Windows Focusing
 ## ----------------------------------------
 shift + alt - left  : yabai -m window --focus west
 shift + alt - right : yabai -m window --focus east
@@ -16,7 +16,7 @@ shift + alt - up    : yabai -m window --focus north
 shift + alt - down  : yabai -m window --focus south
 
 ## ----------------------------------------
-##	Windows Sizing
+##  Windows Sizing
 ## ----------------------------------------
 ## ========== Increase Size ==========
 alt - left  : yabai -m window --resize left:-20:0  || yabai -m window --resize right:-20:0

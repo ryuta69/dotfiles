@@ -12,13 +12,13 @@
 # read -p "Do you want to delete the \"$merged_branch_name\" branch? (Y/n) " answer
 
 # if [[ "$answer" == "Y" ]]; then
-# 	echo "Deleting local branch \"$merged_branch_name\""
-# 	git branch -d $merged_branch_name
+#   echo "Deleting local branch \"$merged_branch_name\""
+#   git branch -d $merged_branch_name
 
-# 	echo "Deleting remote branch"
-# 	git push origin --delete $merged_branch_name
+#   echo "Deleting remote branch"
+#   git push origin --delete $merged_branch_name
 
-# 	exit 1
+#   exit 1
 # else
-# 	echo "Did not delete the \"$merged_branch_name\" branch"
+#   echo "Did not delete the \"$merged_branch_name\" branch"
 # fi

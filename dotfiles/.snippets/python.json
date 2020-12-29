@@ -1,1447 +1,1447 @@
 {
-	"InputAll": {
-		"prefix": ["inputall"],
-		"body": [
-			"n = input()",
-			"if ' ' not in n:",
-			"\tif n.isdigit():",
-			"\t\tn = int(n)",
-			"\telif float(n):",
-			"\t\tn = float(n)",
-			"else:",
-			"\t# ===== int =====",
-			"\t# a, b = map(int, n.split())",
-			"\t# l = list(map(int, n.split()))",
-			"\t# ===== str =====",
-			"\t# a, b = n.split()",
-			"\t# l = n.split()",
-			"\t# ===== float =====",
-			"\t# a, b = map(float, n.split())",
-			"\t# l = list(map(float, n.split()))",
-			"$0"
-		]
-	},
-	"Memo": {
-		"prefix": ["memo"],
-		"body": [
-			"import functools",
-			"@functools.lru_cache(maxsize=None)",
-			"$0"
-		]
-	},
-	"Zfill": {
-		"prefix": ["zfill"],
-		"body": [
-			"z = {0:01d}'.format($2)",
-			"$0"
-		]
-	},
-	"Inf": {
-		"prefix": ["inf"],
-		"body": [
-			"i = float('inf')",
-			"$0"
-		]
-	},
-	"Ceil": {
-		"prefix": ["ceil"],
-		"body": [
-			"import math",
-			"c = math.ceil($1)",
-			"$0"
-		]
-	},
-	"SortString": {
-		"prefix": ["sortstring"],
-		"body": [
-			"s = ''.join(sorted($1))",
-			"$0"
-		]
-	},
-	"Floar": {
-		"prefix": ["floar"],
-		"body": [
-			"import math",
-			"f = math.floar($1)",
-			"$0"
-		]
-	},
-	"Exit": {
-		"prefix": ["exit"],
-		"body": [
-			"import sys",
-			"sys.exit()",
-			"$0"
-		]
-	},
-	"ListMulti": {
-		"prefix": ["listmulti"],
-		"body": [
-			"ml = [$2 for i in range($3)]",
-			"$0"
-		]
-	},
-	"ListMulti2d": {
-		"prefix": ["listmulti2d"],
-		"body": [
-			"ml = [[$2 for i in range($3)] for j in range($4)]",
-			"$0"
-		]
-	},
-	"Sort2dList": {
-		"prefix": ["sort2dlist"],
-		"body": [
-			"l = sorted(l, key=lambda x:x[0])"
-		]
-	},
-	"Filter": {
-		"prefix": ["filter"],
-		"body": [
-			"f = list(filter(lambda el: $3, $2))",
-			"$0"
-		]
-	},
-	"ConvertBin": {
-		"prefix": ["convertbin"],
-		"body": [
-			"bini = format(i, 'b')"
-		]
-	},
-	"NpSearchSorted": {
-		"prefix": ["npsearchsorted"],
-		"body": [
-			"import numpy as np",
-			"target = np.array(list())",
-			"source = np.array(list())",
-			"b_num = np.searchsorted(target, source)"
-		]
-	},
-	"Divisors": {
-		"prefix": ["divisors"],
-		"body": [
-			"def make_divisors(n):",
-			"\tlower_divisors , upper_divisors = [], []",
-			"\ti = 1",
-			"\twhile i*i <= n:",
-			"\t\tif n % i == 0:",
-			"\t\t\tlower_divisors.append(i)",
-			"\t\t\tif i != n // i:",
-			"\t\t\t\tupper_divisors.append(n//i)",
-			"\t\ti += 1",
-			"\treturn lower_divisors + upper_divisors[::-1]"
-		]
-	},
-	"Map": {
-		"prefix": ["map"],
-		"body": [
-			"m = list(map(lambda el: $3, $2))",
-			"$0"
-		]
-	},
-	"Reduce": {
-		"prefix": ["reduce"],
-		"body": [
-			"from functools import reduce",
-			"r = reduce(lambda hist,el: $3, $2)",
-			"$0"
-		]
-	},
-	"All": {
-		"prefix": ["all"],
-		"body": [
-			"all($2 for i in $1)",
-			"$0"
-		]
-	},
-	"CombineList": {
-		"prefix": ["combinelist"],
-		"body": [
-			"' '.join(map(str, $1))",
-			"$0"
-		]
-	},
-	"Counter": {
-		"prefix": ["counter"],
-		"body": [
-			"from collections import Counter",
-			"c = Counter($2)",
-			"$0"
-		]
-	},
-	"CounterSort": {
-		"prefix": ["countersort"],
-		"body": [
-			"from collections import Counter",
-			"c = Counter($2).most_common()",
-			"$0"
-		]
-	},
-	"Any": {
-		"prefix": ["any"],
-		"body": [
-			"any($2 for i in $1)",
-			"$0"
-		]
-	},
-	"NotAny": {
-		"prefix": ["notany"],
-		"body": [
-			"not any($2 for i in $1)",
-			"$0"
-		]
-	},
-	"Sum": {
-		"prefix": ["sum"],
-		"body": [
-			"sum($2 for i in $1)",
-			"$0"
-		]
-	},
-	"SameElementInList": {
-		"prefix": ["sameelementinlist"],
-		"body": [
-			"set($1).intersection(set($2))",
-			"$0"
-		]
-	},
-	"ForRange": {
-		"prefix": ["forrange"],
-		"body": [
-			"for i in range($2):",
-			"\t$0"
-		]
-	},
-	"ForEnumerate": {
-		"prefix": ["forenumerate"],
-		"body": [
-			"for i, item in enumerate($2):",
-			"\t$0"
-		]
-	},
-	"For": {
-		"prefix": ["for"],
-		"body": [
-			"for i in $2:",
-			"\t$0"
-		]
-	},
-	"Unique": {
-		"prefix": ["unique"],
-		"body": [
-			"def unique(collection):",
-			"\tresult = []",
-			"\treturn [x for x in collection if x not in result and not result.append(x)]"
-		]
-	},
-	"SumOfDigits": {
-		"prefix": ["sumofdigits"],
-		"body": [
-			"def sum_of_digits(n):",
-			"\tresult   = 0",
-			"\tquotient = n",
-			"\twhile quotient:",
-			"\t\tresult   +=  quotient % 10,",
-			"\t\tquotient //= 10",
-			"\treturn result"
-		]
-	},
-	"InputInt": {
-		"prefix": ["inputint"],
-		"body": [
-			"n = int(input())",
-			"$0"
-		]
-	},
-	"InputIntMap": {
-		"prefix": ["inputintmap"],
-		"body": [
-			"a, b = map(int, input().split())",
-			"$0"
-		]
-	},
-	"ReMatch": {
-		"prefix": ["rematch"],
-		"body": [
-			"re.match('$2', $1)",
-			"$0"
-		]
-	},
-	"InputIntList": {
-		"prefix": ["inputintlist"],
-		"body": [
-			"l = list(map(int, input().split()))",
-			"$0"
-		]
-	},
-	"InputStr": {
-		"prefix": ["inputstr"],
-		"body": [
-			"n = input()",
-			"$0"
-		]
-	},
-	"InputStrMap": {
-		"prefix": ["inputstrmap"],
-		"body": [
-			"a, b = input().split()",
-			"$0"
-		]
-	},
-	"InputStrList": {
-		"prefix": ["inputstrlist"],
-		"body": [
-			"s = list(input())",
-			"$0"
-		]
-	},
-	"InputFloat": {
-		"prefix": ["inputfloat"],
-		"body": [
-			"n = float(input())",
-			"$0"
-		]
-	},
-	"InputFloatMap": {
-		"prefix": ["inputfloatmap"],
-		"body": [
-			"a, b = map(float, input().split()) $2",
-			"$0"
-		]
-	},
-	"InputFloatList": {
-		"prefix": ["inputfloatlist"],
-		"body": [
-			"l = list(map(float, input().split()))",
-			"$0"
-		]
-	},
-	"Print": {
-		"prefix": ["print"],
-		"body": [
-			"print($1, flush=True)",
-			"$0"
-		]
-	},
-	"PrintArrayWithBreak": {
-		"prefix": ["printarraywithbreak"],
-		"body": [
-			"print(*$1, sep='\\n')",
-			"$0"
-		]
-	},
-	"AlphabetNth": {
-		"prefix": ["alphabetnth"],
-		"body": [
-			"s = [chr(ord('a') + i) for i in range(${2:10})]",
-			"$0"
-		]
-	},
-	"Def": {
-		"prefix": ["def"],
-		"body": [
-			"def ${1:defname}($2):",
-			"\t$0"
-		]
-	},
-	"Class": {
-		"prefix": ["class"],
-		"body": [
-			"class ${1:classname}:",
-			"\tdef __init__(self):",
-			"\t$0"
-		]
-	},
-	"Len": {
-		"prefix": ["len"],
-		"body": [
-			"len($1)",
-			"$0"
-		]
-	},
-	"While": {
-		"prefix": ["while"],
-		"body": [
-			"while $1:",
-			"\t$0"
-		]
-	},
-	"If": {
-		"prefix": ["if"],
-		"body": [
-			"if $1:",
-			"\t$0"
-		]
-	},
-	"Ifelif": {
-		"prefix": ["ifelif"],
-		"body": [
-			"if $1:",
-			"\t$0",
-			"elif $2:",
-			"\t",
-			"else:",
-			"\t"
-		]
-	},
-	"Ifelse": {
-		"prefix": ["ifelse"],
-		"body": [
-			"if $1:",
-			"\t$0",
-			"else:"
-		]
-	},
-	"Kaibun": {
-		"prefix": ["kaibun"],
-		"body": [
-			"def kaibun(n):",
-			"\tleft = 0",
-			"\tright = len(n)-1",
-			"\tl = len(n)",
-			"\tans = 0",
-			"",
-			"\twhile left < right and len(n) != 10:",
-			"\t\tif n[left] != n[right]:",
-			"\t\t\tn = n[:l] + n[left] + n[l:]",
-			"\t\t\tleft = 0",
-			"\t\t\tright = len(n)-1",
-			"\t\t\tans += 1",
-			"\t\telse:",
-			"\t\t\tleft += 1",
-			"\t\t\tright -= 1"
-		]
-	},
-	"Queens": {
-		"prefix": ["queens"],
-		"body": [
-			"N = 8",
-			"class NQueens():",
-			"\tdef __init__(self, N):",
-			"\t\tself.N = N",
-			"\t\tself.board = [[0 for i in range(N)] for j in range(N)]",
-			"\tdef is_safe(self, row, column):",
-			"\t\tfor i in range(self.N):",
-			"\t\t\tif self.board[row][i] == 1:",
-			"\t\t\t\treturn False",
-			"\t\tfor i in range(self.N):",
-			"\t\t\tif self.board[i][column] == 1:",
-			"\t\t\t\treturn False",
-			"\t\tfor i, j in zip(range(row, -1, -1), range(column, -1, -1)):",
-			"\t\t\tif self.board[i][j] == 1:",
-			"\t\t\t\treturn False",
-			"\t\tfor i, j in zip(range(row, -1, -1), range(column, self.N)):",
-			"\t\t\tif self.board[i][j] == 1:",
-			"\t\t\t\treturn False",
-			"\t\treturn True",
-			"\tdef solve(self, row = 0):",
-			"\t\tif row >= self.N:",
-			"\t\t\tself.print_solution()",
-			"\t\t\tprint()",
-			"\t\t\treturn",
-			"\t\tfor i in range(self.N):",
-			"\t\t\tif self.is_safe(row, i):",
-			"\t\t\t\tself.board[row][i] = 1",
-			"\t\t\t\tself.solve(row + 1)",
-			"\t\t\t\tself.board[row][i] = 0",
-			"\tdef print_solution(self):",
-			"\t\tfor i in range(self.N):",
-			"\t\t\tfor j in range(self.N):",
-			"\t\t\t\tif self.board[i][j] == 1:",
-			"\t\t\t\t\tprint('Q', end=' ')",
-			"\t\t\t\telse:",
-			"\t\t\t\t\tprint('.', end=' ')",
-			"\t\t\tprint()",
-			"NQueens(N).solve()"
-		]
-	},
-	"BoyerMooreSearch": {
-		"prefix": ["boyermooresearch"],
-		"body": [
-			"from collections import defaultdict",
-			"class boyer_moore_search:",
-			"\tdef __init__(self, text, pattern):",
-			"\t\tself.text = text",
-			"\t\tself.pattern = pattern",
-			"\t\tself.len_text = len(text)",
-			"\t\tself.len_pattern = len(pattern)",
-			"\tdef search(self):",
-			"\t\tans = []",
-			"\t\tshift_table = defaultdict(str)",
-			"\t\tfor i in range(26):",
-			"\t\t\tshift_table[chr(ord('A') + i)] = self.len_pattern",
-			"\t\tfor i in range(self.len_pattern):",
-			"\t\t\tshift_table[self.pattern[i]] = self.len_pattern - i - 1",
-			"\t\tsearching_pattern_index = 0",
-			"\t\twhile(searching_pattern_index <= self.len_text - self.len_pattern):",
-			"\t\t\tsearching_char_index = self.len_pattern - 1",
-			"\t\t\twhile searching_char_index >= 0 and self.pattern[searching_char_index] == self.text[searching_pattern_index + searching_char_index]:",
-			"\t\t\t\tsearching_char_index -= 1",
-			"\t\t\tif searching_char_index < 0:",
-			"\t\t\t\tans.append(searching_pattern_index)",
-			"\t\t\t\tif searching_pattern_index + self.len_pattern < self.len_text:",
-			"\t\t\t\t\tsearching_pattern_index += (self.len_pattern - shift_table[self.text[searching_pattern_index + searching_char_index]])",
-			"\t\t\t\telse:",
-			"\t\t\t\t\tsearching_pattern_index += 1",
-			"\t\t\telse:",
-			"\t\t\t\tsearching_pattern_index += max(1, searching_char_index - shift_table[self.text[searching_pattern_index + searching_char_index]])",
-			"\t\treturn ans",
-			"ans = boyer_moore_search(txt, pat).search()"
-		]
-	},
-	"BitSearch": {
-		"prefix": ["bitsearch"],
-		"body": [
-			"for i in range(1<<N):",
-			"\tbit_matched = []",
-			"\tfor j in range(N):",
-			"\t\tif (i>>j) & 1:",
-			"\t\t\tbit_matched.append(l[j])",
-			"\tprint(bit_matched , flush=True)"
-		]
-	},
-	"Bubunwa": {
-		"prefix": ["bubunwa"],
-		"body": [
-			"# L = [",
-			"#\t ['a', 100],",
-			"#\t ['b', 200],",
-			"#\t ['c', 300],",
-			"# ]",
-			"N= len(L)",
-			"ans = []",
-			"point = float('inf')",
-			"for i in range(1<<N):",
-			"\tbit_matched = []",
-			"\tcur_comb = []",
-			"\tfor j in range(N):",
-			"\t\tif (i>>j) & 1:",
-			"\t\t\tbit_matched.append(L[j][1])",
-			"\t\t\tcur_comb.append(L[j][0])",
-			"\tcurrent_point = abs(sum(bit_matched) - 1000)",
-			"\tif current_point < point:",
-			"\t\tpoint = current_point",
-			"\t\tans = cur_comb"
-		]
-	},
-	"Hanoi": {
-		"prefix": ["hanoi"],
-		"body": [
-			"def hanoi(n, src, tgt, tmp):",
-			"\tif n == 1:",
-			"\t\tprint(f'Move {n} {src} -> {tgt}')",
-			"\t\treturn",
-			"\thanoi(n-1, src, tmp, tgt)",
-			"\tprint(f'Move {n} {src} -> {tgt}')",
-			"\thanoi(n-1, tmp, tgt, src)"
-		]
-	},
-	"Graph": {
-		"prefix": ["graph"],
-		"body": [
-			"from collections import defaultdict",
-			"G = defaultdict(list)",
-			"# G[1].append(2)"
-		]
-	},
-	"DefaultDict": {
-		"prefix": ["defaultdict"],
-		"body": [
-			"from collections import defaultdict",
-			"G = defaultdict(list)",
-			"for i in range(n):",
-			"\tG[i] = []",
-			"# G[0].append(2)"
-		]
-	},
-	"breadthfirstsearch": {
-		"prefix": ["bfs"],
-		"body": [
-			"from collections import defaultdict",
-			"G = defaultdict(list)",
-			"for i in range(n):",
-			"\tG[i] = []",
-			"# G[0].append(2)",
-			"from collections import deque",
-			"def bfs(G, src):",
-			"\tcosts = [-1 for _ in range(len(G))]",
-			"\tcosts[src] = 0",
-			"\tqueue = deque([src])",
-			"\twhile queue:",
-			"\t\tnode = queue.popleft()",
-			"\t\tfor neighbor in G[node]:",
-			"\t\t\tif costs[neighbor] != -1:",
-			"\t\t\t\tcontinue",
-			"\t\t\tcosts[neighbor] = costs[node] + 1",
-			"\t\t\tqueue.append(neighbor)",
-			"\treturn costs"
-		]
-	},
-	"bfsShortestPath": {
-		"prefix": ["bfs_shortest_path"],
-		"body": [
-			"from collections import defaultdict",
-			"G = defaultdict(list)",
-			"# G[1].append(2)",
-			"",
-			"from collections import deque",
-			"def bfs_shortest_path(G, src, tgt):",
-			"\tif src not in G:",
-			"\t\treturn -1",
-			"\tparents = {src: None}",
-			"\tqueue = deque([src])",
-			"\twhile queue:",
-			"\t\tnode = queue.popleft()",
-			"\t\tfor neighbor in G[node]:",
-			"\t\t\tif neighbor not in parents:",
-			"\t\t\t\tparents[neighbor] = node",
-			"\t\t\t\tqueue.append(neighbor)",
-			"\t\t\t\tif node == tgt:",
-			"\t\t\t\t\tbreak",
-			"\tpath = [tgt]",
-			"\twhile parents[tgt] is not None:",
-			"\t\tpath.insert(0, parents[tgt])",
-			"\t\ttgt = parents[tgt]",
-			"\treturn path",
-			"path = bfs_shortest_path(G, src, tgt)"
-		]
-	},
-	"depthfirstsearch": {
-		"prefix": ["dfs"],
-		"body": [
-			"from collections import defaultdict",
-			"G = defaultdict(list)",
-			"for i in range(n):",
-			"\tG[i] = []",
-			"# G[0].append(2)",
-			"from collections import deque",
-			"def dfs(G, src):",
-			"\tcosts = [-1 for _ in range(len(G))]",
-			"\tcosts[src] = 0",
-			"\tqueue = deque([src])",
-			"\twhile queue:",
-			"\t\tnode = queue.pop()",
-			"\t\tfor neighbor in G[node]:",
-			"\t\t\tif costs[neighbor] != -1:",
-			"\t\t\t\tcontinue",
-			"\t\t\tcosts[neighbor] = costs[node] + 1",
-			"\t\t\tqueue.append(neighbor)",
-			"\treturn costs"
-		]
-	},
-	"WarshallFloyd": {
-		"prefix": ["warshallfloyd"],
-		"body": [
-			"N,M = map(int, input().split())",
-			"dp = [[float('inf')] * N for _ in range(N)]",
-			"for i in range(N):",
-			"\tdp[i][i] = 0",
-			"for i in range(M):",
-			"\ta,b,t = map(int, input().split())",
-			"\tdp[a-1][b-1] = min(t, dp[a-1][b-1])",
-			"\tdp[b-1][a-1] = min(t, dp[b-1][a-1])",
-			"def warshall_floyd(dp, N):",
-			"\tfor k in range(N):",
-			"\t\tfor i in range(N):",
-			"\t\t\tfor j in range(N):",
-			"\t\t\t\tdp[i][j] = min(dp[i][j], dp[i][k] + dp[k][j])",
-			"\tans = float('inf')",
-			"\tfor d in dp:",
-			"\t\tans = min(ans, max(d))",
-			"\treturn ans",
-			"print(warshall_floyd(dp, N))"
-		]
-	},
-	"Dijkstra": {
-		"prefix": ["dijkstra"],
-		"body": [
-			"# from collections import defaultdict",
-			"# G = defaultdict(list)",
-			"# for i in range(n):",
-			"#\t G['A'].append(['B', 2])",
-			"import heapq",
-			"def dijkstra(G, start, end):",
-			"\theap = [(0, start)]",
-			"\tvisited = set()",
-			"\twhile heap:",
-			"\t\t(cost, src) = heapq.heappop(heap)",
-			"\t\tif src in visited:",
-			"\t\t\tcontinue",
-			"\t\tvisited.add(src)",
-			"\t\tif src == end:",
-			"\t\t\treturn cost",
-			"\t\tfor dest, cost_to_dest in G[src]:",
-			"\t\t\tif dest in visited:",
-			"\t\t\t\tcontinue",
-			"\t\t\theapq.heappush(heap, (cost + cost_to_dest, dest))",
-			"\treturn -1",
-			"# ans = dijkstra(G, 'E', 'C')"
-		]
-	},
-	"BellmanFord": {
-		"prefix": ["bellmanford"],
-		"body": [
-			"n,m = map(int, input().split())",
-			"start_vertex = 1",
-			"end_vertex   = n",
-			"G = []",
-			"for i in range(m):",
-			"\ta,b,cost = map(int, input().split())",
-			"\tG.append([a,b,cost])",
-			"def bellmanford(G, N, start_vertex, end_vertex):",
-			"\tdistances = [float('inf') for _ in range(N+1)]",
-			"\tparents   = {}",
-			"\tdistances[start_vertex] = 0",
-			"\tfor _ in range(N):",
-			"\t\tfor node,neighbor,cost in G:",
-			"\t\t\tif distances[neighbor] > distances[node] + cost:",
-			"\t\t\t\tdistances[neighbor] = distances[node] + cost",
-			"\t\t\t\tparents[neighbor]   = node",
-			"\tfor node,neighbor,cost in G:",
-			"\t\tif distances[neighbor] > distances[node] + cost:",
-			"\t\t\treturn -1,-1",
-			"\t# # If you need to check recursion only on the path to goal.",
-			"\t# prev_distance = distances[end_vertex]",
-			"\t# for _ in range(N):",
-			"\t#\t for node,neighbor,cost in G:",
-			"\t#\t\t if distances[neighbor] > distances[node] + cost:",
-			"\t#\t\t\t distances[neighbor] = -float('inf')",
-			"\t# if prev_distance != distances[end_vertex]:",
-			"\t#\t return -1,-1",
-			"\treturn distances, parents",
-			"distances, parents = bellmanford(G, n, start_vertex, end_vertex)",
-			"# # if you want to get path",
-			"# node = end_vertex",
-			"# path = [node]",
-			"# while node != start_vertex:",
-			"#\t node = parents[node]",
-			"#\t path.append(node)"
-		]
-	},
-	"LinkedList": {
-		"prefix": ["linkedlist"],
-		"body": [
-			"class Node:",
-			"\tdef __init__(self, item, next):",
-			"\t\tself.item = item",
-			"\t\tself.next = next",
-			"class LinkedList:",
-			"\tdef __init__(self):",
-			"\t\tself.head = None",
-			"\t\tself.size = 0",
-			"\tdef add(self, item):",
-			"\t\tself.head = Node(item, self.head)",
-			"\t\tself.size += 1",
-			"\tdef remove(self):",
-			"\t\tif self.is_empty():",
-			"\t\t\treturn None",
-			"\t\telse:",
-			"\t\t\titem = self.head.item",
-			"\t\t\tself.head = self.head.next",
-			"\t\t\tself.size -= 1",
-			"\t\t\treturn item",
-			"\tdef is_empty(self):",
-			"\t\treturn self.head is None"
-		]
-	},
-	"ReplaceWithRegex": {
-		"prefix": ["replacewithregex"],
-		"body": [
-			"import re",
-			"str = re.sub(r'$1', '$2', $3)",
-			"$0"
-		]
-	},
-	"Fibonacci": {
-		"prefix": ["fibonacci"],
-		"body": [
-			"def fibonacci(n):",
-			"\tif n==0 or n==1:",
-			"\t\treturn 1",
-			"\telse:",
-			"\t\treturn fibonacci(n-1) + fibonacci(n-2)"
-		]
-	},
-	"ConvertBase": {
-		"prefix": ["convertbase"],
-		"body": [
-			"def convertBase(n, base):",
-			"\tresult = ''",
-			"\twhile n>0:",
-			"\t\tresult = str(n % 2) + result",
-			"\t\tn //= 2",
-			"\treturn int(result)"
-		]
-	},
-	"Round": {
-		"prefix": ["round"],
-		"body": [
-			"def round(n, digit=0):",
-			"\tif digit < 0:",
-			"\t\timport sys",
-			"\t\tsys.stderr.write('Error: digit must be positive')",
-			"\t\texit()",
-			"\tp = 10**digit",
-			"\tans = (n*p*2+1) // 2 / p",
-			"\tif digit == 0:",
-			"\t\tans = int(ans)",
-			"\treturn ans"
-		]
-	},
-	"GcdLcm": {
-		"prefix": ["gcdlcm"],
-		"body": [
-			"def gcd(a, b):",
-			"\twhile b != 0:",
-			"\t\ta, b = b, a % b",
-			"\treturn a",
-			"def lcm(a, b):",
-			"\treturn a * b // gcd(a, b)"
-		]
-	},
-	"CumulativeSum": {
-		"prefix": ["cumulativesum"],
-		"body": [
-			"def cumulative_sum(collection):",
-			"\tresult = [0]",
-			"\tfor item in collection:",
-			"\t\tresult.append(result[-1] + item)",
-			"\treturn result"
-		]
-	},
-	"CumulativeSum2d": {
-		"prefix": ["cumulativesum2d"],
-		"body": [
-			"class CumulativeSum2d():",
-			"\tdef __init__(self, collection_2d):",
-			"\t\tyl = len(collection_2d)",
-			"\t\txl = len(collection_2d[0])",
-			"\t\tself.data = [[0] * (xl+1) for _ in range(yl+1)]",
-			"\t\tfor y in range(1, yl+1):",
-			"\t\t\tfor x in range(1, xl+1):",
-			"\t\t\t\ttop_sum         = self.data[y-1][x]",
-			"\t\t\t\tleft_sum        = self.data[y][x-1]",
-			"\t\t\t\tdup_sum         = self.data[y-1][x-1]",
-			"\t\t\t\tself.data[y][x] = top_sum + left_sum - dup_sum",
-			"\t\t\t\tself.data[y][x] += collection_2d[y-1][x-1]",
-			"",
-			"\tdef query(self, x, y, x1, y1):",
-			"\t\treturn self.data[y1][x1] - self.data[y-1][x1] - self.data[y1][x-1] + self.data[y-1][x-1]"
-		]
-	},
-	"CombinationNum": {
-		"prefix": ["combination"],
-		"body": [
-			"def combination(n, r):",
-			"\tif n < 0 or r < 0 or n < r:",
-			"\t\treturn 0",
-			"\tif n - r < r:",
-			"\t\tr = n - r",
-			"\tif r == 0:",
-			"\t\treturn 1",
-			"\tif r == 1:",
-			"\t\treturn n",
-			"\t'''",
-			"\tExample: n = 7, r = 3",
-			"\tnumerator = [5, 6, 7]",
-			"\tdenominator = [1, 2, 3]",
-			"\t'''",
-			"\tnumerator   = [n - r + i + 1 for i in range(r)]",
-			"\tdenominator = [i + 1 for i in range(r)]",
-			"\tfor i in range(2, r+1):",
-			"\t\t'''",
-			"\t\tskip 1 because not able to devide any numerator.",
-			"\t\t'''",
-			"\t\tdenom = denominator[i - 1]",
-			"\t\tif denom > 1:",
-			"\t\t\toffset = (n - r) % i",
-			"\t\t\tfor j in range(i-1, r, i):",
-			"\t\t\t\t'''",
-			"\t\t\t\tdevide numerator by denominator",
-			"\t\t\t\t'''",
-			"\t\t\t\tnumerator[j - offset] //= denom",
-			"\t\t\t\tdenominator[j]        //= denom",
-			"\tresult = 1",
-			"\tfor i in range(r):",
-			"\t\tif numerator[i] > 1:",
-			"\t\t\t'''",
-			"\t\t\tMultiple all numerator devided by all denominator",
-			"\t\t\t'''",
-			"\t\t\tresult *= numerator[i]",
-			"\treturn result"
-		]
-	},
-	"CombinationScipy": {
-		"prefix": ["combinationScipy"],
-		"body": [
-			"from scipy.special import comb",
-			"c = int(comb($2, $3))",
-			"$0"
-		]
-	},
-	"CombinationList": {
-		"prefix": ["combinationlist"],
-		"body": [
-			"from itertools import combinations",
-			"lc = combinations(${2:l}, ${3:3})",
-			"# lc = for a,b,c... in lc:",
-			"$0"
-		]
-	},
-	"PermutationNum": {
-		"prefix": ["PermutationNum"],
-		"body": [
-			"def permutation(l, n):",
-			"\tresult = 1",
-			"\tfor i in range(n):",
-			"\t\tresult *= (l-i)",
-			"\treturn result"
-		]
-	},
-	"PermutationScipy": {
-		"prefix": ["permutationscipy"],
-		"body": [
-			"from scipy.special import comb",
-			"c = int(perm($2, $3))",
-			"$0"
-		]
-	},
-	"PermutationList": {
-		"prefix": ["permutationlist"],
-		"body": [
-			"from itertools import permutations",
-			"lp = permutations(${2:l}, ${3:3})",
-			"$0"
-		]
-	},
-	"EratosthenesSieve": {
-		"prefix": ["eratosthenes_sieve"],
-		"body": [
-			"def sieve_of_eratosthenes(n):",
-			"\tprime = [2]",
-			"\tlimit = int(n**0.5)",
-			"\tdata = [i + 1 for i in range(2, n, 2)]",
-			"\twhile True:",
-			"\t\tp = data[0]",
-			"\t\tif limit < p:",
-			"\t\t\treturn prime + data",
-			"\t\tprime.append(p)",
-			"\t\tdata = [e for e in data if e % p != 0]"
-		]
-	},
-	"UnionFind": {
-		"prefix": ["unionfind"],
-		"body": [
-			"class UnionFind():",
-			"\tdef __init__(self, n):",
-			"\t\t# size of n.",
-			"\t\tself.n = n",
-			"\t\t# n's parent. default is -1.",
-			"\t\tself.parents = [-1] * n",
-			"",
-			"\tdef find_root(self, x):",
-			"\t\tif self.parents[x] < 0:",
-			"\t\t\treturn x",
-			"\t\telse:",
-			"\t\t\tself.parents[x] = self.find_root(self.parents[x])",
-			"\t\t\treturn self.parents[x]",
-			"",
-			"\tdef union_merge(self, x, y):",
-			"\t\tx = self.find_root(x)",
-			"\t\ty = self.find_root(y)",
-			"\t\tif x == y:",
-			"\t\t\treturn",
-			"\t\t# smaller union will be following",
-			"\t\t# root.parent has union size with negative",
-			"\t\tif self.parents[x] > self.parents[y]:",
-			"\t\t\tx, y = y, x",
-			"\t\t# update union size",
-			"\t\tself.parents[x] += self.parents[y]",
-			"\t\tself.parents[y] = x",
-			"",
-			"\t# You shouldn't use these below for optimization.",
-			"\t# Use only find_root to compare if you need.",
-			"\tdef union_size(self, x):",
-			"\t\t# Root value's index has its size with negative.",
-			"\t\treturn -self.parents[self.find_root(x)]",
-			"",
-			"\tdef is_same_union(self, x, y):",
-			"\t\treturn self.find_root(x) == self.find_root(y)",
-			"",
-			"\tdef same_union_members(self, x):",
-			"\t\troot = self.find_root(x)",
-			"\t\treturn [i for i in range(self.n) if self.find_root(i) == root]",
-			"",
-			"\tdef roots(self):",
-			"\t\treturn [i for i, x in enumerate(self.parents) if x < 0]",
-			"",
-			"\tdef union_count(self):",
-			"\t\treturn len(self.roots())",
-			"",
-			"\tdef all_unions(self):",
-			"\t\treturn [self.same_union_members(r) for r in self.roots()]"
-		]
-	},
-	"UnionFindWithWeight": {
-		"prefix": ["unionfindwithweight"],
-		"body": [
-			"class UnionfindWithWeight():",
-			"\tdef __init__(self, n):",
-			"\t\tself.dist\t= [0]  * (n+1)",
-			"\t\tself.ranks   = [0]  * (n+1)",
-			"\t\tself.parents = [-1] * (n+1)",
-			"\tdef find_root(self, x):",
-			"\t\tif self.parents[x] < 0:",
-			"\t\t\treturn self.dist[x], x",
-			"\t\telse:",
-			"\t\t\ttmp = self.find_root(self.parents[x])",
-			"\t\t\tself.dist[x]\t+= tmp[0]",
-			"\t\t\tself.parents[x] =  tmp[1]",
-			"\t\t\treturn self.dist[x], self.parents[x]",
-			"\tdef union(self, x, y, dist):",
-			"\t\tx_root = self.find_root(x)[1]",
-			"\t\ty_root = self.find_root(y)[1]",
-			"\t\tdiff = dist + self.dist[x] - self.dist[y]",
-			"\t\tif x_root == y_root and diff != 0:",
-			"\t\t\t# print('This dist is invalid.', flush=True)",
-			"\t\t\treturn -1",
-			"\t\tif self.ranks[y_root] > self.ranks[x_root]:",
-			"\t\t\tx_oot ,y_root = y_root, x_root",
-			"\t\t\tdiff =- diff",
-			"\t\tself.parents[y_root] = x_root",
-			"\t\tself.dist[y_root] = diff",
-			"\t\tif self.ranks[y_root] == self.ranks[x_root]:",
-			"\t\t\tself.ranks[x_root] += 1"
-		]
-	},
-	"KnapSack": {
-		"prefix": ["knapsack"],
-		"body": [
-			"class Knapsack:",
-			"\tdef __init__(self, VW):",
-			"\t\tself.VW = VW",
-			"\t\t# sort by value/weight",
-			"\t\tself.VW.sort(key=lambda vw: vw[0] / vw[1], reverse=True)",
-			"\t\tself.n = len(VW)",
-			"",
-			"\tdef solve(self, capacity):",
-			"\t\tself.max_value = -float('inf')",
-			"\t\tself.capacity = capacity",
-			"\t\treturn self._dfs(0, 0, 0)",
-			"",
-			"\tdef _dfs(self, i, value_now, weight_now):",
-			"\t\tif i == self.n:",
-			"\t\t\tself.max_value = max(self.max_value, value_now)",
-			"\t\t\treturn value_now",
-			"\t\trelax, relax_ok = self._solve_lp_relaxation(i, self.capacity-weight_now)",
-			"\t\trelax += value_now",
-			"\t\tif relax_ok:",
-			"\t\t\tself.max_value = max(self.max_value, relax)",
-			"\t\t\treturn relax",
-			"\t\tif relax < self.max_value:",
-			"\t\t\treturn -float('inf')",
-			"\t\tanswer = -float('inf')",
-			"\t\tv, w = self.VW[i]",
-			"\t\tif weight_now + w <= self.capacity:",
-			"\t\t\tanswer = max(answer, self._dfs(i+1, value_now + v, weight_now + w))",
-			"\t\tanswer = max(answer, self._dfs(i+1, value_now, weight_now))",
-			"\t\treturn answer",
-			"",
-			"\tdef _solve_lp_relaxation(self, i, capacity):",
-			"\t\tanswer = 0",
-			"\t\tflag = True",
-			"\t\tfor v, w in self.VW[i:]:",
-			"\t\t\tif capacity == 0:",
-			"\t\t\t\tbreak",
-			"\t\t\tif w <= capacity:",
-			"\t\t\t\tcapacity -= w",
-			"\t\t\t\tanswer += v",
-			"\t\t\telse:",
-			"\t\t\t\tflag = False",
-			"\t\t\t\tanswer += v * (capacity / w)",
-			"\t\t\t\tbreak",
-			"\t\treturn answer, flag"
-		]
-	},
-	"TravelingSalesmanProblem": {
-		"prefix": ["travelingsalesmanproblem"],
-		"body": [
-			"V, E = map(int, input().split())",
-			"cost = [[float('inf')] * V for _ in range(V)]",
-			"for e in range(E):",
-			"\tstart, to, dist = map(int,input().split())",
-			"\tcost[start][to] = dist",
-			"def traveling_salesman_problem(V, cost):",
-			"\tdef dfs(traveled_vertexes, vertex, dp):",
-			"\t\tif dp[traveled_vertexes][vertex] != -1:",
-			"\t\t\t# If you visited, return memo.",
-			"\t\t\treturn dp[traveled_vertexes][vertex]",
-			"\t\tif traveled_vertexes == (1<<V)-1 and vertex == 0:",
-			"\t\t\t# You have visited all city and you are in 0.",
-			"\t\t\treturn 0",
-			"",
-			"\t\tmin_dist = float('inf')",
-			"\t\tfor target in range(V):",
-			"\t\t\tif traveled_vertexes>>target & 1 == 0:",
-			"\t\t\t\t# If target is unvisited",
-			"\t\t\t\tmin_dist = min(min_dist, dfs(traveled_vertexes|1<<target, target, dp)+cost[vertex][target])",
-			"\t\t\t\t# If you the path doesn't exist, you shouldn't choose.",
-			"\t\t\t\t# The cost will return inf to not to be selected.",
-			"\t\tdp[traveled_vertexes][vertex] = min_dist",
-			"\t\treturn min_dist",
-			"",
-			"\tdp = [[-1] * V for _ in range(1<<V)]",
-			"\t'''",
-			"\tdp[traveled_vertexes][vertex] shows",
-			"\tthe dist to 0 when you are at vertex and",
-			"\tyou have traveled traveled_vertexes.",
-			"",
-			"\tTo handle traveled_vertexes, we use bit_string.",
-			"\t'''",
-			"\treturn dfs(0, 0, dp)",
-			"ans = traveling_salesman_problem(V, cost)",
-			"if ans == float('inf'):",
-			"\tprint('-1', flush=True)",
-			"else:",
-			"\tprint(ans, flush=True)"
-		]
-	},
-	"BinaryInsert": {
-		"prefix": ["binaryinsert"],
-		"body": [
-			"import bisect",
-			"b=bisect.bisect_left(sorted_list, pivot)",
-			"$0"
-		]
-	},
-	"BinaryInsertMy": {
-		"prefix": ["binaryinsertmy"],
-		"body": [
-			"def binary_search_insertion(sorted_list, item):",
-			"\tleft = 0",
-			"\tright = len(sorted_list) - 1",
-			"\twhile left <= right:",
-			"\t\tmiddle = (left + right) // 2",
-			"\t\tif left == right:",
-			"\t\t\tif sorted_list[middle] < item:",
-			"\t\t\t\tleft = middle + 1",
-			"\t\t\tbreak;",
-			"\t\telif sorted_list[middle] < item:",
-			"\t\t\tleft = middle + 1",
-			"\t\telse:",
-			"\t\t\tright = middle - 1",
-			"\tsorted_list.insert(left, item)",
-			"\treturn sorted_list"
-		]
-	},
-	"BinarySearch": {
-		"prefix": ["binarysearch"],
-		"body": [
-			"def binary_search(sorted_list, item):",
-			"\tleft = 0",
-			"\tright = len(sorted_list) - 1",
-			"\twhile left <= right:",
-			"\t\tmiddle = (left + right) // 2",
-			"\t\tif left == right:",
-			"\t\t\tif sorted_list[middle] < item:",
-			"\t\t\t\tleft = middle + 1",
-			"\t\t\t\tbreak;",
-			"\t\t\telse:",
-			"\t\t\t\tbreak;",
-			"\t\telif sorted_list[middle] < item:",
-			"\t\t\tleft = middle + 1",
-			"\t\telse:",
-			"\t\t\tright = middle - 1",
-			"\treturn left"
-		]
-	},
-	"CombinationsList": {
-		"prefix": ["conmbinationslist"],
-		"body": [
-			"import numpy as np",
-			"combs = np.array(np.meshgrid([1,2], [3,4,5])).T.reshape(-1,2)"
-		]
-	},
-	"nsmallest": {
-		"prefix": ["nsmallest"],
-		"body": [
-			"from heapq import nsmallest",
-			"nsmallest(3, [[1,2],[3,4],[5,6]], key=lambda e:sum(e))"
-		]
-	},
-	"Quicksort": {
-		"prefix": ["quicksort"],
-		"body": [
-			"def quicksort(l):",
-			"\tif len(l) <= 1:",
-			"\t\treturn l",
-   			"\tpivot = l.pop()",
-   			"\tgreater, lesser = [], []",
-   			"\tfor el in l:",
-   			"\t\tif el > pivot:",
-   			"\t\t\tgreater.append(el)",
-   			"\t\telse:",
-   			"\t\t\tlesser.append(el)",
-   			"\treturn quicksort(lesser) + [pivot] + quicksort(greater)"
-		]
-	},
-	"Mergesort": {
-		"prefix": ["mergesort"],
-		"body": [
-			"def mergesort(l):",
-			"\tdef merge(left, right):",
-			"\t\tresult = []",
-			"\t\twhile left and right:",
-			"\t\t\tif left[0] <= right[0]:",
-			"\t\t\t\tresult.append(left.pop(0))",
-			"\t\t\telse:",
-			"\t\t\t\tresult.append(right.pop(0))",
-			"\t\treturn result + left + right",
-			"",
-			"\tlength = len(l)",
-			"\tif length <= 1:",
-			"\t\treturn l",
-			"\tmiddle = length // 2",
-			"\treturn merge(mergesort(l[:middle]), mergesort(l[middle:]))"
-		]
-	},
-	"MergeInsertionSort": {
-		"prefix": ["mergeinsertionsort"],
-		"body": [
-			"def merge_insertion_sort(collection):",
-			"\tdef binary_search_insertion(sorted_list, item):",
-			"\t\tleft = 0",
-			"\t\tright = len(sorted_list) - 1",
-			"\t\twhile left <= right:",
-			"\t\t\tmiddle = (left + right) // 2",
-			"\t\t\tif left == right:",
-			"\t\t\t\tif sorted_list[middle] < item:",
-			"\t\t\t\t\tleft = middle + 1",
-			"\t\t\t\t\tbreak;",
-			"\t\t\t\telse:",
-			"\t\t\t\t\tbreak;",
-			"\t\t\telif sorted_list[middle] < item:",
-			"\t\t\t\tleft = middle + 1",
-			"\t\t\telse:",
-			"\t\t\t\tright = middle - 1",
-			"\t\tsorted_list.insert(left, item)",
-			"\t\treturn sorted_list",
-			"",
-			"\tdef sortlist_2d(list_2d):",
-			"\t\tdef merge(left, right):",
-			"\t\t\tresult = []",
-			"\t\t\twhile left and right:",
-			"\t\t\t\tif left[0][0] < right[0][0]:",
-			"\t\t\t\t\tresult.append(left.pop(0))",
-			"\t\t\t\telse:",
-			"\t\t\t\t\tresult.append(right.pop(0))",
-			"\t\t\treturn result + left + right",
-			"",
-			"\t\tlength = len(list_2d)",
-			"\t\tif length <= 1:",
-			"\t\t\treturn list_2d",
-			"\t\tmiddle = length // 2",
-			"\t\treturn merge(sortlist_2d(list_2d[:middle]), sortlist_2d(list_2d[middle:]))",
-			"",
-			"\tif len(collection) <= 1:",
-			"\t\treturn collection",
-			"",
-			"\ttwo_paired_list = []",
-			"\tis_surplus      = False",
-			"\tfor i in range(0, len(collection), 2):",
-			"\t\tif (i == len(collection) - 1):",
-			"\t\t\tis_surplus = True",
-			"\t\telse:",
-			"\t\t\tif collection[i] < collection[i+1]:",
-			"\t\t\t\ttwo_paired_list.append([collection[i], collection[i+1]])",
-			"\t\t\telse:",
-			"\t\t\t\ttwo_paired_list.append([collection[i+1], collection[i]])",
-			"\tsorted_list_2d = sortlist_2d(two_paired_list)",
-			"\tresult = [i[0] for i in sorted_list_2d]",
-			"\tresult.append(sorted_list_2d[-1][1])",
-			"",
-			"\tif is_surplus:",
-			"\t\tpivot = collection[-1]",
-			"\t\tresult = binary_search_insertion(result, pivot)",
-			"",
-			"\tis_surplus_inserted_before_this_index = False",
-			"\tfor i in range(len(sorted_list_2d) - 1):",
-			"\t\tif result[i] == collection[-i]:",
-			"\t\t\tis_surplus_inserted_before_this_index = True",
-			"\t\tpivot = sorted_list_2d[i][1]",
-			"\t\tif is_surplus_inserted_before_this_index:",
-			"\t\t\tresult = result[:i+2] + binary_search_insertion(result[i+2:], pivot)",
-			"\t\telse:",
-			"\t\t\tresult = result[:i+1] + binary_narysearch_insertion(result[i+1:], pivot)",
-			"",
-			"\treturn result"
-		]
-	},
-	"Queue": {
-		"prefix": ["queue"],
-		"body": [
-			"from collections import deque",
-			"# append, popleft",
-			"qu = deque([])",
-			"$0"
-		]
-	},
-	"QueueMy": {
-		"prefix": ["queuemy"],
-		"body": [
-			"class Node():",
-			"\tdef __init__(self, item = None):",
-			"\t\tself.item = item",
-			"\t\tself.next = None",
-			"\t\tself.previous = None",
-			"class Queue():",
-			"\tdef __init__(self):",
-			"\t\tself.length = 0",
-			"\t\tself.head = None",
-			"\t\tself.tail = None",
-			"\tdef enqueue(self, x):",
-			"\t\tnewNode = Node(x)",
-			"\t\tif self.head == None:",
-			"\t\t\tself.head = self.tail = newNode",
-			"\t\telse:",
-			"\t\t\tself.tail.next = newNode",
-			"\t\t\tnewNode.previous = self.tail",
-			"\t\t\tself.tail = newNode",
-			"\t\tself.length += 1",
-			"\tdef dequeue(self):",
-			"\t\t# First in First out",
-			"\t\titem = self.head.item",
-			"\t\tself.head = self.head.next",
-			"\t\tself.length -= 1",
-			"\t\tif self.length == 0:",
-			"\t\t\tself.tail = None",
-			"\t\treturn item"
-		]
-	},
-	"MazeSearch": {
-		"prefix": ["mazesearch"],
-		"body": [
-			"a, b = map(int, input().split())",
-			"G = []",
-			"for i in range(a):",
-			"\tl = list(map(int, input().split()))",
-			"\tG.append(l)",
-			"from collections import deque",
-			"def mazesearch(G, initial_h, initial_w, target_h, target_w):",
-			"\t'''",
-			"\tG is for example:",
-			"\t\tG = [[1,0,1,1,1,1],",
-			"\t\t\t[1,0,1,0,1,0],",
-			"\t\t\t[1,0,1,0,1,1],",
-			"\t\t\t[1,1,1,0,1,1]]",
-			"\t'''",
-			"\tsteps = 0",
-			"\tBLOCKED, ALLOWED   = 0, 1",
-			"\tUNVISITED, VISITED = 0, 1",
-			"\tdirections = [(0, -1), (0, 1), (-1, 0), (1, 0)]",
-			"\tif G[initial_h][initial_w] == BLOCKED:",
-			"\t\treturn -1",
-			"\theight, width = len(G), len(G[0])",
-			"\tis_visited = [[UNVISITED for w in range(width)] for h in range(height)]",
-			"\tis_visited[initial_h][initial_w] = VISITED",
-			"\tqueue = deque([(initial_h, initial_w, steps)])",
-			"\twhile queue:",
-			"\t\th, w, steps = queue.popleft()",
-			"\t\tif h == target_h and w == target_w:",
-			"\t\t\treturn steps",
-			"\t\tfor dh, dw in directions:",
-			"\t\t\tnew_h = h + dh",
-			"\t\t\tnew_w = w + dw",
-			"\t\t\tif not (0 <= new_h < height and 0 <= new_w < width):",
-			"\t\t\t\tcontinue",
-			"\t\t\tif G[new_h][new_w] == ALLOWED and is_visited[new_h][new_w] == UNVISITED:",
-			"\t\t\t\tqueue.append((new_h, new_w, steps + 1))",
-			"\t\t\t\tis_visited[new_h][new_w] = VISITED",
-			"\treturn -1",
-			"steps = mazesearch(G, initial_h, initial_w, target_h, target_w)"
-		]
-	},
-	"Lock": {
-		"prefix": ["lock"],
-		"body": [
-			"from threading import Lock",
-			"class ab:",
-			"\tdef __init__(self, n):",
-			"\t\tself.n = n",
-			"\t\tself.am = Lock()",
-			"\t\tself.bm = Lock()",
-			"\t\tself.bm.acquire()",
-			"\tdef a(self):",
-			"\t\tself.am.acquire()",
-			"\t\tprint('a')",
-			"\t\tself.bm.release()",
-			"\tdef b(self):",
-			"\t\tself.bm.acquire()",
-			"\t\tprint('b')",
-			"\t\tself.am.release()"
-		]
-	},
-	"Semaphore": {
-		"prefix": ["semaphore"],
-		"body": [
-			"from threading import Barrier, Semaphore",
-			"class h2o:",
-			"\tdef __init__(self):",
-			"\t\tself.b = Barrier(3)",
-			"\t\tself.h = Semaphore(2)",
-			"\t\tself.o = Semaphore(1)",
-			"",
-			"\tdef h(self):",
-			"\t\tself.h.acquire()",
-			"\t\tself.b.wait()",
-			"\t\tprint('a')",
-			"\t\tself.h.release()",
-			"",
-			"\tdef o(self):",
-			"\t\tself.o.acquire()",
-			"\t\tself.b.wait()",
-			"\t\tprint('b')",
-			"\t\tself.o.release()"
-		]
-	},
-	"Stack": {
-		"prefix": ["stack"],
-		"body": [
-			"from collections import deque",
-			"# append, pop",
-			"st = deque([])",
-			"$0"
-		]
-	},
-	"StackMy": {
-		"prefix": ["stackmy"],
-		"body": [
-			"class Node():",
-			"\tdef __init__(self, item = None):",
-			"\t\tself.item = item",
-			"\t\tself.next = None",
-			"\t\tself.previous = None",
-			"class Stack():",
-			"\tdef __init__(self):",
-			"\t\tself.length = 0",
-			"\t\tself.head = None",
-			"\t\tself.tail = None",
-			"\tdef enstack(self, x):",
-			"\t\tnewNode = Node(x)",
-			"\t\tif self.head == None:",
-			"\t\t\tself.head = self.tail = newNode",
-			"\t\telse:",
-			"\t\t\tself.tail.next = newNode",
-			"\t\t\tnewNode.previous = self.tail",
-			"\t\t\tself.tail = newNode",
-			"\t\tself.length += 1",
-			"\tdef destack(self):",
-			"\t\t# Last in First out",
-			"\t\titem = self.tail.item",
-			"\t\tself.tail = self.tail.previous",
-			"\t\tself.length -= 1",
-			"\t\tif self.length == 0:",
-			"\t\t\tself.head = None",
-			"\t\treturn item"
-		]
-	}
+  "InputAll": {
+    "prefix": ["inputall"],
+    "body": [
+      "n = input()",
+      "if ' ' not in n:",
+      "\tif n.isdigit():",
+      "\t\tn = int(n)",
+      "\telif float(n):",
+      "\t\tn = float(n)",
+      "else:",
+      "\t# ===== int =====",
+      "\t# a, b = map(int, n.split())",
+      "\t# l = list(map(int, n.split()))",
+      "\t# ===== str =====",
+      "\t# a, b = n.split()",
+      "\t# l = n.split()",
+      "\t# ===== float =====",
+      "\t# a, b = map(float, n.split())",
+      "\t# l = list(map(float, n.split()))",
+      "$0"
+    ]
+  },
+  "Memo": {
+    "prefix": ["memo"],
+    "body": [
+      "import functools",
+      "@functools.lru_cache(maxsize=None)",
+      "$0"
+    ]
+  },
+  "Zfill": {
+    "prefix": ["zfill"],
+    "body": [
+      "z = {0:01d}'.format($2)",
+      "$0"
+    ]
+  },
+  "Inf": {
+    "prefix": ["inf"],
+    "body": [
+      "i = float('inf')",
+      "$0"
+    ]
+  },
+  "Ceil": {
+    "prefix": ["ceil"],
+    "body": [
+      "import math",
+      "c = math.ceil($1)",
+      "$0"
+    ]
+  },
+  "SortString": {
+    "prefix": ["sortstring"],
+    "body": [
+      "s = ''.join(sorted($1))",
+      "$0"
+    ]
+  },
+  "Floar": {
+    "prefix": ["floar"],
+    "body": [
+      "import math",
+      "f = math.floar($1)",
+      "$0"
+    ]
+  },
+  "Exit": {
+    "prefix": ["exit"],
+    "body": [
+      "import sys",
+      "sys.exit()",
+      "$0"
+    ]
+  },
+  "ListMulti": {
+    "prefix": ["listmulti"],
+    "body": [
+      "ml = [$2 for i in range($3)]",
+      "$0"
+    ]
+  },
+  "ListMulti2d": {
+    "prefix": ["listmulti2d"],
+    "body": [
+      "ml = [[$2 for i in range($3)] for j in range($4)]",
+      "$0"
+    ]
+  },
+  "Sort2dList": {
+    "prefix": ["sort2dlist"],
+    "body": [
+      "l = sorted(l, key=lambda x:x[0])"
+    ]
+  },
+  "Filter": {
+    "prefix": ["filter"],
+    "body": [
+      "f = list(filter(lambda el: $3, $2))",
+      "$0"
+    ]
+  },
+  "ConvertBin": {
+    "prefix": ["convertbin"],
+    "body": [
+      "bini = format(i, 'b')"
+    ]
+  },
+  "NpSearchSorted": {
+    "prefix": ["npsearchsorted"],
+    "body": [
+      "import numpy as np",
+      "target = np.array(list())",
+      "source = np.array(list())",
+      "b_num = np.searchsorted(target, source)"
+    ]
+  },
+  "Divisors": {
+    "prefix": ["divisors"],
+    "body": [
+      "def make_divisors(n):",
+      "\tlower_divisors , upper_divisors = [], []",
+      "\ti = 1",
+      "\twhile i*i <= n:",
+      "\t\tif n % i == 0:",
+      "\t\t\tlower_divisors.append(i)",
+      "\t\t\tif i != n // i:",
+      "\t\t\t\tupper_divisors.append(n//i)",
+      "\t\ti += 1",
+      "\treturn lower_divisors + upper_divisors[::-1]"
+    ]
+  },
+  "Map": {
+    "prefix": ["map"],
+    "body": [
+      "m = list(map(lambda el: $3, $2))",
+      "$0"
+    ]
+  },
+  "Reduce": {
+    "prefix": ["reduce"],
+    "body": [
+      "from functools import reduce",
+      "r = reduce(lambda hist,el: $3, $2)",
+      "$0"
+    ]
+  },
+  "All": {
+    "prefix": ["all"],
+    "body": [
+      "all($2 for i in $1)",
+      "$0"
+    ]
+  },
+  "CombineList": {
+    "prefix": ["combinelist"],
+    "body": [
+      "' '.join(map(str, $1))",
+      "$0"
+    ]
+  },
+  "Counter": {
+    "prefix": ["counter"],
+    "body": [
+      "from collections import Counter",
+      "c = Counter($2)",
+      "$0"
+    ]
+  },
+  "CounterSort": {
+    "prefix": ["countersort"],
+    "body": [
+      "from collections import Counter",
+      "c = Counter($2).most_common()",
+      "$0"
+    ]
+  },
+  "Any": {
+    "prefix": ["any"],
+    "body": [
+      "any($2 for i in $1)",
+      "$0"
+    ]
+  },
+  "NotAny": {
+    "prefix": ["notany"],
+    "body": [
+      "not any($2 for i in $1)",
+      "$0"
+    ]
+  },
+  "Sum": {
+    "prefix": ["sum"],
+    "body": [
+      "sum($2 for i in $1)",
+      "$0"
+    ]
+  },
+  "SameElementInList": {
+    "prefix": ["sameelementinlist"],
+    "body": [
+      "set($1).intersection(set($2))",
+      "$0"
+    ]
+  },
+  "ForRange": {
+    "prefix": ["forrange"],
+    "body": [
+      "for i in range($2):",
+      "\t$0"
+    ]
+  },
+  "ForEnumerate": {
+    "prefix": ["forenumerate"],
+    "body": [
+      "for i, item in enumerate($2):",
+      "\t$0"
+    ]
+  },
+  "For": {
+    "prefix": ["for"],
+    "body": [
+      "for i in $2:",
+      "\t$0"
+    ]
+  },
+  "Unique": {
+    "prefix": ["unique"],
+    "body": [
+      "def unique(collection):",
+      "\tresult = []",
+      "\treturn [x for x in collection if x not in result and not result.append(x)]"
+    ]
+  },
+  "SumOfDigits": {
+    "prefix": ["sumofdigits"],
+    "body": [
+      "def sum_of_digits(n):",
+      "\tresult   = 0",
+      "\tquotient = n",
+      "\twhile quotient:",
+      "\t\tresult   +=  quotient % 10,",
+      "\t\tquotient //= 10",
+      "\treturn result"
+    ]
+  },
+  "InputInt": {
+    "prefix": ["inputint"],
+    "body": [
+      "n = int(input())",
+      "$0"
+    ]
+  },
+  "InputIntMap": {
+    "prefix": ["inputintmap"],
+    "body": [
+      "a, b = map(int, input().split())",
+      "$0"
+    ]
+  },
+  "ReMatch": {
+    "prefix": ["rematch"],
+    "body": [
+      "re.match('$2', $1)",
+      "$0"
+    ]
+  },
+  "InputIntList": {
+    "prefix": ["inputintlist"],
+    "body": [
+      "l = list(map(int, input().split()))",
+      "$0"
+    ]
+  },
+  "InputStr": {
+    "prefix": ["inputstr"],
+    "body": [
+      "n = input()",
+      "$0"
+    ]
+  },
+  "InputStrMap": {
+    "prefix": ["inputstrmap"],
+    "body": [
+      "a, b = input().split()",
+      "$0"
+    ]
+  },
+  "InputStrList": {
+    "prefix": ["inputstrlist"],
+    "body": [
+      "s = list(input())",
+      "$0"
+    ]
+  },
+  "InputFloat": {
+    "prefix": ["inputfloat"],
+    "body": [
+      "n = float(input())",
+      "$0"
+    ]
+  },
+  "InputFloatMap": {
+    "prefix": ["inputfloatmap"],
+    "body": [
+      "a, b = map(float, input().split()) $2",
+      "$0"
+    ]
+  },
+  "InputFloatList": {
+    "prefix": ["inputfloatlist"],
+    "body": [
+      "l = list(map(float, input().split()))",
+      "$0"
+    ]
+  },
+  "Print": {
+    "prefix": ["print"],
+    "body": [
+      "print($1, flush=True)",
+      "$0"
+    ]
+  },
+  "PrintArrayWithBreak": {
+    "prefix": ["printarraywithbreak"],
+    "body": [
+      "print(*$1, sep='\\n')",
+      "$0"
+    ]
+  },
+  "AlphabetNth": {
+    "prefix": ["alphabetnth"],
+    "body": [
+      "s = [chr(ord('a') + i) for i in range(${2:10})]",
+      "$0"
+    ]
+  },
+  "Def": {
+    "prefix": ["def"],
+    "body": [
+      "def ${1:defname}($2):",
+      "\t$0"
+    ]
+  },
+  "Class": {
+    "prefix": ["class"],
+    "body": [
+      "class ${1:classname}:",
+      "\tdef __init__(self):",
+      "\t$0"
+    ]
+  },
+  "Len": {
+    "prefix": ["len"],
+    "body": [
+      "len($1)",
+      "$0"
+    ]
+  },
+  "While": {
+    "prefix": ["while"],
+    "body": [
+      "while $1:",
+      "\t$0"
+    ]
+  },
+  "If": {
+    "prefix": ["if"],
+    "body": [
+      "if $1:",
+      "\t$0"
+    ]
+  },
+  "Ifelif": {
+    "prefix": ["ifelif"],
+    "body": [
+      "if $1:",
+      "\t$0",
+      "elif $2:",
+      "\t",
+      "else:",
+      "\t"
+    ]
+  },
+  "Ifelse": {
+    "prefix": ["ifelse"],
+    "body": [
+      "if $1:",
+      "\t$0",
+      "else:"
+    ]
+  },
+  "Kaibun": {
+    "prefix": ["kaibun"],
+    "body": [
+      "def kaibun(n):",
+      "\tleft = 0",
+      "\tright = len(n)-1",
+      "\tl = len(n)",
+      "\tans = 0",
+      "",
+      "\twhile left < right and len(n) != 10:",
+      "\t\tif n[left] != n[right]:",
+      "\t\t\tn = n[:l] + n[left] + n[l:]",
+      "\t\t\tleft = 0",
+      "\t\t\tright = len(n)-1",
+      "\t\t\tans += 1",
+      "\t\telse:",
+      "\t\t\tleft += 1",
+      "\t\t\tright -= 1"
+    ]
+  },
+  "Queens": {
+    "prefix": ["queens"],
+    "body": [
+      "N = 8",
+      "class NQueens():",
+      "\tdef __init__(self, N):",
+      "\t\tself.N = N",
+      "\t\tself.board = [[0 for i in range(N)] for j in range(N)]",
+      "\tdef is_safe(self, row, column):",
+      "\t\tfor i in range(self.N):",
+      "\t\t\tif self.board[row][i] == 1:",
+      "\t\t\t\treturn False",
+      "\t\tfor i in range(self.N):",
+      "\t\t\tif self.board[i][column] == 1:",
+      "\t\t\t\treturn False",
+      "\t\tfor i, j in zip(range(row, -1, -1), range(column, -1, -1)):",
+      "\t\t\tif self.board[i][j] == 1:",
+      "\t\t\t\treturn False",
+      "\t\tfor i, j in zip(range(row, -1, -1), range(column, self.N)):",
+      "\t\t\tif self.board[i][j] == 1:",
+      "\t\t\t\treturn False",
+      "\t\treturn True",
+      "\tdef solve(self, row = 0):",
+      "\t\tif row >= self.N:",
+      "\t\t\tself.print_solution()",
+      "\t\t\tprint()",
+      "\t\t\treturn",
+      "\t\tfor i in range(self.N):",
+      "\t\t\tif self.is_safe(row, i):",
+      "\t\t\t\tself.board[row][i] = 1",
+      "\t\t\t\tself.solve(row + 1)",
+      "\t\t\t\tself.board[row][i] = 0",
+      "\tdef print_solution(self):",
+      "\t\tfor i in range(self.N):",
+      "\t\t\tfor j in range(self.N):",
+      "\t\t\t\tif self.board[i][j] == 1:",
+      "\t\t\t\t\tprint('Q', end=' ')",
+      "\t\t\t\telse:",
+      "\t\t\t\t\tprint('.', end=' ')",
+      "\t\t\tprint()",
+      "NQueens(N).solve()"
+    ]
+  },
+  "BoyerMooreSearch": {
+    "prefix": ["boyermooresearch"],
+    "body": [
+      "from collections import defaultdict",
+      "class boyer_moore_search:",
+      "\tdef __init__(self, text, pattern):",
+      "\t\tself.text = text",
+      "\t\tself.pattern = pattern",
+      "\t\tself.len_text = len(text)",
+      "\t\tself.len_pattern = len(pattern)",
+      "\tdef search(self):",
+      "\t\tans = []",
+      "\t\tshift_table = defaultdict(str)",
+      "\t\tfor i in range(26):",
+      "\t\t\tshift_table[chr(ord('A') + i)] = self.len_pattern",
+      "\t\tfor i in range(self.len_pattern):",
+      "\t\t\tshift_table[self.pattern[i]] = self.len_pattern - i - 1",
+      "\t\tsearching_pattern_index = 0",
+      "\t\twhile(searching_pattern_index <= self.len_text - self.len_pattern):",
+      "\t\t\tsearching_char_index = self.len_pattern - 1",
+      "\t\t\twhile searching_char_index >= 0 and self.pattern[searching_char_index] == self.text[searching_pattern_index + searching_char_index]:",
+      "\t\t\t\tsearching_char_index -= 1",
+      "\t\t\tif searching_char_index < 0:",
+      "\t\t\t\tans.append(searching_pattern_index)",
+      "\t\t\t\tif searching_pattern_index + self.len_pattern < self.len_text:",
+      "\t\t\t\t\tsearching_pattern_index += (self.len_pattern - shift_table[self.text[searching_pattern_index + searching_char_index]])",
+      "\t\t\t\telse:",
+      "\t\t\t\t\tsearching_pattern_index += 1",
+      "\t\t\telse:",
+      "\t\t\t\tsearching_pattern_index += max(1, searching_char_index - shift_table[self.text[searching_pattern_index + searching_char_index]])",
+      "\t\treturn ans",
+      "ans = boyer_moore_search(txt, pat).search()"
+    ]
+  },
+  "BitSearch": {
+    "prefix": ["bitsearch"],
+    "body": [
+      "for i in range(1<<N):",
+      "\tbit_matched = []",
+      "\tfor j in range(N):",
+      "\t\tif (i>>j) & 1:",
+      "\t\t\tbit_matched.append(l[j])",
+      "\tprint(bit_matched , flush=True)"
+    ]
+  },
+  "Bubunwa": {
+    "prefix": ["bubunwa"],
+    "body": [
+      "# L = [",
+      "#\t ['a', 100],",
+      "#\t ['b', 200],",
+      "#\t ['c', 300],",
+      "# ]",
+      "N= len(L)",
+      "ans = []",
+      "point = float('inf')",
+      "for i in range(1<<N):",
+      "\tbit_matched = []",
+      "\tcur_comb = []",
+      "\tfor j in range(N):",
+      "\t\tif (i>>j) & 1:",
+      "\t\t\tbit_matched.append(L[j][1])",
+      "\t\t\tcur_comb.append(L[j][0])",
+      "\tcurrent_point = abs(sum(bit_matched) - 1000)",
+      "\tif current_point < point:",
+      "\t\tpoint = current_point",
+      "\t\tans = cur_comb"
+    ]
+  },
+  "Hanoi": {
+    "prefix": ["hanoi"],
+    "body": [
+      "def hanoi(n, src, tgt, tmp):",
+      "\tif n == 1:",
+      "\t\tprint(f'Move {n} {src} -> {tgt}')",
+      "\t\treturn",
+      "\thanoi(n-1, src, tmp, tgt)",
+      "\tprint(f'Move {n} {src} -> {tgt}')",
+      "\thanoi(n-1, tmp, tgt, src)"
+    ]
+  },
+  "Graph": {
+    "prefix": ["graph"],
+    "body": [
+      "from collections import defaultdict",
+      "G = defaultdict(list)",
+      "# G[1].append(2)"
+    ]
+  },
+  "DefaultDict": {
+    "prefix": ["defaultdict"],
+    "body": [
+      "from collections import defaultdict",
+      "G = defaultdict(list)",
+      "for i in range(n):",
+      "\tG[i] = []",
+      "# G[0].append(2)"
+    ]
+  },
+  "breadthfirstsearch": {
+    "prefix": ["bfs"],
+    "body": [
+      "from collections import defaultdict",
+      "G = defaultdict(list)",
+      "for i in range(n):",
+      "\tG[i] = []",
+      "# G[0].append(2)",
+      "from collections import deque",
+      "def bfs(G, src):",
+      "\tcosts = [-1 for _ in range(len(G))]",
+      "\tcosts[src] = 0",
+      "\tqueue = deque([src])",
+      "\twhile queue:",
+      "\t\tnode = queue.popleft()",
+      "\t\tfor neighbor in G[node]:",
+      "\t\t\tif costs[neighbor] != -1:",
+      "\t\t\t\tcontinue",
+      "\t\t\tcosts[neighbor] = costs[node] + 1",
+      "\t\t\tqueue.append(neighbor)",
+      "\treturn costs"
+    ]
+  },
+  "bfsShortestPath": {
+    "prefix": ["bfs_shortest_path"],
+    "body": [
+      "from collections import defaultdict",
+      "G = defaultdict(list)",
+      "# G[1].append(2)",
+      "",
+      "from collections import deque",
+      "def bfs_shortest_path(G, src, tgt):",
+      "\tif src not in G:",
+      "\t\treturn -1",
+      "\tparents = {src: None}",
+      "\tqueue = deque([src])",
+      "\twhile queue:",
+      "\t\tnode = queue.popleft()",
+      "\t\tfor neighbor in G[node]:",
+      "\t\t\tif neighbor not in parents:",
+      "\t\t\t\tparents[neighbor] = node",
+      "\t\t\t\tqueue.append(neighbor)",
+      "\t\t\t\tif node == tgt:",
+      "\t\t\t\t\tbreak",
+      "\tpath = [tgt]",
+      "\twhile parents[tgt] is not None:",
+      "\t\tpath.insert(0, parents[tgt])",
+      "\t\ttgt = parents[tgt]",
+      "\treturn path",
+      "path = bfs_shortest_path(G, src, tgt)"
+    ]
+  },
+  "depthfirstsearch": {
+    "prefix": ["dfs"],
+    "body": [
+      "from collections import defaultdict",
+      "G = defaultdict(list)",
+      "for i in range(n):",
+      "\tG[i] = []",
+      "# G[0].append(2)",
+      "from collections import deque",
+      "def dfs(G, src):",
+      "\tcosts = [-1 for _ in range(len(G))]",
+      "\tcosts[src] = 0",
+      "\tqueue = deque([src])",
+      "\twhile queue:",
+      "\t\tnode = queue.pop()",
+      "\t\tfor neighbor in G[node]:",
+      "\t\t\tif costs[neighbor] != -1:",
+      "\t\t\t\tcontinue",
+      "\t\t\tcosts[neighbor] = costs[node] + 1",
+      "\t\t\tqueue.append(neighbor)",
+      "\treturn costs"
+    ]
+  },
+  "WarshallFloyd": {
+    "prefix": ["warshallfloyd"],
+    "body": [
+      "N,M = map(int, input().split())",
+      "dp = [[float('inf')] * N for _ in range(N)]",
+      "for i in range(N):",
+      "\tdp[i][i] = 0",
+      "for i in range(M):",
+      "\ta,b,t = map(int, input().split())",
+      "\tdp[a-1][b-1] = min(t, dp[a-1][b-1])",
+      "\tdp[b-1][a-1] = min(t, dp[b-1][a-1])",
+      "def warshall_floyd(dp, N):",
+      "\tfor k in range(N):",
+      "\t\tfor i in range(N):",
+      "\t\t\tfor j in range(N):",
+      "\t\t\t\tdp[i][j] = min(dp[i][j], dp[i][k] + dp[k][j])",
+      "\tans = float('inf')",
+      "\tfor d in dp:",
+      "\t\tans = min(ans, max(d))",
+      "\treturn ans",
+      "print(warshall_floyd(dp, N))"
+    ]
+  },
+  "Dijkstra": {
+    "prefix": ["dijkstra"],
+    "body": [
+      "# from collections import defaultdict",
+      "# G = defaultdict(list)",
+      "# for i in range(n):",
+      "#\t G['A'].append(['B', 2])",
+      "import heapq",
+      "def dijkstra(G, start, end):",
+      "\theap = [(0, start)]",
+      "\tvisited = set()",
+      "\twhile heap:",
+      "\t\t(cost, src) = heapq.heappop(heap)",
+      "\t\tif src in visited:",
+      "\t\t\tcontinue",
+      "\t\tvisited.add(src)",
+      "\t\tif src == end:",
+      "\t\t\treturn cost",
+      "\t\tfor dest, cost_to_dest in G[src]:",
+      "\t\t\tif dest in visited:",
+      "\t\t\t\tcontinue",
+      "\t\t\theapq.heappush(heap, (cost + cost_to_dest, dest))",
+      "\treturn -1",
+      "# ans = dijkstra(G, 'E', 'C')"
+    ]
+  },
+  "BellmanFord": {
+    "prefix": ["bellmanford"],
+    "body": [
+      "n,m = map(int, input().split())",
+      "start_vertex = 1",
+      "end_vertex   = n",
+      "G = []",
+      "for i in range(m):",
+      "\ta,b,cost = map(int, input().split())",
+      "\tG.append([a,b,cost])",
+      "def bellmanford(G, N, start_vertex, end_vertex):",
+      "\tdistances = [float('inf') for _ in range(N+1)]",
+      "\tparents   = {}",
+      "\tdistances[start_vertex] = 0",
+      "\tfor _ in range(N):",
+      "\t\tfor node,neighbor,cost in G:",
+      "\t\t\tif distances[neighbor] > distances[node] + cost:",
+      "\t\t\t\tdistances[neighbor] = distances[node] + cost",
+      "\t\t\t\tparents[neighbor]   = node",
+      "\tfor node,neighbor,cost in G:",
+      "\t\tif distances[neighbor] > distances[node] + cost:",
+      "\t\t\treturn -1,-1",
+      "\t# # If you need to check recursion only on the path to goal.",
+      "\t# prev_distance = distances[end_vertex]",
+      "\t# for _ in range(N):",
+      "\t#\t for node,neighbor,cost in G:",
+      "\t#\t\t if distances[neighbor] > distances[node] + cost:",
+      "\t#\t\t\t distances[neighbor] = -float('inf')",
+      "\t# if prev_distance != distances[end_vertex]:",
+      "\t#\t return -1,-1",
+      "\treturn distances, parents",
+      "distances, parents = bellmanford(G, n, start_vertex, end_vertex)",
+      "# # if you want to get path",
+      "# node = end_vertex",
+      "# path = [node]",
+      "# while node != start_vertex:",
+      "#\t node = parents[node]",
+      "#\t path.append(node)"
+    ]
+  },
+  "LinkedList": {
+    "prefix": ["linkedlist"],
+    "body": [
+      "class Node:",
+      "\tdef __init__(self, item, next):",
+      "\t\tself.item = item",
+      "\t\tself.next = next",
+      "class LinkedList:",
+      "\tdef __init__(self):",
+      "\t\tself.head = None",
+      "\t\tself.size = 0",
+      "\tdef add(self, item):",
+      "\t\tself.head = Node(item, self.head)",
+      "\t\tself.size += 1",
+      "\tdef remove(self):",
+      "\t\tif self.is_empty():",
+      "\t\t\treturn None",
+      "\t\telse:",
+      "\t\t\titem = self.head.item",
+      "\t\t\tself.head = self.head.next",
+      "\t\t\tself.size -= 1",
+      "\t\t\treturn item",
+      "\tdef is_empty(self):",
+      "\t\treturn self.head is None"
+    ]
+  },
+  "ReplaceWithRegex": {
+    "prefix": ["replacewithregex"],
+    "body": [
+      "import re",
+      "str = re.sub(r'$1', '$2', $3)",
+      "$0"
+    ]
+  },
+  "Fibonacci": {
+    "prefix": ["fibonacci"],
+    "body": [
+      "def fibonacci(n):",
+      "\tif n==0 or n==1:",
+      "\t\treturn 1",
+      "\telse:",
+      "\t\treturn fibonacci(n-1) + fibonacci(n-2)"
+    ]
+  },
+  "ConvertBase": {
+    "prefix": ["convertbase"],
+    "body": [
+      "def convertBase(n, base):",
+      "\tresult = ''",
+      "\twhile n>0:",
+      "\t\tresult = str(n % 2) + result",
+      "\t\tn //= 2",
+      "\treturn int(result)"
+    ]
+  },
+  "Round": {
+    "prefix": ["round"],
+    "body": [
+      "def round(n, digit=0):",
+      "\tif digit < 0:",
+      "\t\timport sys",
+      "\t\tsys.stderr.write('Error: digit must be positive')",
+      "\t\texit()",
+      "\tp = 10**digit",
+      "\tans = (n*p*2+1) // 2 / p",
+      "\tif digit == 0:",
+      "\t\tans = int(ans)",
+      "\treturn ans"
+    ]
+  },
+  "GcdLcm": {
+    "prefix": ["gcdlcm"],
+    "body": [
+      "def gcd(a, b):",
+      "\twhile b != 0:",
+      "\t\ta, b = b, a % b",
+      "\treturn a",
+      "def lcm(a, b):",
+      "\treturn a * b // gcd(a, b)"
+    ]
+  },
+  "CumulativeSum": {
+    "prefix": ["cumulativesum"],
+    "body": [
+      "def cumulative_sum(collection):",
+      "\tresult = [0]",
+      "\tfor item in collection:",
+      "\t\tresult.append(result[-1] + item)",
+      "\treturn result"
+    ]
+  },
+  "CumulativeSum2d": {
+    "prefix": ["cumulativesum2d"],
+    "body": [
+      "class CumulativeSum2d():",
+      "\tdef __init__(self, collection_2d):",
+      "\t\tyl = len(collection_2d)",
+      "\t\txl = len(collection_2d[0])",
+      "\t\tself.data = [[0] * (xl+1) for _ in range(yl+1)]",
+      "\t\tfor y in range(1, yl+1):",
+      "\t\t\tfor x in range(1, xl+1):",
+      "\t\t\t\ttop_sum         = self.data[y-1][x]",
+      "\t\t\t\tleft_sum        = self.data[y][x-1]",
+      "\t\t\t\tdup_sum         = self.data[y-1][x-1]",
+      "\t\t\t\tself.data[y][x] = top_sum + left_sum - dup_sum",
+      "\t\t\t\tself.data[y][x] += collection_2d[y-1][x-1]",
+      "",
+      "\tdef query(self, x, y, x1, y1):",
+      "\t\treturn self.data[y1][x1] - self.data[y-1][x1] - self.data[y1][x-1] + self.data[y-1][x-1]"
+    ]
+  },
+  "CombinationNum": {
+    "prefix": ["combination"],
+    "body": [
+      "def combination(n, r):",
+      "\tif n < 0 or r < 0 or n < r:",
+      "\t\treturn 0",
+      "\tif n - r < r:",
+      "\t\tr = n - r",
+      "\tif r == 0:",
+      "\t\treturn 1",
+      "\tif r == 1:",
+      "\t\treturn n",
+      "\t'''",
+      "\tExample: n = 7, r = 3",
+      "\tnumerator = [5, 6, 7]",
+      "\tdenominator = [1, 2, 3]",
+      "\t'''",
+      "\tnumerator   = [n - r + i + 1 for i in range(r)]",
+      "\tdenominator = [i + 1 for i in range(r)]",
+      "\tfor i in range(2, r+1):",
+      "\t\t'''",
+      "\t\tskip 1 because not able to devide any numerator.",
+      "\t\t'''",
+      "\t\tdenom = denominator[i - 1]",
+      "\t\tif denom > 1:",
+      "\t\t\toffset = (n - r) % i",
+      "\t\t\tfor j in range(i-1, r, i):",
+      "\t\t\t\t'''",
+      "\t\t\t\tdevide numerator by denominator",
+      "\t\t\t\t'''",
+      "\t\t\t\tnumerator[j - offset] //= denom",
+      "\t\t\t\tdenominator[j]        //= denom",
+      "\tresult = 1",
+      "\tfor i in range(r):",
+      "\t\tif numerator[i] > 1:",
+      "\t\t\t'''",
+      "\t\t\tMultiple all numerator devided by all denominator",
+      "\t\t\t'''",
+      "\t\t\tresult *= numerator[i]",
+      "\treturn result"
+    ]
+  },
+  "CombinationScipy": {
+    "prefix": ["combinationScipy"],
+    "body": [
+      "from scipy.special import comb",
+      "c = int(comb($2, $3))",
+      "$0"
+    ]
+  },
+  "CombinationList": {
+    "prefix": ["combinationlist"],
+    "body": [
+      "from itertools import combinations",
+      "lc = combinations(${2:l}, ${3:3})",
+      "# lc = for a,b,c... in lc:",
+      "$0"
+    ]
+  },
+  "PermutationNum": {
+    "prefix": ["PermutationNum"],
+    "body": [
+      "def permutation(l, n):",
+      "\tresult = 1",
+      "\tfor i in range(n):",
+      "\t\tresult *= (l-i)",
+      "\treturn result"
+    ]
+  },
+  "PermutationScipy": {
+    "prefix": ["permutationscipy"],
+    "body": [
+      "from scipy.special import comb",
+      "c = int(perm($2, $3))",
+      "$0"
+    ]
+  },
+  "PermutationList": {
+    "prefix": ["permutationlist"],
+    "body": [
+      "from itertools import permutations",
+      "lp = permutations(${2:l}, ${3:3})",
+      "$0"
+    ]
+  },
+  "EratosthenesSieve": {
+    "prefix": ["eratosthenes_sieve"],
+    "body": [
+      "def sieve_of_eratosthenes(n):",
+      "\tprime = [2]",
+      "\tlimit = int(n**0.5)",
+      "\tdata = [i + 1 for i in range(2, n, 2)]",
+      "\twhile True:",
+      "\t\tp = data[0]",
+      "\t\tif limit < p:",
+      "\t\t\treturn prime + data",
+      "\t\tprime.append(p)",
+      "\t\tdata = [e for e in data if e % p != 0]"
+    ]
+  },
+  "UnionFind": {
+    "prefix": ["unionfind"],
+    "body": [
+      "class UnionFind():",
+      "\tdef __init__(self, n):",
+      "\t\t# size of n.",
+      "\t\tself.n = n",
+      "\t\t# n's parent. default is -1.",
+      "\t\tself.parents = [-1] * n",
+      "",
+      "\tdef find_root(self, x):",
+      "\t\tif self.parents[x] < 0:",
+      "\t\t\treturn x",
+      "\t\telse:",
+      "\t\t\tself.parents[x] = self.find_root(self.parents[x])",
+      "\t\t\treturn self.parents[x]",
+      "",
+      "\tdef union_merge(self, x, y):",
+      "\t\tx = self.find_root(x)",
+      "\t\ty = self.find_root(y)",
+      "\t\tif x == y:",
+      "\t\t\treturn",
+      "\t\t# smaller union will be following",
+      "\t\t# root.parent has union size with negative",
+      "\t\tif self.parents[x] > self.parents[y]:",
+      "\t\t\tx, y = y, x",
+      "\t\t# update union size",
+      "\t\tself.parents[x] += self.parents[y]",
+      "\t\tself.parents[y] = x",
+      "",
+      "\t# You shouldn't use these below for optimization.",
+      "\t# Use only find_root to compare if you need.",
+      "\tdef union_size(self, x):",
+      "\t\t# Root value's index has its size with negative.",
+      "\t\treturn -self.parents[self.find_root(x)]",
+      "",
+      "\tdef is_same_union(self, x, y):",
+      "\t\treturn self.find_root(x) == self.find_root(y)",
+      "",
+      "\tdef same_union_members(self, x):",
+      "\t\troot = self.find_root(x)",
+      "\t\treturn [i for i in range(self.n) if self.find_root(i) == root]",
+      "",
+      "\tdef roots(self):",
+      "\t\treturn [i for i, x in enumerate(self.parents) if x < 0]",
+      "",
+      "\tdef union_count(self):",
+      "\t\treturn len(self.roots())",
+      "",
+      "\tdef all_unions(self):",
+      "\t\treturn [self.same_union_members(r) for r in self.roots()]"
+    ]
+  },
+  "UnionFindWithWeight": {
+    "prefix": ["unionfindwithweight"],
+    "body": [
+      "class UnionfindWithWeight():",
+      "\tdef __init__(self, n):",
+      "\t\tself.dist\t= [0]  * (n+1)",
+      "\t\tself.ranks   = [0]  * (n+1)",
+      "\t\tself.parents = [-1] * (n+1)",
+      "\tdef find_root(self, x):",
+      "\t\tif self.parents[x] < 0:",
+      "\t\t\treturn self.dist[x], x",
+      "\t\telse:",
+      "\t\t\ttmp = self.find_root(self.parents[x])",
+      "\t\t\tself.dist[x]\t+= tmp[0]",
+      "\t\t\tself.parents[x] =  tmp[1]",
+      "\t\t\treturn self.dist[x], self.parents[x]",
+      "\tdef union(self, x, y, dist):",
+      "\t\tx_root = self.find_root(x)[1]",
+      "\t\ty_root = self.find_root(y)[1]",
+      "\t\tdiff = dist + self.dist[x] - self.dist[y]",
+      "\t\tif x_root == y_root and diff != 0:",
+      "\t\t\t# print('This dist is invalid.', flush=True)",
+      "\t\t\treturn -1",
+      "\t\tif self.ranks[y_root] > self.ranks[x_root]:",
+      "\t\t\tx_oot ,y_root = y_root, x_root",
+      "\t\t\tdiff =- diff",
+      "\t\tself.parents[y_root] = x_root",
+      "\t\tself.dist[y_root] = diff",
+      "\t\tif self.ranks[y_root] == self.ranks[x_root]:",
+      "\t\t\tself.ranks[x_root] += 1"
+    ]
+  },
+  "KnapSack": {
+    "prefix": ["knapsack"],
+    "body": [
+      "class Knapsack:",
+      "\tdef __init__(self, VW):",
+      "\t\tself.VW = VW",
+      "\t\t# sort by value/weight",
+      "\t\tself.VW.sort(key=lambda vw: vw[0] / vw[1], reverse=True)",
+      "\t\tself.n = len(VW)",
+      "",
+      "\tdef solve(self, capacity):",
+      "\t\tself.max_value = -float('inf')",
+      "\t\tself.capacity = capacity",
+      "\t\treturn self._dfs(0, 0, 0)",
+      "",
+      "\tdef _dfs(self, i, value_now, weight_now):",
+      "\t\tif i == self.n:",
+      "\t\t\tself.max_value = max(self.max_value, value_now)",
+      "\t\t\treturn value_now",
+      "\t\trelax, relax_ok = self._solve_lp_relaxation(i, self.capacity-weight_now)",
+      "\t\trelax += value_now",
+      "\t\tif relax_ok:",
+      "\t\t\tself.max_value = max(self.max_value, relax)",
+      "\t\t\treturn relax",
+      "\t\tif relax < self.max_value:",
+      "\t\t\treturn -float('inf')",
+      "\t\tanswer = -float('inf')",
+      "\t\tv, w = self.VW[i]",
+      "\t\tif weight_now + w <= self.capacity:",
+      "\t\t\tanswer = max(answer, self._dfs(i+1, value_now + v, weight_now + w))",
+      "\t\tanswer = max(answer, self._dfs(i+1, value_now, weight_now))",
+      "\t\treturn answer",
+      "",
+      "\tdef _solve_lp_relaxation(self, i, capacity):",
+      "\t\tanswer = 0",
+      "\t\tflag = True",
+      "\t\tfor v, w in self.VW[i:]:",
+      "\t\t\tif capacity == 0:",
+      "\t\t\t\tbreak",
+      "\t\t\tif w <= capacity:",
+      "\t\t\t\tcapacity -= w",
+      "\t\t\t\tanswer += v",
+      "\t\t\telse:",
+      "\t\t\t\tflag = False",
+      "\t\t\t\tanswer += v * (capacity / w)",
+      "\t\t\t\tbreak",
+      "\t\treturn answer, flag"
+    ]
+  },
+  "TravelingSalesmanProblem": {
+    "prefix": ["travelingsalesmanproblem"],
+    "body": [
+      "V, E = map(int, input().split())",
+      "cost = [[float('inf')] * V for _ in range(V)]",
+      "for e in range(E):",
+      "\tstart, to, dist = map(int,input().split())",
+      "\tcost[start][to] = dist",
+      "def traveling_salesman_problem(V, cost):",
+      "\tdef dfs(traveled_vertexes, vertex, dp):",
+      "\t\tif dp[traveled_vertexes][vertex] != -1:",
+      "\t\t\t# If you visited, return memo.",
+      "\t\t\treturn dp[traveled_vertexes][vertex]",
+      "\t\tif traveled_vertexes == (1<<V)-1 and vertex == 0:",
+      "\t\t\t# You have visited all city and you are in 0.",
+      "\t\t\treturn 0",
+      "",
+      "\t\tmin_dist = float('inf')",
+      "\t\tfor target in range(V):",
+      "\t\t\tif traveled_vertexes>>target & 1 == 0:",
+      "\t\t\t\t# If target is unvisited",
+      "\t\t\t\tmin_dist = min(min_dist, dfs(traveled_vertexes|1<<target, target, dp)+cost[vertex][target])",
+      "\t\t\t\t# If you the path doesn't exist, you shouldn't choose.",
+      "\t\t\t\t# The cost will return inf to not to be selected.",
+      "\t\tdp[traveled_vertexes][vertex] = min_dist",
+      "\t\treturn min_dist",
+      "",
+      "\tdp = [[-1] * V for _ in range(1<<V)]",
+      "\t'''",
+      "\tdp[traveled_vertexes][vertex] shows",
+      "\tthe dist to 0 when you are at vertex and",
+      "\tyou have traveled traveled_vertexes.",
+      "",
+      "\tTo handle traveled_vertexes, we use bit_string.",
+      "\t'''",
+      "\treturn dfs(0, 0, dp)",
+      "ans = traveling_salesman_problem(V, cost)",
+      "if ans == float('inf'):",
+      "\tprint('-1', flush=True)",
+      "else:",
+      "\tprint(ans, flush=True)"
+    ]
+  },
+  "BinaryInsert": {
+    "prefix": ["binaryinsert"],
+    "body": [
+      "import bisect",
+      "b=bisect.bisect_left(sorted_list, pivot)",
+      "$0"
+    ]
+  },
+  "BinaryInsertMy": {
+    "prefix": ["binaryinsertmy"],
+    "body": [
+      "def binary_search_insertion(sorted_list, item):",
+      "\tleft = 0",
+      "\tright = len(sorted_list) - 1",
+      "\twhile left <= right:",
+      "\t\tmiddle = (left + right) // 2",
+      "\t\tif left == right:",
+      "\t\t\tif sorted_list[middle] < item:",
+      "\t\t\t\tleft = middle + 1",
+      "\t\t\tbreak;",
+      "\t\telif sorted_list[middle] < item:",
+      "\t\t\tleft = middle + 1",
+      "\t\telse:",
+      "\t\t\tright = middle - 1",
+      "\tsorted_list.insert(left, item)",
+      "\treturn sorted_list"
+    ]
+  },
+  "BinarySearch": {
+    "prefix": ["binarysearch"],
+    "body": [
+      "def binary_search(sorted_list, item):",
+      "\tleft = 0",
+      "\tright = len(sorted_list) - 1",
+      "\twhile left <= right:",
+      "\t\tmiddle = (left + right) // 2",
+      "\t\tif left == right:",
+      "\t\t\tif sorted_list[middle] < item:",
+      "\t\t\t\tleft = middle + 1",
+      "\t\t\t\tbreak;",
+      "\t\t\telse:",
+      "\t\t\t\tbreak;",
+      "\t\telif sorted_list[middle] < item:",
+      "\t\t\tleft = middle + 1",
+      "\t\telse:",
+      "\t\t\tright = middle - 1",
+      "\treturn left"
+    ]
+  },
+  "CombinationsList": {
+    "prefix": ["conmbinationslist"],
+    "body": [
+      "import numpy as np",
+      "combs = np.array(np.meshgrid([1,2], [3,4,5])).T.reshape(-1,2)"
+    ]
+  },
+  "nsmallest": {
+    "prefix": ["nsmallest"],
+    "body": [
+      "from heapq import nsmallest",
+      "nsmallest(3, [[1,2],[3,4],[5,6]], key=lambda e:sum(e))"
+    ]
+  },
+  "Quicksort": {
+    "prefix": ["quicksort"],
+    "body": [
+      "def quicksort(l):",
+      "\tif len(l) <= 1:",
+      "\t\treturn l",
+         "\tpivot = l.pop()",
+         "\tgreater, lesser = [], []",
+         "\tfor el in l:",
+         "\t\tif el > pivot:",
+         "\t\t\tgreater.append(el)",
+         "\t\telse:",
+         "\t\t\tlesser.append(el)",
+         "\treturn quicksort(lesser) + [pivot] + quicksort(greater)"
+    ]
+  },
+  "Mergesort": {
+    "prefix": ["mergesort"],
+    "body": [
+      "def mergesort(l):",
+      "\tdef merge(left, right):",
+      "\t\tresult = []",
+      "\t\twhile left and right:",
+      "\t\t\tif left[0] <= right[0]:",
+      "\t\t\t\tresult.append(left.pop(0))",
+      "\t\t\telse:",
+      "\t\t\t\tresult.append(right.pop(0))",
+      "\t\treturn result + left + right",
+      "",
+      "\tlength = len(l)",
+      "\tif length <= 1:",
+      "\t\treturn l",
+      "\tmiddle = length // 2",
+      "\treturn merge(mergesort(l[:middle]), mergesort(l[middle:]))"
+    ]
+  },
+  "MergeInsertionSort": {
+    "prefix": ["mergeinsertionsort"],
+    "body": [
+      "def merge_insertion_sort(collection):",
+      "\tdef binary_search_insertion(sorted_list, item):",
+      "\t\tleft = 0",
+      "\t\tright = len(sorted_list) - 1",
+      "\t\twhile left <= right:",
+      "\t\t\tmiddle = (left + right) // 2",
+      "\t\t\tif left == right:",
+      "\t\t\t\tif sorted_list[middle] < item:",
+      "\t\t\t\t\tleft = middle + 1",
+      "\t\t\t\t\tbreak;",
+      "\t\t\t\telse:",
+      "\t\t\t\t\tbreak;",
+      "\t\t\telif sorted_list[middle] < item:",
+      "\t\t\t\tleft = middle + 1",
+      "\t\t\telse:",
+      "\t\t\t\tright = middle - 1",
+      "\t\tsorted_list.insert(left, item)",
+      "\t\treturn sorted_list",
+      "",
+      "\tdef sortlist_2d(list_2d):",
+      "\t\tdef merge(left, right):",
+      "\t\t\tresult = []",
+      "\t\t\twhile left and right:",
+      "\t\t\t\tif left[0][0] < right[0][0]:",
+      "\t\t\t\t\tresult.append(left.pop(0))",
+      "\t\t\t\telse:",
+      "\t\t\t\t\tresult.append(right.pop(0))",
+      "\t\t\treturn result + left + right",
+      "",
+      "\t\tlength = len(list_2d)",
+      "\t\tif length <= 1:",
+      "\t\t\treturn list_2d",
+      "\t\tmiddle = length // 2",
+      "\t\treturn merge(sortlist_2d(list_2d[:middle]), sortlist_2d(list_2d[middle:]))",
+      "",
+      "\tif len(collection) <= 1:",
+      "\t\treturn collection",
+      "",
+      "\ttwo_paired_list = []",
+      "\tis_surplus      = False",
+      "\tfor i in range(0, len(collection), 2):",
+      "\t\tif (i == len(collection) - 1):",
+      "\t\t\tis_surplus = True",
+      "\t\telse:",
+      "\t\t\tif collection[i] < collection[i+1]:",
+      "\t\t\t\ttwo_paired_list.append([collection[i], collection[i+1]])",
+      "\t\t\telse:",
+      "\t\t\t\ttwo_paired_list.append([collection[i+1], collection[i]])",
+      "\tsorted_list_2d = sortlist_2d(two_paired_list)",
+      "\tresult = [i[0] for i in sorted_list_2d]",
+      "\tresult.append(sorted_list_2d[-1][1])",
+      "",
+      "\tif is_surplus:",
+      "\t\tpivot = collection[-1]",
+      "\t\tresult = binary_search_insertion(result, pivot)",
+      "",
+      "\tis_surplus_inserted_before_this_index = False",
+      "\tfor i in range(len(sorted_list_2d) - 1):",
+      "\t\tif result[i] == collection[-i]:",
+      "\t\t\tis_surplus_inserted_before_this_index = True",
+      "\t\tpivot = sorted_list_2d[i][1]",
+      "\t\tif is_surplus_inserted_before_this_index:",
+      "\t\t\tresult = result[:i+2] + binary_search_insertion(result[i+2:], pivot)",
+      "\t\telse:",
+      "\t\t\tresult = result[:i+1] + binary_narysearch_insertion(result[i+1:], pivot)",
+      "",
+      "\treturn result"
+    ]
+  },
+  "Queue": {
+    "prefix": ["queue"],
+    "body": [
+      "from collections import deque",
+      "# append, popleft",
+      "qu = deque([])",
+      "$0"
+    ]
+  },
+  "QueueMy": {
+    "prefix": ["queuemy"],
+    "body": [
+      "class Node():",
+      "\tdef __init__(self, item = None):",
+      "\t\tself.item = item",
+      "\t\tself.next = None",
+      "\t\tself.previous = None",
+      "class Queue():",
+      "\tdef __init__(self):",
+      "\t\tself.length = 0",
+      "\t\tself.head = None",
+      "\t\tself.tail = None",
+      "\tdef enqueue(self, x):",
+      "\t\tnewNode = Node(x)",
+      "\t\tif self.head == None:",
+      "\t\t\tself.head = self.tail = newNode",
+      "\t\telse:",
+      "\t\t\tself.tail.next = newNode",
+      "\t\t\tnewNode.previous = self.tail",
+      "\t\t\tself.tail = newNode",
+      "\t\tself.length += 1",
+      "\tdef dequeue(self):",
+      "\t\t# First in First out",
+      "\t\titem = self.head.item",
+      "\t\tself.head = self.head.next",
+      "\t\tself.length -= 1",
+      "\t\tif self.length == 0:",
+      "\t\t\tself.tail = None",
+      "\t\treturn item"
+    ]
+  },
+  "MazeSearch": {
+    "prefix": ["mazesearch"],
+    "body": [
+      "a, b = map(int, input().split())",
+      "G = []",
+      "for i in range(a):",
+      "\tl = list(map(int, input().split()))",
+      "\tG.append(l)",
+      "from collections import deque",
+      "def mazesearch(G, initial_h, initial_w, target_h, target_w):",
+      "\t'''",
+      "\tG is for example:",
+      "\t\tG = [[1,0,1,1,1,1],",
+      "\t\t\t[1,0,1,0,1,0],",
+      "\t\t\t[1,0,1,0,1,1],",
+      "\t\t\t[1,1,1,0,1,1]]",
+      "\t'''",
+      "\tsteps = 0",
+      "\tBLOCKED, ALLOWED   = 0, 1",
+      "\tUNVISITED, VISITED = 0, 1",
+      "\tdirections = [(0, -1), (0, 1), (-1, 0), (1, 0)]",
+      "\tif G[initial_h][initial_w] == BLOCKED:",
+      "\t\treturn -1",
+      "\theight, width = len(G), len(G[0])",
+      "\tis_visited = [[UNVISITED for w in range(width)] for h in range(height)]",
+      "\tis_visited[initial_h][initial_w] = VISITED",
+      "\tqueue = deque([(initial_h, initial_w, steps)])",
+      "\twhile queue:",
+      "\t\th, w, steps = queue.popleft()",
+      "\t\tif h == target_h and w == target_w:",
+      "\t\t\treturn steps",
+      "\t\tfor dh, dw in directions:",
+      "\t\t\tnew_h = h + dh",
+      "\t\t\tnew_w = w + dw",
+      "\t\t\tif not (0 <= new_h < height and 0 <= new_w < width):",
+      "\t\t\t\tcontinue",
+      "\t\t\tif G[new_h][new_w] == ALLOWED and is_visited[new_h][new_w] == UNVISITED:",
+      "\t\t\t\tqueue.append((new_h, new_w, steps + 1))",
+      "\t\t\t\tis_visited[new_h][new_w] = VISITED",
+      "\treturn -1",
+      "steps = mazesearch(G, initial_h, initial_w, target_h, target_w)"
+    ]
+  },
+  "Lock": {
+    "prefix": ["lock"],
+    "body": [
+      "from threading import Lock",
+      "class ab:",
+      "\tdef __init__(self, n):",
+      "\t\tself.n = n",
+      "\t\tself.am = Lock()",
+      "\t\tself.bm = Lock()",
+      "\t\tself.bm.acquire()",
+      "\tdef a(self):",
+      "\t\tself.am.acquire()",
+      "\t\tprint('a')",
+      "\t\tself.bm.release()",
+      "\tdef b(self):",
+      "\t\tself.bm.acquire()",
+      "\t\tprint('b')",
+      "\t\tself.am.release()"
+    ]
+  },
+  "Semaphore": {
+    "prefix": ["semaphore"],
+    "body": [
+      "from threading import Barrier, Semaphore",
+      "class h2o:",
+      "\tdef __init__(self):",
+      "\t\tself.b = Barrier(3)",
+      "\t\tself.h = Semaphore(2)",
+      "\t\tself.o = Semaphore(1)",
+      "",
+      "\tdef h(self):",
+      "\t\tself.h.acquire()",
+      "\t\tself.b.wait()",
+      "\t\tprint('a')",
+      "\t\tself.h.release()",
+      "",
+      "\tdef o(self):",
+      "\t\tself.o.acquire()",
+      "\t\tself.b.wait()",
+      "\t\tprint('b')",
+      "\t\tself.o.release()"
+    ]
+  },
+  "Stack": {
+    "prefix": ["stack"],
+    "body": [
+      "from collections import deque",
+      "# append, pop",
+      "st = deque([])",
+      "$0"
+    ]
+  },
+  "StackMy": {
+    "prefix": ["stackmy"],
+    "body": [
+      "class Node():",
+      "\tdef __init__(self, item = None):",
+      "\t\tself.item = item",
+      "\t\tself.next = None",
+      "\t\tself.previous = None",
+      "class Stack():",
+      "\tdef __init__(self):",
+      "\t\tself.length = 0",
+      "\t\tself.head = None",
+      "\t\tself.tail = None",
+      "\tdef enstack(self, x):",
+      "\t\tnewNode = Node(x)",
+      "\t\tif self.head == None:",
+      "\t\t\tself.head = self.tail = newNode",
+      "\t\telse:",
+      "\t\t\tself.tail.next = newNode",
+      "\t\t\tnewNode.previous = self.tail",
+      "\t\t\tself.tail = newNode",
+      "\t\tself.length += 1",
+      "\tdef destack(self):",
+      "\t\t# Last in First out",
+      "\t\titem = self.tail.item",
+      "\t\tself.tail = self.tail.previous",
+      "\t\tself.length -= 1",
+      "\t\tif self.length == 0:",
+      "\t\t\tself.head = None",
+      "\t\treturn item"
+    ]
+  }
 }

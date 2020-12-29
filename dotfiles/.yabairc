@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 ## ----------------------------------------
-##	Base
+##  Base
 ## ----------------------------------------
 # yabai -m config auto_balance        on
 # yabai -m config focus_follows_mouse on
@@ -16,7 +16,7 @@
 # yabai -m config window_placement    second_child
 
 ## ----------------------------------------
-##	Tiling Padding Settings
+##  Tiling Padding Settings
 ## ----------------------------------------
 # yabai -m config layout         bsp
 # yabai -m config top_padding    27
@@ -26,7 +26,7 @@
 # yabai -m config window_gap     40
 
 ## ----------------------------------------
-##	Ignore Settings
+##  Ignore Settings
 ## ----------------------------------------
 yabai -m rule --add app="*" manage=off
 # yabai -m rule --add app="^Finder" manage=off
@@ -37,7 +37,7 @@ yabai -m rule --add app="*" manage=off
 # yabai -m rule --add app="^System Preferences" manage=off
 
 ## ----------------------------------------
-##	Simple Bar
+##  Simple Bar
 ## ----------------------------------------
 # Refresh spaces widget on space change
 yabai -m signal --add event=space_changed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"

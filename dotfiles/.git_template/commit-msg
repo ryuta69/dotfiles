@@ -3,9 +3,9 @@
 # pattern='^(Add|Delete|Feature|Fix|Refactor|Rename|Update) [\S|\s]+[^.]$|^Merge|^Initial Commit|^Revert'
 
 # if ! ggrep -P ${pattern} $1; then
-# 	echo "Your commit message doesn't match pattern. Follow the pattern below."
-# 	echo "<Type> <Task Name>(without period)"
-# 	echo ""
-# 	echo "<Body: What you cared and how you've changed.>"
-# 	exit 1
+#   echo "Your commit message doesn't match pattern. Follow the pattern below."
+#   echo "<Type> <Task Name>(without period)"
+#   echo ""
+#   echo "<Body: What you cared and how you've changed.>"
+#   exit 1
 # fi

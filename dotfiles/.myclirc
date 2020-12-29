@@ -52,7 +52,7 @@ where e2.$2 is NULL
 topingroup = '''select e.id, e.$2
 from $1 as t
 where (
-	select count(distinct $2)
+  select count(distinct $2)
     from $1 as t2
     where t2.id = t.id AND t2.$2 >= t.$2) <= $3
 '''
@@ -82,7 +82,7 @@ inner join (select @csum:=0) as t
 countwithcondition = '''
 select sum(
         case
-			when a.$1 + 1 = b.$1 then 1
+      when a.$1 + 1 = b.$1 then 1
             else 0
         end
        ) as cnt
@@ -105,14 +105,14 @@ where s.total / 2.0 between s.csum - s.$1 and s.csum
 groupconsecutive = '''
 select id
 from (
-	select d.*,
-	       count(d.id) over (partition by d.grp) as cnt
-	from (
-		select id
-		       id - row_number() over (order by id) as grp
-		from $1
-		where $2
-	) d
+  select d.*,
+         count(d.id) over (partition by d.grp) as cnt
+  from (
+    select id
+           id - row_number() over (order by id) as grp
+    from $1
+    where $2
+  ) d
 ) a
 where a.cnt >= 3
 '''

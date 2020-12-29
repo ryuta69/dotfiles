@@ -65,5 +65,5 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 plugins=($(cat ${HOME}/Vsplug))
 for plugin in ${plugins}; do
-	code --install-extension ${plugin}
+  code --install-extension ${plugin}
 done

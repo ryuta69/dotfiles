@@ -5,7 +5,7 @@
 
 # diffs=`git diff remotes/origin/${CURRENT_BRANCH}`
 # if [ -n "$diffs" ]; then
-# 	read -p "There are commits ahead on remote. Do you want to pull? (Y/n): " Ans;
-# 	if [[ $Ans != 'Y' ]]; then echo 'Not pulling.' && exit; fi;
-# 	git pull origin $CURRENT_BRANCH
+#   read -p "There are commits ahead on remote. Do you want to pull? (Y/n): " Ans;
+#   if [[ $Ans != 'Y' ]]; then echo 'Not pulling.' && exit; fi;
+#   git pull origin $CURRENT_BRANCH
 # fi

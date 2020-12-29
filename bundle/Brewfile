@@ -1,5 +1,5 @@
 ## ----------------------------------------
-##	Brewfile
+##  Brewfile
 ## ----------------------------------------
 tap "homebrew/cask"
 tap "homebrew/bundle"

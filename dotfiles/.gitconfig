@@ -1,155 +1,155 @@
 [user]
-	name       = ulwlu
-	email      = ooulwluoo@gmail.com
-	signingkey = 5D970017CA0286BA
+  name       = ulwlu
+  email      = ooulwluoo@gmail.com
+  signingkey = 5D970017CA0286BA
 
 [alias]
-	ad  = add
-	ada = add -A
-	adf = !git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 git add
-	adu = !git diff --name-only --cached | fzf -m --print0 | xargs -0 git restore --staged
-	br  = branch -av
-	brd = !git branch | fzf -m --print0 | tr -d ' ' | xargs -0 git branch -D
-	bl  = !"f() { git blame $1 | fzf --preview 'echo {} | cut -f1 -d\" \" | xargs git show --color'; }; f"
-	cm  = commit --verbose
-	cl  = clean -fd
-	co  = checkout
-	cob = checkout -b
-	coc = !git branch | fzf | xargs git checkout
-	cof = !git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 git checkout
-	; cor = !hub pr checkout `hub pr list | fzf`
-	cor = !"f() { git fetch -p; git checkout -b $1 origin/$1; }; f"
-	cp  = cherry-pick
-	del = !git branch -r --merged | grep -v 'master\\|develop' | sed 's/origin\\///' | xargs -n 1 git push --delete origin && git fetch origin --prune
-	df  = diff
-	dfc = diff --cached
-	dfh = diff HEAD
-	dfr = !git diff origin `git rev-parse --abbrev-ref HEAD`
-	dft = difftool
-	fp  = fetch -p
-	g   = !ghq get
-	lg  = log --stat
-	lgg = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	lgs = !git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit | fzf --preview 'echo {} | cut -f1 -d\" \" | xargs git show --color'
-	lgp = log -p
-	lgd = !"f() { b=$(git rev-parse --abbrev-ref HEAD); git log origin/$b..$b --oneline | fzf --preview 'echo {} | cut -f1 -d\" \" | xargs git show --color'; }; f"
-	mt  = mergetool
-	op  = !hub browse
-	opg = !hub browse `ghq list | fzf | cut -d "/" -f 2,3`
-	opi = !hub issue show `hub issue | fzf`
-	opp = !hub pr show `hub pr list | fzf`
-	opr = !hub api --paginate -XGET user/repos -f affiliation=owner -f per_page=100 | jq -r '.[].name' | fzf | xargs hub browse
-	opt = !hub api --paginate -XGET gists -f affiliation=owner -f per_page=100 | jq -r '.[] | \"\\(.files | keys[]) \\(.id)\"' | fzf | awk -F' ' '{print $NF}' | xargs -I{} open -a "Google Chrome" https://gist.github.com/ulwlu/{}
-	ps  = !git push origin `git rev-parse --abbrev-ref HEAD`
-	pl  = !git pull origin `git rev-parse --abbrev-ref HEAD`
-	plr = pull --rebase
-	pr  = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request' | head -n 1; }; f"
-	ra  = !"f() { echo $1 | sed 's/https/git/g' | sed 's/$/.git/g' | xargs git remote add forked }; f"
-	rb  = rebase
-	rf  = reflog --format='%C(auto)%h %<|(20)%gd %C(blue)%ci%C(reset) %gs (%s)'
-	rfs = !git reflog --format='%C(auto)%h %<|(20)%gd %C(blue)%ci%C(reset) %gs (%s)' | awk -F' ' '{print $2}' | xargs git reset --hard
-	rs  = reset
-	rsh = reset --hard
-	rmg = !ghq list -p | fzf -m --print0 | xargs -0 rm -rf
-	rv  = !"f() { git revert $1^..$2; }; f"
-	sca = secrets --scan-history
-	st  = status
-	ss  = stash save
-	sc  = stash clear
-	sl  = !git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'
-	sp  = !git stash pop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
-	sd  = !git stash drop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
-	sk  = update-index --skip-worktree
-	usk = update-index --no-skip-worktree
-	vi  = !nvim ~/.gitconfig
-	lf  = !git lfs install
-	ulf = !git lfs uninstall && touch **/* && git commit -a
+  ad  = add
+  ada = add -A
+  adf = !git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 git add
+  adu = !git diff --name-only --cached | fzf -m --print0 | xargs -0 git restore --staged
+  br  = branch -av
+  brd = !git branch | fzf -m --print0 | tr -d ' ' | xargs -0 git branch -D
+  bl  = !"f() { git blame $1 | fzf --preview 'echo {} | cut -f1 -d\" \" | xargs git show --color'; }; f"
+  cm  = commit --verbose
+  cl  = clean -fd
+  co  = checkout
+  cob = checkout -b
+  coc = !git branch | fzf | xargs git checkout
+  cof = !git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 git checkout
+  ; cor = !hub pr checkout `hub pr list | fzf`
+  cor = !"f() { git fetch -p; git checkout -b $1 origin/$1; }; f"
+  cp  = cherry-pick
+  del = !git branch -r --merged | grep -v 'master\\|develop' | sed 's/origin\\///' | xargs -n 1 git push --delete origin && git fetch origin --prune
+  df  = diff
+  dfc = diff --cached
+  dfh = diff HEAD
+  dfr = !git diff origin `git rev-parse --abbrev-ref HEAD`
+  dft = difftool
+  fp  = fetch -p
+  g   = !ghq get
+  lg  = log --stat
+  lgg = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  lgs = !git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit | fzf --preview 'echo {} | cut -f1 -d\" \" | xargs git show --color'
+  lgp = log -p
+  lgd = !"f() { b=$(git rev-parse --abbrev-ref HEAD); git log origin/$b..$b --oneline | fzf --preview 'echo {} | cut -f1 -d\" \" | xargs git show --color'; }; f"
+  mt  = mergetool
+  op  = !hub browse
+  opg = !hub browse `ghq list | fzf | cut -d "/" -f 2,3`
+  opi = !hub issue show `hub issue | fzf`
+  opp = !hub pr show `hub pr list | fzf`
+  opr = !hub api --paginate -XGET user/repos -f affiliation=owner -f per_page=100 | jq -r '.[].name' | fzf | xargs hub browse
+  opt = !hub api --paginate -XGET gists -f affiliation=owner -f per_page=100 | jq -r '.[] | \"\\(.files | keys[]) \\(.id)\"' | fzf | awk -F' ' '{print $NF}' | xargs -I{} open -a "Google Chrome" https://gist.github.com/ulwlu/{}
+  ps  = !git push origin `git rev-parse --abbrev-ref HEAD`
+  pl  = !git pull origin `git rev-parse --abbrev-ref HEAD`
+  plr = pull --rebase
+  pr  = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request' | head -n 1; }; f"
+  ra  = !"f() { echo $1 | sed 's/https/git/g' | sed 's/$/.git/g' | xargs git remote add forked }; f"
+  rb  = rebase
+  rf  = reflog --format='%C(auto)%h %<|(20)%gd %C(blue)%ci%C(reset) %gs (%s)'
+  rfs = !git reflog --format='%C(auto)%h %<|(20)%gd %C(blue)%ci%C(reset) %gs (%s)' | awk -F' ' '{print $2}' | xargs git reset --hard
+  rs  = reset
+  rsh = reset --hard
+  rmg = !ghq list -p | fzf -m --print0 | xargs -0 rm -rf
+  rv  = !"f() { git revert $1^..$2; }; f"
+  sca = secrets --scan-history
+  st  = status
+  ss  = stash save
+  sc  = stash clear
+  sl  = !git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'
+  sp  = !git stash pop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
+  sd  = !git stash drop `git stash list | awk -F':' '{print $1}' | fzf --preview 'git -c color.ui=always stash show -p {}'`
+  sk  = update-index --skip-worktree
+  usk = update-index --no-skip-worktree
+  vi  = !nvim ~/.gitconfig
+  lf  = !git lfs install
+  ulf = !git lfs uninstall && touch **/* && git commit -a
 
 [core]
-	pager = delta
-	editor = nvim
-	hooksPath = ~/.git_template
-	excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
+  pager = delta
+  editor = nvim
+  hooksPath = ~/.git_template
+  excludesfile = ~/.gitignore
+  attributesfile = ~/.gitattributes
 
 [color]
-	ui = true
-	diff = auto
-	branch = auto
-	status = auto
-	showbranch = auto
+  ui = true
+  diff = auto
+  branch = auto
+  status = auto
+  showbranch = auto
 
 [color "branch"]
-	local = green
-	remote = red
-	current = green reverse
+  local = green
+  remote = red
+  current = green reverse
 
 [color "diff"]
-	old = red bold
-	new = green bold
-	meta = yellow bold
-	frag = magenta bold
+  old = red bold
+  new = green bold
+  meta = yellow bold
+  frag = magenta bold
 
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 
 [commit]
-	gpgsign = true
-	template = ~/.git_template/commit-template
+  gpgsign = true
+  template = ~/.git_template/commit-template
 
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 
 [delta]
-	line-numbers = true
-	file-style = "#338ECF"
-	file-decoration-style = "#338ECF" ul
-	commit-decoration-style = "#3D424D" ol
-	hunk-header-decoration-style = "#3D424D" box
-	syntax-theme = Monokai Extended
-	whitespace-error-style = 22 reverse
-	line-numbers-left-style = "#3D424D"
-	line-numbers-right-style = "#3D424D"
+  line-numbers = true
+  file-style = "#338ECF"
+  file-decoration-style = "#338ECF" ul
+  commit-decoration-style = "#3D424D" ol
+  hunk-header-decoration-style = "#3D424D" box
+  syntax-theme = Monokai Extended
+  whitespace-error-style = 22 reverse
+  line-numbers-left-style = "#3D424D"
+  line-numbers-right-style = "#3D424D"
 
 [diff]
-	prompt    = false
-	tool      = vimdiff
-	algorithm = histogram
+  prompt    = false
+  tool      = vimdiff
+  algorithm = histogram
 
 [diff "plist"]
-	textconv = plutil -convert xml1 -o -
+  textconv = plutil -convert xml1 -o -
 
 [difftool]
-	prompt = false
+  prompt = false
 
 [difftool "vimdiff"]
-	path   = nvim
+  path   = nvim
 
 [ghq]
-	root = ~/.ghq
+  root = ~/.ghq
 
 [gpg]
-	program = gpg2
+  program = gpg2
 
 [interactive]
-	diffFilter = delta --color-only
+  diffFilter = delta --color-only
 
 [merge]
-	ff            = false
-	conflictstyle = diff3
-	tool          = vimdiff
+  ff            = false
+  conflictstyle = diff3
+  tool          = vimdiff
 
 [mergetool]
-	prompt = false
-	keepBackup = false
+  prompt = false
+  keepBackup = false
 
 [mergetool "vimdiff"]
-	path   = nvim
+  path   = nvim
 
 [pull]
-	ff = only
+  ff = only
 
 [url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/

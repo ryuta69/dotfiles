@@ -1,41 +1,41 @@
 {
-	"Shell": {
-		"prefix": ["shell"],
-		"body": ["do shell script 'echo' & $1"]
-	},
-	"Panes": {
-		"prefix": ["panes"],
-		"body": [
-			"tell application \"System Preferences\"",
-			"\tname of panes",
-			"end tell"
-		]
-	},
-	"Anchors": {
-		"prefix": ["anchors"],
-		"body": [
-			"tell application \"System Preferences\"",
-			"\treveal pane id \"com.apple.preference.general\"",
-			"\tget name of every anchor",
-			"end tell"
-		]
-	},
-	"UIElements": {
-		"prefix": ["uielements"],
-		"body": [
-			"tell application \"System Preferences\"",
-			"\treveal pane id \"com.apple.preference.general\"",
-			"\tget name of every anchor",
-			"end tell",
-			"tell application \"System Events\"",
-			"\ttell application process \"System Preferences\"",
-			"\t\trepeat while not (window 1 exists)",
-			"\t\tend repeat",
-			"\t\ttell window \"General\"",
-			"\t\t\tevery UI element",
-			"\t\tend tell",
-			"\tend tell",
-			"end tell"
-		]
-	}
+  "Shell": {
+    "prefix": ["shell"],
+    "body": ["do shell script 'echo' & $1"]
+  },
+  "Panes": {
+    "prefix": ["panes"],
+    "body": [
+      "tell application \"System Preferences\"",
+      "\tname of panes",
+      "end tell"
+    ]
+  },
+  "Anchors": {
+    "prefix": ["anchors"],
+    "body": [
+      "tell application \"System Preferences\"",
+      "\treveal pane id \"com.apple.preference.general\"",
+      "\tget name of every anchor",
+      "end tell"
+    ]
+  },
+  "UIElements": {
+    "prefix": ["uielements"],
+    "body": [
+      "tell application \"System Preferences\"",
+      "\treveal pane id \"com.apple.preference.general\"",
+      "\tget name of every anchor",
+      "end tell",
+      "tell application \"System Events\"",
+      "\ttell application process \"System Preferences\"",
+      "\t\trepeat while not (window 1 exists)",
+      "\t\tend repeat",
+      "\t\ttell window \"General\"",
+      "\t\t\tevery UI element",
+      "\t\tend tell",
+      "\tend tell",
+      "end tell"
+    ]
+  }
 }

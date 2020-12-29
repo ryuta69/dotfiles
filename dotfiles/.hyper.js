@@ -17,13 +17,13 @@ module.exports = {
     quickEdit: false,
     macOptionSelectionMode: 'vertical',
     webGLRenderer: true,
-	pokemon: 'random',
+  pokemon: 'random',
     unibody: 'true',
     poketab: 'true',
     pokemonSyntax: 'dark',
     pokecursor: 'true'
   },
   plugins: [
-	'hyper-pokemon'
+  'hyper-pokemon'
   ],
 };

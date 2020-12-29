@@ -1,40 +1,40 @@
 "" ----------------------------------------
-""	Plugin
+""  Plugin
 "" ----------------------------------------
 let s:vimdir   = has('nvim') ? '~/.config/nvim/' : '~/.vim/'
 let s:plugdir  = s:vimdir . 'plugged'
 let s:plugfile = s:vimdir . 'autoload/plug.vim'
 let s:plugurl  = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 if empty(glob(s:plugfile))
-	silent !echo '[Downloading vim-plug] ...'
-	silent execute '!mkdir -p ' . s:vimdir . 'autoload'
-	if executable('curl')
-		silent execute '!curl -sLo ' . s:plugfile ' ' . s:plugurl
-	elseif executable('wget')
-		silent execute '!wget -q -O ' . s:plugfile ' ' . s:plugurl
-	else
-		silent !echo 'vim-plug failed: you need either wget or curl'
-		cquit
-	endif
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  silent !echo '[Downloading vim-plug] ...'
+  silent execute '!mkdir -p ' . s:vimdir . 'autoload'
+  if executable('curl')
+    silent execute '!curl -sLo ' . s:plugfile ' ' . s:plugurl
+  elseif executable('wget')
+    silent execute '!wget -q -O ' . s:plugfile ' ' . s:plugurl
+  else
+    silent !echo 'vim-plug failed: you need either wget or curl'
+    cquit
+  endif
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin(s:plugdir)
-	Plug 'ulwlu/elly.vim'
-	Plug 'mattn/emmet-vim'
-	Plug 'tpope/vim-commentary'
-	Plug 'bfredl/nvim-miniyank'
-	Plug 'bronson/vim-trailing-whitespace'
-	Plug 'ConradIrwin/vim-bracketed-paste'
-	Plug 'ap/vim-css-color' | Plug 'sheerun/vim-polyglot'
-	Plug 'cohama/lexima.vim' | Plug 'machakann/vim-sandwich'
-	Plug 'tpope/vim-fugitive' | Plug 'rhysd/conflict-marker.vim'
-	Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-	Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
+  Plug 'ulwlu/elly.vim'
+  Plug 'mattn/emmet-vim'
+  Plug 'tpope/vim-commentary'
+  Plug 'bfredl/nvim-miniyank'
+  Plug 'bronson/vim-trailing-whitespace'
+  Plug 'ConradIrwin/vim-bracketed-paste'
+  Plug 'ap/vim-css-color' | Plug 'sheerun/vim-polyglot'
+  Plug 'cohama/lexima.vim' | Plug 'machakann/vim-sandwich'
+  Plug 'tpope/vim-fugitive' | Plug 'rhysd/conflict-marker.vim'
+  Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
 call plug#end()
 
 "" ----------------------------------------
-""	Configure
+""  Configure
 "" ----------------------------------------
 set nobomb
 set lazyredraw
@@ -52,25 +52,25 @@ set whichwrap=b,s,h,l,<,>,[,]
 set ignorecase wildignorecase
 set hidden nobackup noswapfile
 set rulerformat=%40(%1*%=%l,%-(%c%V%)\ %=%t%)%*
-set noexpandtab tabstop=4 softtabstop=-1 shiftwidth=0
+set expandtab tabstop=2 softtabstop=-1 shiftwidth=0
 set encoding=utf-8 fileencodings=cp932,sjis,euc-jp,utf-8,iso-2022-jp
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 if has('nvim')
-	set inccommand=split
+  set inccommand=split
 else
-	sy on
-	set ttyfast
-	set autoread
-	set wildmenu
-	set belloff=all
-	set ruler showcmd
-	set hlsearch incsearch
-	filetype plugin indent on
-	set backspace=indent,eol,start
+  sy on
+  set ttyfast
+  set autoread
+  set wildmenu
+  set belloff=all
+  set ruler showcmd
+  set hlsearch incsearch
+  filetype plugin indent on
+  set backspace=indent,eol,start
 endif
 
 "" ----------------------------------------
-""	Mapping
+""  Mapping
 "" ----------------------------------------
 nn Y y$
 tno <ESC> <C-\><C-n>
@@ -83,7 +83,7 @@ nn <Leader>uu :resize +5<CR>| nn <Leader>dd :resize -5<CR>
 nn <Leader>rr :vertical resize -5<CR>| nn <Leader>ll :vertical resize +5<CR>
 
 "" ----------------------------------------
-""	PluginSetting
+""  PluginSetting
 "" ----------------------------------------
 "" ========== Theme ==========
 colo elly
@@ -93,8 +93,8 @@ hi ModeMsg guifg=#3D424D
 "" ========== Emmet ==========
 let g:user_emmet_leader_key='<C-E>'
 let g:user_emmet_settings = {
-	\ 'typescript' : { 'extends' : 'jsx' },
-	\ 'javascript.jsx' : { 'extends' : 'jsx' }
+  \ 'typescript' : { 'extends' : 'jsx' },
+  \ 'javascript.jsx' : { 'extends' : 'jsx' }
 \ }
 
 "" ========== VimPlug ==========
@@ -105,21 +105,16 @@ nn <Leader>update :PlugUpgrade \| PlugUpdate<CR>
 "" ========== Coc.nvim ==========
 let g:coc_config_home = "~/.config/coc"
 let g:coc_global_extensions = [
-	\ 'coc-go',
-	\ 'coc-sh',
-	\ 'coc-css',
-	\ 'coc-git',
-	\ 'coc-sql',
-	\ 'coc-rls',
-	\ 'coc-json',
-	\ 'coc-html',
-	\ 'coc-perl',
-	\ 'coc-vimlsp',
-	\ 'coc-python',
-	\ 'coc-snippets',
-	\ 'coc-tsserver',
-	\ 'coc-fzf-preview',
-	\ 'coc-markdownlint',
+  \ 'coc-css',
+  \ 'coc-git',
+  \ 'coc-sql',
+  \ 'coc-rls',
+  \ 'coc-json',
+  \ 'coc-html',
+  \ 'coc-python',
+  \ 'coc-snippets',
+  \ 'coc-tsserver',
+  \ 'coc-fzf-preview',
 \ ]
 nn <Leader>upd :CocUpdate<CR>
 nn <Leader>dis :CocDisable<CR>
@@ -136,23 +131,23 @@ nm <silent> <Leader>cd :call CocAction('jumpDefinition','split')<CR>
 ino <expr> <UP> pumvisible() ? '<C-e><UP>' : '<UP>'
 ino <expr> <DOWN> pumvisible() ? '<C-e><DOWN>' : '<DOWN>'
 fun! TabComp()
-	if pumvisible()
-		return "\<C-n>"
-	elseif coc#jumpable()
-		return "\<C-r>=coc#rpc#request('snippetNext',[])\<CR>"
-	else
-		return "\<Tab>"
-	endif
+  if pumvisible()
+    return "\<C-n>"
+  elseif coc#jumpable()
+    return "\<C-r>=coc#rpc#request('snippetNext',[])\<CR>"
+  else
+    return "\<Tab>"
+  endif
 endfun
 im <expr> <Tab> TabComp()| smap <expr> <Tab> TabComp()
 fun! TabShiftComp()
-	if pumvisible()
-		return "\<C-p>"
-	elseif coc#jumpable()
-		return "\<C-r>=coc#rpc#request('snippetPrev',[])\<CR>"
-	else
-		return "\<S-Tab>"
-	endif
+  if pumvisible()
+    return "\<C-p>"
+  elseif coc#jumpable()
+    return "\<C-r>=coc#rpc#request('snippetPrev',[])\<CR>"
+  else
+    return "\<S-Tab>"
+  endif
 endfun
 im <expr> <S-Tab> TabShiftComp()| smap <expr> <S-Tab> TabShiftComp()
 
@@ -171,9 +166,9 @@ let g:fzf_preview_floating_window_rate = 0.9
 let g:fzf_preview_command = 'bat --color=always --plain {-1}'
 let g:fzf_preview_default_fzf_options = { '--reverse': v:true, '--preview-window': 'wrap:70%' }
 let g:fzf_preview_git_status_preview_command =
-	\ "[[ $(git diff --cached -- {-1}) != \"\" ]] && git diff --cached --color=always -- {-1} | delta || " .
-	\ "[[ $(git diff -- {-1}) != \"\" ]] && git diff --color=always -- {-1} | delta || " .
-	\ g:fzf_preview_command
+  \ "[[ $(git diff --cached -- {-1}) != \"\" ]] && git diff --cached --color=always -- {-1} | delta || " .
+  \ "[[ $(git diff -- {-1}) != \"\" ]] && git diff --color=always -- {-1} | delta || " .
+  \ g:fzf_preview_command
 
 "" ========== VimFugitive ==========
 set diffopt+=vertical
@@ -190,8 +185,8 @@ nn <Leader>dr :diffget //3 \| diffupdate<CR>
 
 "" ========== NvimMiniyank ==========
 if has("nvim")
-	map p <Plug>(miniyank-autoput)
-	map P <Plug>(miniyank-autoPut)
+  map p <Plug>(miniyank-autoput)
+  map P <Plug>(miniyank-autoPut)
 endif
 
 "" ========== ConflictMarker ==========

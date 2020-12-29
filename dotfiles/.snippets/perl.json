@@ -1,45 +1,45 @@
 {
-	"Template": {
-		"prefix": ["template"],
-		"body": [
-			"use strict;",
-			"use warnings;",
-			"",
-			"$1"
-		]
-	},
-	"For Else": {
-		"prefix": ["fore"],
-		"body": [
-			"for (my $$i=0; $$i<${1}; $$i++) {",
-			"\t$2",
-			"} else {",
-			"\t$3",
-			"}"
-		]
-	},
-	"Input": {
-		"prefix": ["input"],
-		"body": ["my @input = glob<>;"]
-	},
-	"MLog": {
-		"prefix": ["mlog"],
-		"body": [
-			"use MLog;",
-			"use Date::Dumper;",
-			"MLog::write('$_::LOG_DIR/murakami', Dumper $1)"
-		]
-	},
-	"Sort": {
-		"prefix": ["sort"],
-		"body": ["my @sorted = sort{$$a <=> $$b} $1"]
-	},
-	"SortHash": {
-		"prefix": ["sorthash"],
-		"body": ["my @sorted = sort{$$a->{$1} <=> $$b->{$1}} $2"]
-	},
-	"SortLength": {
-		"prefix": ["sortlength"],
-		"body": ["my @sorted = sort{length $$a cmp length $$b} $1"]
-	}
+  "Template": {
+    "prefix": ["template"],
+    "body": [
+      "use strict;",
+      "use warnings;",
+      "",
+      "$1"
+    ]
+  },
+  "For Else": {
+    "prefix": ["fore"],
+    "body": [
+      "for (my $$i=0; $$i<${1}; $$i++) {",
+      "\t$2",
+      "} else {",
+      "\t$3",
+      "}"
+    ]
+  },
+  "Input": {
+    "prefix": ["input"],
+    "body": ["my @input = glob<>;"]
+  },
+  "MLog": {
+    "prefix": ["mlog"],
+    "body": [
+      "use MLog;",
+      "use Date::Dumper;",
+      "MLog::write('$_::LOG_DIR/murakami', Dumper $1)"
+    ]
+  },
+  "Sort": {
+    "prefix": ["sort"],
+    "body": ["my @sorted = sort{$$a <=> $$b} $1"]
+  },
+  "SortHash": {
+    "prefix": ["sorthash"],
+    "body": ["my @sorted = sort{$$a->{$1} <=> $$b->{$1}} $2"]
+  },
+  "SortLength": {
+    "prefix": ["sortlength"],
+    "body": ["my @sorted = sort{length $$a cmp length $$b} $1"]
+  }
 }

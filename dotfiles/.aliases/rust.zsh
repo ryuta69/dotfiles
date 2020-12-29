@@ -1,5 +1,5 @@
 cnew() {
-	cargo new $1 --bin;
+  cargo new $1 --bin;
 }
 alias cbl='cargo build'
 alias cre='cargo release'

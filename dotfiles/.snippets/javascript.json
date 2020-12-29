@@ -1,24 +1,24 @@
 {
-	"Class": {
-		"prefix": ["class"],
-		"body": [
-			"class $1 ${2:extends ${3:Parent} }{",
-			"\tconstructor() {",
-			"\t\t$0",
-			"\t}",
-			"}"
-		]
-	},
-	"Query Selector": {
-		"prefix": ["queryselector"],
-		"body": ["document.querySelector($1)"]
-	},
-	"Console Log": {
-		"prefix": ["consolelog"],
-		"body": ["console.log($1)"]
-	},
-	"Require": {
-		"prefix": ["require"],
-		"body": ["const $1 = require($1)"]
-	}
+  "Class": {
+    "prefix": ["class"],
+    "body": [
+      "class $1 ${2:extends ${3:Parent} }{",
+      "\tconstructor() {",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ]
+  },
+  "Query Selector": {
+    "prefix": ["queryselector"],
+    "body": ["document.querySelector($1)"]
+  },
+  "Console Log": {
+    "prefix": ["consolelog"],
+    "body": ["console.log($1)"]
+  },
+  "Require": {
+    "prefix": ["require"],
+    "body": ["const $1 = require($1)"]
+  }
 }

@@ -4,7 +4,7 @@ alias dc='docker-compose'
 compdef _docker-compose dc
 
 ## ----------------------------------------
-##	Docker Container
+##  Docker Container
 ## ----------------------------------------
 alias dpl='docker pull'
 alias dlsc='docker container ls'
@@ -27,7 +27,7 @@ alias dapache='docker run --publish 8080:80 --name webserver -detach httpd'
 alias dmysql='docker run --publish 3306:3306 --name db --env MYSQL_ROOT_PASSWORD=pass -detach mysql'
 
 ## ----------------------------------------
-##	Docker Image
+##  Docker Image
 ## ----------------------------------------
 alias dlsi='docker image ls'
 alias drmi='docker image rm'
@@ -44,7 +44,7 @@ function dbuild() {
 }
 
 ## ----------------------------------------
-##	Docker Network
+##  Docker Network
 ## ----------------------------------------
 alias dlsv='docker volume ls'
 alias dlsn='docker network ls'
@@ -54,7 +54,7 @@ alias ddisconnect='docker network disconnect'
 alias dcreaten='docker network create --driver'
 
 ## ----------------------------------------
-##	Docker Compose
+##  Docker Compose
 ## ----------------------------------------
 alias dcup='docker-compose up -d'
 alias dcdown='docker-compose down'
@@ -66,7 +66,7 @@ alias dcbuild='docker-compose build'
 alias dcrmi='docker-compose down --rmi'
 
 ## ----------------------------------------
-##	Docker Swarm
+##  Docker Swarm
 ## ----------------------------------------
 alias dlsn='docker node ls'
 alias dlss='docker service ls'
@@ -94,7 +94,7 @@ alias dcreatesc='docker secret create'
 alias dinspectsc='docker secret inspect'
 
 ## ----------------------------------------
-##	Kubernetes
+##  Kubernetes
 ## ----------------------------------------
 alias k='kubectl'
 alias krun='kubectl run'

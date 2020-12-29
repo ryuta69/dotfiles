@@ -1,15 +1,15 @@
 #! /usr/local/bin/zsh
 
 ## ----------------------------------------
-##	Checking
+##  Checking
 ## ----------------------------------------
 # Check for .pem files
 MATCH=$(git diff --cached --name-only | grep '.*\.pem$')
 if [[ ! -z $MATCH ]]; then
-	printf "It looks like you're trying to commit a PEM file in:"
-	printf "$MATCH\n\n"
-	printf "Please check your code and remove any PEM files."
-	exit 1
+  printf "It looks like you're trying to commit a PEM file in:"
+  printf "$MATCH\n\n"
+  printf "Please check your code and remove any PEM files."
+  exit 1
 fi
 
 # Check for large files
@@ -17,10 +17,10 @@ fi
 # files=($(git diff --cached --name-only --diff-filter=AM | grep -v $filter))
 # gpath=$(git rev-parse --show-toplevel)
 # for file in ${files}; do
-# 	file_size=$(ls -l ${gpath}/${file} | awk '{print $5}')
-# 	file_size_kb=$((file_size / 1024))
-# 	if [ ${file_size_kb} -ge 1024 ]; then
-# 		echo "${file} has size ${file_size_kb}KB over 1024KB. Please fix or avoit it to LFS."
-# 		exit 1
-# 	fi
+#   file_size=$(ls -l ${gpath}/${file} | awk '{print $5}')
+#   file_size_kb=$((file_size / 1024))
+#   if [ ${file_size_kb} -ge 1024 ]; then
+#     echo "${file} has size ${file_size_kb}KB over 1024KB. Please fix or avoit it to LFS."
+#     exit 1
+#   fi
 # done
