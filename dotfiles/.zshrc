@@ -214,7 +214,8 @@ fi
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
-zinit ice wait'0' lucid for \
+zinit ice wait'0'
+zinit lucid for \
   ulwlu/enhancd \
   zsh-users/zsh-completions \
   zsh-users/zsh-autosuggestions \
