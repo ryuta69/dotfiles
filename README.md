@@ -2,16 +2,6 @@
 
 ᓚᘏᗢ Just personal settings.
 
-## Contents
-
-- **Bar** : [Übersicht](https://github.com/ulwlu/dotfiles/tree/master/dotfiles/Library/Application%20Support/%C3%9Cbersicht/widgets/simple-bar), [yabai](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/.yabairc)
-- **Terminal** : [iTerm2](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/Library/Preferences/com.googlecode.iterm2.plist)
-- **Shell** : [zsh](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/.zshrc), [tmux](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/.tmux.conf)
-- **Fonts** : [Hack Nerd Fonts Italic](https://github.com/ulwlu/dotfiles/blob/master/bundle/Brewfile#L59)
-- **Editor** : [Neovim](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/.vimrc), [VSCode](https://github.com/ulwlu/dotfiles/tree/master/dotfiles/Library/Application%20Support/Code/User), [Emacs](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/.emacs.el)
-- **App Launcher** : [Alfred](https://github.com/ulwlu/dotfiles/tree/master/dotfiles/Library/Application%20Support/Alfred/Alfred.alfredpreferences)
-- **Window Manager** : [Rectangle](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/Library/Preferences/com.knollsoft.Rectangle.plist), [karabinar](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/.config/karabiner/karabiner.json)
-
 ## Preview
 
 - **Light Mode** : The theme is [elly](https://github.com/ulwlu/elly.vim), I created for myself.
@@ -44,6 +34,16 @@
     </tr>
   </tbody>
 </table>
+
+## Configurations Shortcut
+
+- **Bar** : [Übersicht](https://github.com/ulwlu/dotfiles/tree/master/dotfiles/Library/Application%20Support/%C3%9Cbersicht/widgets/simple-bar), [yabai](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/.yabairc)
+- **Terminal** : [iTerm2](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/Library/Preferences/com.googlecode.iterm2.plist)
+- **Shell** : [zsh](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/.zshrc), [tmux](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/.tmux.conf)
+- **Fonts** : HackNerdFontsItalic
+- **Editor** : [Neovim](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/.vimrc), [VSCode](https://github.com/ulwlu/dotfiles/tree/master/dotfiles/Library/Application%20Support/Code/User), [Emacs](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/.emacs.el)
+- **App Launcher** : [Alfred](https://github.com/ulwlu/dotfiles/tree/master/dotfiles/Library/Application%20Support/Alfred/Alfred.alfredpreferences)
+- **Window Manager** : [Rectangle](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/Library/Preferences/com.knollsoft.Rectangle.plist), [karabinar](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/.config/karabiner/karabiner.json)
 
 ## Articles
 
