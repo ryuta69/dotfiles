@@ -523,6 +523,28 @@
       "\t\tans = cur_comb"
     ]
   },
+  "Bubunwa2": {
+    "prefix": ["bubunwa2"],
+    "body": [
+      "s = $0",
+      "target = $1",
+      "dp = [-1 for i in range(target+1)]",
+      "dp[0]=0",
+      "for i in s:",
+      "\tfor j in range(target,-1,-1):",
+      "\t\tif dp[j]==-1:",
+      "\t\t\tcontinue;",
+      "\t\tif j+i<=target and dp[j+i]==-1:",
+      "\t\t\tdp[j+i]=i",
+      "\tif dp[target]!=-1:",
+      "\t\tbreak;",
+      "result=[]",
+      "while target!=0:",
+      "\tresult.append(dp[target])",
+      "\ttarget = target-dp[target]",
+      "print(result, flush=True)"
+    ]
+  },
   "Hanoi": {
     "prefix": ["hanoi"],
     "body": [
