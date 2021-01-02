@@ -1,25 +1,24 @@
-## Dotfiles
+# Dotfiles
 
 ᓚᘏᗢ Just personal settings.
 
-- **Bar** : [Übersicht](http://tracesof.net/uebersicht/)
-- **Terminal** : [iTerm2](https://www.iterm2.com/)
-- **Shell** : [zsh](https://wiki.archlinux.org/index.php/zsh) with [zinit](https://zdharma.org/zinit/wiki/)
-- **App Launcher** : [Alfred](alfredapp.com)
-- **Window Manager** : [Rectangle](https://rectangleapp.com/)
-- **Fonts** : [Hack Nerd Fonts Italic](https://www.nerdfonts.com/)
+## Contents
+
+- **Bar** : [Übersicht](https://github.com/ulwlu/dotfiles/tree/master/dotfiles/Library/Application%20Support/%C3%9Cbersicht/widgets/simple-bar), [yabai](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/.yabairc)
+- **Terminal** : [iTerm2](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/Library/Preferences/com.googlecode.iterm2.plist)
+- **Shell** : [zsh](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/.zshrc), [tmux](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/.tmux.conf)
+- **Fonts** : [Hack Nerd Fonts Italic](https://github.com/ulwlu/dotfiles/blob/master/bundle/Brewfile#L59)
+- **Editor** : [Neovim](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/.vimrc), [VSCode](https://github.com/ulwlu/dotfiles/tree/master/dotfiles/Library/Application%20Support/Code/User), [Emacs](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/.emacs.el)
+- **App Launcher** : [Alfred](https://github.com/ulwlu/dotfiles/tree/master/dotfiles/Library/Application%20Support/Alfred/Alfred.alfredpreferences)
+- **Window Manager** : [Rectangle](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/Library/Preferences/com.knollsoft.Rectangle.plist), [karabinar](https://github.com/ulwlu/dotfiles/blob/master/dotfiles/.config/karabiner/karabiner.json)
 
 ## Preview
 
-### Light Mode
-
-The theme is https://github.com/ulwlu/elly.vim, I created for myself.
+- **Light Mode** : The theme is [elly](https://github.com/ulwlu/elly.vim), I created for myself.
 
 <img alt="elly iterm2" src="https://user-images.githubusercontent.com/41639488/98157819-3f36ca00-1f1d-11eb-962c-17f33996bd48.png">
 
-### Dark Mode
-
-The theme is https://github.com/ulwlu/abyss.vim, I created for myself.
+- **Dark Mode** : The theme is [abyss](https://github.com/ulwlu/abyss.vim), I created for myself.
 
 <img alt="abyss.vim" src="https://user-images.githubusercontent.com/41639488/99902313-3fe2a500-2d00-11eb-9050-7df6bd30932d.png">
 
@@ -48,6 +47,6 @@ The theme is https://github.com/ulwlu/abyss.vim, I created for myself.
 
 ## Articles
 
-- Trending #1 in Qiita: https://qiita.com/ulwlu/items/98901f4c4f0683e7aa57
-- Trending #1 in Reddit/r/unixporn: https://www.reddit.com/r/unixporn/comments/jo36fx/rectangle_i_created_a_new_color_theme_which_is/
-- Trending #1 in Zenn: https://zenn.dev/ulwlu/articles/1c3a1da12887ed
+- Trending #1 in Qiita: [link](https://qiita.com/ulwlu/items/98901f4c4f0683e7aa57)
+- Trending #1 in Reddit/r/unixporn: [link](https://www.reddit.com/r/unixporn/comments/jo36fx/rectangle_i_created_a_new_color_theme_which_is/)
+- Trending #1 in Zenn: [link](https://zenn.dev/ulwlu/articles/1c3a1da12887ed)
