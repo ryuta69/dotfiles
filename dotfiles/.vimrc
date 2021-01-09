@@ -13,12 +13,10 @@ if empty(glob(s:plugfile))
   elseif executable('wget')
     silent execute '!wget -q -O ' . s:plugfile ' ' . s:plugurl
   else
-    silent !echo 'vim-plug failed: you need either wget or curl'
-    cquit
+    silent !echo 'vim-plug failed: you need either wget or curl' | cquit
   endif
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
 call plug#begin(s:plugdir)
   Plug 'ulwlu/elly.vim'
   Plug 'mattn/emmet-vim'
@@ -51,7 +49,7 @@ set fileformats=unix,dos,mac
 set whichwrap=b,s,h,l,<,>,[,]
 set ignorecase wildignorecase
 set hidden nobackup noswapfile
-set rulerformat=%40(%1*%=%l,%-(%c%V%)\ %=%t%)%*
+set rulerformat=%160(%1*%=%l,%-(%c%V%)\ %160=%F%)%*
 set expandtab tabstop=2 softtabstop=-1 shiftwidth=0
 set encoding=utf-8 fileencodings=cp932,sjis,euc-jp,utf-8,iso-2022-jp
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -87,8 +85,7 @@ nn <Leader>rr :vertical resize -5<CR>| nn <Leader>ll :vertical resize +5<CR>
 "" ----------------------------------------
 "" ========== Theme ==========
 colo elly
-hi User1 guifg=#3D424D
-hi ModeMsg guifg=#3D424D
+hi User1 guifg=#545759
 
 "" ========== Emmet ==========
 let g:user_emmet_leader_key='<C-E>'
@@ -99,15 +96,14 @@ let g:user_emmet_settings = {
 
 "" ========== VimPlug ==========
 nn <Leader>clean :PlugClean<CR>
-nn <Leader>install :PlugInstall<CR>
-nn <Leader>update :PlugUpgrade \| PlugUpdate<CR>
+nn <Leader>inst :PlugInstall<CR>
+nn <Leader>upd :PlugUpgrade \| PlugUpdate<CR>
 
 "" ========== Coc.nvim ==========
 let g:coc_config_home = "~/.config/coc"
 let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-git',
-  \ 'coc-sql',
   \ 'coc-rls',
   \ 'coc-json',
   \ 'coc-html',
@@ -116,14 +112,12 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-fzf-preview',
 \ ]
-nn <Leader>upd :CocUpdate<CR>
-nn <Leader>dis :CocDisable<CR>
+nn <Leader>cup :CocUpdate<CR>
+nn <Leader>cdi :CocDisable<CR>
 nm <silent> <Leader>gn <Plug>(coc-git-nextchunk)
 nm <silent> <Leader>gp <Plug>(coc-git-prevchunk)
-nm <silent> <Leader>dn <Plug>(coc-diagnostic-next)
-nm <silent> <Leader>dp <Plug>(coc-diagnostic-prev)
-nm <silent> <Leader>cn <Plug>(coc-git-nextconflict)
-nm <silent> <Leader>cp <Plug>(coc-git-prevconflict)
+nm <silent> <Leader>cn <Plug>(coc-diagnostic-next)
+nm <silent> <Leader>cp <Plug>(coc-diagnostic-prev)
 nm <silent> <Leader>ch :call CocAction('doHover')<CR>
 nm <silent> <Leader>cd :call CocAction('jumpDefinition','split')<CR>
 
@@ -162,7 +156,6 @@ nnoremap <silent> <Leader>ga :<C-u>CocCommand fzf-preview.GitActions<CR>
 nnoremap          <Leader>gr :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
 nnoremap <silent> <Leader>ff :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
 let g:fzf_preview_disable_mru = 0
-let g:fzf_preview_floating_window_rate = 0.9
 let g:fzf_preview_command = 'bat --color=always --plain {-1}'
 let g:fzf_preview_default_fzf_options = { '--reverse': v:true, '--preview-window': 'wrap:70%' }
 let g:fzf_preview_git_status_preview_command =
