@@ -49,7 +49,7 @@ set fileformats=unix,dos,mac
 set whichwrap=b,s,h,l,<,>,[,]
 set ignorecase wildignorecase
 set hidden nobackup noswapfile
-set rulerformat=%160(%1*%=%l,%-(%c%V%)\ %160=%F%)%*
+set rulerformat=%40(%1*%=%F%)%*
 set expandtab tabstop=2 softtabstop=-1 shiftwidth=0
 set encoding=utf-8 fileencodings=cp932,sjis,euc-jp,utf-8,iso-2022-jp
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
