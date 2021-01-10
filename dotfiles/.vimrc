@@ -108,12 +108,14 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-html',
   \ 'coc-python',
+  \ 'coc-explorer',
   \ 'coc-snippets',
   \ 'coc-tsserver',
   \ 'coc-fzf-preview',
 \ ]
 nn <Leader>cup :CocUpdate<CR>
 nn <Leader>cdi :CocDisable<CR>
+nn <Leader>ee :CocCommand explorer<CR>
 nm <silent> <Leader>gn <Plug>(coc-git-nextchunk)
 nm <silent> <Leader>gp <Plug>(coc-git-prevchunk)
 nm <silent> <Leader>cn <Plug>(coc-diagnostic-next)

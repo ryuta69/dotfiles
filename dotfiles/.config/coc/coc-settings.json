@@ -1,4 +1,8 @@
 {
+  "explorer.width": 25,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.file.showHiddenFiles": true,
+  "explorer.openAction.strategy": "vsplit:intelligent",
   "git.removedSign.text": "-",
   "git.addedSign.hlGroup": "CocDiffAdd",
   "git.changedSign.hlGroup": "CocDiffChange",
