@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>Battery</name>
-  <version>1.0</version>
-  <bundle>tylereich.battery</bundle>
-  <updated>1398285627</updated>
-  <file>battery.alfredworkflow</file>
-</workflow>

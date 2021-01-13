@@ -17,6 +17,7 @@ if empty(glob(s:plugfile))
   endif
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
 call plug#begin(s:plugdir)
   Plug 'ulwlu/elly.vim'
   Plug 'mattn/emmet-vim'
@@ -151,12 +152,12 @@ im <expr> <S-Tab> TabShiftComp()| smap <expr> <S-Tab> TabShiftComp()
 let g:polyglot_excludes = ['csv']
 
 "" ========== FzfPreview ==========
-nnoremap <silent> <Leader>fm :<C-u>CocCommand fzf-preview.Marks<CR>
-nnoremap <silent> <Leader>fo :<C-u>CocCommand fzf-preview.OldFiles<CR>
-nnoremap <silent> <Leader>gs :<C-u>CocCommand fzf-preview.GitStatus<CR>
-nnoremap <silent> <Leader>ga :<C-u>CocCommand fzf-preview.GitActions<CR>
-nnoremap          <Leader>gr :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
-nnoremap <silent> <Leader>ff :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
+nn <silent> <Leader>fm :<C-u>CocCommand fzf-preview.Marks<CR>
+nn <silent> <Leader>fo :<C-u>CocCommand fzf-preview.OldFiles<CR>
+nn <silent> <Leader>gs :<C-u>CocCommand fzf-preview.GitStatus<CR>
+nn <silent> <Leader>ga :<C-u>CocCommand fzf-preview.GitActions<CR>
+nn          <Leader>gr :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
+nn <silent> <Leader>ff :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
 let g:fzf_preview_disable_mru = 0
 let g:fzf_preview_command = 'bat --color=always --plain {-1}'
 let g:fzf_preview_default_fzf_options = { '--reverse': v:true, '--preview-window': 'wrap:70%' }
@@ -180,8 +181,7 @@ nn <Leader>dr :diffget //3 \| diffupdate<CR>
 
 "" ========== NvimMiniyank ==========
 if has("nvim")
-  map p <Plug>(miniyank-autoput)
-  map P <Plug>(miniyank-autoPut)
+  map p <Plug>(miniyank-autoput)| map P <Plug>(miniyank-autoPut)
 endif
 
 "" ========== ConflictMarker ==========
