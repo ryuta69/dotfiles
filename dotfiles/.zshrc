@@ -42,8 +42,6 @@ setopt list_packed
 setopt no_flow_control
 setopt auto_param_keys
 autoload -Uz colors && colors
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
 
 ## ----------------------------------------
 ##  Completion
@@ -58,9 +56,9 @@ export SAVEHIST=10000
 export HISTFILE=${HOME}/.zsh_history
 export FPATH="${HOME}/.zinit/completions:${FPATH}"
 autoload -Uz compinit && compinit -i && compinit
-zstyle ':completion:*:default' menu select=1
+zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*:default' list-colors ${LS_COLORS}
-zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}'
 
 ## ----------------------------------------
 ##  Keymap
@@ -69,10 +67,6 @@ bindkey '^F' forward-word
 bindkey '^B' backward-word
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search
-bindkey "^[[B" down-line-or-beginning-search
 
 ## ----------------------------------------
 ##  Alias & Function
@@ -134,7 +128,6 @@ alias dflg='delta ~/work/temp/a.log ~/work/temp/b.log'
 ## ========== Suffix Alias ==========
 alias -s {png,jpg,jpeg}='imgcat'
 alias -s {html,mp3,mp4,mov}='open'
-alias -s {applescript}='osascript'
 
 ## ========== Git ==========
 ## - ~/.gitconfig has more git aliases.
