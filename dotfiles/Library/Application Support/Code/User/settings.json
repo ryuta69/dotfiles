@@ -1,6 +1,6 @@
 {
     "editor.tabSize": 4,
-    "editor.fontSize": 14,
+    "editor.fontSize": 16,
     "editor.suggestSelection": "first",
     "editor.snippetSuggestions": "top",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -15,10 +15,11 @@
     "files.insertFinalNewline": false,
     "editor.matchBrackets": "never",
     "files.trimTrailingWhitespace": true,
-    "window.zoomLevel": -2,
+    "window.zoomLevel": -1,
     "editor.fontFamily": "HackNerdFontComplete-Italic",
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.fontSize": 14,
     "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
     "terminal.integrated.fontFamily": "HackNerdFontComplete-Italic",
     "workbench.colorTheme": "elly",
@@ -87,5 +88,19 @@
     ],
     "material-icon-theme.folders.color": "#224249",
     "material-icon-theme.folders.theme": "classic",
-    "material-icon-theme.saturation": 0.7
+    "material-icon-theme.saturation": 0.7,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "bracketPairColorizer.colorMode": "Independent",
+    "bracketPairColorizer.independentPairColors": [
+        ["()", ["#738C9C90"], "#810002"],
+        ["[]", ["#738C9C90"], "#810002"],
+        ["{}", ["#738C9C90"], "#810002"]
+    ],
+    "bracketPairColorizer.scopeLineCSS": [
+        "borderStyle : solid",
+        "borderWidth : 1px",
+        "borderColor : #738C9C80",
+        "opacity: 1"
+    ]
 }
