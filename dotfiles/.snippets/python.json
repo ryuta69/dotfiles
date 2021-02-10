@@ -950,6 +950,46 @@
       "\t\tdata = [e for e in data if e % p != 0]"
     ]
   },
+  "Sieve": {
+    "prefix": ["sieve"],
+    "body": [
+      "def sieve(N):",
+      "\tans = set()",
+      "\tsieve = [True] * (N**2)",
+      "\tsieve[0] = sieve[1] = False",
+      "\ti = 2",
+      "\twhile (i*i <= N**2):",
+      "\t\tif sieve[i] == True:",
+      "\t\t\tfor j in range(i*i, N**2, i):",
+      "\t\t\t\tsieve[j] = False",
+      "\t\t\tans.add(i)",
+      "\t\ti += 1",
+      "\treturn ans"
+    ]
+  },
+  "SemiSieve": {
+    "prefix": ["semisieve"],
+    "body": [
+      "def sieve_semi(N):",
+      "\tsemi = set()",
+      "\tsieve = [True]* (N+1)",
+      "\tsieve[0] = sieve[1] = False",
+      "\ti = 2",
+      "\twhile (i*i <= N):",
+      "\t\tif sieve[i] == True:",
+      "\t\t\tfor j in range(i*i, N+1, i):",
+      "\t\t\t\tsieve[j] = False",
+      "\t\ti += 1",
+      "\ti = 2",
+      "\twhile (i*i <= N):",
+      "\t\tif sieve[i] == True:",
+      "\t\t\tfor j in range(i*i, N+1, i):",
+      "\t\t\t\tif (j % i == 0 and sieve[j//i] == True):",
+      "\t\t\t\t\tsemi.add(j)",
+      "\t\ti += 1",
+      "\treturn semi"
+    ]
+  },
   "UnionFind": {
     "prefix": ["unionfind"],
     "body": [
