@@ -776,11 +776,16 @@
   "Fibonacci": {
     "prefix": ["fibonacci"],
     "body": [
+      "fibonacci_memo = {}",
       "def fibonacci(n):",
-      "\tif n==0 or n==1:",
-      "\t\treturn 1",
-      "\telse:",
-      "\t\treturn fibonacci(n-1) + fibonacci(n-2)"
+      "\t\tif n in fibonacci_memo:",
+      "\t\t\t\treturn fibonacci_memo[n]",
+      "\t\tif n==0 or n==1:",
+      "\t\t\t\tvalue = 1",
+      "\t\telse:",
+      "\t\t\t\tvalue = fibonacci(n-1) + fibonacci(n-2)",
+      "\t\tfibonacci_memo[n] = value",
+      "\t\treturn value"
     ]
   },
   "ConvertBase": {
@@ -1246,6 +1251,50 @@
          "\treturn quicksort(lesser) + [pivot] + quicksort(greater)"
     ]
   },
+  "GrahamScan": {
+    "prefix": ["grahamscan"],
+    "body": [
+      "def graham_scan(A):",
+      "\t\tdef _IsClockwise(point_A, point_B, point_C):",
+      "\t\t\t\tresult = (point_B.x - point_A.x) * (point_C.y - point_A.y) - (point_B.y - point_A.y) * (point_C.x - point_A.x)",
+      "\t\t\t\tif result > 0: return 1 # counter-clockwise",
+      "\t\t\t\telif result < 0: return -1 # clockwise",
+      "\t\t\t\telse: return 0 # a staight line",
+      "\t\t# Find the lowest point(s) in y-axis.",
+      "\t\tlowest_y = A[0].y",
+      "\t\tlowest_y_index = []",
+      "\t\tfor i in range(len(A)):",
+      "\t\t\t\tif A[i].y < lowest_y:",
+      "\t\t\t\t\t\tlowest_y = A[i].y",
+      "\t\t\t\t\t\tlowest_y_index = [i]",
+      "\t\t\t\telif A[i].y == lowest_y:",
+      "\t\t\t\t\t\tlowest_y_index.append(i)",
+      "\t\t\t\telse:",
+      "\t\t\t\t\t\tcontinue",
+      "\t\t# Find a point, which is not the lowest in y-axis and immediately",
+      "\t\t# after a lowest-in-y-axis point.",
+      "\t\tstart_point = lowest_y_index[0]",
+      "\t\tlowest_y_array = [False] * len(A)",
+      "\t\tfor i in lowest_y_index:",
+      "\t\t\t\tlowest_y_array[i] = True",
+      "\t\twhile lowest_y_array[start_point] == True:",
+      "\t\t\t\tstart_point = (start_point + 1) % len(A)",
+      "\t\tstart_point = (start_point - 1 + len(A)) % len(A)",
+      "\t\t# Re-organize the points so that, it is easier to check every three",
+      "\t\t# consecutive points in one loop (without module operation %).",
+      "\t\trotated_A = A[start_point : ] + A[ : start_point]",
+      "\t\t# We find the start point such that, the direction is non-zero.",
+      "\t\tdirection = _IsClockwise(rotated_A[-1], rotated_A[0], rotated_A[1])",
+      "\t\textened_A = rotated_A + rotated_A[:2]",
+      "\t\tfor i in range(len(A)):",
+      "\t\t\t\ttemp = _IsClockwise(extened_A[i], extened_A[i+1], extened_A[i+2])",
+      "\t\t\t\tif temp * direction < 0:",
+      "\t\t\t\t\t\t# Compute the original index and return",
+      "\t\t\t\t\t\treturn (i + 1 + start_point)%len(A)",
+      "\t\t# Every point is on the convex hull.",
+      "\t\treturn -1"
+    ]
+  },
   "Mergesort": {
     "prefix": ["mergesort"],
     "body": [
@@ -1264,6 +1313,36 @@
       "\t\treturn l",
       "\tmiddle = length // 2",
       "\treturn merge(mergesort(l[:middle]), mergesort(l[middle:]))"
+    ]
+  },
+  "Mergesortwithoutrecursion": {
+    "prefix": ["mergesortwithoutrecursion"],
+    "body": [
+      "def mergesort(A):",
+      "\t\tif len(A) == 1:",
+      "\t\t\t\treturn A",
+      "\t\tmid = len(A)//2",
+      "\t\tleft = mergesort(A[:mid])",
+      "\t\tright = mergesort(A[mid:])",
+      "\t\tresult = [0] * (len(left) + len(right))",
+      "\t\tleft_idx, right_idx, res_idx = 0,0,0",
+      "\t\twhile left_idx<len(left) and right_idx<len(right):",
+      "\t\t\t\tif left[left_idx] <= right[right_idx]:",
+      "\t\t\t\t\t\tresult[res_idx] = left[left_idx]",
+      "\t\t\t\t\t\tleft_idx += 1",
+      "\t\t\t\telse:",
+      "\t\t\t\t\t\tresult[res_idx] = right[right_idx]",
+      "\t\t\t\t\t\tright_idx += 1",
+      "\t\t\t\tres_idx += 1",
+      "\t\twhile left_idx < len(left):",
+      "\t\t\t\tresult[res_idx] = left[left_idx]",
+      "\t\t\t\tleft_idx += 1",
+      "\t\t\t\tres_idx += 1",
+      "\t\twhile right_idx < len(right):",
+      "\t\t\t\treult[res_idx] = right[right_idx]",
+      "\t\t\t\tright_idx += 1",
+      "\t\t\t\tres_idx += 1",
+      "\t\treturn results"
     ]
   },
   "MergeInsertionSort": {
