@@ -1,106 +1,109 @@
 {
-    "editor.tabSize": 4,
-    "editor.fontSize": 16,
-    "editor.suggestSelection": "first",
-    "editor.snippetSuggestions": "top",
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.cursorBlinking": "solid",
-    "editor.acceptSuggestionOnEnter": "on",
-    "editor.smoothScrolling": true,
-    "editor.fontLigatures": true,
-    "editor.tabCompletion": "on",
-    "files.autoSave": "off",
-    "files.trimFinalNewlines": true,
-    "files.autoGuessEncoding": true,
-    "files.insertFinalNewline": false,
-    "editor.matchBrackets": "never",
-    "files.trimTrailingWhitespace": true,
-    "window.zoomLevel": -1,
-    "editor.fontFamily": "HackNerdFontComplete-Italic",
-    "terminal.external.osxExec": "iTerm.app",
-    "terminal.integrated.cursorStyle": "line",
-    "terminal.integrated.fontSize": 14,
-    "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
-    "terminal.integrated.fontFamily": "HackNerdFontComplete-Italic",
-    "workbench.colorTheme": "elly",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "[go]": {
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": true
-        }
-    },
-    "python.defaultInterpreterPath": "/usr/local/bin/python3",
-    "python.languageServer": "Microsoft",
-    "rust-client.channel": "stable",
-    "vetur.format.options.tabSize": 8,
-    "vetur.format.options.useTabs": true,
-    "workbench.settings.editor": "json",
-    "workbench.fontAliasing": "antialiased",
-    "workbench.editor.closeOnFileDelete": true,
-    "workbench.iconTheme": "material-icon-theme",
-    "launch": {
-        "version": "0.2.0",
-        "configurations": [
-            {
-                "type": "node",
-                "request": "launch",
-                "name": "Launch Program",
-                "program": "${file}"
-            }
-        ]
-    },
-    "editor.quickSuggestions": {
-        "other": true,
-        "strings": true,
-        "comments": true
-    },
+  "editor.tabSize": 2,
+  "editor.fontSize": 16,
+  "editor.insertSpaces": true,
+  "editor.fontLigatures": true,
+  "editor.tabCompletion": "on",
+  "editor.smoothScrolling": true,
+  "editor.matchBrackets": "never",
+  "editor.cursorBlinking": "solid",
+  "editor.detectIndentation": false,
+  "editor.suggestSelection": "first",
+  "editor.snippetSuggestions": "top",
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.autoSave": "off",
+  "files.trimFinalNewlines": true,
+  "files.autoGuessEncoding": true,
+  "files.insertFinalNewline": false,
+  "files.trimTrailingWhitespace": true,
+  "window.zoomLevel": -1,
+  "editor.fontFamily": "HackNerdFontComplete-Italic",
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+  "terminal.integrated.fontFamily": "HackNerdFontComplete-Italic",
+  "workbench.colorTheme": "elly",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "[go]": {
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true,
-        "source.fixAll.stylelint": true
-    },
-    "editor.formatOnSave": true,
-    "[typescript]": {
-        "editor.formatOnSave": false
-    },
-    "[javascript]": {
-        "editor.formatOnSave": false
-    },
-    "[css]": {
-        "editor.formatOnSave": false
-    },
-    "[scss]": {
-        "editor.formatOnSave": false
-    },
-    "emmet.includeLanguages": {
-        "php": "html",
-        "vue-html": "html",
-        "javascript": "javascriptreact",
-        "typescript": "typescriptreact"
-    },
-    "eslint.probe": [
-        "vue",
-        "html",
-        "markdown",
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact"
-    ],
-    "material-icon-theme.folders.color": "#224249",
-    "material-icon-theme.folders.theme": "classic",
-    "material-icon-theme.saturation": 0.7,
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false,
-    "bracketPairColorizer.colorMode": "Independent",
-    "bracketPairColorizer.independentPairColors": [
-        ["()", ["#738C9C90"], "#810002"],
-        ["[]", ["#738C9C90"], "#810002"],
-        ["{}", ["#738C9C90"], "#810002"]
-    ],
-    "bracketPairColorizer.scopeLineCSS": [
-        "borderStyle : solid",
-        "borderWidth : 1px",
-        "borderColor : #738C9C80",
-        "opacity: 1"
+      "source.organizeImports": true
+    }
+  },
+  "python.defaultInterpreterPath": "/usr/local/bin/python3",
+  "python.languageServer": "Microsoft",
+  "rust-client.channel": "stable",
+  "vetur.format.options.tabSize": 8,
+  "vetur.format.options.useTabs": true,
+  "workbench.settings.editor": "json",
+  "workbench.fontAliasing": "antialiased",
+  "workbench.editor.closeOnFileDelete": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Launch Program",
+        "program": "${file}"
+      }
     ]
+  },
+  "editor.quickSuggestions": {
+    "other": true,
+    "strings": true,
+    "comments": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "editor.formatOnSave": true,
+  "[typescript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[css]": {
+    "editor.formatOnSave": false
+  },
+  "[scss]": {
+    "editor.formatOnSave": false
+  },
+  "emmet.includeLanguages": {
+    "php": "html",
+    "vue-html": "html",
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+  "eslint.probe": [
+    "vue",
+    "html",
+    "markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "material-icon-theme.folders.color": "#224249",
+  "material-icon-theme.folders.theme": "classic",
+  "material-icon-theme.saturation": 0.7,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "bracketPairColorizer.colorMode": "Independent",
+  "bracketPairColorizer.independentPairColors": [
+    ["()", ["#738C9C90"], "#810002"],
+    ["[]", ["#738C9C90"], "#810002"],
+    ["{}", ["#738C9C90"], "#810002"]
+  ],
+  "bracketPairColorizer.scopeLineCSS": [
+    "borderStyle : solid",
+    "borderWidth : 1px",
+    "borderColor : #738C9C80",
+    "opacity: 1"
+  ],
+  "cSpell.userWords": ["noopener", "noreferrer"]
 }
