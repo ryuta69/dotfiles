@@ -34,12 +34,12 @@
   lgp = log -p
   lgd = !"f() { b=$(git rev-parse --abbrev-ref HEAD); git log origin/$b..$b --oneline | fzf --preview 'echo {} | cut -f1 -d\" \" | xargs git show --color'; }; f"
   mt  = mergetool
-  op  = !hub browse
-  opg = !hub browse `ghq list | fzf | cut -d "/" -f 2,3`
-  opi = !hub issue show `hub issue | fzf`
-  opp = !hub pr show `hub pr list | fzf`
-  opr = !hub api --paginate -XGET user/repos -f affiliation=owner -f per_page=100 | jq -r '.[].name' | fzf | xargs hub browse
-  opt = !hub api --paginate -XGET gists -f affiliation=owner -f per_page=100 | jq -r '.[] | \"\\(.files | keys[]) \\(.id)\"' | fzf | awk -F' ' '{print $NF}' | xargs -I{} open -a "Google Chrome" https://gist.github.com/ulwlu/{}
+  op  = !gh repo view --web
+  opg = !gh repo view `ghq list | fzf | cut -d "/" -f 2,3` --web
+  opi = !gh issue view `gh issue list | fzf` --web
+  opp = !gh pr view `gh pr list | fzf` --web
+  ; opr = !hub api --paginate -XGET user/repos -f affiliation=owner -f per_page=100 | jq -r '.[].name' | fzf | xargs hub browse
+  ; opt = !hub api --paginate -XGET gists -f affiliation=owner -f per_page=100 | jq -r '.[] | \"\\(.files | keys[]) \\(.id)\"' | fzf | awk -F' ' '{print $NF}' | xargs -I{} open -a "Google Chrome" https://gist.github.com/ulwlu/{}
   ps  = !git push origin `git rev-parse --abbrev-ref HEAD`
   pl  = !git pull origin `git rev-parse --abbrev-ref HEAD`
   plr = pull --rebase

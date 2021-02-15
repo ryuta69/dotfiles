@@ -139,9 +139,9 @@ gcre() {
   git init && git add -A && git commit;
   read        name"?type repo name        : ";
   read description"?type repo description : ";
-  hub create ${name} -d ${description} -p;
+  gh repo create ${name} --description ${description} --private;
   git push --set-upstream origin master;
-  hub browse;
+  gh repo view --web;
 }
 
 ## ========== Tmux ==========

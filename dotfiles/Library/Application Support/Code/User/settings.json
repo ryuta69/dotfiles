@@ -105,5 +105,18 @@
     "borderColor : #738C9C80",
     "opacity: 1"
   ],
-  "cSpell.userWords": ["noopener", "noreferrer"]
+  "cSpell.userWords": [
+    "Hotp",
+    "byteorder",
+    "hasher",
+    "hmac",
+    "hmacsha",
+    "hoge",
+    "noopener",
+    "noreferrer",
+    "structopt",
+    "timestep",
+    "totp",
+    "varkey"
+  ]
 }
