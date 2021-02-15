@@ -114,6 +114,7 @@
     "hoge",
     "noopener",
     "noreferrer",
+    "openapi",
     "structopt",
     "timestep",
     "totp",
