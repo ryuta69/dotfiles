@@ -1,0 +1,3 @@
+TEST_ENV='statingenv'
+API_URI='http://localhost:3000'
+BASE_URL='http://localhost:3000'

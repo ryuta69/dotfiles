@@ -1,0 +1,10 @@
+[flake8]
+max-line-length = 120
+ignore = E501, E203, W503
+show-source = true
+exclude =
+    .git
+    __pycache__
+    .pytype
+    .vscode
+    .github

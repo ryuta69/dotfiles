@@ -102,11 +102,13 @@ nn <Leader>upd :PlugUpgrade \| PlugUpdate<CR>
 "" ========== Coc.nvim ==========
 let g:coc_config_home = "~/.config/coc"
 let g:coc_global_extensions = [
+  \ 'coc-go',
   \ 'coc-css',
   \ 'coc-git',
   \ 'coc-rls',
   \ 'coc-json',
   \ 'coc-html',
+  \ 'coc-docker',
   \ 'coc-python',
   \ 'coc-explorer',
   \ 'coc-snippets',
