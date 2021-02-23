@@ -25,6 +25,8 @@
   "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
   "terminal.integrated.fontFamily": "HackNerdFontComplete-Italic",
   "workbench.colorTheme": "elly",
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.tree.indent": 16,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "[go]": {
     "editor.codeActionsOnSave": {
@@ -98,17 +100,31 @@
   ],
   "cSpell.userWords": [
     "Hotp",
+    "Inno",
+    "Insertable",
+    "Queryable",
+    "actix",
     "byteorder",
+    "chrono",
+    "clippy",
+    "dotenv",
+    "firstname",
+    "gorm",
     "hasher",
     "hmac",
     "hmacsha",
     "hoge",
+    "lastname",
+    "nocapture",
     "noopener",
     "noreferrer",
     "openapi",
     "structopt",
     "timestep",
+    "toolchain",
     "totp",
-    "varkey"
+    "ulwlu",
+    "varkey",
+    "wasm"
   ]
 }
