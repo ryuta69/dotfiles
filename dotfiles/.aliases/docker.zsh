@@ -1,72 +1,63 @@
 alias d='docker'
 compdef _docker d
-alias dc='docker-compose'
-compdef _docker-compose dc
+alias dcc='docker-compose'
+compdef _docker-compose dcc
+alias k='kubectl'
+compdef _kubectl k
 
 ## ----------------------------------------
-##  Docker Container
+##  Base
 ## ----------------------------------------
-alias dpl='docker pull'
-alias dlsc='docker container ls'
-alias drmc='docker container rm'
-alias dtop='docker container top'
-alias dlog='docker container logs'
-alias dstop='docker container stop'
-alias dport='docker container port'
-alias drun='docker container run -it'
-alias dstats='docker container stats'
-alias dstart='docker container start'
-alias dexec='docker container exec -it'
-alias dstart='docker container start -ai'
-alias dinspectc='docker container inspect'
-alias dcps='docker ps -a --format="table {{.Image}}\t{{.Status}}\t{{.Names}}"'
-alias dprunec='docker stop $(docker ps -q) && docker rm $(docker ps -aq)'
-alias dipc='docker container inspect --format "{{ .NetworkSettings.IPAddress }}"'
-alias dnginx='docker run --publish 80:80 --name proxy --detach nginx'
-alias dapache='docker run --publish 8080:80 --name webserver -detach httpd'
-alias dmysql='docker run --publish 3306:3306 --name db --env MYSQL_ROOT_PASSWORD=pass -detach mysql'
+alias drma='docker system prune --volumes'
+alias drmf='docker system prune --force --all --volumes'
 
 ## ----------------------------------------
-##  Docker Image
+##  Container
 ## ----------------------------------------
-alias dlsi='docker image ls'
-alias drmi='docker image rm'
-alias dtag='docker image tag'
-alias dpush='docker image push'
-alias dprunei='docker image prune'
-alias dprunea='docker system prune'
-alias dhistoryi='docker image history'
-alias dinspecti='docker inspect image'
-alias drmia='docker rmi -f `docker images -aq`'
-function dbuild() {
-    read name"?type name : ";
-    docker image build -t ${name} .;
-}
+alias dc='docker container'
+alias dcls='docker container ls --all --latest'
+alias dcrm='docker container ls --all --latest --format "{{.ID}}\t{{.Name}}\t{{.Image}}\t{{.Status}" | fzf -m --print0 | cut -f1 -d' ' | xargs -0 docker container rm --volumes'
+alias dcrma='docker container rm --force --volumes $(docker ps -all --quiet --filter status=exited)'
+alias dcrmf='docker container rm --force --volumes $(docker ps -all -quiet)'
+alias dcstop='docker container ls --all --latest --format "{{.ID}}\t{{.Name}}\t{{.Image}}\t{{.Status}" | fzf -m --print0 | cut -f1 -d' ' | xargs -0 docker container stop'
+alias dcstart='docker container ls --all --latest --format "{{.ID}}\t{{.Name}}\t{{.Image}}\t{{.Status}" | fzf | cut -f1 -d' ' | xargs docker container start -ai'
+alias dcinspect='docker container ls --all --latest --format "{{.ID}}\t{{.Name}}\t{{.Image}}\t{{.Status}" | fzf | cut -f1 -d' ' | xargs docker container inspect'
+alias dcip='docker container ls --all --latest --format "{{.ID}}\t{{.Name}}\t{{.Image}}\t{{.Status}" | fzf | cut -f1 -d' ' | xargs docker container inspect --format "{{ .NetworkSettings.IPAddress }}"'
+alias dcexec='docker container ls --all --latest --format "{{.ID}}\t{{.Name}}\t{{.Image}}\t{{.Status}" | fzf | cut -f1 -d' ' | xargs -I{} docker container exec -it {} sh'
 
 ## ----------------------------------------
-##  Docker Network
+##  Image
 ## ----------------------------------------
-alias dlsv='docker volume ls'
-alias dlsn='docker network ls'
-alias dinspectn='docker network inspect'
-alias dconnect='docker network connect'
-alias ddisconnect='docker network disconnect'
-alias dcreaten='docker network create --driver'
+alias di='docker image'
+alias dils='docker image ls --all'
+alias dirm='docker image ls --all --format "{{.ID}}\t{{.Repository}}\t{{.Tag}}\t{{.CreatedAt}}" | fzf -m --print0 | cut -f1 -d' ' | xargs -0 docker image rm'
+alias dirma='docker image rm --force `docker image ls -aq`'
+alias dirmf='docker image rm --force `docker image ls -q "dangling=true" -q`'
+alias diinspect='docker image ls --all --format "{{.ID}}\t{{.Repository}}\t{{.Tag}}\t{{.CreatedAt}}" | fzf | cut -f1 -d' ' | xargs docker image inspect'
+
+## ----------------------------------------
+##  Network
+## ----------------------------------------
+alias dn='docker network'
+alias dnls='docker network ls --all --latest'
+alias dnconnect='docker network connect'
+alias dndisconn='docker network disconnect'
+alias dninspect='docker network ls --format "{{.ID}}\t{{.Name}}\t{{.Driver}}" | fzf | cut -f1 -d' ' | xargs docker network inspect'
+
+## ----------------------------------------
+##  Process
+## ----------------------------------------
+alias dp='docker ps --latest'
 
 ## ----------------------------------------
 ##  Docker Compose
 ## ----------------------------------------
-alias dcup='docker-compose up -d'
-alias dcdown='docker-compose down'
-alias dcdowna='docker-compose down -v'
-alias dccps='docker-compose ps'
-alias dcyml='docker-compose -f'
-alias dctop='docker-compose top'
-alias dcbuild='docker-compose build'
-alias dcrmi='docker-compose down --rmi'
+alias dccup='docker-compose up -d'
+alias dccdown='docker-compose down -v'
+alias dccb='docker-compose ps --services | fzf | cut -f1 -d' ' | xargs docker-compose build'
 
 ## ----------------------------------------
-##  Docker Swarm
+##  Swarm
 ## ----------------------------------------
 alias dlsn='docker node ls'
 alias dlss='docker service ls'
@@ -96,7 +87,6 @@ alias dinspectsc='docker secret inspect'
 ## ----------------------------------------
 ##  Kubernetes
 ## ----------------------------------------
-alias k='kubectl'
 alias krun='kubectl run'
 alias klog='kubectl logs'
 alias krm='kubectl delete'
