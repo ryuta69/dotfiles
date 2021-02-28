@@ -16,24 +16,24 @@ alias drmf='docker system prune --force --all --volumes'
 ## ----------------------------------------
 alias dc='docker container'
 alias dcls='docker container ls --all --latest'
-alias dcrm='docker container ls --all --latest --format "{{.ID}}\t{{.Name}}\t{{.Image}}\t{{.Status}" | fzf -m --print0 | cut -f1 -d' ' | xargs -0 docker container rm --volumes'
+alias dcrm='docker container ls --all --latest --format "{{.ID}}\t{{.Name}}\t{{.Image}}\t{{.Status}}" | fzf -m | cut -f1 | xargs docker container rm --volumes'
 alias dcrma='docker container rm --force --volumes $(docker ps -all --quiet --filter status=exited)'
 alias dcrmf='docker container rm --force --volumes $(docker ps -all -quiet)'
-alias dcstop='docker container ls --all --latest --format "{{.ID}}\t{{.Name}}\t{{.Image}}\t{{.Status}" | fzf -m --print0 | cut -f1 -d' ' | xargs -0 docker container stop'
-alias dcstart='docker container ls --all --latest --format "{{.ID}}\t{{.Name}}\t{{.Image}}\t{{.Status}" | fzf | cut -f1 -d' ' | xargs docker container start -ai'
-alias dcinspect='docker container ls --all --latest --format "{{.ID}}\t{{.Name}}\t{{.Image}}\t{{.Status}" | fzf | cut -f1 -d' ' | xargs docker container inspect'
-alias dcip='docker container ls --all --latest --format "{{.ID}}\t{{.Name}}\t{{.Image}}\t{{.Status}" | fzf | cut -f1 -d' ' | xargs docker container inspect --format "{{ .NetworkSettings.IPAddress }}"'
-alias dcexec='docker container ls --all --latest --format "{{.ID}}\t{{.Name}}\t{{.Image}}\t{{.Status}" | fzf | cut -f1 -d' ' | xargs -I{} docker container exec -it {} sh'
+alias dcstop='docker container ls --all --latest --format "{{.ID}}\t{{.Name}}\t{{.Image}}\t{{.Status}}" | fzf -m | cut -f1 | xargs docker container stop'
+alias dcstart='docker container ls --all --latest --format "{{.ID}}\t{{.Name}}\t{{.Image}}\t{{.Status}}" | fzf | cut -f1 | xargs docker container start -ai'
+alias dcinspect='docker container ls --all --latest --format "{{.ID}}\t{{.Name}}\t{{.Image}}\t{{.Status}}" | fzf | cut -f1 | xargs docker container inspect'
+alias dcip='docker container ls --all --latest --format "{{.ID}}\t{{.Name}}\t{{.Image}}\t{{.Status}}" | fzf | cut -f1 | xargs docker container inspect --format "{{ .NetworkSettings.IPAddress }}"'
+alias dcexec='docker container ls --all --latest --format "{{.ID}}\t{{.Name}}\t{{.Image}}\t{{.Status}}" | fzf | cut -f1 | xargs -I{} docker container exec -it {} sh'
 
 ## ----------------------------------------
 ##  Image
 ## ----------------------------------------
 alias di='docker image'
 alias dils='docker image ls --all'
-alias dirm='docker image ls --all --format "{{.ID}}\t{{.Repository}}\t{{.Tag}}\t{{.CreatedAt}}" | fzf -m --print0 | cut -f1 -d' ' | xargs -0 docker image rm'
-alias dirma='docker image rm --force `docker image ls -aq`'
-alias dirmf='docker image rm --force `docker image ls -q "dangling=true" -q`'
-alias diinspect='docker image ls --all --format "{{.ID}}\t{{.Repository}}\t{{.Tag}}\t{{.CreatedAt}}" | fzf | cut -f1 -d' ' | xargs docker image inspect'
+alias dirm='docker image ls --all --format "{{.ID}}\t{{.Repository}}\t{{.Tag}}\t{{.CreatedAt}}" | fzf -m | cut -f1 | xargs docker image rm --force'
+alias dirma='docker image prune'
+alias dirmf='docker image prune --all --force'
+alias diinspect='docker image ls --all --format "{{.ID}}\t{{.Repository}}\t{{.Tag}}\t{{.CreatedAt}}" | fzf | cut -f1 | xargs docker image inspect'
 
 ## ----------------------------------------
 ##  Network
@@ -42,7 +42,7 @@ alias dn='docker network'
 alias dnls='docker network ls --all --latest'
 alias dnconnect='docker network connect'
 alias dndisconn='docker network disconnect'
-alias dninspect='docker network ls --format "{{.ID}}\t{{.Name}}\t{{.Driver}}" | fzf | cut -f1 -d' ' | xargs docker network inspect'
+alias dninspect='docker network ls --format "{{.ID}}\t{{.Name}}\t{{.Driver}}" | fzf | cut -f1 | xargs docker network inspect'
 
 ## ----------------------------------------
 ##  Process
@@ -54,7 +54,7 @@ alias dp='docker ps --latest'
 ## ----------------------------------------
 alias dccup='docker-compose up -d'
 alias dccdown='docker-compose down -v'
-alias dccb='docker-compose ps --services | fzf | cut -f1 -d' ' | xargs docker-compose build'
+alias dccb='docker-compose ps --services | fzf | cut -f1 | xargs docker-compose build'
 
 ## ----------------------------------------
 ##  Swarm

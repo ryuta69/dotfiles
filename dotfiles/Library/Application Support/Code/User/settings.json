@@ -125,7 +125,9 @@
     "toolchain",
     "totp",
     "ulwlu",
+    "usecase",
     "varkey",
     "wasm"
-  ]
+  ],
+  "editor.linkedEditing": true
 }
