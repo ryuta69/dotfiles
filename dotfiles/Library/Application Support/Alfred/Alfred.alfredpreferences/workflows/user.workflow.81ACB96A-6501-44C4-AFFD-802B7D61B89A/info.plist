@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.michaelwaterfall.datetime-format-converter</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>E39428C3-EE89-4D16-836B-1D31A4974660</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B992DF40-31A6-43F3-BA6B-6A6AB9F02812</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Michael Waterfall</string>
+	<key>description</key>
+	<string>Convert timestamps and datetime strings into various formats</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Datetime Format Converter</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>B992DF40-31A6-43F3-BA6B-6A6AB9F02812</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>36</integer>
+				<key>keyword</key>
+				<string>df</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>python process.py "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Examples: 1364302555, 2013-01-15 19:41:06, now</string>
+				<key>title</key>
+				<string>Enter timestamp, datetime string, or "now"</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>E39428C3-EE89-4D16-836B-1D31A4974660</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>v0.2
+
+This workflow uses these awesome Python projects:
+
+Delorean by Mahdi Yusuf
+https://github.com/myusuf3/delorean
+
+Alfred Python by Jan Müller
+https://github.com/nikipore/alfred-python</string>
+	<key>uidata</key>
+	<dict>
+		<key>B992DF40-31A6-43F3-BA6B-6A6AB9F02812</key>
+		<dict>
+			<key>xpos</key>
+			<integer>425</integer>
+			<key>ypos</key>
+			<integer>40</integer>
+		</dict>
+		<key>E39428C3-EE89-4D16-836B-1D31A4974660</key>
+		<dict>
+			<key>xpos</key>
+			<integer>25</integer>
+			<key>ypos</key>
+			<integer>40</integer>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>twitter.com/mwaterfall</string>
+</dict>
+</plist>
