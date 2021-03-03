@@ -1544,6 +1544,39 @@
       "\t\tself.o.release()"
     ]
   },
+  "Manacher": {
+    "prefix": ["manacher"],
+    "body": [
+      "def longestPalindrome(s):",
+      "\t\tif len(s) == 1:",
+      "\t\t\t\treturn s",
+      "\t\tnewstr = '#' + '#'.join(s) + '#'",
+      "\t\tlengthOfPalindrome = [1] * len(newstr)",
+      "\t\tcurrentCenter = 0",
+      "\t\trightFromCurrentCenter = 0",
+      "\t\tfor i in range(0, len(newstr)):",
+      "\t\t\t\tif rightFromCurrentCenter > i and i > currentCenter:",
+      "\t\t\t\t\t\tlengthOfPalindrome[i] = min(rightFromCurrentCenter - i, lengthOfPalindrome[2 * currentCenter - i])",
+      "\t\t\t\t\t\tif lengthOfPalindrome[i] + i >= rightFromCurrentCenter:",
+      "\t\t\t\t\t\t\t\tcurrentCenter = i",
+      "\t\t\t\t\t\t\t\trightFromCurrentCenter = lengthOfPalindrome[i] + i",
+      "\t\t\t\t\t\t\t\tif rightFromCurrentCenter >= len(newstr) - 1:",
+      "\t\t\t\t\t\t\t\t\t\tbreak;",
+      "\t\t\t\t\t\telse:",
+      "\t\t\t\t\t\t\t\tcontinue",
+      "\t\t\t\tradius = (lengthOfPalindrome[i] - 1) // 2",
+      "\t\t\t\tradius += 1",
+      "\t\t\t\twhile (i - radius >= 0 and",
+      "\t\t\t\t\t\t\t i + radius <= len(newstr) - 1 and",
+      "\t\t\t\t\t\t\t newstr[i - radius] == newstr[i + radius]):",
+      "\t\t\t\t\t\tlengthOfPalindrome[i] += 2",
+      "\t\t\t\t\t\tradius += 1",
+      "\t\tmaxLen, centerIndex = max((length, idx) for idx, length in enumerate(lengthOfPalindrome))",
+      "\t\tradius = (maxLen - 1) // 2",
+      "\t\tans = newstr[centerIndex-radius:centerIndex+radius+1]",
+      "\t\treturn ans.replace('#', '')"
+    ]
+  },
   "Stack": {
     "prefix": ["stack"],
     "body": [
