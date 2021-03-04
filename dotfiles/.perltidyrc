@@ -1,10 +1,6 @@
--dt=8
--enc=utf8
---check-syntax
---add-semicolons
---nooutdent-long-lines
---nospace-for-semicolon
---nooutdent-long-quotes
---nospace-terminal-semicolon
---closing-token-indentation=1
---break-at-old-comma-breakpoints
+-b
+-ci=2
+-l=120
+-nsfs
+-i=4
+-vt=1

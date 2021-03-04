@@ -10,6 +10,7 @@ christian-kohler.path-intellisense
 CoenraadS.bracket-pair-colorizer
 dbaeumer.vscode-eslint
 dunstontc.viml
+d9705996.perl-toolbox
 eg2.vscode-npm-script
 esbenp.prettier-vscode
 formulahendry.auto-rename-tag
@@ -24,7 +25,12 @@ mikestead.dotenv
 mrmlnc.vscode-scss
 ms-azuretools.vscode-docker
 ms-python.python
+ms-toolsai.jupyter
 ms-vscode-remote.remote-containers
+ms-vscode-remote.remote-ssh
+ms-vscode-remote.remote-ssh-edit
+ms-vscode-remote.remote-wsl
+ms-vscode-remote.vscode-remote-extensionpack
 ms-vscode.cpptools
 ms-vscode.vscode-typescript-tslint-plugin
 msjsdiag.debugger-for-chrome
@@ -34,7 +40,9 @@ OfHumanBondage.react-proptypes-intellisense
 PKief.material-icon-theme
 redhat.vscode-yaml
 rust-lang.rust
+sfodje.perltidy
 streetsidesoftware.code-spell-checker
+svelte.svelte-vscode
 ulwlu.elly
 VisualStudioExptTeam.vscodeintellicode
 yzhang.markdown-all-in-one

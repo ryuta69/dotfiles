@@ -1,91 +1,4 @@
 {
-  "editor.tabSize": 2,
-  "editor.fontSize": 16,
-  "editor.insertSpaces": true,
-  "editor.fontLigatures": true,
-  "editor.tabCompletion": "on",
-  "editor.smoothScrolling": true,
-  "editor.matchBrackets": "never",
-  "editor.cursorBlinking": "solid",
-  "editor.detectIndentation": false,
-  "editor.suggestSelection": "first",
-  "editor.snippetSuggestions": "top",
-  "editor.acceptSuggestionOnEnter": "on",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "files.autoSave": "off",
-  "files.trimFinalNewlines": true,
-  "files.autoGuessEncoding": true,
-  "files.insertFinalNewline": false,
-  "files.trimTrailingWhitespace": true,
-  "window.zoomLevel": -1,
-  "editor.fontFamily": "HackNerdFontComplete-Italic",
-  "terminal.external.osxExec": "iTerm.app",
-  "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.fontSize": 14,
-  "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
-  "terminal.integrated.fontFamily": "HackNerdFontComplete-Italic",
-  "workbench.colorTheme": "elly",
-  "workbench.tree.renderIndentGuides": "always",
-  "workbench.tree.indent": 16,
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "[go]": {
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": true
-    }
-  },
-  "python.defaultInterpreterPath": "/usr/local/bin/python3",
-  "python.languageServer": "Microsoft",
-  "rust-client.channel": "stable",
-  "vetur.format.options.tabSize": 8,
-  "vetur.format.options.useTabs": true,
-  "workbench.settings.editor": "json",
-  "workbench.fontAliasing": "antialiased",
-  "workbench.editor.closeOnFileDelete": true,
-  "workbench.iconTheme": "material-icon-theme",
-  "launch": {
-    "version": "0.2.0",
-    "configurations": [
-      {
-        "type": "node",
-        "request": "launch",
-        "name": "Launch Program",
-        "program": "${file}"
-      }
-    ]
-  },
-  "editor.quickSuggestions": {
-    "other": true,
-    "strings": true,
-    "comments": true
-  },
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": true,
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
-  },
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
-  "editor.formatOnType": true,
-  "emmet.includeLanguages": {
-    "php": "html",
-    "vue-html": "html",
-    "javascript": "javascriptreact",
-    "typescript": "typescriptreact"
-  },
-  "eslint.probe": [
-    "vue",
-    "html",
-    "markdown",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
-  "material-icon-theme.folders.color": "#224249",
-  "material-icon-theme.folders.theme": "classic",
-  "material-icon-theme.saturation": 0.7,
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
   "bracketPairColorizer.colorMode": "Independent",
   "bracketPairColorizer.independentPairColors": [
     ["()", ["#738C9C90"], "#810002"],
@@ -109,6 +22,7 @@
     "chrono",
     "clippy",
     "dotenv",
+    "elly",
     "firstname",
     "gorm",
     "hasher",
@@ -120,7 +34,12 @@
     "noopener",
     "noreferrer",
     "openapi",
+    "perlcritic",
+    "perlcriticrc",
+    "perltidy",
+    "perltidyrc",
     "structopt",
+    "stylelint",
     "timestep",
     "toolchain",
     "totp",
@@ -129,5 +48,96 @@
     "varkey",
     "wasm"
   ],
-  "editor.linkedEditing": true
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true,
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "editor.cursorBlinking": "solid",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.detectIndentation": false,
+  "editor.fontFamily": "HackNerdFontComplete-Italic",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 16,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.insertSpaces": true,
+  "editor.linkedEditing": true,
+  "editor.matchBrackets": "never",
+  "editor.quickSuggestions": {
+    "other": true,
+    "strings": true,
+    "comments": true
+  },
+  "editor.smoothScrolling": true,
+  "editor.snippetSuggestions": "top",
+  "editor.suggestSelection": "first",
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 2,
+  "emmet.includeLanguages": {
+    "php": "html",
+    "vue-html": "html",
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+  "eslint.probe": [
+    "vue",
+    "html",
+    "markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "files.autoGuessEncoding": true,
+  "files.autoSave": "off",
+  "files.insertFinalNewline": false,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "[go]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Launch Program",
+        "program": "${file}"
+      }
+    ]
+  },
+  "material-icon-theme.folders.color": "#224249",
+  "material-icon-theme.folders.theme": "classic",
+  "material-icon-theme.saturation": 0.7,
+  "[perl]": {
+    "editor.defaultFormatter": "sfodje.perltidy"
+  },
+  "perl-toolbox.lint.path": "~/perl5/bin/perlcritic",
+  "perl-toolbox.lint.perlcriticProfile": "~/.perlcriticrc",
+  "perltidy.executable": "~/perl5/bin/perltidy",
+  "perltidy.profile": "~/.perltidyrc",
+  "python.defaultInterpreterPath": "/usr/local/bin/python3",
+  "python.languageServer": "Microsoft",
+  "rust-client.channel": "stable",
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.fontFamily": "HackNerdFontComplete-Italic",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+  "window.zoomLevel": -1,
+  "workbench.colorTheme": "elly",
+  "workbench.editor.closeOnFileDelete": true,
+  "workbench.fontAliasing": "antialiased",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.settings.editor": "json",
+  "workbench.tree.indent": 16,
+  "workbench.tree.renderIndentGuides": "always"
 }
