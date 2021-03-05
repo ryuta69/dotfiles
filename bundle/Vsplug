@@ -10,7 +10,6 @@ christian-kohler.path-intellisense
 CoenraadS.bracket-pair-colorizer
 dbaeumer.vscode-eslint
 dunstontc.viml
-d9705996.perl-toolbox
 eg2.vscode-npm-script
 esbenp.prettier-vscode
 formulahendry.auto-rename-tag
@@ -40,6 +39,7 @@ OfHumanBondage.react-proptypes-intellisense
 PKief.material-icon-theme
 redhat.vscode-yaml
 rust-lang.rust
+sfodje.perlcritic
 sfodje.perltidy
 streetsidesoftware.code-spell-checker
 svelte.svelte-vscode

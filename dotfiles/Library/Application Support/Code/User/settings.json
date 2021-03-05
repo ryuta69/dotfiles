@@ -118,10 +118,11 @@
   "material-icon-theme.folders.theme": "classic",
   "material-icon-theme.saturation": 0.7,
   "[perl]": {
+    "editor.formatOnSave": true,
     "editor.defaultFormatter": "sfodje.perltidy"
   },
-  "perl-toolbox.lint.path": "~/perl5/bin/perlcritic",
-  "perl-toolbox.lint.perlcriticProfile": "~/.perlcriticrc",
+  "perlcritic.executable": "~/perl5/bin/perlcritic",
+  "perlcritic.additionalArguments": ["--profile", "~/.perlcriticrc"],
   "perltidy.executable": "~/perl5/bin/perltidy",
   "perltidy.profile": "~/.perltidyrc",
   "python.defaultInterpreterPath": "/usr/local/bin/python3",
