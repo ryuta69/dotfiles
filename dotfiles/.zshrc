@@ -13,6 +13,8 @@ export ENHANCD_FILTER=fzf
 export TERM=xterm-256color
 export HOMEBREW_NO_AUTO_UPDATE=1
 export PATH="$PATH:${HOME}/perl5/bin"
+export PATH="$PATH:/usr/local/opt/openjdk/bin"
+export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 export TODO_DB_PATH="${HOME}/.todo.json"
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 

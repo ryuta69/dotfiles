@@ -38,6 +38,7 @@
     "perlcriticrc",
     "perltidy",
     "perltidyrc",
+    "pytest",
     "structopt",
     "stylelint",
     "timestep",
@@ -126,7 +127,7 @@
   "perltidy.executable": "~/perl5/bin/perltidy",
   "perltidy.profile": "~/.perltidyrc",
   "python.defaultInterpreterPath": "/usr/local/bin/python3",
-  "python.languageServer": "Microsoft",
+  "python.languageServer": "Pylance",
   "rust-client.channel": "stable",
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.cursorStyle": "line",
@@ -140,5 +141,11 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.settings.editor": "json",
   "workbench.tree.indent": 16,
-  "workbench.tree.renderIndentGuides": "always"
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ]
 }
