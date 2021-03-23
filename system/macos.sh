@@ -1096,9 +1096,11 @@ Trackpad() {
 
   # ========== Notification Center ==========
   # - Checked
-  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad -int 3
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 3
+  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 3
   # - Unchecked
-  # defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad -int 0
+  # defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
+  # defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
 
   # ========== Mission Control ==========
   # - Checked
