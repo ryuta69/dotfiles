@@ -133,5 +133,15 @@
 	{
 		"key": "shift+cmd+x",
 		"command": "-workbench.view.extensions"
-	}
+  },
+  {
+    "key": "alt+p",
+    "command": "editor.action.peekDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  },
+  {
+    "key": "alt+f12",
+    "command": "-editor.action.peekDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  }
 ]
