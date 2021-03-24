@@ -140,7 +140,7 @@ install_bundle() {
 initialize() {
   if ! ${TESTMODE}; then
     xcode-select --install
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     mkdir -p ${HOME}/.ssh
     ssh-keygen -t rsa -b 4096 -C "ooulwluoo@gmail.com"
