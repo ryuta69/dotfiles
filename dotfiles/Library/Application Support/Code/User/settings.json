@@ -133,6 +133,8 @@
   "perltidy.profile": "~/.perltidyrc",
   "python.defaultInterpreterPath": "/usr/local/bin/python3",
   "python.languageServer": "Pylance",
+  "python.autoComplete.extraPaths": ["__pypackages__/3.9/lib"],
+  "python.analysis.extraPaths": ["__pypackages__/3.9/lib"],
   "rust-client.channel": "stable",
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.cursorStyle": "line",

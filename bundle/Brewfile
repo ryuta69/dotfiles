@@ -45,6 +45,7 @@ brew "zsh-completions"
 ## ========== Language ==========
 brew "go"
 brew "gcc"
+brew "pdm"
 brew "java"
 brew "perl"
 brew "node"
