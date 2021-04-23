@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>Date Calculator</name>
-  <version>1.0</version>
-  <bundle>de.leenno.datecalculator</bundle>
-  <updated>1450968078</updated>
-  <file>date_calculator.alfredworkflow</file>
-</workflow>

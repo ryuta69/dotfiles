@@ -633,7 +633,7 @@ Displays() {
 
   # ========== Brightness ==========
   # @int: 1.Lightest 0.Darkest
-  brightness 1
+  # brightness 1
 
   # ========== Nightshift Schedule ==========
   NPLIST="/private/var/root/Library/Preferences/com.apple.CoreBrightness.plist"

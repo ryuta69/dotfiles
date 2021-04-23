@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>Chrome Bookmarks</name>
-  <version>1.1</version>
-  <bundle>com.chrome.bookmarks</bundle>
-  <updated>1468278973</updated>
-  <file>chrome_bookmarks.alfredworkflow</file>
-</workflow>

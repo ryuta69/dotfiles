@@ -56,8 +56,8 @@ install_bundle() {
   npm install -g $(cat ${CWD}/Npmfile)
 
   ## ========== Pip ==========
-  pip3 install --upgrade pip
-  pip3 install -r ${CWD}/Pipfile
+  /usr/local/bin/pip3 install --upgrade pip
+  /usr/local/bin/pip3 install -r ${CWD}/Pipfile
 
   ## ========== Rust ==========
   rustup-init -y
@@ -72,10 +72,10 @@ install_bundle() {
   done
 
   ## ========== Perl ==========
-  PERL_MM_USE_DEFAULT=1 PERL_MM_OPT="INSTALL_BASE=$HOME/perl5" cpan local::lib
-  eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)
-  cpan App::cpanminus
-  cpanm $(cat ${CWD}/Cpanfile)
+  # PERL_MM_USE_DEFAULT=1 PERL_MM_OPT="INSTALL_BASE=$HOME/perl5" cpan local::lib
+  # eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)
+  # cpan App::cpanminus
+  # cpanm $(cat ${CWD}/Cpanfile)
 
   ## ========== Git ==========
   sudo ln -sfnv /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
@@ -101,7 +101,7 @@ install_bundle() {
   # - [Ref] https://gist.github.com/Mins/4602864
 
   ## ========== Gcloud ==========
-  curl https://sdk.cloud.google.com | /bin/bash -s -- --disable-prompts
+  # curl https://sdk.cloud.google.com | /bin/bash -s -- --disable-prompts
 
   ## ========== iTerm2 ==========
   curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
@@ -118,7 +118,7 @@ install_bundle() {
 
   ## ========== Yabai ==========
   # brew services start skhd
-  brew services start yabai
+  # brew services start yabai
 
   ## ========== Remote pbcopy ==========
   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
@@ -148,7 +148,7 @@ initialize() {
     curl -u "ulwlu" --data "{\"title\":\"NewSSHKey\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
 
     mkdir -p ${HOME}/.ghq/github.com/ulwlu/dotfiles && cd $_
-    git clone https://github.com/ulwlu/dotfiles .
+    git clone --recursive https://github.com/ulwlu/dotfiles .
   fi
 
   brew tap homebrew/bundle
