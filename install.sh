@@ -25,8 +25,8 @@ symlink_dotfiles() {
   export -f handle_symlink_from_path
 
   bulk_symlink_target=(
-    "./dotfiles/Library/Application Support/Alfred"
-    "./dotfiles/Library/Application Support/ﾃ彙ersicht/widgets/simple-bar"
+    "./dotfiles/Library/Application Support/Alfred/Alfred.alfredpreferences"
+    "./dotfiles/Library/Application Support/ﾃ彙ersicht/widgets/simple_ubersicht_status_bar"
     "./dotfiles/.aliases"
     "./dotfiles/.git_template"
     "./dotfiles/.snippets"
@@ -40,14 +40,6 @@ symlink_dotfiles() {
 
   find_command="find ./dotfiles ${find_exclude} \( -type l -or -type f \) -exec bash -c 'handle_symlink_from_path \"{}\"' \;"
   eval "${find_command}"
-
-  if ! ${TESTMODE}; then
-    zinit self-update
-    source ${HOME}/.zshrc
-    vim  +'PlugInstall --sync' +qa
-    nvim +'PlugInstall --sync' +qa
-    /bin/bash ${HOME}/.tmux/plugins/tpm/scripts/install_plugins.sh
-  fi
 }
 
 configure_system() {
@@ -72,8 +64,8 @@ install_bundle() {
   npm install -g $(cat ${CWD}/Npmfile)
 
   ## ========== Pip ==========
-  /usr/local/bin/pip3 install --upgrade pip
-  /usr/local/bin/pip3 install -r ${CWD}/Pipfile
+  pip3 install --upgrade pip
+  pip3 install -r ${CWD}/Pipfile
 
   ## ========== Rust ==========
   rustup-init -y
@@ -95,9 +87,11 @@ install_bundle() {
 
   ## ========== Git ==========
   sudo ln -sfnv /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+  gh auth login
 
   ## ========== Zsh ==========
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+  exec -l ${SHELL}
   zinit self-update
   source ${HOME}/.zshrc
 
@@ -226,7 +220,7 @@ for opt in ${argv[@]}; do
     --bundle)   install_bundle; ;;
     --system)   configure_system; ;;
     --dotfiles) symlink_dotfiles; ;;
-    --all)      install_bundle; symlink_dotfiles; configure_system; ;;
+    --all)      symlink_dotfiles; install_bundle; configure_system; ;;
     *)          echo "invalid option $1"; ;;
   esac
 done

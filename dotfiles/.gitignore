@@ -5,11 +5,3 @@
 *.pem
 *.env
 *tags
-
-*node_modules/
-*src/node_modules/@sapper/
-*yarn-error.log
-*cypress/screenshots/
-*__sapper__/
-
-*target/

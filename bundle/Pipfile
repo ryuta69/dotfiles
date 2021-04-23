@@ -1,9 +1,6 @@
-pywal
 numpy
 imgcat
 pillow
 pynvim
 poetry
 requests
-selenium
-youtube-dl

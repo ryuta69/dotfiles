@@ -1,3 +1,3 @@
 severity = 5
 program-extensions = .pm .pl .t
-verbose = 8
+verbose = %f: [%p] %m at line %l, near '%r'. (Severity: %s)\n

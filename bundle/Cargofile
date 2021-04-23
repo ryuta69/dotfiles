@@ -1,6 +1,4 @@
-https://github.com/jez/as-tree
-https://github.com/rustwasm/wasm-pack
-https://github.com/RustSec/cargo-audit
-https://github.com/dtolnay/cargo-expand
-https://github.com/killercup/cargo-edit
-https://github.com/nabijaczleweli/cargo-update
+cargo-audit
+cargo-expand
+cargo-edit
+cargo-update

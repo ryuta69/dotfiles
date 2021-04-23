@@ -33,6 +33,7 @@ brew "minikube"
 brew "neofetch"
 brew "git-delta"
 brew "hyperfine"
+brew "youtube-dl"
 brew "git-secrets"
 
 ## ========== Shell ==========
@@ -48,7 +49,7 @@ brew "ruby"
 brew "cmake"
 brew "gradle"
 brew "rustup"
-brew "python"
+brew "python3"
 
 ## ========== Database ==========
 brew "mysql"
