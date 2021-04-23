@@ -13,7 +13,7 @@ EXEPATH=$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)
 ##  Functions
 ## ----------------------------------------
 symlink_dotfiles() {
-  handle_symlink_from_file() {
+  handle_symlink_from_path() {
     file=$1
     dirpath=$(dirname "${file}") && filename=$(basename "${file}")
     abspath=$(cd "${dirpath}" && pwd)"/${filename}"
@@ -22,8 +22,24 @@ symlink_dotfiles() {
     mkdir -p "$(dirname "${target}")"
     ln -sfnv "${abspath}" "${target}" > /dev/null
   }
-  export -f handle_symlink_from_file
-  find ./dotfiles \( -type l -o -type f \) -exec bash -c 'handle_symlink_from_file "{}"' \;
+  export -f handle_symlink_from_path
+
+  bulk_symlink_target=(
+    "./dotfiles/Library/Application Support/Alfred"
+    "./dotfiles/Library/Application Support/ﾃ彙ersicht/widgets/simple-bar"
+    "./dotfiles/.aliases"
+    "./dotfiles/.git_template"
+    "./dotfiles/.snippets"
+  )
+
+  find_exclude=""
+  for i in "${bulk_symlink_target[@]}"; do
+    handle_symlink_from_path "${i}";
+    find_exclude="${find_exclude} -path \"${i}\" -prune -or ";
+  done
+
+  find_command="find ./dotfiles ${find_exclude} \( -type l -or -type f \) -exec bash -c 'handle_symlink_from_path \"{}\"' \;"
+  eval "${find_command}"
 
   if ! ${TESTMODE}; then
     zinit self-update
