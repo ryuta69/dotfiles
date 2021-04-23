@@ -8,10 +8,10 @@ EXEPATH=$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)
 General() {
   # ========== Apprerance ==========
   # - Light
-  # defaults delete .GlobalPreferences AppleInterfaceStyleSwitchesAutomatically
+  # defaults delete .GlobalPreferences AppleInterfaceStyleSwitchesAutomatically > /dev/null 2>&1
   # defaults delete .GlobalPreferences AppleInterfaceStyle > /dev/null 2>&1
   # - Dark
-  defaults delete .GlobalPreferences AppleInterfaceStyleSwitchesAutomatically
+  defaults delete .GlobalPreferences AppleInterfaceStyleSwitchesAutomatically > /dev/null 2>&1
   defaults write .GlobalPreferences AppleInterfaceStyle -string "Dark"
   # - Auto
   # defaults write .GlobalPreferences AppleInterfaceStyleSwitchesAutomatically -bool true
@@ -1522,16 +1522,16 @@ ExtraSettings() {
 ##  Main
 ## ----------------------------------------
 MACOS=$(/usr/libexec/PlistBuddy -c "Print:ProductVersion" /System/Library/CoreServices/SystemVersion.plist | awk -F. '{print $1"."$2}')
-if [[ $MACOS == "10.15" ]]; then
-  # This is Catalina Version.
-  # If the latest version is updated, add warning message here.
-  :
-elif [[ $MACOS == "10.14" ]]; then
-  echo "You are using Mojave OS. It may cause errors since this shell is maintained with Catalina OS."
+if [[ $MACOS == "11.2" ]]; then
+  echo "You are using BigSur OS. It may cause errors since this shell is maintained with Catalina OS."
   read -p "Will you continue? (Y/n): " Ans;
   [[ $Ans != 'Y' ]] && echo 'Canceled' && exit 0;
+elif [[ $MACOS == "10.15" ]]; then
+  # Catalina Version is maintained.
+  # If the latest version is updated, add warning message here.
+  :
 else
-  echo "MacOS upper than Mojave is supported."
+  echo "MacOS upper than Catalina is supported."
   exit 1
 fi
 
@@ -1577,3 +1577,13 @@ if ! ${TESTMODE}; then
     killall ${app}
   done
 fi
+
+## ----------------------------------------
+##  TODO for big sur
+## - allow wallpaper tinting in windows
+## - keyboard brightness in menu bar
+## - fast user switching in menu bar
+## - Press Fn key to do nothing
+## - Turn keyboard backlight off
+## ----------------------------------------
+
