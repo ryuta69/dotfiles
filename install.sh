@@ -20,13 +20,13 @@ symlink_dotfiles() {
     relpath=$(echo "${file}" | sed "s|^\./dotfiles/||")
     target="${HOME}/${relpath}"
     mkdir -p "$(dirname "${target}")"
-    ln -sfnv "${abspath}" "${target}" > /dev/null
+    ln -sfnv "${abspath}" "${target}"
   }
   export -f handle_symlink_from_path
 
   bulk_symlink_target=(
     "./dotfiles/Library/Application Support/Alfred/Alfred.alfredpreferences"
-    "./dotfiles/Library/Application Support/ﾃ彙ersicht/widgets/simple_ubersicht_status_bar"
+    "./dotfiles/Library/Application Support/Uebersicht/widgets"
     "./dotfiles/.aliases"
     "./dotfiles/.git_template"
     "./dotfiles/.snippets"

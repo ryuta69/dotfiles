@@ -1,5 +1,5 @@
-[submodule "Ubersicht"]
-	path = dotfiles/Library/Application Support/Übersicht/widgets/simple_ubersicht_status_bar
+[submodule "Uebersicht"]
+	path = dotfiles/Library/Application Support/Uebersicht/widgets/simple_ubersicht_status_bar
 	url = https://github.com/ulwlu/simple_ubersicht_status_bar.git
 [submodule "Alfred"]
 	path = dotfiles/Library/Application Support/Alfred
