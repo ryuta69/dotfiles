@@ -568,16 +568,19 @@ SoftwareUpdate() {
 Network() {
   # ========== Show Wi-Fi status in menu bar ==========
   # See MenuItem function
+  :
 }
 
 Bluetooth() {
   # ========== Show Bluetooth status in menu bar ==========
   # See MenuItem function
+  :
 }
 
 Sound() {
   # ========== Show Volume status in menu bar ==========
   # See MenuItem function
+  :
 }
 
 Displays() {
@@ -1371,12 +1374,6 @@ MenuItem() {
     # - Unchecked
     IS_TIMEMACHINE=$(defaults read com.apple.systemuiserver menuExtras | grep "TimeMachine")
     [[ -n ${IS_TIMEMACHINE} ]] && /usr/libexec/PlistBuddy -c "Delete menuExtras:\"/System/Library/CoreServices/Menu Extras/TimeMachine.menu\"" "${HOME}"/Library/Preferences/com.apple.systemuiserver.plist
-
-    # ========== Display Spotlight ==========
-    # - Checked
-    # defaults write ~/Library/Preferences/ByHost/com.apple.Spotlight MenuItemHidden -bool true
-    # - Unchecked
-    defaults write ~/Library/Preferences/ByHost/com.apple.Spotlight MenuItemHidden -bool false
   fi
 
   if ${IS_BIGSUR}; then
@@ -1457,7 +1454,7 @@ MenuItem() {
     defaults write com.apple.controlcenter "NSStatusItem Visible Airdrop" -bool false
     defaults write ~/Library/Preferences/ByHost/com.apple.controlcenter.plist Airdrop -int 8
 
-    # ========== Show Battery status in menu bar ==========
+    # ========== Show Now Playing in menu bar ==========
     # - Checked
     defaults write com.apple.controlcenter "NSStatusItem Visible NowPlaying" -bool true
     defaults write ~/Library/Preferences/ByHost/com.apple.controlcenter.plist NowPlaying -int 18
@@ -1472,6 +1469,12 @@ MenuItem() {
     # - Unchecked
     defaults write com.apple.controlcenter "NSStatusItem Visible AccessibilityShortcuts" -bool false
     defaults write ~/Library/Preferences/ByHost/com.apple.controlcenter.plist AccessibilityShortcuts -int 8
+
+    # ========== Display Spotlight ==========
+    # - Checked
+    # defaults write ~/Library/Preferences/ByHost/com.apple.Spotlight MenuItemHidden -bool true
+    # - Unchecked
+    defaults write ~/Library/Preferences/ByHost/com.apple.Spotlight MenuItemHidden -bool false
 
     # ========== Show Time Machine in menu bar ==========
     # - Checked
